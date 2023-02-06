@@ -1,31 +1,62 @@
 import React from 'react'
 
+// redux
+import { useSelector, useDispatch } from 'react-redux'
+import { getMovies } from '../../redux/services/getMovies'
+
 // Recat router dom
 import { Link } from 'react-router-dom'
 
 // context
 import { useMovieContext } from '../../context/context'
 
+// hooks
+import { useShowHide } from '../../hooks/useShowHide'
+
 // data
 import { iconsData } from '../../data/icons'
 
+// components
+import Logout from './Logout/Logout'
+
 const Header = () => {
-  const { mode, setMode } = useMovieContext()
+  const {
+    mode,
+    setMode,
+    logoutState,
+    setLogoutState,
+    logoutRef,
+    logoutInnerRef,
+    setIndex
+  } = useMovieContext()
+  const { showMenu, showForm, showLogout, hideLogout, userRef } = useShowHide()
+  const user = useSelector(state => state.watchlist.user)
+  const dispatch = useDispatch()
+
+  const toggleLogout = () => {
+    setLogoutState(!logoutState)
+
+    if (logoutState) {
+      hideLogout(logoutRef)
+    } else {
+      showLogout(logoutRef)
+    }
+  }
 
   return (
-    <div
-      className={
-        'header ' +
-        (mode === true ? 'lightBg1 darkColor1' : 'darkBg1 lightColor1')
-      }
-    >
+    <div className='header '>
       <div className='header__options'>
         <div className='header__options__one'>
           <Link
             to='/'
-            className={
-              'title ' + (mode === true ? 'darkColor1' : 'lightColor1')
-            }
+            className='title '
+            onClick={() => {
+              sessionStorage.setItem('page', 1)
+              sessionStorage.setItem('term', '')
+              //setQuery('')
+              setIndex(0)
+              dispatch(getMovies('popular'))
+            }}
           >
             <span className='title__part--1'>Film</span>
             <span className='title__icon'>{iconsData.film}</span>
@@ -36,30 +67,44 @@ const Header = () => {
         </div>
 
         <div className='header__options__two'>
-          <span
-            onClick={() => setMode(!mode)}
-            className={'mode-icon ' + (mode === true ? 'lightBg1' : 'darkBg1')}
-          >
+          <span onClick={() => setMode(!mode)} className='mode-icon '>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
 
-          <Link
-            to='/search'
-            className={
-              'search-icon ' +
-              (mode === true ? 'lightBg1 darColor1' : 'darkBg1 lightColor1')
-            }
-          >
+          <Link to='/search' className='search-icon '>
             {iconsData.searchIcon}
           </Link>
 
-          <span
-            className={'user-icon ' + (mode === true ? 'lightBg1' : 'darkBg1')}
-          >
-            {iconsData.login}
-          </span>
+          {user ? (
+            logoutState ? (
+              <span
+                ref={userRef}
+                to='#'
+                className='user-icon '
+                onClick={() => toggleLogout()}
+              >
+                {iconsData.close}
+              </span>
+            ) : (
+              <span
+                ref={userRef}
+                to='#'
+                className='user-icon '
+                onClick={() => toggleLogout()}
+              >
+                {iconsData.user}
+              </span>
+            )
+          ) : (
+            <Link to='/login' className='user-icon '>
+              {iconsData.login}
+            </Link>
+          )}
         </div>
       </div>
+
+      {/* Logout Component */}
+      <Logout />
     </div>
   )
 }
