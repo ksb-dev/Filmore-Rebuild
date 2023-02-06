@@ -36,7 +36,7 @@ const Register = () => {
     <div
       className={
         'register ' +
-        (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <Header />
@@ -119,7 +119,13 @@ const Register = () => {
           {/* Options */}
           <div className='register__inner__form__options'>
             <span>Already hava an account? </span>
-            <Link to='/login' className='register__inner__options--option '>
+            <Link
+              to='/login'
+              className={
+                'register__inner__options--option ' +
+                (mode === true ? 'darkColor1' : 'lightColor1')
+              }
+            >
               Login
             </Link>
             {/* <Link to='#' className='Register__inner__options--option'>

@@ -16,8 +16,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useMovieContext } from '../../../context/context'
 
 // Recat Icons
-import { AiFillStar } from 'react-icons/ai'
-import { IoAddOutline, IoCheckmark } from 'react-icons/io5'
+import { RiStarFill } from 'react-icons/ri'
 
 const url =
   'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
@@ -96,7 +95,7 @@ const MovieCard = ({ movie }) => {
           }
         >
           <span className='card__btn--icon'>
-            <AiFillStar size={'20px'} />
+            <RiStarFill size={'20px'} />
           </span>
         </p>
       )}
@@ -110,7 +109,7 @@ const MovieCard = ({ movie }) => {
           onClick={() => deleteWatchlist(id, setBookmark)}
         >
           <span className='card__btn--icon' style={{ color: 'var(--red)' }}>
-            <AiFillStar size={'20px'} />
+            <RiStarFill size={'20px'} />
           </span>
         </p>
       )}
@@ -123,7 +122,7 @@ const MovieCard = ({ movie }) => {
           onClick={() => navigate('/login')}
         >
           <span className='card__btn--icon'>
-            <AiFillStar size={'20px'} />
+            <RiStarFill size={'20px'} />
           </span>
         </p>
       )}
@@ -135,7 +134,7 @@ const MovieCard = ({ movie }) => {
         onMouseOver={show}
         onMouseLeave={hide}
         className={
-          'card__info ' + (mode === true ? 'darkCardInfo' : 'lightCardInfo')
+          'card__info ' + (mode === true ? 'lightCardInfo' : 'darkCardInfo')
         }
       >
         {vote_average ? (

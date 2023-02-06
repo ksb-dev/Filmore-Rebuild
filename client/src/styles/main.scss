@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
 #root {
   --green: #1db954;
   --gold: gold;
@@ -238,6 +240,7 @@ body {
 
 @import '../components/MovieList/movieList';
 @import '../components/MovieList/MovieCard/movieCard';
+@import '../components/MovieList/Pagination/pagination';
 
 // pages
 @import '../pages/Home/home';

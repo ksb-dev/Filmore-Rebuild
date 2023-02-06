@@ -35,7 +35,7 @@ const Login = () => {
     <div
       className={
         'login ' +
-        (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <Header />
@@ -85,28 +85,23 @@ const Login = () => {
           {/* Button */}
 
           {isPending ? (
-            <button
-            // className={
-            //   mode === true ? 'darkBg2 lightColor1' : 'lightBg1 darkColor1'
-            // }
-            >
+            <button>
               <LoadingOne />
             </button>
           ) : (
-            <button
-              // className={
-              //   mode === true ? 'darkBg2 lightColor1' : 'lightBg1 darkColor1'
-              // }
-              onSubmit={handleSubmit}
-            >
-              Submit
-            </button>
+            <button onSubmit={handleSubmit}>Submit</button>
           )}
 
           {/* Options */}
           <div className='login__inner__form__options'>
             <span>Don't hava an account? </span>
-            <Link to='/register' className='login__inner__options--option '>
+            <Link
+              to='/register'
+              className={
+                'login__inner__options--option ' +
+                (mode === true ? 'darkColor1' : 'lightColor1')
+              }
+            >
               Register
             </Link>
             {/* <Link to='#' className='login__inner__options--option'>

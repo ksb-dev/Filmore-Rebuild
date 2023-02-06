@@ -23,12 +23,10 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    //border-radius: 50%;
     background: rgb(0, 0, 0, 1);
     color: #fff;
     border-top-left-radius: var(--border-radius-1);
     border-bottom-right-radius: var(--border-radius-1);
-    //box-shadow: 2px 2px 2px #000;
 
     &--icon {
       border-radius: 50%;
@@ -38,17 +36,6 @@
       transform: translate(-50%, -45%);
     }
   }
-
-  // &__btn,
-  // &__add__btn {
-  //   background: var(--blue);
-  //   color: #fff;
-  // }
-
-  // &__delete__btn {
-  //   background: var(--blue);
-  //   color: #fff;
-  // }
 
   &__btn:hover,
   &__add__btn:hover,
@@ -124,15 +111,13 @@
 }
 
 .lightCardInfo {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(220, 220, 220, 0.9);
   color: var(--dark-1);
-  // transition: unset;
 }
 
 .darkCardInfo {
-  background: rgba(34, 40, 49, 0.8);
+  background: rgba(57, 62, 70, 0.9);
   color: #fff;
-  // transition: unset;
 }
 
 @media screen and (max-width: 786px) {

@@ -18,6 +18,7 @@ import { useMovieContext } from '../../context/context'
 
 // components
 import MovieCard from './MovieCard/MovieCard'
+import Pagination from './Pagination/Pagination'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
@@ -26,6 +27,10 @@ import {
   IoChevronBackCircleOutline,
   IoChevronForwardCircleOutline
 } from 'react-icons/io5'
+import {
+  MdOutlineArrowBackIosNew,
+  MdOutlineArrowForwardIos
+} from 'react-icons/md'
 
 const MovieList = () => {
   const { mode, index, setIndex } = useMovieContext()
@@ -144,13 +149,7 @@ const MovieList = () => {
               //   btnRef.current.style.zIndex = '-1'
               // }}
             >
-              <p
-                className={
-                  'list__wall__cover--number '
-                  // +
-                  // (mode === true ? 'lightBg2' : 'darkBg2')
-                }
-              >
+              <p className={'list__wall__cover--number '}>
                 {index + 1 + ' / ' + sortedMovies.length}
               </p>
 
@@ -165,7 +164,6 @@ const MovieList = () => {
                         }
                       >
                         <span>
-                          {/* <AiFillStar style={{ margin: '0 3px -2px -2px' }} /> */}
                           {sortedMovies[index].vote_average.toFixed(1)}
                         </span>
                       </p>
@@ -188,24 +186,26 @@ const MovieList = () => {
               {/* ref={btnRef} */}
               {sortedMovies.length > 1 ? (
                 <>
-                  <IoChevronBackCircleOutline
+                  <MdOutlineArrowBackIosNew
                     cursor={'pointer'}
-                    size={'35px'}
+                    size={'25px'}
                     style={{
                       marginLeft: '1rem',
                       color: '#fff',
-                      background: 'rgba(0, 0, 0, 0.5)',
+                      background: 'rgba(0, 0, 0, 0.8)',
+                      padding: '0.5rem',
                       borderRadius: '50%'
                     }}
                     onClick={previousImage}
                   />
-                  <IoChevronForwardCircleOutline
+                  <MdOutlineArrowForwardIos
                     cursor={'pointer'}
-                    size={'35px'}
+                    size={'25px'}
                     style={{
                       marginRight: '1rem',
                       color: '#fff',
-                      background: 'rgba(0, 0, 0, 0.5)',
+                      background: 'rgba(0, 0, 0, 0.8)',
+                      padding: '0.5rem',
                       borderRadius: '50%'
                     }}
                     onClick={nextImage}
@@ -226,6 +226,13 @@ const MovieList = () => {
             <MovieCard key={index} movie={movie} />
           ))}
       </div>
+
+      {window.location.pathname !== '/watchlist' &&
+        window.location.pathname !== '/search' && (
+          <div className='pagination'>
+            <Pagination data={sortedMovies} pageLimit={5} dataLimit={20} />
+          </div>
+        )}
     </div>
   )
 }
