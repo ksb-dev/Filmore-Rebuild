@@ -1,0 +1,89 @@
+#root {
+  --green: #1db954;
+  --gold: gold;
+  --blue: #1da1f2;
+
+  --white-1: #fff;
+  --white-2: rgb(220, 220, 220);
+
+  --dark-1: #393e46;
+  --dark-2: #222831;
+
+  --border-radius-1: 5px;
+  --border-radius-2: 10px;
+  --border-radius-2: 15px;
+
+  --font-size-1: 1.1rem;
+  --font-size-2: 1.2rem;
+  --font-size-3: 1.3rem;
+  --font-size-4: 1.4rem;
+  --font-size-5: 1.5rem;
+
+  --font-weight-1: 400;
+  --font-weight-2: 500;
+  --font-weight-3: 600;
+  --font-weight-4: 700;
+
+  --transition: all 0.3s ease;
+}
+
+.lightBg1 {
+  background: var(--white-1);
+}
+
+.lightBg2 {
+  background: var(--white-2);
+}
+
+.darkBg1 {
+  background: var(--dark-1);
+}
+
+.darkBg2 {
+  background: var(--dark-2);
+}
+
+.lightColor1 {
+  color: var(--white-1);
+}
+
+.lightColor2 {
+  color: var(--white-2);
+}
+
+.darkColor1 {
+  color: var(--dark-1);
+}
+
+.darkColor2 {
+  color: var(--dark-2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+@import '../app';
+
+// components
+@import '../components/Header/header';
+@import '../components/SmallHeader/smallHeader';
+
+@import '../components/MovieList/movieList';
+
+// pages
+@import '../pages/Home/home';
+@import '../pages/Upcoming/upcoming.scss';
+@import '../pages/TopRated/topRated';
+@import '../pages/Search/search';
+@import '../pages/Login/login';
+@import '../pages/Register/register';
