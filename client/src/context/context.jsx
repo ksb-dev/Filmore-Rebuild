@@ -6,6 +6,10 @@ const MovieContext = createContext()
 const MovieProvider = ({ children }) => {
   const [mode, setMode] = useState(true)
 
+  const [movieState, setMovieState] = useState(true)
+
+  console.log(movieState)
+
   const [logoutState, setLogoutState] = useState(false)
   const logoutRef = useRef(null)
   const userRef = useRef(null)
@@ -24,7 +28,10 @@ const MovieProvider = ({ children }) => {
         userRef,
 
         index,
-        setIndex
+        setIndex,
+
+        movieState,
+        setMovieState
       }}
     >
       {children}

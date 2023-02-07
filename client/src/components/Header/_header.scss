@@ -29,13 +29,13 @@
         text-decoration: none;
         background: #000;
         color: var(--red);
+        margin-right: 1rem;
 
-        span {
-          cursor: pointer;
-          font-weight: var(--font-weight-4);
-          font-size: 2rem;
-          font-family: 'Cinzel', serif;
-        }
+        //span {
+        cursor: pointer;
+        font-weight: var(--font-weight-2);
+        font-size: 2rem;
+        //}
 
         &__part--1 {
           margin-right: 0rem;
@@ -54,6 +54,21 @@
       .title:hover {
         letter-spacing: 1px;
         transition: var(--transition);
+      }
+    }
+
+    &__middle {
+      display: flex;
+
+      .movie,
+      .tv {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .movie {
+        margin-right: 1rem;
       }
     }
 
@@ -87,4 +102,10 @@
       }
     }
   }
+}
+
+.activeMovie {
+  color: var(--gold);
+  //font-size: 1.2rem;
+  //font-weight: var(--font-weight-2);
 }

@@ -17,24 +17,23 @@ import { useSelector } from 'react-redux'
 import { useMovieContext } from '../../context/context'
 
 // components
-import MovieCard from './MovieCard/MovieCard'
+import TvCard from './TvCard/TvCard'
 import Pagination from './Pagination/Pagination'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
-// Rect Icons
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos
 } from 'react-icons/md'
 
-const MovieList = () => {
+const TvList = () => {
   const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
-  const movies = useSelector(state => state.movies.sortedMovies)
-  const sortedMovies = useSelector(state => state.movies.sortedMovies)
-  const loading = useSelector(state => state.movies.loading)
-  const error = useSelector(state => state.movies.error)
+  const shows = useSelector(state => state.tvShows.sortedShows)
+  const sortedShows = useSelector(state => state.tvShows.sortedShows)
+  const loading = useSelector(state => state.tvShows.loading)
+  const error = useSelector(state => state.tvShows.error)
   const user = useSelector(state => state.watchlist.user)
 
   // const [stop, setStop] = useState(0)
@@ -44,12 +43,12 @@ const MovieList = () => {
 
   const previousImage = () => {
     index < 1
-      ? setIndex(sortedMovies.length - 1)
+      ? setIndex(sortedShows.length - 1)
       : setIndex(prevIndex => prevIndex - 1)
   }
 
   const nextImage = () => {
-    index === sortedMovies.length - 1
+    index === sortedShows.length - 1
       ? setIndex(0)
       : setIndex(prevIndex => prevIndex + 1)
   }
@@ -75,8 +74,8 @@ const MovieList = () => {
     window.location.pathname === '/watchlist' &&
     movies &&
     movies.length === 0 &&
-    sortedMovies &&
-    sortedMovies.length === 0
+    sortedShows &&
+    sortedShows.length === 0
   ) {
     return (
       <div className='error'>
@@ -103,7 +102,7 @@ const MovieList = () => {
 
   return (
     <div className='list'>
-      {sortedMovies && sortedMovies.length > 0 && (
+      {sortedShows && sortedShows.length > 0 && (
         <>
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
@@ -120,15 +119,15 @@ const MovieList = () => {
             <img
               className='list__wall--image'
               src={
-                sortedMovies[index].backdrop_path === null
+                sortedShows[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path + sortedMovies[index].backdrop_path
+                  : APIs.img_path + sortedShows[index].backdrop_path
               }
-              alt={sortedMovies[index].title}
+              alt={sortedShows[index].name}
             />
 
             <Link
-              to={`/movie/${sortedMovies[index].id}`}
+              to={`/tv/${sortedShows[index].id}`}
               className={
                 'list__wall__cover ' +
                 (mode === true
@@ -146,33 +145,33 @@ const MovieList = () => {
               // }}
             >
               <p className={'list__wall__cover--number '}>
-                {index + 1 + ' / ' + sortedMovies.length}
+                {index + 1 + ' / ' + sortedShows.length}
               </p>
 
               <div className='list__wall__cover__info'>
                 <div className='list__wall__cover__info__rating-title'>
-                  {sortedMovies.length > 0 && (
+                  {sortedShows.length > 0 && (
                     <>
                       <p
                         className={
                           'rating ' +
-                          getClassBg(sortedMovies[index].vote_average)
+                          getClassBg(sortedShows[index].vote_average)
                         }
                       >
                         <span>
-                          {sortedMovies[index].vote_average.toFixed(1)}
+                          {sortedShows[index].vote_average.toFixed(1)}
                         </span>
                       </p>
-                      <span className='title'>{sortedMovies[index].title}</span>
+                      <span className='title'>{sortedShows[index].name}</span>
                     </>
                   )}
                 </div>
                 <p className='list__wall__cover__info--overview'>
-                  {sortedMovies[index].overview ? (
-                    sortedMovies[index].overview.length > 245 ? (
-                      sortedMovies[index].overview.substring(0, 248) + ' .....'
+                  {sortedShows[index].overview ? (
+                    sortedShows[index].overview.length > 245 ? (
+                      sortedShows[index].overview.substring(0, 248) + ' .....'
                     ) : (
-                      sortedMovies[index].overview
+                      sortedShows[index].overview
                     )
                   ) : (
                     <></>
@@ -183,7 +182,7 @@ const MovieList = () => {
 
             <div ref={btnRef} className='list__wall__buttons'>
               {/* ref={btnRef} */}
-              {sortedMovies.length > 1 ? (
+              {sortedShows.length > 1 ? (
                 <>
                   <MdOutlineArrowBackIosNew
                     cursor={'pointer'}
@@ -219,21 +218,19 @@ const MovieList = () => {
       )}
 
       <div className='list__movies'>
-        {sortedMovies &&
-          sortedMovies.length > 0 &&
-          sortedMovies.map((movie, index) => (
-            <MovieCard key={index} movie={movie} />
-          ))}
+        {sortedShows &&
+          sortedShows.length > 0 &&
+          sortedShows.map((tv, index) => <TvCard key={index} tv={tv} />)}
       </div>
 
       {window.location.pathname !== '/watchlist' &&
         window.location.pathname !== '/search' && (
           <div className='pagination'>
-            <Pagination data={sortedMovies} pageLimit={5} dataLimit={20} />
+            <Pagination data={sortedShows} pageLimit={5} dataLimit={20} />
           </div>
         )}
     </div>
   )
 }
 
-export default MovieList
+export default TvList

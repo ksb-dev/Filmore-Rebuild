@@ -27,7 +27,9 @@ const Header = () => {
     setLogoutState,
     logoutRef,
     logoutInnerRef,
-    setIndex
+    setIndex,
+    movieState,
+    setMovieState
   } = useMovieContext()
   const { showMenu, showForm, showLogout, hideLogout, userRef } = useShowHide()
   const user = useSelector(state => state.watchlist.user)
@@ -41,6 +43,10 @@ const Header = () => {
     } else {
       showLogout(logoutRef)
     }
+  }
+
+  const handleMovieState = val => {
+    val === 'movie' ? setMovieState(true) : setMovieState(false)
   }
 
   return (
@@ -58,12 +64,26 @@ const Header = () => {
               dispatch(getMovies('popular'))
             }}
           >
-            <span className='title__part--1'>Film</span>
+            {/* <span className='title__part--1'>Film</span>
             <span className='title__icon'>{iconsData.film}</span>
-            <span className='title__part--2'>pedia</span>
+            <span className='title__part--2'>pedia</span> */}
+            Filmzilla
           </Link>
-          {/* <span className='categories'>categories</span>
-          <span className='genre'>genre</span> */}
+        </div>
+
+        <div className='header__options__middle'>
+          <span
+            className={'movie ' + (movieState ? 'activeMovie' : '')}
+            onClick={() => handleMovieState('movie')}
+          >
+            {iconsData.movie} Movies
+          </span>
+          <span
+            className={'tv ' + (!movieState ? 'activeMovie' : '')}
+            onClick={() => handleMovieState('tv')}
+          >
+            {iconsData.tv} Tv
+          </span>
         </div>
 
         <div className='header__options__two'>

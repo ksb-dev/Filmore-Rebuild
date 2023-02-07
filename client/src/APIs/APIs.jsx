@@ -11,6 +11,18 @@ export const APIs = {
     import.meta.env.VITE_KEY
   }&language=en-US`,
 
+  popular_tv_url: `https://api.themoviedb.org/3/tv/popular?api_key=${
+    import.meta.env.VITE_KEY
+  }&language=en-US`,
+
+  topRated_tv_url: `https://api.themoviedb.org/3/tv/top_rated?api_key=${
+    import.meta.env.VITE_KEY
+  }&language=en-US`,
+
+  onAir_tv_url: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${
+    import.meta.env.VITE_KEY
+  }&language=en-US`,
+
   no_image_url:
     'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png',
   img_path: 'https://image.tmdb.org/t/p/w1280',

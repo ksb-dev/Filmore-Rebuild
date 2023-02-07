@@ -21,7 +21,7 @@ const url =
   'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
-const MovieCard = ({ movie }) => {
+const TvCard = ({ tv }) => {
   const { mode } = useMovieContext()
   const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
@@ -36,15 +36,15 @@ const MovieCard = ({ movie }) => {
   const [bookmark, setBookmark] = useState(false)
 
   const {
-    title,
+    name,
     vote_average,
-    release_date,
+    first_air_date,
     poster_path,
     backdrop_path,
     id,
     genre_ids,
     overview
-  } = movie
+  } = tv
 
   useEffect(() => {
     if (watchlist && watchlist.length > 0) {
@@ -71,7 +71,7 @@ const MovieCard = ({ movie }) => {
       <img
         className='card--image'
         src={poster_path === null ? url : IMG_PATH + poster_path}
-        alt={title}
+        alt={name}
       />
 
       {/* ADD-BUTTON */}
@@ -146,18 +146,22 @@ const MovieCard = ({ movie }) => {
 
         <div className='card__info__inner'>
           <span className='card__info__inner--title'>
-            {title ? (
-              title.length >= 50 ? (
-                title.substring(0, 45) + '...'
+            {name ? (
+              name.length >= 50 ? (
+                name.substring(0, 45) + '...'
               ) : (
-                title
+                name
               )
             ) : (
               <></>
             )}
           </span>
           <span className='card__info__inner--date'>
-            {release_date ? moment(release_date).format('Do MMM, YYYY') : <></>}
+            {first_air_date ? (
+              moment(first_air_date).format('Do MMM, YYYY')
+            ) : (
+              <></>
+            )}
           </span>
         </div>
 
@@ -172,4 +176,4 @@ const MovieCard = ({ movie }) => {
   )
 }
 
-export default MovieCard
+export default TvCard

@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react'
 
-// Redux
+// redux
 import { useSelector, useDispatch } from 'react-redux'
 import { getMovies } from '../../redux/services/getMovies'
+import { getTvShows } from '../../redux/services/getTvShows'
 import { setWatchlist } from '../../redux/services/setWatchlist'
 
-// Context
+// context
 import { useMovieContext } from '../../context/context'
 
 // components
 import Header from '../../components/Header/Header'
 import MovieList from '../../components/MovieList/MovieList'
+import TvList from '../../components/TvList/TvList'
 
 const Home = () => {
-  const { mode } = useMovieContext()
+  const { mode, movieState, setMovieState } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -29,8 +31,10 @@ const Home = () => {
       dispatch(setWatchlist())
     }
 
-    dispatch(getMovies('popular'))
-  }, [dispatch])
+    movieState
+      ? dispatch(getMovies('popular'))
+      : dispatch(getTvShows('popular'))
+  }, [dispatch, movieState])
 
   return (
     <div
@@ -39,7 +43,7 @@ const Home = () => {
       }
     >
       <Header />
-      <MovieList />
+      {movieState ? <MovieList /> : <TvList />}
     </div>
   )
 }
