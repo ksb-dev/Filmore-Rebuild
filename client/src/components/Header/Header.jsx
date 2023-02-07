@@ -70,27 +70,31 @@ const Header = () => {
               handleTitleClick()
             }}
           >
-            {/* <span className='title__part--1'>Film</span>
+            <span className='title__part--1'>Film</span>
             <span className='title__icon'>{iconsData.film}</span>
-            <span className='title__part--2'>pedia</span> */}
-            Filmzilla
+            <span className='title__part--2'>ra</span>
           </Link>
         </div>
 
-        <div className='header__options__middle'>
-          <span
-            className={'movie ' + (movieState ? 'activeMovie' : '')}
-            onClick={() => handleMovieState('movie')}
-          >
-            {iconsData.movie} Movies
-          </span>
-          <span
-            className={'tv ' + (!movieState ? 'activeMovie' : '')}
-            onClick={() => handleMovieState('tv')}
-          >
-            {iconsData.tv} Tv
-          </span>
-        </div>
+        {window.location.pathname === '/login' ||
+        window.location.pathname === '/register' ? (
+          <></>
+        ) : (
+          <div className='header__options__middle'>
+            <span
+              className={'movie ' + (movieState ? 'activeMovie' : '')}
+              onClick={() => handleMovieState('movie')}
+            >
+              {iconsData.movie} Movies
+            </span>
+            <span
+              className={'tv ' + (!movieState ? 'activeMovie' : '')}
+              onClick={() => handleMovieState('tv')}
+            >
+              {iconsData.tv} Tv
+            </span>
+          </div>
+        )}
 
         <div className='header__options__two'>
           <span onClick={() => setMode(!mode)} className='mode-icon '>
