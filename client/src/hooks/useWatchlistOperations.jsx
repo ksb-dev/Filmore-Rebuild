@@ -23,7 +23,6 @@ export const useWatchlistOperations = () => {
     backdrop_path,
     release_date,
     vote_average,
-    setBookmark,
     genre_ids,
     overview
   ) => {
@@ -55,7 +54,6 @@ export const useWatchlistOperations = () => {
       )
 
       if (response) {
-        setBookmark(true)
         setError(null)
         setIsPending(false)
 
@@ -68,7 +66,7 @@ export const useWatchlistOperations = () => {
   }
 
   // Delete Watchlist
-  const deleteWatchlist = async (id, setBookmark) => {
+  const deleteWatchlist = async id => {
     const token = sessionStorage.getItem('token')
 
     setError(null)
@@ -86,7 +84,6 @@ export const useWatchlistOperations = () => {
       )
 
       if (response) {
-        setBookmark(false)
         setError(null)
         setIsPending(false)
 

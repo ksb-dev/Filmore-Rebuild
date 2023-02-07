@@ -204,7 +204,7 @@
 }
 
 .darkActive {
-  background: var(--dark-2);
+  background: var(--dark-1);
   border-left: none !important;
 }
 
@@ -236,14 +236,15 @@ body {
 @import '../components/Header/header';
 @import '../components/Header/SmallHeader/smallHeader';
 @import '../components/Header/Logout/logout';
+@import '../components/Header/Categories/categories';
 
 @import '../components/MovieList/movieList';
 @import '../components/MovieList/MovieCard/movieCard';
 @import '../components/MovieList/Pagination/pagination';
+@import '../components/MovieList/Sort/sort';
 
 @import '../components/TvList/tvList';
 @import '../components/TvList/TvCard/tvCard';
-
 
 // pages
 @import '../pages/Home/home';

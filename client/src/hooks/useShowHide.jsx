@@ -1,4 +1,16 @@
 export const useShowHide = () => {
+  const showSort = (ref1, ref2) => {
+    ref1.current.style.transform = 'rotate(180deg)'
+    ref1.current.style.transition = 'all 0.3s ease'
+    ref2.current.style.opacity = '1'
+  }
+
+  const hideSort = (ref1, ref2) => {
+    ref1.current.style.transform = 'rotate(0deg)'
+    ref1.current.style.transition = 'all 0.3s ease'
+    ref2.current.style.opacity = '0'
+  }
+
   const showForm = (ref1, ref2) => {
     ref1.current.style.transition = 'all 0s ease'
     ref1.current.style.opacity = '1'
@@ -76,6 +88,8 @@ export const useShowHide = () => {
   }
 
   return {
+    showSort,
+    hideSort,
     showForm,
     hideForm,
     showMenu,

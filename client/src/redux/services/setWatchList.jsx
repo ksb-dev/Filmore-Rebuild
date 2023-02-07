@@ -27,7 +27,6 @@ export const setWatchlist = createAsyncThunk(
         }
       })
     }
-    console.log(response.data.watchlist)
     return response.data.watchlist
   }
 )

@@ -71,13 +71,13 @@ export const getMovies = createAsyncThunk(
 const setSortValues = (state, action) => {
   if (action.payload.movies.length > 0) {
     state.sortedMovies = action.payload.movies
-    state.sortState = action.payload.value
+    state.sortState = action.payload.sortValue
     state.filterState = 'All'
     state.error.msg = ''
     state.error.isError = false
   } else {
     state.sortedMovies = []
-    state.sortState = action.payload.value
+    state.sortState = action.payload.sortValue
     state.filterState = 'All'
     state.error.msg = `No movies found! Please try again later.`
     state.error.isError = true
@@ -141,6 +141,7 @@ export const moviesSlice = createSlice({
       })
       .addCase(getMovies.fulfilled, (state, action) => {
         state.loading = false
+
         if (action.payload.results) {
           state.sortedMovies = action.payload.results
           state.movies = action.payload.results

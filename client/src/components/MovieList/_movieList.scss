@@ -8,7 +8,8 @@
 
 .list {
   min-height: 100vh;
-  padding: calc(59.2px + 2rem) 0 2rem 0;
+  padding: calc(59.2px + 2rem) 0rem 0rem 0rem;
+  //margin: 0 1rem;
 
   &__wall {
     width: 100%;
@@ -113,7 +114,7 @@
 
   &__movies {
     max-width: 1280px;
-    margin: 0rem 2rem 3rem 2rem;
+    margin: 2rem 2rem 3rem 2rem;
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

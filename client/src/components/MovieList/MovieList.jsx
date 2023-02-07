@@ -1,5 +1,4 @@
-//import React, { useState, useEffect, useRef } from 'react'
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -19,6 +18,7 @@ import { useMovieContext } from '../../context/context'
 // components
 import MovieCard from './MovieCard/MovieCard'
 import Pagination from './Pagination/Pagination'
+import Sort from './Sort/Sort'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
@@ -31,16 +31,12 @@ import {
 const MovieList = () => {
   const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
-  const movies = useSelector(state => state.movies.sortedMovies)
   const sortedMovies = useSelector(state => state.movies.sortedMovies)
   const loading = useSelector(state => state.movies.loading)
   const error = useSelector(state => state.movies.error)
   const user = useSelector(state => state.watchlist.user)
 
-  // const [stop, setStop] = useState(0)
-  // const timeoutRef = useRef(null)
-  const btnRef = useRef(null)
-  const infoRef = useRef(null)
+  const buttonsRef = useRef(null)
 
   const previousImage = () => {
     index < 1
@@ -107,15 +103,6 @@ const MovieList = () => {
         <>
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
-            onMouseOver={() => {
-              //clearTimeout(timeoutRef.current)
-              //setStop(1)
-              //btnRef.current.style.zIndex = '1'
-            }}
-            onMouseLeave={() => {
-              //setStop(0)
-              //btnRef.current.style.zIndex = '-1'
-            }}
           >
             <img
               className='list__wall--image'
@@ -135,15 +122,6 @@ const MovieList = () => {
                   ? 'lightGradient1 darkColor1'
                   : 'darkGradient1 lightColor1')
               }
-              // onMouseOver={() => {
-              //   //clearTimeout(timeoutRef.current)
-              //   //setStop(1)
-              //   btnRef.current.style.zIndex = '1'
-              // }}
-              // onMouseLeave={() => {
-              //   //setStop(0)
-              //   btnRef.current.style.zIndex = '-1'
-              // }}
             >
               <p className={'list__wall__cover--number '}>
                 {index + 1 + ' / ' + sortedMovies.length}
@@ -181,8 +159,7 @@ const MovieList = () => {
               </div>
             </Link>
 
-            <div ref={btnRef} className='list__wall__buttons'>
-              {/* ref={btnRef} */}
+            <div ref={buttonsRef} className='list__wall__buttons'>
               {sortedMovies.length > 1 ? (
                 <>
                   <MdOutlineArrowBackIosNew
@@ -217,6 +194,8 @@ const MovieList = () => {
           </div>
         </>
       )}
+
+      {sortedMovies && sortedMovies.length > 0 && <Sort />}
 
       <div className='list__movies'>
         {sortedMovies &&

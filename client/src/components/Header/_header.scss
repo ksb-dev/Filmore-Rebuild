@@ -4,7 +4,7 @@
   right: 0;
   width: 100vw;
 
-  z-index: 2;
+  z-index: 4;
 
   display: flex;
   align-items: center;
@@ -53,7 +53,12 @@
       }
 
       .title:hover {
-        letter-spacing: 1px;
+        color: #fff;
+        transition: var(--transition);
+      }
+
+      .title:hover .title__icon {
+        color: var(--red) !important;
         transition: var(--transition);
       }
     }
@@ -69,7 +74,7 @@
       }
 
       .movie {
-        margin-right: 1rem;
+        margin-right: 2rem;
       }
     }
 
@@ -80,7 +85,8 @@
 
       .mode-icon,
       .search-icon,
-      .user-icon {
+      .user-icon,
+      .close-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -92,14 +98,15 @@
         color: #fff;
       }
 
-      .user-icon {
+      .user-icon,
+      .close-icon {
         margin-right: 0;
       }
 
       .mode-icon:hover,
       .search-icon:hover,
       .user-icon:hover {
-        color: var(--red);
+        color: var(--gold);
         transition: var(--transition);
       }
     }

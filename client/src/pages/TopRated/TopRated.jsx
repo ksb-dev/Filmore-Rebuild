@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react'
 
-// Redux
-import { useSelector, useDispatch } from 'react-redux'
+// redux
+import { useDispatch } from 'react-redux'
 import { getMovies } from '../../redux/services/getMovies'
+import { getTvShows } from '../../redux/services/getTvShows'
 import { setWatchlist } from '../../redux/services/setWatchlist'
 
-// Context
+// context
 import { useMovieContext } from '../../context/context'
 
 // components
 import Header from '../../components/Header/Header'
+import MovieList from '../../components/MovieList/MovieList'
+import TvList from '../../components/TvList/TvList'
 
 const TopRated = () => {
-  const { mode } = useMovieContext()
+  const { mode, movieState, setMovieState } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -28,16 +31,17 @@ const TopRated = () => {
       dispatch(setWatchlist())
     }
 
-    dispatch(getMovies('top'))
-  }, [dispatch])
+    movieState ? dispatch(getMovies('top')) : dispatch(getTvShows('top'))
+  }, [dispatch, movieState])
 
   return (
     <div
       className={
-        'top ' + (mode === true ? 'lightBg2 darColor1' : 'darkBg2 lightColor1')
+        'home ' + (mode === true ? 'lightBg1 darColor1' : 'darkBg2 lightColor1')
       }
     >
       <Header />
+      {movieState ? <MovieList /> : <TvList />}
     </div>
   )
 }

@@ -6,15 +6,19 @@ const MovieContext = createContext()
 const MovieProvider = ({ children }) => {
   const [mode, setMode] = useState(true)
 
+  // For wall images
+  const [index, setIndex] = useState(0)
+
+  // For switching between movie & tv
   const [movieState, setMovieState] = useState(true)
 
-  console.log(movieState)
-
+  // For logout component
   const [logoutState, setLogoutState] = useState(false)
   const logoutRef = useRef(null)
-  const userRef = useRef(null)
+  const userIconRef = useRef(null)
 
-  const [index, setIndex] = useState(0)
+  const [categoryState, setCategoryState] = useState(false)
+  const categoryRef = useRef(null)
 
   return (
     <MovieContext.Provider
@@ -25,13 +29,17 @@ const MovieProvider = ({ children }) => {
         logoutState,
         setLogoutState,
         logoutRef,
-        userRef,
+        userIconRef,
 
         index,
         setIndex,
 
         movieState,
-        setMovieState
+        setMovieState,
+
+        categoryState,
+        setCategoryState,
+        categoryRef
       }}
     >
       {children}

@@ -26,14 +26,13 @@ const MovieCard = ({ movie }) => {
   const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
 
+  const user = useSelector(state => state.watchlist.user)
   const watchlist = useSelector(state => state.watchlist.watchlist)
 
   const ratingTitleDateRef = useRef(null)
   const addBtnRef = useRef(null)
 
   const navigate = useNavigate()
-
-  const [bookmark, setBookmark] = useState(false)
 
   const {
     title,
@@ -45,18 +44,6 @@ const MovieCard = ({ movie }) => {
     genre_ids,
     overview
   } = movie
-
-  useEffect(() => {
-    if (watchlist && watchlist.length > 0) {
-      for (let i = 0; i < (watchlist && watchlist.length); i++) {
-        if (watchlist[i].id === id) {
-          setBookmark(true)
-        }
-      }
-    }
-
-    if (watchlist && watchlist.length === 0) setBookmark(false)
-  }, [watchlist, id])
 
   const show = () => {
     ratingTitleDateRef.current.style.opacity = '1'
@@ -75,41 +62,59 @@ const MovieCard = ({ movie }) => {
       />
 
       {/* ADD-BUTTON */}
-      {sessionStorage.getItem('name') !== null && bookmark === false && (
-        <p
-          ref={addBtnRef}
-          className='card__add__btn '
-          onClick={() =>
-            addWatchlist(
-              id,
-              title,
-              poster_path,
-              backdrop_path,
-              release_date,
-              vote_average,
-              setBookmark,
-              genre_ids,
-              overview
+      {user &&
+        watchlist &&
+        watchlist.length > 0 &&
+        watchlist.map((item, index) => {
+          if (item.id !== id) {
+            return (
+              <p
+                key={index}
+                ref={addBtnRef}
+                className='card__add__btn '
+                onClick={() =>
+                  addWatchlist(
+                    id,
+                    title,
+                    poster_path,
+                    backdrop_path,
+                    release_date,
+                    vote_average,
+                    genre_ids,
+                    overview
+                  )
+                }
+              >
+                <span className='card__btn--icon'>{iconsData.star}</span>
+              </p>
             )
           }
-        >
-          <span className='card__btn--icon'>{iconsData.star}</span>
-        </p>
-      )}
+        })}
 
       {/* DELETE-BUTTON */}
-      {sessionStorage.getItem('name') !== null && bookmark === true && (
-        <p
-          ref={addBtnRef}
-          className='card__delete__btn '
-          style={{ color: 'var(--red)' }}
-          onClick={() => deleteWatchlist(id, setBookmark)}
-        >
-          <span className='card__btn--icon' style={{ color: 'var(--red)' }}>
-            {iconsData.star}
-          </span>
-        </p>
-      )}
+      {user &&
+        watchlist &&
+        watchlist.length > 0 &&
+        watchlist.map((item, index) => {
+          if (item.id === id) {
+            return (
+              <p
+                key={index}
+                ref={addBtnRef}
+                className='card__delete__btn '
+                style={{ color: 'var(--red)' }}
+                onClick={() => deleteWatchlist(id)}
+              >
+                <span
+                  className='card__btn--icon'
+                  style={{ color: 'var(--red)' }}
+                >
+                  {iconsData.star}
+                </span>
+              </p>
+            )
+          }
+        })}
 
       {/* ADD-BUTTON (without user) */}
       {sessionStorage.getItem('name') === null && (
