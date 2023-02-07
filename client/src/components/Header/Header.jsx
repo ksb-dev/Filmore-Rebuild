@@ -45,7 +45,17 @@ const Header = () => {
     }
   }
 
+  const handleTitleClick = () => {
+    setMovieState(true)
+    sessionStorage.setItem('page', 1)
+    sessionStorage.setItem('term', '')
+    //setQuery('')
+    setIndex(0)
+    dispatch(getMovies('popular'))
+  }
+
   const handleMovieState = val => {
+    setIndex(0)
     val === 'movie' ? setMovieState(true) : setMovieState(false)
   }
 
@@ -57,11 +67,7 @@ const Header = () => {
             to='/'
             className='title '
             onClick={() => {
-              sessionStorage.setItem('page', 1)
-              sessionStorage.setItem('term', '')
-              //setQuery('')
-              setIndex(0)
-              dispatch(getMovies('popular'))
+              handleTitleClick()
             }}
           >
             {/* <span className='title__part--1'>Film</span>
