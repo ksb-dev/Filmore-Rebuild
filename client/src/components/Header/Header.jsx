@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { resetMovies } from '../../redux/services/getMovies'
+import { resetMovies } from '../../redux/services/movies/getMovies'
 
 // Recat router dom
 import { Link, useNavigate } from 'react-router-dom'
@@ -28,7 +28,7 @@ const Header = () => {
   } = useMovieContext()
   //const { showMenu, showForm, showLogout, hideLogout } = useShowHide()
   const movies = useSelector(state => state.movies.movies)
-  const user = useSelector(state => state.watchlist.user)
+  const user = useSelector(state => state.savedMovies.user)
   const dispatch = useDispatch()
   const moviesRef = useRef(null)
   const navigate = useNavigate()

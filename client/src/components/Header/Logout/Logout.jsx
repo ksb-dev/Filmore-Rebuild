@@ -15,7 +15,7 @@ const Logout = () => {
     useMovieContext()
   const { showLogout, hideLogout } = useShowHide()
   const { logout } = useAuthentication()
-  const user = useSelector(state => state.watchlist.user)
+  const user = useSelector(state => state.savedMovies.user)
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {

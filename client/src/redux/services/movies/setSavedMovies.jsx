@@ -2,10 +2,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 // APIs
-import { APIs } from '../../APIs/APIs'
+import { APIs } from '../../../APIs/APIs'
 
 const initialState = {
-  watchlist: [],
+  savedMovies: [],
   loading: false,
   error: {
     msg: '',
@@ -14,44 +14,44 @@ const initialState = {
   user: ''
 }
 
-export const setWatchlist = createAsyncThunk(
-  'watchlists/getwatchlists',
+export const setSavedMovies = createAsyncThunk(
+  'savedMovies/setSavedMovies',
   async () => {
     const savedToken = sessionStorage.getItem('token')
     let response = ''
 
     if (savedToken) {
-      response = await axios.get(APIs.watchlist_url, {
+      response = await axios.get(APIs.get_movies_url, {
         headers: {
           Authorization: `Bearer ${savedToken}`
         }
       })
     }
-    return response.data.watchlist
+    return response.data.movies
   }
 )
 
 export const modeSlice = createSlice({
-  name: 'watchlist',
+  name: 'savedMovies',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(setWatchlist.pending, state => {
+      .addCase(setSavedMovies.pending, state => {
         state.loading = true
         state.error.msg = ''
         state.error.isError = false
       })
-      .addCase(setWatchlist.fulfilled, (state, action) => {
+      .addCase(setSavedMovies.fulfilled, (state, action) => {
         state.loading = false
         state.error.msg = ''
         state.error.isError = false
-        state.watchlist = action.payload
+        state.savedMovies = action.payload
 
         state.user = sessionStorage.getItem('name')
       })
-      .addCase(setWatchlist.rejected, state => {
-        state.watchlist = []
+      .addCase(setSavedMovies.rejected, state => {
+        state.savedMovies = []
         state.loading = false
         state.error.isError = true
         state.error.msg = 'Failed to fetch Wishlists'

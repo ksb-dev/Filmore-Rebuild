@@ -58,7 +58,7 @@
 
       .movie,
       .tv {
-        padding: 0.5rem 1rem;
+        padding: 0.25rem 0.5rem;
         font-weight: 400;
         cursor: pointer;
         display: flex;
@@ -87,7 +87,7 @@
         display: flex;
         align-items: center;
         border-radius: var(--border-radius-1);
-        padding: 0.5rem 1rem;
+        padding: 0.25rem 0.5rem;
         cursor: pointer;
         margin-left: 1rem;
         color: #fff;
@@ -102,7 +102,7 @@
           display: flex;
           align-items: center;
           border-radius: var(--border-radius-1);
-          padding: 0.5rem 1rem;
+          padding: 0.25rem 0.5rem;
           cursor: pointer;
           margin-left: 1rem;
           color: #fff;

@@ -5,7 +5,10 @@ import { useMovieContext } from '../../../context/context'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
-import { setShowsDefault, getTvShows } from '../../../redux/services/getTvShows'
+import {
+  setShowsDefault,
+  getTvShows
+} from '../../../redux/services/shows/getTvShows'
 
 const Pagination = () => {
   const { mode } = useMovieContext()

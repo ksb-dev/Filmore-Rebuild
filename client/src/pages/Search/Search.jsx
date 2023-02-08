@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 
-// Redux
-import { useSelector, useDispatch } from 'react-redux'
-import { getMovies } from '../../redux/services/getMovies'
-import { setWatchlist } from '../../redux/services/setWatchlist'
+// redux
+import { useDispatch } from 'react-redux'
+import { getMovies } from '../../redux/services/movies/getMovies'
+import { getTvShows } from '../../redux/services/shows/getTvShows'
+import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -25,7 +26,7 @@ const Search = () => {
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
-      dispatch(setWatchlist())
+      dispatch(setSavedMovies())
     }
 
     dispatch(getMovies('upcoming'))

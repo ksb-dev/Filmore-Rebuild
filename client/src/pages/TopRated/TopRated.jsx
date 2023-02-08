@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 
 // redux
 import { useDispatch } from 'react-redux'
-import { getMovies } from '../../redux/services/getMovies'
-import { getTvShows } from '../../redux/services/getTvShows'
-import { setWatchlist } from '../../redux/services/setWatchlist'
+import { getMovies } from '../../redux/services/movies/getMovies'
+import { getTvShows } from '../../redux/services/shows/getTvShows'
+import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -28,7 +28,7 @@ const TopRated = () => {
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
-      dispatch(setWatchlist())
+      dispatch(setSavedMovies())
     }
 
     movieState ? dispatch(getMovies('top')) : dispatch(getTvShows('top'))

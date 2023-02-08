@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 // APIs
-import { APIs } from '../../APIs/APIs'
+import { APIs } from '../../../APIs/APIs'
 
 const initialState = {
   shows: [],

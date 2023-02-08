@@ -26,7 +26,7 @@ const TvCard = ({ tv }) => {
   const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
 
-  const watchlist = useSelector(state => state.watchlist.watchlist)
+  //const watchlist = useSelector(state => state.watchlist.watchlist)
 
   const ratingTitleDateRef = useRef(null)
   const addBtnRef = useRef(null)
@@ -46,17 +46,17 @@ const TvCard = ({ tv }) => {
     overview
   } = tv
 
-  useEffect(() => {
-    if (watchlist && watchlist.length > 0) {
-      for (let i = 0; i < (watchlist && watchlist.length); i++) {
-        if (watchlist[i].id === id) {
-          setBookmark(true)
-        }
-      }
-    }
+  // useEffect(() => {
+  //   if (watchlist && watchlist.length > 0) {
+  //     for (let i = 0; i < (watchlist && watchlist.length); i++) {
+  //       if (watchlist[i].id === id) {
+  //         setBookmark(true)
+  //       }
+  //     }
+  //   }
 
-    if (watchlist && watchlist.length === 0) setBookmark(false)
-  }, [watchlist, id])
+  //   if (watchlist && watchlist.length === 0) setBookmark(false)
+  // }, [watchlist, id])
 
   const show = () => {
     ratingTitleDateRef.current.style.opacity = '1'
@@ -74,8 +74,7 @@ const TvCard = ({ tv }) => {
         alt={name}
       />
 
-      {/* ADD-BUTTON */}
-      {sessionStorage.getItem('name') !== null && bookmark === false && (
+      {/* {sessionStorage.getItem('name') !== null && bookmark === false && (
         <p
           ref={addBtnRef}
           className='card__add__btn '
@@ -97,7 +96,7 @@ const TvCard = ({ tv }) => {
         </p>
       )}
 
-      {/* DELETE-BUTTON */}
+     
       {sessionStorage.getItem('name') !== null && bookmark === true && (
         <p
           ref={addBtnRef}
@@ -111,7 +110,7 @@ const TvCard = ({ tv }) => {
         </p>
       )}
 
-      {/* ADD-BUTTON (without user) */}
+      
       {sessionStorage.getItem('name') === null && (
         <p
           ref={addBtnRef}
@@ -120,7 +119,7 @@ const TvCard = ({ tv }) => {
         >
           <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
-      )}
+      )} */}
 
       {/* CARD-INFO */}
       <div

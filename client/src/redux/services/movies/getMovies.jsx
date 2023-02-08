@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 // APIs
-import { APIs } from '../../APIs/APIs'
+import { APIs } from '../../../APIs/APIs'
 
 const initialState = {
   movies: [],
@@ -54,12 +54,12 @@ export const getMovies = createAsyncThunk(
       const savedToken = sessionStorage.getItem('token')
 
       if (savedToken) {
-        const response = await axios.get(APIs.watchlist_url, {
+        const response = await axios.get(APIs.get_movies_url, {
           headers: {
             Authorization: `Bearer ${savedToken}`
           }
         })
-        return response.data.watchlist
+        return response.data.movies
       }
     }
     res = await data.json()

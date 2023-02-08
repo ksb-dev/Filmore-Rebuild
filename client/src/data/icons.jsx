@@ -22,8 +22,8 @@ export const iconsData = {
   user: <BiUserCircle size={'20px'} />,
   close: <MdOutlineClose size={'20px'} />,
   film: <GiFilmSpool size={'40px'} />,
-  movie: <ImFilm size={'20px'} style={{ marginRight: '0.5rem' }} />,
-  tv: <MdOutlineMonitor size={'20px'} style={{ marginRight: '0.5rem' }} />,
+  movie: <ImFilm size={'20px'} style={{ marginRight: '0.25rem' }} />,
+  tv: <MdOutlineMonitor size={'20px'} style={{ marginRight: '0.25rem' }} />,
   star: <RiStarFill size={'20px'} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
   prev: <MdOutlineArrowBackIosNew size={'20px'} />

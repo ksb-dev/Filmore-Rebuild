@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const WatchListSchema = new mongoose.Schema(
+const MovieSchema = new mongoose.Schema(
   {
     id: {
       type: Number
@@ -43,4 +43,4 @@ const WatchListSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('Watchlist', WatchListSchema)
+module.exports = mongoose.model('Movie', MovieSchema)

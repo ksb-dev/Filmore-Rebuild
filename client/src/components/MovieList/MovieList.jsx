@@ -34,7 +34,7 @@ const MovieList = () => {
   const sortedMovies = useSelector(state => state.movies.sortedMovies)
   const loading = useSelector(state => state.movies.loading)
   const error = useSelector(state => state.movies.error)
-  const user = useSelector(state => state.watchlist.user)
+  const user = useSelector(state => state.savedMovies.user)
 
   const buttonsRef = useRef(null)
 

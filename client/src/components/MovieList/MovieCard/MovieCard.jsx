@@ -26,8 +26,8 @@ const MovieCard = ({ movie }) => {
   const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
 
-  const user = useSelector(state => state.watchlist.user)
-  const watchlist = useSelector(state => state.watchlist.watchlist)
+  const user = useSelector(state => state.savedMovies.user)
+  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
 
   const ratingTitleDateRef = useRef(null)
   const addBtnRef = useRef(null)
@@ -61,11 +61,32 @@ const MovieCard = ({ movie }) => {
         alt={title}
       />
 
+      {user && savedMovies && savedMovies.length === 0 && (
+        <p
+          ref={addBtnRef}
+          className='card__add__btn '
+          onClick={() =>
+            addWatchlist(
+              id,
+              title,
+              poster_path,
+              backdrop_path,
+              release_date,
+              vote_average,
+              genre_ids,
+              overview
+            )
+          }
+        >
+          <span className='card__btn--icon'>{iconsData.star}</span>
+        </p>
+      )}
+
       {/* ADD-BUTTON */}
       {user &&
-        watchlist &&
-        watchlist.length > 0 &&
-        watchlist.map((item, index) => {
+        savedMovies &&
+        savedMovies.length > 0 &&
+        savedMovies.map((item, index) => {
           if (item.id !== id) {
             return (
               <p
@@ -93,9 +114,9 @@ const MovieCard = ({ movie }) => {
 
       {/* DELETE-BUTTON */}
       {user &&
-        watchlist &&
-        watchlist.length > 0 &&
-        watchlist.map((item, index) => {
+        savedMovies &&
+        savedMovies.length > 0 &&
+        savedMovies.map((item, index) => {
           if (item.id === id) {
             return (
               <p

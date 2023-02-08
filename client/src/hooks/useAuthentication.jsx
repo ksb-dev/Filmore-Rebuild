@@ -15,8 +15,8 @@ import { useShowHide } from './useShowHide'
 
 // Reudx
 import { useDispatch } from 'react-redux'
-import { getMovies } from '../Redux/Services/getMovies'
-import { setWatchlist } from '../Redux/Services/setWatchlist'
+import { getMovies } from '../Redux/Services/movies/getMovies'
+import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
 
 export const useAuthentication = () => {
   const { hideForm, hideLogout } = useShowHide()
@@ -57,7 +57,7 @@ export const useAuthentication = () => {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
 
-        dispatch(setWatchlist())
+        dispatch(setSavedMovies())
 
         if (window.location.pathname === '/watchlist') {
           dispatch(getMovies('watchlist'))
@@ -110,7 +110,7 @@ export const useAuthentication = () => {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
 
-        dispatch(setWatchlist())
+        dispatch(setSavedMovies())
 
         if (window.location.pathname === '/watchlist') {
           dispatch(getMovies('watchlist'))
@@ -156,7 +156,7 @@ export const useAuthentication = () => {
 
     //hideLogout(logoutRef)
 
-    dispatch(setWatchlist())
+    dispatch(setSavedMovies())
 
     if (window.location.pathname === '/watchlist') {
       dispatch(getMovies('watchlist'))

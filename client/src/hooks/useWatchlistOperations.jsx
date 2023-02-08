@@ -6,8 +6,8 @@ import { APIs } from '../APIs/APIs'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import { setWatchlist } from '../Redux/Services/setWatchlist'
-import { getMovies } from '../Redux/Services/getMovies'
+import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
+import { getMovies } from '../redux/services/movies/getMovies'
 
 export const useWatchlistOperations = () => {
   const [error, setError] = useState(null)
@@ -33,7 +33,7 @@ export const useWatchlistOperations = () => {
 
     try {
       const response = await axios.post(
-        APIs.add_watchlist_url,
+        APIs.add_movie_url,
         {
           movie_data: {
             id,
@@ -57,7 +57,7 @@ export const useWatchlistOperations = () => {
         setError(null)
         setIsPending(false)
 
-        dispatch(setWatchlist())
+        dispatch(setSavedMovies())
       }
     } catch (error) {
       setIsPending(false)
@@ -74,7 +74,7 @@ export const useWatchlistOperations = () => {
 
     try {
       const response = await axios.delete(
-        APIs.delete_watchlist_url + `${id}`,
+        APIs.delete_movie_url + `${id}`,
 
         {
           headers: {
@@ -87,7 +87,7 @@ export const useWatchlistOperations = () => {
         setError(null)
         setIsPending(false)
 
-        dispatch(setWatchlist())
+        dispatch(setSavedMovies())
 
         if (window.location.pathname === '/watchlist') {
           console.log(true)

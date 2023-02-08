@@ -5,7 +5,10 @@ import { useMovieContext } from '../../../context/context'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
-import { setMoviesDefault, getMovies } from '../../../redux/services/getMovies'
+import {
+  setMoviesDefault,
+  getMovies
+} from '../../../redux/services/movies/getMovies'
 
 const Pagination = () => {
   const { mode } = useMovieContext()

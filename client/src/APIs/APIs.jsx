@@ -37,9 +37,14 @@ export const APIs = {
 
   login_url: `/url/api/v1/filmora/auth/login`,
   register_url: `/url/api/v1/filmora/auth/register`,
-  watchlist_url: `/url/api/v1/filmora/watchlist`,
-  add_watchlist_url: `/url/api/v1/filmora/watchlist`,
-  delete_watchlist_url: `/url/api/v1/filmora/watchlist/`
+
+  get_movies_url: `/url/api/v1/filmora/movies`,
+  add_movie_url: `/url/api/v1/filmora/movies`,
+  delete_movie_url: `/url/api/v1/filmora/movies/`,
+
+  get_shows_url: `/url/api/v1/filmora/shows`,
+  add_show_url: `/url/api/v1/filmora/shows`,
+  delete_show_url: `/url/api/v1/filmora/shows/`
 
   // login_url: `/api/v1/filmora/auth/login`,
   // register_url: `/api/v1/filmora/auth/register`,

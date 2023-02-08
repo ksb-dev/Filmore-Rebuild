@@ -1,28 +1,28 @@
-const Watchlist = require('../models/Watchlist')
+const Movie = require('../models/Movies')
 const { StatusCodes } = require('http-status-codes')
 
 const getAllWatchlist = async (req, res) => {
-  const watchlist = await Watchlist.find({ createdBy: req.user.userId }).sort(
+  const movies = await Movie.find({ createdBy: req.user.userId }).sort(
     'createdAt'
   )
 
-  res.status(StatusCodes.OK).json({ watchlist, count: watchlist.length })
+  res.status(StatusCodes.OK).json({ movies, count: movies.length })
 }
 
 const addMovie = async (req, res) => {
   req.body.movie_data.createdBy = req.user.userId
 
-  const movie = await Watchlist.create(req.body.movie_data)
+  const movie = await Movie.create(req.body.movie_data)
 
   res.status(StatusCodes.CREATED).json({ movie })
 }
 
 const deleteMovie = async (req, res) => {
-  const movie = await Watchlist.findOne({
+  const movie = await Movie.findOne({
     id: req.params.id,
     createdBy: req.user.userId
   })
-  const deletedMovie = await Watchlist.findByIdAndDelete({
+  const deletedMovie = await Movie.findByIdAndDelete({
     _id: movie._id,
     createdBy: req.user.userId
   })

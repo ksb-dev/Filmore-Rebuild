@@ -5,7 +5,7 @@ const {
   getAllWatchlist,
   addMovie,
   deleteMovie
-} = require('../controllers/watchlistController')
+} = require('../controllers/moviesController')
 
 router.get('/', getAllWatchlist)
 router.post('/', addMovie)

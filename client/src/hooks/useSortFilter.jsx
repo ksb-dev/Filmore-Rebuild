@@ -8,7 +8,7 @@ import {
   sortMoviesTenToOne,
   //filterMoviesGenre,
   getMovies
-} from '../Redux/Services/getMovies'
+} from '../redux/services/movies/getMovies'
 
 import {
   resetShows,
@@ -18,7 +18,7 @@ import {
   sortShowsTenToOne,
   //filterShowsGenre,
   getTvShows
-} from '../Redux/Services/getTvShows'
+} from '../redux/services/shows/getTvShows'
 
 export const useSortFilter = () => {
   const movies = useSelector(state => state.movies.movies)
