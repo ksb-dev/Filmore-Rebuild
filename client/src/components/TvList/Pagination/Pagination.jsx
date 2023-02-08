@@ -97,8 +97,8 @@ const Pagination = () => {
           className={
             'tv__buttons--btn ' +
             (mode === true
-              ? `${number === item ? 'activeBtn' : 'darkBg2 lightColor1'} `
-              : `${number === item ? 'activeBtn' : 'lightBg1 darkColor2'} `)
+              ? `${number === item ? 'activeBtn' : 'lightBg2 darkColor1'} `
+              : `${number === item ? 'activeBtn' : 'darkBg1 lightColor1'} `)
           }
           onClick={changePage}
           key={index}

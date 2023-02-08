@@ -19,7 +19,7 @@
   &--btn:hover,
   &--prevBtn:hover,
   &--nextBtn:hover {
-    filter: brightness(70%);
+    filter: brightness(80%);
     transition: var(--transition);
   }
 }
@@ -27,6 +27,7 @@
 .activeBtn {
   background: var(--primary);
   color: #fff;
+  pointer-events: none;
 }
 
 .disabledBtn {

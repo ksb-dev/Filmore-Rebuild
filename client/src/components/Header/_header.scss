@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
 
+  background: #111;
   color: #fff;
 
   &__options {
@@ -26,7 +27,7 @@
       .title {
         position: relative;
         text-decoration: none;
-        color: #fff;
+        color: var(--red);
         margin-right: 1rem;
         cursor: pointer;
         font-weight: var(--font-weight-2);
@@ -65,13 +66,19 @@
         align-items: center;
       }
 
+      span {
+        margin: 0 0.5rem;
+        border-right: 3px solid #fff;
+      }
+
       .movie {
         margin-right: 0rem;
       }
 
       .movie:hover,
       .tv:hover {
-        filter: brightness(80%);
+        color: var(--red);
+        //filter: brightness(80%);
         transition: var(--transition);
       }
     }
@@ -120,7 +127,8 @@
       .user-icon:hover,
       .close-icon:hover,
       .login-icon:hover {
-        filter: brightness(80%);
+        color: var(--red);
+        //filter: brightness(80%);
         transition: var(--transition);
       }
     }
@@ -128,5 +136,25 @@
 }
 
 .activeMovie {
-  color: #000 !important;
+  //color: #000 !important;
+  background: var(--red);
+  user-select: none;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 640px) {
+  .header {
+    height: 58.4px;
+    bottom: 0;
+    justify-content: space-between;
+
+    &__options {
+      &__one {
+        display: none;
+        .title {
+          display: none;
+        }
+      }
+    }
+  }
 }

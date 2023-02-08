@@ -8,7 +8,7 @@
 
 .list {
   min-height: 100vh;
-  padding: calc(59.2px + 2rem) 0 2rem 0;
+  padding: calc(58.6px + 0rem) 0 2rem 0;
 
   &__wall {
     width: 100%;
@@ -41,8 +41,8 @@
       &--number {
         font-weight: 500;
         position: absolute;
-        left: 0;
-        top: -1rem;
+        right: 0;
+        bottom: -1rem;
         padding: 0.5rem 1rem;
         background: rgba(0, 0, 0, 0.8);
         color: #fff;
@@ -124,5 +124,14 @@
 @media screen and (max-width: 1280px) {
   .list {
     padding-top: 58.5px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .list {
+    //padding-top: 2rem;
+    &__wall {
+      display: none;
+    }
   }
 }

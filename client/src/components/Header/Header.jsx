@@ -50,7 +50,12 @@ const Header = () => {
   }
 
   return (
-    <div className={'header ' + (mode === true ? 'primaryBg' : 'secondaryBg')}>
+    <div
+      className={
+        'header '
+        //+ (mode === true ? 'primaryBg' : 'secondaryBg')
+      }
+    >
       <div className='header__options'>
         <div className='header__options__one'>
           <Link
@@ -77,20 +82,24 @@ const Header = () => {
             <div
               ref={moviesRef}
               className={
-                'movie ' +
-                (mode === true ? 'primaryBg ' : 'secondaryBg ') +
-                (movieState && 'activeMovie')
+                'movie ' + (movieState && 'activeMovie')
+                // +
+                // (mode === true ? 'primaryBg ' : 'secondaryBg ') +
+                // (movieState && 'activeMovie')
               }
               onClick={() => handleMovieState('movie')}
             >
               {iconsData.movie} Movies
             </div>
 
+            <span></span>
+
             <div
               className={
-                'tv ' +
-                (mode === true ? 'primaryBg ' : 'secondaryBg ') +
-                (!movieState && 'activeMovie')
+                'tv ' + (!movieState && 'activeMovie')
+                // +
+                // (mode === true ? 'primaryBg ' : 'secondaryBg ') +
+                // (!movieState && 'activeMovie')
               }
               onClick={() => handleMovieState('tv')}
             >
@@ -103,7 +112,8 @@ const Header = () => {
           <span
             onClick={() => setMode(!mode)}
             className={
-              'mode-icon ' + (mode === true ? 'primaryBg' : 'secondaryBg')
+              'mode-icon '
+              //+ (mode === true ? 'primaryBg' : 'secondaryBg')
             }
           >
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
@@ -112,7 +122,8 @@ const Header = () => {
           <Link
             to='/search'
             className={
-              'search-icon ' + (mode === true ? 'primaryBg' : 'secondaryBg')
+              'search-icon '
+              //+ (mode === true ? 'primaryBg' : 'secondaryBg')
             }
           >
             {iconsData.searchIcon}
@@ -124,8 +135,9 @@ const Header = () => {
                 <div
                   to='#'
                   className={
-                    'close-icon ' +
-                    (mode === true ? 'primaryBg' : 'secondaryBg')
+                    'close-icon '
+                    // +
+                    // (mode === true ? 'primaryBg' : 'secondaryBg')
                   }
                 >
                   {iconsData.close}
@@ -134,7 +146,8 @@ const Header = () => {
                 <div
                   to='#'
                   className={
-                    'user-icon ' + (mode === true ? 'primaryBg' : 'secondaryBg')
+                    'user-icon '
+                    //+ (mode === true ? 'primaryBg' : 'secondaryBg')
                   }
                 >
                   {iconsData.user}
@@ -144,7 +157,8 @@ const Header = () => {
               <Link
                 to='/login'
                 className={
-                  'login-icon ' + (mode === true ? 'primaryBg' : 'secondaryBg')
+                  'login-icon '
+                  //+ (mode === true ? 'primaryBg' : 'secondaryBg')
                 }
               >
                 {iconsData.login}

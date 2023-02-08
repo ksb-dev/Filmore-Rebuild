@@ -85,7 +85,7 @@ const Pagination = () => {
               ? 'disabledBtn '
               : mode === true
               ? 'primaryBg '
-              : 'secondaryBg ')
+              : 'primaryBg ')
           }
         >
           <i className='fa-solid fa-chevron-left'></i>
@@ -101,10 +101,10 @@ const Pagination = () => {
             (number === item
               ? mode === true
                 ? 'primaryBg '
-                : 'secondaryBg '
+                : 'primaryBg '
               : mode === true
-              ? 'darkBg1 lightColor1'
-              : 'lightBg1 darkColor1')
+              ? 'lightBg2 darkColor1'
+              : 'darkBg1 lightColor1')
           }
           onClick={changePage}
           key={index}
@@ -118,7 +118,7 @@ const Pagination = () => {
           onClick={() => goToPage('next')}
           className={
             'movie__buttons--nextBtn ' +
-            (mode === true ? 'primaryBg' : 'secondaryBg')
+            (mode === true ? 'primaryBg' : 'primaryBg')
           }
         >
           <i className='fa-solid fa-chevron-right'></i>
