@@ -30,7 +30,6 @@ const MovieCard = ({ movie }) => {
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
 
   const ratingTitleDateRef = useRef(null)
-  const addBtnRef = useRef(null)
 
   const navigate = useNavigate()
 
@@ -63,7 +62,6 @@ const MovieCard = ({ movie }) => {
 
       {user && savedMovies && savedMovies.length === 0 && (
         <p
-          ref={addBtnRef}
           className='card__add__btn '
           onClick={() =>
             addMovie(
@@ -91,7 +89,6 @@ const MovieCard = ({ movie }) => {
             return (
               <p
                 key={index}
-                ref={addBtnRef}
                 className='card__add__btn '
                 onClick={() =>
                   addMovie(
@@ -121,7 +118,6 @@ const MovieCard = ({ movie }) => {
             return (
               <p
                 key={index}
-                ref={addBtnRef}
                 className='card__delete__btn '
                 onClick={() => deleteMovie(id)}
               >
@@ -138,11 +134,7 @@ const MovieCard = ({ movie }) => {
 
       {/* ADD-BUTTON (without user) */}
       {sessionStorage.getItem('name') === null && (
-        <p
-          ref={addBtnRef}
-          className='card__btn '
-          onClick={() => navigate('/login')}
-        >
+        <p className='card__btn ' onClick={() => navigate('/login')}>
           <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}

@@ -23,14 +23,13 @@ const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
 const TvCard = ({ tv }) => {
   const { mode } = useMovieContext()
-  const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
+  const { addShow, deleteShow } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
 
   const user = useSelector(state => state.savedShows.user)
   const savedMovies = useSelector(state => state.savedShows.savedMovies)
 
   const ratingTitleDateRef = useRef(null)
-  const addBtnRef = useRef(null)
 
   const navigate = useNavigate()
 
@@ -77,7 +76,7 @@ const TvCard = ({ tv }) => {
 
       {/* {sessionStorage.getItem('name') !== null && bookmark === false && (
         <p
-          ref={addBtnRef}
+      
           className='card__add__btn '
           onClick={() =>
             addWatchlist(
@@ -100,7 +99,7 @@ const TvCard = ({ tv }) => {
      
       {sessionStorage.getItem('name') !== null && bookmark === true && (
         <p
-          ref={addBtnRef}
+          
           className='card__delete__btn '
           style={{ color: 'var(--red)' }}
           onClick={() => deleteWatchlist(id, setBookmark)}
@@ -114,7 +113,7 @@ const TvCard = ({ tv }) => {
       
       {sessionStorage.getItem('name') === null && (
         <p
-          ref={addBtnRef}
+          
           className='card__btn '
           onClick={() => navigate('/login')}
         >
