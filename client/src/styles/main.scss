@@ -1,10 +1,16 @@
 #root {
+  --primary: #1da1f2;
   --green: #1db954;
   --gold: gold;
   --gold-1: gold;
   --blue: #1da1f2;
   --red: #e50914;
-  // --red: tomato;
+  //--red: tomato;
+
+  --blue-2: #01b4e4;
+  --blue-3: #0d253f;
+  --blue-4: #061628;
+  --green-1: #90cea1;
 
   --white-1: #fff;
   --white-2: rgb(220, 220, 220);
@@ -270,7 +276,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #e50914; /* color of the scroll thumb */
+  background-color: tomato; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 3px solid #fff; /* creates padding around scroll thumb */
 }

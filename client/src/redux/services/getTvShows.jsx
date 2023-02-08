@@ -68,23 +68,23 @@ export const getTvShows = createAsyncThunk(
   }
 )
 
-const setSortValues = (state, action) => {
+const setShowsSortValues = (state, action) => {
   if (action.payload.shows.length > 0) {
     state.sortedShows = action.payload.shows
-    state.sortState = action.payload.value
+    state.sortState = action.payload.sortValue
     state.filterState = 'All'
     state.error.msg = ''
     state.error.isError = false
   } else {
     state.sortedShows = []
-    state.sortState = action.payload.value
+    state.sortState = action.payload.sortValue
     state.filterState = 'All'
     state.error.msg = `No shows found! Please try again later.`
     state.error.isError = true
   }
 }
 
-const setFilterValues = (state, action) => {
+const setShowsFilterValues = (state, action) => {
   if (action.payload.shows.length > 0) {
     state.sortedShows = action.payload.shows
     state.sortState = 'All'
@@ -104,29 +104,29 @@ export const tvSlice = createSlice({
   name: 'tvShows',
   initialState,
   reducers: {
-    reset: (state, action) => {
-      setSortValues(state, action)
+    resetShows: (state, action) => {
+      setShowsSortValues(state, action)
     },
-    sortAtoZ: (state, action) => {
-      setSortValues(state, action)
+    sortShowsAtoZ: (state, action) => {
+      setShowsSortValues(state, action)
     },
-    sortZtoA: (state, action) => {
-      setSortValues(state, action)
+    sortShowsZtoA: (state, action) => {
+      setShowsSortValues(state, action)
     },
-    sortOneToTen: (state, action) => {
-      setSortValues(state, action)
+    sortShowsOneToTen: (state, action) => {
+      setShowsSortValues(state, action)
     },
-    sortTenToOne: (state, action) => {
-      setSortValues(state, action)
+    sortShowsTenToOne: (state, action) => {
+      setShowsSortValues(state, action)
     },
-    filterGenre: (state, action) => {
-      setFilterValues(state, action)
+    filterShowsGenre: (state, action) => {
+      setShowsFilterValues(state, action)
     },
-    setDefault: (state, action) => {
+    setShowsDefault: (state, action) => {
       state.sortState = action.payload
       state.filterState = action.payload
     },
-    setMoviesToNull: state => {
+    setShowsToNull: state => {
       state.shows = []
       state.sortedShows = []
       state.totalPages = 0
@@ -164,12 +164,12 @@ export const tvSlice = createSlice({
 
 export default tvSlice.reducer
 export const {
-  reset,
-  sortAtoZ,
-  sortZtoA,
-  sortOneToTen,
-  sortTenToOne,
-  filterGenre,
-  setDefault,
-  setMoviesToNull
+  resetShows,
+  sortShowsAtoZ,
+  sortShowsZtoA,
+  sortShowsOneToTen,
+  sortShowsTenToOne,
+  filterShowsGenre,
+  setShowsDefault,
+  setShowsToNull
 } = tvSlice.actions

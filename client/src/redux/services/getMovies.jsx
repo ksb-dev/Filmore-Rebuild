@@ -68,7 +68,7 @@ export const getMovies = createAsyncThunk(
   }
 )
 
-const setSortValues = (state, action) => {
+const setMoviesSortValues = (state, action) => {
   if (action.payload.movies.length > 0) {
     state.sortedMovies = action.payload.movies
     state.sortState = action.payload.sortValue
@@ -84,7 +84,7 @@ const setSortValues = (state, action) => {
   }
 }
 
-const setFilterValues = (state, action) => {
+const setMoviesFilterValues = (state, action) => {
   if (action.payload.movies.length > 0) {
     state.sortedMovies = action.payload.movies
     state.sortState = 'All'
@@ -104,25 +104,25 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    reset: (state, action) => {
-      setSortValues(state, action)
+    resetMovies: (state, action) => {
+      setMoviesSortValues(state, action)
     },
-    sortAtoZ: (state, action) => {
-      setSortValues(state, action)
+    sortMoviesAtoZ: (state, action) => {
+      setMoviesSortValues(state, action)
     },
-    sortZtoA: (state, action) => {
-      setSortValues(state, action)
+    sortMoviesZtoA: (state, action) => {
+      setMoviesSortValues(state, action)
     },
-    sortOneToTen: (state, action) => {
-      setSortValues(state, action)
+    sortMoviesOneToTen: (state, action) => {
+      setMoviesSortValues(state, action)
     },
-    sortTenToOne: (state, action) => {
-      setSortValues(state, action)
+    sortMoviesTenToOne: (state, action) => {
+      setMoviesSortValues(state, action)
     },
-    filterGenre: (state, action) => {
-      setFilterValues(state, action)
+    filterMoviesGenre: (state, action) => {
+      setMoviesFilterValues(state, action)
     },
-    setDefault: (state, action) => {
+    setMoviesDefault: (state, action) => {
       state.sortState = action.payload
       state.filterState = action.payload
     },
@@ -165,12 +165,12 @@ export const moviesSlice = createSlice({
 
 export default moviesSlice.reducer
 export const {
-  reset,
-  sortAtoZ,
-  sortZtoA,
-  sortOneToTen,
-  sortTenToOne,
-  filterGenre,
-  setDefault,
+  resetMovies,
+  sortMoviesAtoZ,
+  sortMoviesZtoA,
+  sortMoviesOneToTen,
+  sortMoviesTenToOne,
+  filterMoviesGenre,
+  setMoviesDefault,
   setMoviesToNull
 } = moviesSlice.actions

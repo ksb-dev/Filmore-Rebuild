@@ -53,7 +53,7 @@ const Logout = () => {
       ref={logoutRef}
       className={
         'logout ' +
-        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+        (mode === true ? 'lightBg1 darkColor2' : 'darkBg2 lightColor1')
       }
     >
       <span> {user && user.charAt(0).toUpperCase() + user.substring(1)}</span>

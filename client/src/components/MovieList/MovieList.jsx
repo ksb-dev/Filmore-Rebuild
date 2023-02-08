@@ -119,7 +119,7 @@ const MovieList = () => {
               className={
                 'list__wall__cover ' +
                 (mode === true
-                  ? 'lightGradient1 darkColor1'
+                  ? 'lightGradient1 darkColor2'
                   : 'darkGradient1 lightColor1')
               }
             >

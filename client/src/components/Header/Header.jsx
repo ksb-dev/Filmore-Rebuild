@@ -18,7 +18,6 @@ import { iconsData } from '../../data/icons'
 
 // components
 import Logout from './Logout/Logout'
-import Categories from './Categories/Categories'
 
 const Header = () => {
   const {
@@ -40,26 +39,6 @@ const Header = () => {
   const moviesRef = useRef(null)
   const navigate = useNavigate()
 
-  //Detect outside click of Filter Menu
-  useEffect(() => {
-    const closeFilter = e => {
-      if (
-        moviesRef.current &&
-        !moviesRef.current.contains(e.target) &&
-        !categoryRef.current.contains(e.target)
-      ) {
-        categoryRef.current.style.display = 'none'
-        setCategoryState(false)
-      }
-    }
-
-    document.body.addEventListener('click', closeFilter)
-
-    return () => {
-      document.body.removeEventListener('click', closeFilter)
-    }
-  }, [])
-
   // Title Click
   const handleTitleClick = () => {
     setMovieState(true)
@@ -74,14 +53,6 @@ const Header = () => {
   const handleMovieState = val => {
     setIndex(0)
     val === 'movie' ? setMovieState(true) : setMovieState(false)
-
-    setCategoryState(!categoryState)
-
-    if (categoryState) {
-      categoryRef.current.style.display = 'none'
-    } else {
-      categoryRef.current.style.display = 'block'
-    }
   }
 
   return (

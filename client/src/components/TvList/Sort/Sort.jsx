@@ -14,9 +14,9 @@ import { useSortFilter } from '../../../hooks/useSortFilter'
 import { useShowHide } from '../../../hooks/useShowHide'
 
 const Sort = () => {
-  const { sortState } = useSelector(state => state.movies)
+  const { sortState } = useSelector(state => state.tvShows)
   const { mode, setIndex } = useMovieContext()
-  const { sortMovies } = useSortFilter()
+  const { sortShows } = useSortFilter()
   const { showSort, hideSort } = useShowHide()
 
   // States
@@ -77,7 +77,7 @@ const Sort = () => {
               mode === true ? ' lightBg2 darkColor2' : ' darkBg1 lightColor1'
             }
             onClick={() => {
-              sortMovies(sort.id)
+              sortShows(sort.id)
               setIndex(0)
             }}
             key={index}

@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
 
-  background: #111;
+  background: var(--primary);
   color: #fff;
 
   &__options {
@@ -27,7 +27,7 @@
       .title {
         position: relative;
         text-decoration: none;
-        // background: #000;
+        //background: var(--red);
         color: #fff;
         margin-right: 1rem;
         cursor: pointer;
@@ -43,21 +43,26 @@
         }
 
         &__icon {
-          color: var(--red);
+          color: #fff;
           position: absolute;
           bottom: -0.5rem;
         }
       }
 
       .title:hover {
-        color: var(--red);
+        transform: translateY(3deg);
         transition: var(--transition);
       }
 
-      .title:hover .title__icon {
-        color: var(--red) !important;
-        transition: var(--transition);
-      }
+      // .title:hover {
+      //   color: var(--red);
+      //   transition: var(--transition);
+      // }
+
+      // .title:hover .title__icon {
+      //   color: var(--red) !important;
+      //   transition: var(--transition);
+      // }
     }
 
     &__middle {
@@ -65,14 +70,22 @@
 
       .movie,
       .tv {
-        font-weight: 500;
+        padding: 0.5rem 1rem;
+        font-weight: 400;
         cursor: pointer;
         display: flex;
         align-items: center;
+        background: var(--blue);
       }
 
       .movie {
-        margin-right: 1rem;
+        margin-right: 0rem;
+      }
+
+      .movie:hover,
+      .tv:hover {
+        filter: brightness(80%);
+        transition: var(--transition);
       }
     }
 
@@ -90,7 +103,7 @@
         padding: 0.5rem 1rem;
         cursor: pointer;
         margin-left: 1rem;
-        background: #111;
+        background: var(--primary);
         color: #fff;
       }
 
@@ -106,7 +119,7 @@
           padding: 0.5rem 1rem;
           cursor: pointer;
           margin-left: 1rem;
-          background: #111;
+          background: var(--primary);
           color: #fff;
         }
 
@@ -130,7 +143,5 @@
 }
 
 .activeMovie {
-  color: var(--red);
-  //font-size: 1.2rem;
-  //font-weight: var(--font-weight-2);
+  color: #000;
 }

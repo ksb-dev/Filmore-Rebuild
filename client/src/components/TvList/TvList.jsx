@@ -19,6 +19,7 @@ import { useMovieContext } from '../../context/context'
 // components
 import TvCard from './TvCard/TvCard'
 import Pagination from './Pagination/Pagination'
+import Sort from './Sort/Sort'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
@@ -131,7 +132,7 @@ const TvList = () => {
               className={
                 'list__wall__cover ' +
                 (mode === true
-                  ? 'lightGradient1 darkColor1'
+                  ? 'lightGradient1 darkColor2'
                   : 'darkGradient1 lightColor1')
               }
               // onMouseOver={() => {
@@ -216,6 +217,8 @@ const TvList = () => {
           </div>
         </>
       )}
+
+      {sortedShows && sortedShows.length > 0 && <Sort />}
 
       <div className='list__movies'>
         {sortedShows &&

@@ -5,7 +5,7 @@ import { useMovieContext } from '../../../context/context'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
-import { setDefault, getTvShows } from '../../../redux/services/getTvShows'
+import { setShowsDefault, getTvShows } from '../../../redux/services/getTvShows'
 
 const Pagination = () => {
   const { mode } = useMovieContext()
@@ -17,7 +17,7 @@ const Pagination = () => {
   const number = storedPage !== 0 ? storedPage : 1
 
   const goToPage = value => {
-    dispatch(setDefault('All'))
+    dispatch(setShowsDefault('All'))
 
     let pageNumber = sessionStorage.getItem('page')
 
@@ -95,7 +95,7 @@ const Pagination = () => {
             'buttons--btn ' +
             (mode === true
               ? `${number === item ? 'activeBtn' : 'darkBg2 lightColor1'} `
-              : `${number === item ? 'activeBtn' : 'lightBg1 darkColor1'} `)
+              : `${number === item ? 'activeBtn' : 'lightBg1 darkColor2'} `)
           }
           onClick={changePage}
           key={index}
