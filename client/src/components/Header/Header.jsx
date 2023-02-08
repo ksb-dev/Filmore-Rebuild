@@ -44,6 +44,8 @@ const Header = () => {
 
   const handleMovieState = val => {
     setIndex(0)
+    sessionStorage.setItem('page', 1)
+    sessionStorage.setItem('term', '')
     val === 'movie' ? setMovieState(true) : setMovieState(false)
   }
 

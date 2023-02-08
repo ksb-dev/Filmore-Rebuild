@@ -53,7 +53,7 @@ const Pagination = () => {
   }
 
   const changePage = e => {
-    dispatch(setDefault('All'))
+    dispatch(setMoviesDefault('All'))
 
     const pageNumber = Number(e.target.textContent)
 
@@ -72,15 +72,17 @@ const Pagination = () => {
   }
 
   return (
-    <div className='buttons'>
+    <div className='movie__buttons'>
       {totalPages ? (
         <button
           onClick={() => goToPage('prev')}
           className={
-            'buttons--prevBtn ' +
-            (mode === true
-              ? `${number === 1 ? 'disabledBtn' : 'activeBtn'}`
-              : `${number === 1 ? 'disabledBtn' : 'activeBtn'}`)
+            'movie__buttons--prevBtn ' +
+            (number === 1
+              ? 'disabledBtn '
+              : mode === true
+              ? 'primaryBg '
+              : 'secondaryBg ')
           }
         >
           <i className='fa-solid fa-chevron-left'></i>
@@ -92,10 +94,14 @@ const Pagination = () => {
       {getPaginationGroup().map((item, index) => (
         <button
           className={
-            'buttons--btn ' +
-            (mode === true
-              ? `${number === item ? 'activeBtn' : 'darkBg2 lightColor1'} `
-              : `${number === item ? 'activeBtn' : 'lightBg1 darkColor2'} `)
+            'movie__buttons--btn ' +
+            (number === item
+              ? mode === true
+                ? 'primaryBg '
+                : 'secondaryBg '
+              : mode === true
+              ? 'darkBg1 lightColor1'
+              : 'lightBg1 darkColor1')
           }
           onClick={changePage}
           key={index}
@@ -107,7 +113,10 @@ const Pagination = () => {
       {totalPages && number !== totalPages ? (
         <button
           onClick={() => goToPage('next')}
-          className='buttons--nextBtn activeBtn'
+          className={
+            'movie__buttons--nextBtn ' +
+            (mode === true ? 'primaryBg' : 'secondaryBg')
+          }
         >
           <i className='fa-solid fa-chevron-right'></i>
         </button>

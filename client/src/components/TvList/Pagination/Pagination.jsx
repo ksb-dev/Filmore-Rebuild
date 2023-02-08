@@ -53,7 +53,7 @@ const Pagination = () => {
   }
 
   const changePage = e => {
-    dispatch(setDefault('All'))
+    dispatch(setShowsDefault('All'))
 
     const pageNumber = Number(e.target.textContent)
 
@@ -72,12 +72,12 @@ const Pagination = () => {
   }
 
   return (
-    <div className='buttons'>
+    <div className='tv__buttons'>
       {totalPages ? (
         <button
           onClick={() => goToPage('prev')}
           className={
-            'buttons--prevBtn ' +
+            'tv__buttons--prevBtn ' +
             (mode === true
               ? `${number === 1 ? 'disabledBtn' : 'activeBtn'}`
               : `${number === 1 ? 'disabledBtn' : 'activeBtn'}`)
@@ -92,7 +92,7 @@ const Pagination = () => {
       {getPaginationGroup().map((item, index) => (
         <button
           className={
-            'buttons--btn ' +
+            'tv__buttons--btn ' +
             (mode === true
               ? `${number === item ? 'activeBtn' : 'darkBg2 lightColor1'} `
               : `${number === item ? 'activeBtn' : 'lightBg1 darkColor2'} `)
@@ -107,7 +107,7 @@ const Pagination = () => {
       {totalPages && number !== totalPages ? (
         <button
           onClick={() => goToPage('next')}
-          className='buttons--nextBtn activeBtn'
+          className='tv__buttons--nextBtn activeBtn'
         >
           <i className='fa-solid fa-chevron-right'></i>
         </button>
