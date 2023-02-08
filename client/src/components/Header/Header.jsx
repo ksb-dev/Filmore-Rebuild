@@ -2,16 +2,13 @@ import React, { useState, useRef, useEffect } from 'react'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { getMovies } from '../../redux/services/getMovies'
+import { resetMovies } from '../../redux/services/getMovies'
 
 // Recat router dom
 import { Link, useNavigate } from 'react-router-dom'
 
 // context
 import { useMovieContext } from '../../context/context'
-
-// hooks
-import { useShowHide } from '../../hooks/useShowHide'
 
 // data
 import { iconsData } from '../../data/icons'
@@ -27,9 +24,6 @@ const Header = () => {
     setIndex,
     movieState,
     setMovieState,
-    categoryState,
-    setCategoryState,
-    categoryRef,
     userIconRef
   } = useMovieContext()
   //const { showMenu, showForm, showLogout, hideLogout } = useShowHide()
@@ -44,10 +38,8 @@ const Header = () => {
     setMovieState(true)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
-    //setQuery('')
     setIndex(0)
-    dispatch(reset({ movies, sortValue: 'All' }))
-    //navigate('/')
+    dispatch(resetMovies({ movies, sortValue: 'All' }))
   }
 
   const handleMovieState = val => {
