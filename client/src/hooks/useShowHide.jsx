@@ -4,12 +4,14 @@ export const useShowHide = () => {
     ref1.current.style.transform = 'rotate(180deg)'
     ref1.current.style.transition = 'all 0.3s ease'
     ref2.current.style.opacity = '1'
+    ref2.current.style.zIndex = '3'
   }
 
   const hideSort = (ref1, ref2) => {
     ref1.current.style.transform = 'rotate(0deg)'
     ref1.current.style.transition = 'all 0.3s ease'
     ref2.current.style.opacity = '0'
+    ref2.current.style.zIndex = '-1'
   }
 
   const showForm = (ref1, ref2) => {
