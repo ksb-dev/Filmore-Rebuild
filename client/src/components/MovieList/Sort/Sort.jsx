@@ -28,11 +28,13 @@ const Sort = () => {
   const openRef = useRef(null)
   const closeRef = useRef(null)
 
-  // Detect outside click of Filter Menu
+  // Toggle sort & Detect outside click of sort component
   useEffect(() => {
-    const closeSort = e => {
+    const toggleSort = e => {
       if (!sortRef.current.contains(e.target)) {
         setOpen(false)
+      } else {
+        setOpen(!open)
       }
     }
 
@@ -42,23 +44,12 @@ const Sort = () => {
       hideSort(btnRef, closeRef)
     }
 
-    document.body.addEventListener('click', closeSort)
+    document.body.addEventListener('click', toggleSort)
 
     return () => {
-      document.body.removeEventListener('click', closeSort)
+      document.body.removeEventListener('click', toggleSort)
     }
   }, [open])
-
-  // Toggleort
-  const toggleMenu = () => {
-    setOpen(!open)
-
-    if (open) {
-      showSort(btnRef, closeRef)
-    } else {
-      hideSort(btnRef, closeRef)
-    }
-  }
 
   return (
     <div ref={sortRef} className='sort'>
@@ -68,7 +59,6 @@ const Sort = () => {
           'sort__open ' +
           (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
         }
-        onClick={toggleMenu}
       >
         <span>{sortState}</span>
 
@@ -88,7 +78,6 @@ const Sort = () => {
             }
             onClick={() => {
               sortMovies(sort.id)
-              toggleMenu()
               setIndex(0)
             }}
             key={index}

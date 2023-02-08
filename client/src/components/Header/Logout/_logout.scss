@@ -1,7 +1,7 @@
 .logout {
   position: absolute;
-  top: 3rem;
-  right: 5.5rem;
+  top: 2.5rem;
+  right: -1.5rem;
 
   transition: var(--transition);
   min-width: 100px;
@@ -35,6 +35,14 @@
   span:last-child:hover {
     filter: brightness(80%);
     transition: var(--transition);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .logout {
+    position: absolute;
+    //top: -5.3rem;
+    right: 0.5rem;
   }
 }
 

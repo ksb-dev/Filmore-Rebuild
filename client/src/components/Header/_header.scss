@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
 
-  background: #000;
+  background: #111;
   color: #fff;
 
   &__options {
@@ -27,15 +27,12 @@
       .title {
         position: relative;
         text-decoration: none;
-        background: #000;
-        color: var(--red);
+        // background: #000;
+        color: #fff;
         margin-right: 1rem;
-
-        //span {
         cursor: pointer;
         font-weight: var(--font-weight-2);
         font-size: 2rem;
-        //}
 
         &__part--1 {
           margin-right: 0rem;
@@ -46,14 +43,14 @@
         }
 
         &__icon {
-          color: var(--white-1);
+          color: var(--red);
           position: absolute;
           bottom: -0.5rem;
         }
       }
 
       .title:hover {
-        color: #fff;
+        color: var(--red);
         transition: var(--transition);
       }
 
@@ -68,13 +65,14 @@
 
       .movie,
       .tv {
+        font-weight: 500;
         cursor: pointer;
         display: flex;
         align-items: center;
       }
 
       .movie {
-        margin-right: 2rem;
+        margin-right: 1rem;
       }
     }
 
@@ -84,29 +82,47 @@
       justify-content: center;
 
       .mode-icon,
-      .search-icon,
-      .user-icon,
-      .close-icon {
+      .search-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
         border-radius: var(--border-radius-1);
-        margin: 0.5rem 1rem;
+        padding: 0.5rem 1rem;
         cursor: pointer;
-        margin-left: 2rem;
-        background: #000;
+        margin-left: 1rem;
+        background: #111;
         color: #fff;
       }
 
-      .user-icon,
-      .close-icon {
-        margin-right: 0;
+      .user {
+        position: relative;
+        .user-icon,
+        .close-icon,
+        .login-icon {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          border-radius: var(--border-radius-1);
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+          margin-left: 1rem;
+          background: #111;
+          color: #fff;
+        }
+
+        .user-icon,
+        .close-icon,
+        .login-icon {
+          margin-right: 0;
+        }
       }
 
       .mode-icon:hover,
       .search-icon:hover,
-      .user-icon:hover {
-        color: var(--gold);
+      .user-icon:hover,
+      .close-icon:hover,
+      .login-icon:hover {
+        filter: brightness(80%);
         transition: var(--transition);
       }
     }
@@ -114,7 +130,7 @@
 }
 
 .activeMovie {
-  color: var(--gold);
-  //font-size: 1.5rem;
-  //font-weight: var(--font-weight-4);
+  color: var(--red);
+  //font-size: 1.2rem;
+  //font-weight: var(--font-weight-2);
 }

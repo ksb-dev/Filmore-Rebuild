@@ -25,9 +25,6 @@ const Header = () => {
     mode,
     setMode,
     logoutState,
-    setLogoutState,
-    logoutRef,
-    logoutInnerRef,
     setIndex,
     movieState,
     setMovieState,
@@ -36,7 +33,7 @@ const Header = () => {
     categoryRef,
     userIconRef
   } = useMovieContext()
-  const { showMenu, showForm, showLogout, hideLogout } = useShowHide()
+  //const { showMenu, showForm, showLogout, hideLogout } = useShowHide()
   const movies = useSelector(state => state.movies.movies)
   const user = useSelector(state => state.watchlist.user)
   const dispatch = useDispatch()
@@ -63,17 +60,6 @@ const Header = () => {
     }
   }, [])
 
-  // Toggle Logout
-  const toggleLogout = () => {
-    setLogoutState(!logoutState)
-
-    if (logoutState) {
-      hideLogout(logoutRef)
-    } else {
-      showLogout(logoutRef)
-    }
-  }
-
   // Title Click
   const handleTitleClick = () => {
     setMovieState(true)
@@ -99,12 +85,21 @@ const Header = () => {
   }
 
   return (
-    <div className='header '>
+    <div
+      className={
+        'header '
+        // +
+        // (mode === true ? 'lightBg2 darkColor2' : 'darkBg1 lightColor1')
+      }
+    >
       <div className='header__options'>
         <div className='header__options__one'>
           <Link
             to='/'
-            className='title '
+            className={
+              'title '
+              //+ (mode === true ? 'darkColor2' : 'lightColor1')
+            }
             onClick={() => {
               handleTitleClick()
             }}
@@ -126,7 +121,6 @@ const Header = () => {
               onClick={() => handleMovieState('movie')}
             >
               {iconsData.movie} Movies
-              <Categories />
             </div>
 
             <div
@@ -139,44 +133,75 @@ const Header = () => {
         )}
 
         <div className='header__options__two'>
-          <span onClick={() => setMode(!mode)} className='mode-icon '>
+          <span
+            onClick={() => setMode(!mode)}
+            className={
+              'mode-icon '
+              // +
+              // (mode === true ? 'lightBg2 darkColor2' : 'darkBg1 lightColor1')
+            }
+          >
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
 
-          <Link to='/search' className='search-icon '>
+          <Link
+            to='/search'
+            className={
+              'search-icon '
+              // +
+              // (mode === true ? 'lightBg2 darkColor2' : 'darkBg1 lightColor1')
+            }
+          >
             {iconsData.searchIcon}
           </Link>
 
-          {user ? (
-            logoutState ? (
-              <span
-                ref={userIconRef}
-                to='#'
-                className='user-icon '
-                onClick={() => toggleLogout()}
-              >
-                {iconsData.close}
-              </span>
+          <div ref={userIconRef} className='user'>
+            {user ? (
+              logoutState ? (
+                <div
+                  to='#'
+                  className={
+                    'close-icon '
+                    // +
+                    // (mode === true
+                    //   ? 'lightBg2 darkColor2'
+                    //   : 'darkBg1 lightColor1')
+                  }
+                >
+                  {iconsData.close}
+                </div>
+              ) : (
+                <div
+                  to='#'
+                  className={
+                    'user-icon '
+                    // +
+                    // (mode === true
+                    //   ? 'lightBg2 darkColor2'
+                    //   : 'darkBg1 lightColor1')
+                  }
+                >
+                  {iconsData.user}
+                </div>
+              )
             ) : (
-              <span
-                //ref={userIconRef}
-                to='#'
-                className='close-icon '
-                onClick={() => toggleLogout()}
+              <Link
+                to='/login'
+                className={
+                  'login-icon '
+
+                  // +(mode === true
+                  //   ? 'lightBg2 darkColor2'
+                  //   : 'darkBg1 lightColor1')
+                }
               >
-                {iconsData.user}
-              </span>
-            )
-          ) : (
-            <Link to='/login' className='user-icon '>
-              {iconsData.login}
-            </Link>
-          )}
+                {iconsData.login}
+              </Link>
+            )}
+            <Logout />
+          </div>
         </div>
       </div>
-
-      {/* Logout Component */}
-      <Logout />
     </div>
   )
 }

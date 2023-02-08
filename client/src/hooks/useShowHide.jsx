@@ -1,4 +1,5 @@
 export const useShowHide = () => {
+  // Toggle sort component
   const showSort = (ref1, ref2) => {
     ref1.current.style.transform = 'rotate(180deg)'
     ref1.current.style.transition = 'all 0.3s ease'
@@ -41,18 +42,15 @@ export const useShowHide = () => {
     ref2.current.style.transform = 'translateX(-100%)'
   }
 
+  // Toggle logout components
   const showLogout = logoutRef => {
-    if (logoutRef.current !== null) {
-      logoutRef.current.style.opacity = '1'
-      logoutRef.current.style.zIndex = '5'
-    }
+    logoutRef.current.style.opacity = '1'
+    logoutRef.current.style.zIndex = '5'
   }
 
   const hideLogout = logoutRef => {
-    if (logoutRef.current !== null) {
-      logoutRef.current.style.opacity = '0'
-      logoutRef.current.style.zIndex = '-1'
-    }
+    logoutRef.current.style.opacity = '0'
+    logoutRef.current.style.zIndex = '-1'
   }
 
   const showPlayer = (ref1, ref2) => {
