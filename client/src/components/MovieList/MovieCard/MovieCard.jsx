@@ -123,7 +123,6 @@ const MovieCard = ({ movie }) => {
                 key={index}
                 ref={addBtnRef}
                 className='card__delete__btn '
-                style={{ color: 'var(--gold)' }}
                 onClick={() => deleteMovie(id)}
               >
                 <span

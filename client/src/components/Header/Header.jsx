@@ -89,10 +89,10 @@ const Header = () => {
               }
               onClick={() => handleMovieState('movie')}
             >
-              {iconsData.movie} Movies
+              {iconsData.movie} <span>Movies</span>
             </div>
 
-            <span></span>
+            <span className='line'></span>
 
             <div
               className={
@@ -103,7 +103,7 @@ const Header = () => {
               }
               onClick={() => handleMovieState('tv')}
             >
-              {iconsData.tv} Tv
+              {iconsData.tv} <span>Tv</span>
             </div>
           </div>
         )}
