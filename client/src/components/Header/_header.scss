@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
 
-  background: var(--primary);
   color: #fff;
 
   &__options {
@@ -27,7 +26,6 @@
       .title {
         position: relative;
         text-decoration: none;
-        //background: var(--red);
         color: #fff;
         margin-right: 1rem;
         cursor: pointer;
@@ -39,7 +37,7 @@
         }
 
         &__part--2 {
-          margin-left: 2.1rem;
+          margin-left: 2.4rem;
         }
 
         &__icon {
@@ -53,16 +51,6 @@
         transform: translateY(3deg);
         transition: var(--transition);
       }
-
-      // .title:hover {
-      //   color: var(--red);
-      //   transition: var(--transition);
-      // }
-
-      // .title:hover .title__icon {
-      //   color: var(--red) !important;
-      //   transition: var(--transition);
-      // }
     }
 
     &__middle {
@@ -75,7 +63,6 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        background: var(--blue);
       }
 
       .movie {
@@ -103,7 +90,6 @@
         padding: 0.5rem 1rem;
         cursor: pointer;
         margin-left: 1rem;
-        background: var(--primary);
         color: #fff;
       }
 
@@ -119,7 +105,6 @@
           padding: 0.5rem 1rem;
           cursor: pointer;
           margin-left: 1rem;
-          background: var(--primary);
           color: #fff;
         }
 
@@ -143,5 +128,5 @@
 }
 
 .activeMovie {
-  color: #000;
+  color: #000 !important;
 }

@@ -1,5 +1,6 @@
 #root {
   --primary: #1da1f2;
+  --secondary: #e50914;
   --green: #1db954;
   --gold: gold;
   --gold-1: gold;
@@ -49,6 +50,16 @@
   --font-weight-5: 900;
 
   --transition: all 0.3s ease;
+}
+
+.primaryBg {
+  background: var(--primary);
+  //color: #fff;
+}
+
+.secondaryBg {
+  background: var(--secondary);
+  //color: #fff;
 }
 
 .lightBg1 {
