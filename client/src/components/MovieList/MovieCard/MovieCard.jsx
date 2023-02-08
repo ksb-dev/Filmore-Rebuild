@@ -23,7 +23,7 @@ const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
 const MovieCard = ({ movie }) => {
   const { mode } = useMovieContext()
-  const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
+  const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
 
   const user = useSelector(state => state.savedMovies.user)
@@ -66,7 +66,7 @@ const MovieCard = ({ movie }) => {
           ref={addBtnRef}
           className='card__add__btn '
           onClick={() =>
-            addWatchlist(
+            addMovie(
               id,
               title,
               poster_path,
@@ -94,7 +94,7 @@ const MovieCard = ({ movie }) => {
                 ref={addBtnRef}
                 className='card__add__btn '
                 onClick={() =>
-                  addWatchlist(
+                  addMovie(
                     id,
                     title,
                     poster_path,
@@ -124,7 +124,7 @@ const MovieCard = ({ movie }) => {
                 ref={addBtnRef}
                 className='card__delete__btn '
                 style={{ color: 'var(--gold)' }}
-                onClick={() => deleteWatchlist(id)}
+                onClick={() => deleteMovie(id)}
               >
                 <span
                   className='card__btn--icon'

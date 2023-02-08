@@ -54,7 +54,7 @@ export const getTvShows = createAsyncThunk(
       const savedToken = sessionStorage.getItem('token')
 
       if (savedToken) {
-        const response = await axios.get(APIs.watchlist_url, {
+        const response = await axios.get(APIs.get_shows_url, {
           headers: {
             Authorization: `Bearer ${savedToken}`
           }

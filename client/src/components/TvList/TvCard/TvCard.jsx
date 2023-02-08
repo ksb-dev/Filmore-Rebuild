@@ -26,7 +26,8 @@ const TvCard = ({ tv }) => {
   const { addWatchlist, deleteWatchlist } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
 
-  //const watchlist = useSelector(state => state.watchlist.watchlist)
+  const user = useSelector(state => state.savedShows.user)
+  const savedMovies = useSelector(state => state.savedShows.savedMovies)
 
   const ratingTitleDateRef = useRef(null)
   const addBtnRef = useRef(null)

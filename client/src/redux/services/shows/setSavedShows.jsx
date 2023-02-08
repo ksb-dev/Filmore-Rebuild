@@ -21,7 +21,7 @@ export const setSavedMovies = createAsyncThunk(
     let response = ''
 
     if (savedToken) {
-      response = await axios.get(APIs.get_movies_url, {
+      response = await axios.get(APIs.get_shows_url, {
         headers: {
           Authorization: `Bearer ${savedToken}`
         }

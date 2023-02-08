@@ -16,7 +16,7 @@ export const useWatchlistOperations = () => {
   const dispatch = useDispatch()
 
   // Add Watchlist
-  const addWatchlist = async (
+  const addMovie = async (
     id,
     title,
     poster_path,
@@ -66,7 +66,7 @@ export const useWatchlistOperations = () => {
   }
 
   // Delete Watchlist
-  const deleteWatchlist = async id => {
+  const deleteMovie = async id => {
     const token = sessionStorage.getItem('token')
 
     setError(null)
@@ -100,5 +100,5 @@ export const useWatchlistOperations = () => {
     }
   }
 
-  return { addWatchlist, deleteWatchlist, isPending, error }
+  return { addMovie, deleteMovie, isPending, error }
 }
