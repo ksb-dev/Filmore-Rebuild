@@ -30,7 +30,7 @@ const Logout = () => {
       }
     }
 
-    if (logoutState) {
+    if (user && logoutState) {
       showLogout(logoutRef)
     } else {
       hideLogout(logoutRef)
@@ -41,7 +41,7 @@ const Logout = () => {
     return () => {
       document.body.removeEventListener('click', toggleLogout)
     }
-  }, [logoutState])
+  }, [logoutState, user])
 
   const handleLogout = () => {
     hideLogout(logoutRef)

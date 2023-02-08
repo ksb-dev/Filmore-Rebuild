@@ -85,11 +85,16 @@ const Login = () => {
           {/* Button */}
 
           {isPending ? (
-            <button>
+            <button className={mode === true ? 'primaryBg' : 'secondaryBg'}>
               <LoadingOne />
             </button>
           ) : (
-            <button onSubmit={handleSubmit}>Submit</button>
+            <button
+              className={mode === true ? 'primaryBg' : 'secondaryBg'}
+              onSubmit={handleSubmit}
+            >
+              Submit
+            </button>
           )}
 
           {/* Options */}
