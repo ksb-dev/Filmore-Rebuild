@@ -127,7 +127,7 @@
       .user-icon:hover,
       .close-icon:hover,
       .login-icon:hover {
-        color: var(--red);
+        //color: var(--red);
         //filter: brightness(80%);
         transition: var(--transition);
       }
@@ -139,7 +139,7 @@
   //color: #000 !important;
   background: var(--red);
   color: #fff;
-  user-select: none;
+  //user-select: none;
   pointer-events: none;
 }
 

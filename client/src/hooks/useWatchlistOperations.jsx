@@ -6,8 +6,10 @@ import { APIs } from '../APIs/APIs'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
 import { getMovies } from '../redux/services/movies/getMovies'
+import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
+import { getTvShows } from '../redux/services/shows/getTvShows'
+import { setSavedShows } from '../redux/services/shows/setSavedShows'
 
 export const useWatchlistOperations = () => {
   const [error, setError] = useState(null)
@@ -15,7 +17,7 @@ export const useWatchlistOperations = () => {
 
   const dispatch = useDispatch()
 
-  // Add Watchlist
+  // Add movie
   const addMovie = async (
     id,
     title,
@@ -37,6 +39,7 @@ export const useWatchlistOperations = () => {
         {
           movie_data: {
             id,
+            type: 'movie',
             title,
             poster_path,
             backdrop_path,
@@ -65,7 +68,7 @@ export const useWatchlistOperations = () => {
     }
   }
 
-  // Delete Watchlist
+  // Delete movie
   const deleteMovie = async id => {
     const token = sessionStorage.getItem('token')
 
@@ -100,14 +103,14 @@ export const useWatchlistOperations = () => {
     }
   }
 
-  // Add Watchlist
+  // Add movie
   const addShow = async (
     id,
     name,
     poster_path,
     backdrop_path,
-    release_date,
     first_air_date,
+    vote_average,
     genre_ids,
     overview
   ) => {
@@ -120,13 +123,14 @@ export const useWatchlistOperations = () => {
       const response = await axios.post(
         APIs.add_show_url,
         {
-          movie_data: {
+          show_data: {
             id,
+            type: 'tv',
             name,
             poster_path,
             backdrop_path,
-            vote_average,
             first_air_date,
+            vote_average,
             genre_ids,
             overview
           }
@@ -142,15 +146,16 @@ export const useWatchlistOperations = () => {
         setError(null)
         setIsPending(false)
 
-        dispatch(setSavedMovies())
+        dispatch(setSavedShows())
       }
     } catch (error) {
+      console.log(error)
       setIsPending(false)
       setError('Failed to add to watchlist.')
     }
   }
 
-  // Delete Watchlist
+  // Delete movie
   const deleteShow = async id => {
     const token = sessionStorage.getItem('token')
 
@@ -172,11 +177,11 @@ export const useWatchlistOperations = () => {
         setError(null)
         setIsPending(false)
 
-        dispatch(setSavedMovies())
+        dispatch(setSavedShows())
 
         if (window.location.pathname === '/watchlist') {
           console.log(true)
-          dispatch(getMovies('watchlist'))
+          dispatch(getTvShows('watchlist'))
         }
       }
     } catch (error) {

@@ -9,6 +9,6 @@ export default configureStore({
     movies: movieReducer,
     savedMovies: savedMoviesReducer,
     tvShows: tvReducer,
-    savedShows: savedMoviesReducer
+    savedShows: savedShowsReducer
   }
 })

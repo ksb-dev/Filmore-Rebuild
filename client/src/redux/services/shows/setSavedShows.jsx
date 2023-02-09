@@ -5,7 +5,7 @@ import axios from 'axios'
 import { APIs } from '../../../APIs/APIs'
 
 const initialState = {
-  savedMovies: [],
+  savedShows: [],
   loading: false,
   error: {
     msg: '',
@@ -14,8 +14,8 @@ const initialState = {
   user: ''
 }
 
-export const setSavedMovies = createAsyncThunk(
-  'savedMovies/setSavedMovies',
+export const setSavedShows = createAsyncThunk(
+  'savedShows/setSavedShows',
   async () => {
     const savedToken = sessionStorage.getItem('token')
     let response = ''
@@ -27,31 +27,31 @@ export const setSavedMovies = createAsyncThunk(
         }
       })
     }
-    return response.data.movies
+    return response.data.shows
   }
 )
 
-export const modeSlice = createSlice({
-  name: 'savedMovies',
+export const showSlice = createSlice({
+  name: 'savedShows',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(setSavedMovies.pending, state => {
+      .addCase(setSavedShows.pending, state => {
         state.loading = true
         state.error.msg = ''
         state.error.isError = false
       })
-      .addCase(setSavedMovies.fulfilled, (state, action) => {
+      .addCase(setSavedShows.fulfilled, (state, action) => {
         state.loading = false
         state.error.msg = ''
         state.error.isError = false
-        state.savedMovies = action.payload
+        state.savedShows = action.payload
 
         state.user = sessionStorage.getItem('name')
       })
-      .addCase(setSavedMovies.rejected, state => {
-        state.savedMovies = []
+      .addCase(setSavedShows.rejected, state => {
+        state.savedShows = []
         state.loading = false
         state.error.isError = true
         state.error.msg = 'Failed to fetch Wishlists'
@@ -61,4 +61,4 @@ export const modeSlice = createSlice({
   }
 })
 
-export default modeSlice.reducer
+export default showSlice.reducer

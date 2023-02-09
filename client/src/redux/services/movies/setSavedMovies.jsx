@@ -31,7 +31,7 @@ export const setSavedMovies = createAsyncThunk(
   }
 )
 
-export const modeSlice = createSlice({
+export const movieSlice = createSlice({
   name: 'savedMovies',
   initialState,
   reducers: {},
@@ -61,4 +61,4 @@ export const modeSlice = createSlice({
   }
 })
 
-export default modeSlice.reducer
+export default movieSlice.reducer

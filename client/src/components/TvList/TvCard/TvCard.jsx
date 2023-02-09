@@ -27,13 +27,13 @@ const TvCard = ({ tv }) => {
   const { getClassBg } = useGetClassByVote()
 
   const user = useSelector(state => state.savedShows.user)
-  const savedMovies = useSelector(state => state.savedShows.savedMovies)
+  const savedShows = useSelector(state => state.savedShows.savedShows)
+
+  //console.log(savedShows)
 
   const ratingTitleDateRef = useRef(null)
 
   const navigate = useNavigate()
-
-  const [bookmark, setBookmark] = useState(false)
 
   const {
     name,
@@ -45,18 +45,6 @@ const TvCard = ({ tv }) => {
     genre_ids,
     overview
   } = tv
-
-  // useEffect(() => {
-  //   if (watchlist && watchlist.length > 0) {
-  //     for (let i = 0; i < (watchlist && watchlist.length); i++) {
-  //       if (watchlist[i].id === id) {
-  //         setBookmark(true)
-  //       }
-  //     }
-  //   }
-
-  //   if (watchlist && watchlist.length === 0) setBookmark(false)
-  // }, [watchlist, id])
 
   const show = () => {
     ratingTitleDateRef.current.style.opacity = '1'
@@ -74,19 +62,17 @@ const TvCard = ({ tv }) => {
         alt={name}
       />
 
-      {/* {sessionStorage.getItem('name') !== null && bookmark === false && (
+      {user && savedShows && savedShows.length === 0 && (
         <p
-      
           className='card__add__btn '
           onClick={() =>
-            addWatchlist(
+            addShow(
               id,
-              title,
+              name,
               poster_path,
               backdrop_path,
-              release_date,
+              first_air_date,
               vote_average,
-              setBookmark,
               genre_ids,
               overview
             )
@@ -96,30 +82,64 @@ const TvCard = ({ tv }) => {
         </p>
       )}
 
-     
-      {sessionStorage.getItem('name') !== null && bookmark === true && (
-        <p
-          
-          className='card__delete__btn '
-          style={{ color: 'var(--red)' }}
-          onClick={() => deleteWatchlist(id, setBookmark)}
-        >
-          <span className='card__btn--icon' style={{ color: 'var(--red)' }}>
-            {iconsData.star}
-          </span>
-        </p>
-      )}
+      {/* ADD-BUTTON */}
+      {user &&
+        savedShows &&
+        savedShows.length > 0 &&
+        savedShows.map((item, index) => {
+          if (item.id !== id) {
+            return (
+              <p
+                key={index}
+                className='card__add__btn '
+                onClick={() =>
+                  addShow(
+                    id,
+                    name,
+                    poster_path,
+                    backdrop_path,
+                    first_air_date,
+                    vote_average,
+                    genre_ids,
+                    overview
+                  )
+                }
+              >
+                <span className='card__btn--icon'>{iconsData.star}</span>
+              </p>
+            )
+          }
+        })}
 
-      
+      {/* DELETE-BUTTON */}
+      {user &&
+        savedShows &&
+        savedShows.length > 0 &&
+        savedShows.map((item, index) => {
+          if (item.id === id) {
+            return (
+              <p
+                key={index}
+                className='card__delete__btn '
+                onClick={() => deleteShow(id)}
+              >
+                <span
+                  className='card__btn--icon'
+                  style={{ color: 'var(--gold)' }}
+                >
+                  {iconsData.star}
+                </span>
+              </p>
+            )
+          }
+        })}
+
+      {/* ADD-BUTTON (without user) */}
       {sessionStorage.getItem('name') === null && (
-        <p
-          
-          className='card__btn '
-          onClick={() => navigate('/login')}
-        >
+        <p className='card__btn ' onClick={() => navigate('/login')}>
           <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
-      )} */}
+      )}
 
       {/* CARD-INFO */}
       <div

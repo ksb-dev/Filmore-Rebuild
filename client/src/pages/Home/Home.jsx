@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { getMovies } from '../../redux/services/movies/getMovies'
 import { getTvShows } from '../../redux/services/shows/getTvShows'
 import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
+import { setSavedShows } from '../../redux/services/shows/setSavedShows'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -15,7 +16,7 @@ import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
 const Home = () => {
-  const { mode, movieState, setMovieState } = useMovieContext()
+  const { mode, movieState } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Home = () => {
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
-      dispatch(setSavedMovies())
+      movieState ? dispatch(setSavedMovies()) : dispatch(setSavedShows())
     }
 
     movieState

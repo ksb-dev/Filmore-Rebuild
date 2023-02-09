@@ -3,7 +3,7 @@ export const APIs = {
     import.meta.env.VITE_KEY
   }&language=en-US&sort_by=popularity.desc`,
 
-  upcoming_movies_url: `https://api.themoviedb.org/3/movie/upcoming?api_key=${
+  playing_movies_url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${
     import.meta.env.VITE_KEY
   }&language=en-US`,
 
@@ -20,6 +20,10 @@ export const APIs = {
   }&language=en-US`,
 
   onAir_tv_url: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${
+    import.meta.env.VITE_KEY
+  }&language=en-US`,
+
+  latest_tv_url: `https://api.themoviedb.org/3/tv/latest?api_key=${
     import.meta.env.VITE_KEY
   }&language=en-US`,
 

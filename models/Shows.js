@@ -6,6 +6,10 @@ const ShowSchema = new mongoose.Schema(
       type: Number
     },
 
+    type: {
+      type: String
+    },
+
     name: {
       type: String
     },
@@ -18,11 +22,11 @@ const ShowSchema = new mongoose.Schema(
       type: String
     },
 
-    first_air_date: {
+    vote_average: {
       type: Number
     },
 
-    release_date: {
+    first_air_date: {
       type: String
     },
 

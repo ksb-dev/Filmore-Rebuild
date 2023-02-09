@@ -16,6 +16,7 @@ const authenticateUser = require('./middleware/authenticateUser')
 // Routers
 const authRouter = require('./routes/authRouter')
 const moviesRouter = require('./routes/moviesRouter')
+const showsRouter = require('./routes/showsRouter')
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found')
@@ -26,6 +27,7 @@ app.use(express.json())
 // routes
 app.use('/api/v1/filmora/auth', authRouter)
 app.use('/api/v1/filmora/movies', authenticateUser, moviesRouter)
+app.use('/api/v1/filmora/shows', authenticateUser, showsRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client', 'dist')))

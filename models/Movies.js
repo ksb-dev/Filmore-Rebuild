@@ -6,6 +6,10 @@ const MovieSchema = new mongoose.Schema(
       type: Number
     },
 
+    type: {
+      type: String
+    },
+
     title: {
       type: String
     },
