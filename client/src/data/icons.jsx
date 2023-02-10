@@ -10,7 +10,7 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineMonitor
 } from 'react-icons/md'
-import { GiHamburgerMenu } from 'react-icons/gi'
+import { TfiMenu } from 'react-icons/tfi'
 import { ImFilm } from 'react-icons/im'
 import { RiStarFill } from 'react-icons/ri'
 
@@ -35,5 +35,5 @@ export const iconsData = {
   star: <RiStarFill size={'20px'} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
   prev: <MdOutlineArrowBackIosNew size={'20px'} />,
-  menu: <GiHamburgerMenu size={'20px'} />
+  menu: <TfiMenu size={'20px'} />
 }

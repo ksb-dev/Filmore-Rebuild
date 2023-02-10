@@ -83,12 +83,7 @@ const Header = () => {
           <div className='header__options__middle'>
             <div
               ref={moviesRef}
-              className={
-                'movie ' + (movieState && 'activeMovie')
-                // +
-                // (mode === true ? 'primaryBg ' : 'secondaryBg ') +
-                // (movieState && 'activeMovie')
-              }
+              className={'movie ' + (movieState && 'activeMovie')}
               onClick={() => handleMovieState('movie')}
             >
               {iconsData.movie} <span>Movies</span>
@@ -97,12 +92,7 @@ const Header = () => {
             <span className='line'></span>
 
             <div
-              className={
-                'tv ' + (!movieState && 'activeMovie')
-                // +
-                // (mode === true ? 'primaryBg ' : 'secondaryBg ') +
-                // (!movieState && 'activeMovie')
-              }
+              className={'tv ' + (!movieState && 'activeMovie')}
               onClick={() => handleMovieState('tv')}
             >
               {iconsData.tv} <span>Tv</span>
@@ -111,67 +101,46 @@ const Header = () => {
         )}
 
         <div className='header__options__two'>
-          <span
-            onClick={() => setMode(!mode)}
-            className={
-              'mode-icon '
-              //+ (mode === true ? 'primaryBg' : 'secondaryBg')
-            }
-          >
+          {window.location.pathname === '/login' ||
+          window.location.pathname === '/register' ? (
+            <></>
+          ) : (
+            <span ref={menuIconRef} className='menu-icon'>
+              {iconsData.menu}
+            </span>
+          )}
+
+          <span onClick={() => setMode(!mode)} className={'mode-icon '}>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
 
-          <Link
-            to='/search'
-            className={
-              'search-icon '
-              //+ (mode === true ? 'primaryBg' : 'secondaryBg')
-            }
-          >
-            {iconsData.searchIcon}
-          </Link>
+          {window.location.pathname === '/login' ||
+          window.location.pathname === '/register' ? (
+            <></>
+          ) : (
+            <Link to='/search' className={'search-icon '}>
+              {iconsData.searchIcon}
+            </Link>
+          )}
 
           <div ref={userIconRef} className='user'>
             {user ? (
               logoutState ? (
-                <div
-                  to='#'
-                  className={
-                    'close-icon '
-                    // +
-                    // (mode === true ? 'primaryBg' : 'secondaryBg')
-                  }
-                >
+                <div to='#' className={'close-icon '}>
                   {iconsData.close}
                 </div>
               ) : (
-                <div
-                  to='#'
-                  className={
-                    'user-icon '
-                    //+ (mode === true ? 'primaryBg' : 'secondaryBg')
-                  }
-                >
+                <div to='#' className={'user-icon '}>
                   {iconsData.user}
                 </div>
               )
             ) : (
-              <Link
-                to='/login'
-                className={
-                  'login-icon '
-                  //+ (mode === true ? 'primaryBg' : 'secondaryBg')
-                }
-              >
+              <Link to='/login' className={'login-icon '}>
                 {iconsData.login}
               </Link>
             )}
             <Logout />
           </div>
-
-          <span ref={menuIconRef} className='menu-icon'>
-            {iconsData.menu}
-          </span>
         </div>
       </div>
     </div>
