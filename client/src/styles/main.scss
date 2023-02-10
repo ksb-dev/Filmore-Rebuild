@@ -19,7 +19,9 @@
   --white-2: rgb(220, 220, 220);
 
   --dark-1: #393e46;
+  --dark-1: #555555;
   --dark-2: #222831;
+  --dark-2: #222222;
 
   --whiteAlpha-1: rgba(255, 255, 255, 0.5);
   --whiteAlpha-2: rgba(220, 220, 220, 0.5);
@@ -267,6 +269,7 @@ body {
 @import '../components/TvList/tvList';
 @import '../components/TvList/TvCard/tvCard';
 @import '../components/TvList/Pagination/pagination';
+@import '../components/Menu/menu';
 
 // pages
 @import '../pages/Home/home';

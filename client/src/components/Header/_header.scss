@@ -89,7 +89,8 @@
       justify-content: center;
 
       .mode-icon,
-      .search-icon {
+      .search-icon,
+      .menu-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -126,8 +127,9 @@
       .search-icon:hover,
       .user-icon:hover,
       .close-icon:hover,
-      .login-icon:hover {
-        //color: var(--red);
+      .login-icon:hover,
+      .menu-icon:hover {
+        color: var(--red);
         //filter: brightness(80%);
         transition: var(--transition);
       }

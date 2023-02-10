@@ -30,9 +30,9 @@ export const getTvShows = createAsyncThunk(
 
     if (category === 'popular') {
       if (page === 1) {
-        data = await fetch(APIs.popular_tv_url)
+        data = await fetch(APIs.topRated_tv_url)
       } else {
-        data = await fetch(APIs.popular_tv_url + `&page=${page}`)
+        data = await fetch(APIs.topRated_tv_url + `&page=${page}`)
       }
     } else if (category === 'air') {
       if (page === 1) {

@@ -12,6 +12,7 @@ import { useMovieContext } from '../../context/context'
 
 // components
 import Header from '../../components/Header/Header'
+import Menu from '../../components/Menu/Menu'
 import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
@@ -44,6 +45,7 @@ const Home = () => {
       }
     >
       <Header />
+      <Menu />
       {movieState ? <MovieList /> : <TvList />}
     </div>
   )

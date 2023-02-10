@@ -15,6 +15,7 @@ import { iconsData } from '../../data/icons'
 
 // components
 import Logout from './Logout/Logout'
+import { APIs } from '../../APIs/APIs'
 
 const Header = () => {
   const {
@@ -24,7 +25,8 @@ const Header = () => {
     setIndex,
     movieState,
     setMovieState,
-    userIconRef
+    userIconRef,
+    menuIconRef
   } = useMovieContext()
   //const { showMenu, showForm, showLogout, hideLogout } = useShowHide()
   const movies = useSelector(state => state.movies.movies)
@@ -166,6 +168,10 @@ const Header = () => {
             )}
             <Logout />
           </div>
+
+          <span ref={menuIconRef} className='menu-icon'>
+            {iconsData.menu}
+          </span>
         </div>
       </div>
     </div>

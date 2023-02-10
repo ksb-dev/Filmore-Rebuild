@@ -31,17 +31,11 @@ export const useShowHide = () => {
   }
 
   const showMenu = (ref1, ref2) => {
-    ref1.current.style.transition = 'all 0s ease'
-    ref1.current.style.opacity = '1'
-    ref1.current.style.zIndex = '4'
-    ref2.current.style.transform = 'translateX(0%)'
+    ref1.current.style.transform = 'translateY(0%)'
   }
 
   const hideMenu = (ref1, ref2) => {
-    ref1.current.style.transition = 'all 0.3s ease'
-    ref1.current.style.opacity = '0'
-    ref1.current.style.zIndex = '-1'
-    ref2.current.style.transform = 'translateX(-100%)'
+    ref1.current.style.transform = 'translateY(-120%)'
   }
 
   // Toggle logout components

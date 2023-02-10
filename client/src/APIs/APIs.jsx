@@ -11,6 +11,10 @@ export const APIs = {
     import.meta.env.VITE_KEY
   }&language=en-US`,
 
+  genre_movies_url: `https://api.themoviedb.org/3/discover/movie?api_key=${
+    import.meta.env.VITE_KEY
+  }with_genres=28&page=1`,
+
   popular_tv_url: `https://api.themoviedb.org/3/tv/popular?api_key=${
     import.meta.env.VITE_KEY
   }&language=en-US`,
