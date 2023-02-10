@@ -1,27 +1,31 @@
 .menu {
   position: fixed;
-  max-width: 1280px;
   width: 100%;
   min-height: 100vh;
   z-index: 4;
-  top: 0rem;
-  //left: 15%;
+  top: 0;
+  left: 0;
+  right: 0;
 
   display: flex;
+  align-items: center;
   flex-direction: column;
-
-  color: #fff;
   transform: translateY(-120%);
   transition: var(--transition);
 
   &__inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1280px;
+    width: 100%;
+    margin-left: 8px;
+
     .title-close {
-      background: #111;
-      padding-top: 1rem;
-      width: 100%;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
 
       .title {
         text-align: center;
@@ -30,7 +34,6 @@
         color: var(--red);
         font-weight: var(--font-weight-2);
         font-size: 2rem;
-        padding: 0.5rem 1rem;
 
         &__part--1 {
           margin-right: 0rem;
@@ -41,9 +44,8 @@
         }
 
         &__icon {
-          color: #fff;
           position: absolute;
-          bottom: 0rem;
+          bottom: -0.5rem;
         }
       }
 
@@ -65,29 +67,37 @@
           transform: translate(-50%, -50%);
         }
       }
+
+      .close-icon:hover {
+        filter: brightness(80%);
+        transition: var(--transition);
+      }
+    }
+
+    .genre-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding-left: 2rem;
     }
 
     &__genre {
-      padding: 1rem 0 1rem 0;
-      background: #111;
+      padding: 1rem 1rem 1rem 2rem;
       position: relative;
       margin-bottom: 1rem;
-      width: 100%;
       display: flex;
       justify-content: center;
       // height: calc(100vh - 120.4px);
       // overflow-y: scroll;
 
       &__inner {
-        width: 70%;
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 0rem;
 
         span {
           height: min-content;
           font-size: 0.9rem;
-          background: #000;
           padding: 0.5rem 1rem;
           margin-right: 1rem;
           margin-bottom: 1rem;
@@ -96,7 +106,7 @@
         }
 
         span:hover {
-          color: var(--red);
+          letter-spacing: 2px;
           transition: var(--transition);
         }
       }

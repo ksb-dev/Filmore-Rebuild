@@ -13,7 +13,9 @@ export const APIs = {
 
   genre_movies_url: `https://api.themoviedb.org/3/discover/movie?api_key=${
     import.meta.env.VITE_KEY
-  }with_genres=28&page=1`,
+  }`,
+
+  //https://api.themoviedb.org/3/discover/movie?with_genres=28&page=2&api_key=732dfe94c237f44327af913ebba97825
 
   popular_tv_url: `https://api.themoviedb.org/3/tv/popular?api_key=${
     import.meta.env.VITE_KEY

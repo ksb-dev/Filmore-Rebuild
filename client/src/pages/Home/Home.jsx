@@ -33,9 +33,16 @@ const Home = () => {
       movieState ? dispatch(setSavedMovies()) : dispatch(setSavedShows())
     }
 
-    movieState
-      ? dispatch(getMovies('popular'))
-      : dispatch(getTvShows('popular'))
+    const genreId = sessionStorage.getItem('genreId')
+
+    if (movieState && genreId) {
+      dispatch(getMovies({ value: 'genre', id: genreId }))
+    } else if (!movieState && genreId) {
+    } else if (movieState) {
+      dispatch(getMovies('popular'))
+    } else {
+      dispatch(getTvShows('popular'))
+    }
   }, [dispatch, movieState])
 
   return (

@@ -46,10 +46,22 @@ export const getMovies = createAsyncThunk(
       } else {
         data = await fetch(APIs.topRated_movies_url + `&page=${page}`)
       }
+    } else if (category.value === 'genre') {
+      if (page === 1) {
+        data = await fetch(
+          APIs.genre_movies_url + `&with_genres=${category.id}`
+        )
+      } else {
+        data = await fetch(
+          APIs.genre_movies_url + `&with_genres=${category.id}&page=${page}`
+        )
+      }
     } else if (category === 'search') {
-      const term = sessionStorage.getItem('term')
-
-      data = await fetch(APIs.search__url + `&query=` + term)
+      if (page === 1) {
+        data = await fetch(APIs.topRated_movies_url)
+      } else {
+        data = await fetch(APIs.topRated_movies_url + `&page=${page}`)
+      }
     } else {
       const savedToken = sessionStorage.getItem('token')
 

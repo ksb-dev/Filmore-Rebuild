@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { resetMovies } from '../../redux/services/movies/getMovies'
+import { resetMovies, getMovies } from '../../redux/services/movies/getMovies'
 
 // Recat router dom
 import { Link, useNavigate } from 'react-router-dom'
@@ -37,35 +37,30 @@ const Header = () => {
 
   // Title Click
   const handleTitleClick = () => {
+    sessionStorage.removeItem('genreId')
     setMovieState(true)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     setIndex(0)
-    dispatch(resetMovies({ movies, sortValue: 'All' }))
+    //dispatch(resetMovies({ movies, sortValue: 'All' }))
+    dispatch(getMovies('popular'))
   }
 
   const handleMovieState = val => {
     setIndex(0)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
+    sessionStorage.removeItem('genreId')
     val === 'movie' ? setMovieState(true) : setMovieState(false)
   }
 
   return (
-    <div
-      className={
-        'header '
-        //+ (mode === true ? 'primaryBg' : 'secondaryBg')
-      }
-    >
+    <div className='header'>
       <div className='header__options'>
         <div className='header__options__one'>
           <Link
             to='/'
-            className={
-              'title '
-              //+ (mode === true ? 'darkColor2' : 'lightColor1')
-            }
+            className='title '
             onClick={() => {
               handleTitleClick()
             }}
@@ -83,7 +78,7 @@ const Header = () => {
           <div className='header__options__middle'>
             <div
               ref={moviesRef}
-              className={'movie ' + (movieState && 'activeMovie')}
+              className={'movie ' + (movieState && 'activeMovie ')}
               onClick={() => handleMovieState('movie')}
             >
               {iconsData.movie} <span>Movies</span>
@@ -110,7 +105,7 @@ const Header = () => {
             </span>
           )}
 
-          <span onClick={() => setMode(!mode)} className={'mode-icon '}>
+          <span onClick={() => setMode(!mode)} className='mode-icon'>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
 
@@ -118,7 +113,7 @@ const Header = () => {
           window.location.pathname === '/register' ? (
             <></>
           ) : (
-            <Link to='/search' className={'search-icon '}>
+            <Link to='/search' className='search-icon '>
               {iconsData.searchIcon}
             </Link>
           )}
@@ -126,16 +121,16 @@ const Header = () => {
           <div ref={userIconRef} className='user'>
             {user ? (
               logoutState ? (
-                <div to='#' className={'close-icon '}>
+                <div to='#' className='close-icon'>
                   {iconsData.close}
                 </div>
               ) : (
-                <div to='#' className={'user-icon '}>
+                <div to='#' className='user-icon'>
                   {iconsData.user}
                 </div>
               )
             ) : (
-              <Link to='/login' className={'login-icon '}>
+              <Link to='/login' className='login-icon'>
                 {iconsData.login}
               </Link>
             )}

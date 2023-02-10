@@ -22,6 +22,7 @@ export const genreArray = [
     icon1: <BiReset size={'20px'} style={{ marginRight: '0.5rem' }} />,
     id: 0,
     genre: 'All'
+    //https://api.themoviedb.org/3/discover/movie?with_genres=12&page=1&api_key=732dfe94c237f44327af913ebba97825
   },
   {
     icon: <GiPunchBlast size={'25px'} style={{ marginRight: '0.5rem' }} />,

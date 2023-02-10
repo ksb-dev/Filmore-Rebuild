@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 
+// redux
+import { useDispatch } from 'react-redux'
+import { getMovies } from '../../redux/services/movies/getMovies'
+
 // contetx
 import { useMovieContext } from '../../context/context'
 
@@ -14,6 +18,7 @@ const Menu = () => {
   const { mode, menuIconRef, menuRef, menuInnerRef, menuState, setMenuState } =
     useMovieContext()
   const { showMenu, hideMenu } = useShowHide()
+  const dispatch = useDispatch()
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
@@ -41,19 +46,38 @@ const Menu = () => {
     }
   }, [menuState])
 
+  const handleGenreClick = id => {
+    sessionStorage.setItem('page', 1)
+    dispatch(getMovies({ value: 'genre', id }))
+    sessionStorage.setItem('genreId', id)
+    setMenuState(false)
+  }
+
   return (
     <div
       ref={menuRef}
       className={
         'menu ' +
-        (mode === true ? 'lightAlpha1 darkColor1' : 'darkAlpha1 lightColor1')
+        (mode === true ? 'lightAlpha2 darkColor1' : 'darkAlpha1 lightColor1')
       }
     >
-      <div className='menu__inner' ref={menuInnerRef}>
-        <div className='title-close'>
+      <div
+        className={
+          'menu__inner ' +
+          (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+        }
+        ref={menuInnerRef}
+      >
+        <div className='title-close '>
           <div className='title'>
             <span className='title__part--1'>Film</span>
-            <span className='title__icon'>{iconsData.film}</span>
+            <span
+              className={
+                'title__icon ' + (mode === true ? 'darkColor1' : 'lightColor1')
+              }
+            >
+              {iconsData.film}
+            </span>
             <span className='title__part--2'>ra</span>
           </div>
           <p className='close-icon' onClick={() => setMenuState(false)}>
@@ -63,10 +87,16 @@ const Menu = () => {
           </p>
         </div>
 
-        <div className='menu__inner__genre'>
+        <span className='genre-title'>Select genre</span>
+
+        <div className='menu__inner__genre '>
           <div className='menu__inner__genre__inner'>
             {genreArray.map(item => (
-              <span key={item.id}>
+              <span
+                onClick={() => handleGenreClick(item.id)}
+                key={item.id}
+                className={mode === true ? 'lightBg2' : 'darkBg1'}
+              >
                 {item.icon1}
                 {item.genre}
               </span>

@@ -1,8 +1,7 @@
 #root {
   --primary: #e50914;
   --secondary: #e50914;
-  --secondary: #ff2800;
-  --secondary: tomato;
+
   --green: #1db954;
   --gold: gold;
   --gold-1: goldenrod;
@@ -19,7 +18,7 @@
   --white-2: rgb(220, 220, 220);
 
   --dark-1: #393e46;
-  --dark-1: #555555;
+  --dark-1: #333333;
   --dark-2: #222831;
   --dark-2: #222222;
 
@@ -30,12 +29,12 @@
   --whiteAlpha-5: rgba(255, 255, 255, 0.9);
   --whiteAlpha-6: rgba(220, 220, 220, 0.9);
 
-  --darkAplha-1: rgba(57, 62, 70, 0.5);
-  --darkAlpha-2: rgba(34, 40, 49, 0.5);
-  --darkAplha-3: rgba(57, 62, 70, 0.7);
-  --darkAlpha-4: rgba(34, 40, 49, 0.7);
-  --darkAplha-5: rgba(57, 62, 70, 0.9);
-  --darkAlpha-6: rgba(34, 40, 49, 0.9);
+  --darkAplha-1: rgba(51, 51, 51, 0.5);
+  --darkAlpha-2: rgba(34, 34, 34, 0.5);
+  --darkAplha-3: rgba(51, 51, 51, 0.7);
+  --darkAlpha-4: rgba(34, 34, 34, 0.7);
+  --darkAplha-5: rgba(34, 34, 34, 0.9);
+  --darkAlpha-6: rgba(34, 34, 34, 0.9);
 
   --border-radius-1: 0px;
   --border-radius-2: 10px;
