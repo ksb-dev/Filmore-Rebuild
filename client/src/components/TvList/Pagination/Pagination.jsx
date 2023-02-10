@@ -32,7 +32,11 @@ const Pagination = () => {
 
     const term = sessionStorage.getItem('term')
 
-    if (term && window.location.pathname === '/search') {
+    const genreId = Number(sessionStorage.getItem('genreId'))
+
+    if (genreId) {
+      dispatch(getTvShows({ value: 'genre', id: genreId }))
+    } else if (term && window.location.pathname === '/search') {
       dispatch(getTvShows({ value: 'search', query: term }))
     } else if (window.location.pathname === '/') {
       dispatch(getTvShows('popular'))
@@ -63,7 +67,11 @@ const Pagination = () => {
     sessionStorage.setItem('page', pageNumber)
     const term = sessionStorage.getItem('term')
 
-    if (term && window.location.pathname === '/search') {
+    const genreId = Number(sessionStorage.getItem('genreId'))
+
+    if (genreId) {
+      dispatch(getTvShows({ value: 'genre', id: genreId }))
+    } else if (term && window.location.pathname === '/search') {
       dispatch(getTvShows({ value: 'search', query: term }))
     } else if (window.location.pathname === '/') {
       dispatch(getTvShows('popular'))

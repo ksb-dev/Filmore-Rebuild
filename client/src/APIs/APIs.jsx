@@ -33,6 +33,10 @@ export const APIs = {
     import.meta.env.VITE_KEY
   }&language=en-US`,
 
+  genre_tv_url: `https://api.themoviedb.org/3/discover/tv?api_key=${
+    import.meta.env.VITE_KEY
+  }`,
+
   no_image_url:
     'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png',
   img_path: 'https://image.tmdb.org/t/p/w1280',

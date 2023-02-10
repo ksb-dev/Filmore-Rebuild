@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 // redux
 import { useDispatch } from 'react-redux'
 import { getMovies } from '../../redux/services/movies/getMovies'
+import { getTvShows } from '../../redux/services/shows/getTvShows'
 
 // contetx
 import { useMovieContext } from '../../context/context'
@@ -15,8 +16,15 @@ import { genreArray } from '../../data/genreData'
 import { useShowHide } from '../../hooks/useShowHide'
 
 const Menu = () => {
-  const { mode, menuIconRef, menuRef, menuInnerRef, menuState, setMenuState } =
-    useMovieContext()
+  const {
+    mode,
+    movieState,
+    menuIconRef,
+    menuRef,
+    menuInnerRef,
+    menuState,
+    setMenuState
+  } = useMovieContext()
   const { showMenu, hideMenu } = useShowHide()
   const dispatch = useDispatch()
 
@@ -48,9 +56,14 @@ const Menu = () => {
 
   const handleGenreClick = id => {
     sessionStorage.setItem('page', 1)
-    dispatch(getMovies({ value: 'genre', id }))
     sessionStorage.setItem('genreId', id)
     setMenuState(false)
+
+    if (movieState) {
+      dispatch(getMovies({ value: 'genre', id }))
+    } else {
+      dispatch(getTvShows({ value: 'genre', id }))
+    }
   }
 
   return (

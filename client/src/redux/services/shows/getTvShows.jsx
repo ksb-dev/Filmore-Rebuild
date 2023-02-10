@@ -46,6 +46,15 @@ export const getTvShows = createAsyncThunk(
       } else {
         data = await fetch(APIs.topRated_tv_url + `&page=${page}`)
       }
+    } else if (category.value === 'genre') {
+      console.log(category)
+      if (page === 1) {
+        data = await fetch(APIs.genre_tv_url + `&with_genres=${category.id}`)
+      } else {
+        data = await fetch(
+          APIs.genre_tv_url + `&with_genres=${category.id}&page=${page}`
+        )
+      }
     } else if (category === 'search') {
       const term = sessionStorage.getItem('term')
 
