@@ -49,20 +49,25 @@ export const APIs = {
 
   //https://api.themoviedb.org/3/discover/movie?with_genres=12&page=1&api_key=732dfe94c237f44327af913ebba97825
 
-  login_url: `/url/api/v1/filmora/auth/login`,
-  register_url: `/url/api/v1/filmora/auth/register`,
+  // login_url: `/url/api/v1/filmora/auth/login`,
+  // register_url: `/url/api/v1/filmora/auth/register`,
 
-  get_movies_url: `/url/api/v1/filmora/movies`,
-  add_movie_url: `/url/api/v1/filmora/movies`,
-  delete_movie_url: `/url/api/v1/filmora/movies/`,
+  // get_movies_url: `/url/api/v1/filmora/movies`,
+  // add_movie_url: `/url/api/v1/filmora/movies`,
+  // delete_movie_url: `/url/api/v1/filmora/movies/`,
 
-  get_shows_url: `/url/api/v1/filmora/shows`,
-  add_show_url: `/url/api/v1/filmora/shows`,
-  delete_show_url: `/url/api/v1/filmora/shows/`
+  // get_shows_url: `/url/api/v1/filmora/shows`,
+  // add_show_url: `/url/api/v1/filmora/shows`,
+  // delete_show_url: `/url/api/v1/filmora/shows/`
 
-  // login_url: `/api/v1/filmora/auth/login`,
-  // register_url: `/api/v1/filmora/auth/register`,
-  // watchlist_url: `/api/v1/filmora/watchlist`,
-  // add_watchlist_url: `/api/v1/filmora/watchlist`,
-  // delete_watchlist_url: `/api/v1/filmora/watchlist/`
+  login_url: `/api/v1/filmora/auth/login`,
+  register_url: `/api/v1/filmora/auth/register`,
+
+  get_movies_url: `/api/v1/filmora/movies`,
+  add_movie_url: `/api/v1/filmora/movies`,
+  delete_movie_url: `/api/v1/filmora/movies/`,
+
+  get_shows_url: `/api/v1/filmora/shows`,
+  add_show_url: `/api/v1/filmora/shows`,
+  delete_show_url: `/api/v1/filmora/shows/`
 }

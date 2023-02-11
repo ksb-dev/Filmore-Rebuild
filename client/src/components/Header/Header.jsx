@@ -79,8 +79,10 @@ const Header = () => {
               ref={moviesRef}
               className={
                 'movie ' +
-                (sessionStorage.getItem('movieState') === 'movie' &&
-                  'activeMovie ')
+                (sessionStorage.getItem('movieState') === 'movie' ||
+                sessionStorage.getItem('movieState') === null
+                  ? 'activeMovie'
+                  : '')
               }
               onClick={() => handleMovieState('movie')}
             >

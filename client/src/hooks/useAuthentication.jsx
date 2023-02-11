@@ -5,13 +5,10 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 // Context
-import { useMovieContext } from '../Context/Context'
+import { useMovieContext } from '../context/context'
 
 // APIs
 import { APIs } from '../APIs/APIs'
-
-// Hooks
-import { useShowHide } from './useShowHide'
 
 // Reudx
 import { useDispatch } from 'react-redux'
@@ -19,7 +16,7 @@ import { getMovies } from '../Redux/Services/movies/getMovies'
 import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
 
 export const useAuthentication = () => {
-  const { hideForm, hideLogout } = useShowHide()
+  const { movieState, setMovieState } = useMovieContext()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -56,6 +53,13 @@ export const useAuthentication = () => {
       } else {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
+
+        setMovieState(!movieState)
+        sessionStorage.setItem('movieState', 'movie')
+        sessionStorage.removeItem('genreId')
+        sessionStorage.removeItem('option')
+        sessionStorage.setItem('page', 1)
+        sessionStorage.setItem('term', '')
 
         dispatch(setSavedMovies())
 
@@ -109,6 +113,13 @@ export const useAuthentication = () => {
       } else {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
+
+        setMovieState(!movieState)
+        sessionStorage.setItem('movieState', 'movie')
+        sessionStorage.removeItem('genreId')
+        sessionStorage.removeItem('option')
+        sessionStorage.setItem('page', 1)
+        sessionStorage.setItem('term', '')
 
         dispatch(setSavedMovies())
 
