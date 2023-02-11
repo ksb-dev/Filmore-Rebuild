@@ -62,6 +62,7 @@
         border-top-left-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
         text-decoration: none;
+        text-transform: capitalize;
       }
 
       &__info {

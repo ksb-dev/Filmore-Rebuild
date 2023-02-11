@@ -123,6 +123,7 @@ const Menu = () => {
           </p>
         </div>
 
+        {/* Category */}
         <span className='category-title'>Categories</span>
 
         <div className='menu__inner__category '>
@@ -155,6 +156,7 @@ const Menu = () => {
           </div>
         </div>
 
+        {/* Genre */}
         <span className='genre-title'>Genre</span>
 
         <div className='menu__inner__genre '>
