@@ -71,6 +71,10 @@ const Menu = () => {
     if (sessionStorage.getItem('movieState') === 'movie') {
       dispatch(getMovies(category))
     } else {
+      if (category === 'theatres') {
+        dispatch(getTvShows('air'))
+        return
+      }
       dispatch(getTvShows(category))
     }
   }
@@ -128,31 +132,34 @@ const Menu = () => {
 
         <div className='menu__inner__category '>
           <div className='menu__inner__category__inner'>
-            {sessionStorage.getItem('movieState') === 'movie'
-              ? categoryArray.map((item, index) => (
-                  <p
-                    onClick={() => handleCategoryClick(item.category)}
-                    key={index}
-                    className={mode === true ? 'lightBg2' : 'darkBg1'}
-                  >
-                    {item.category === 'watchlist' &&
+            {categoryArray.map((item, index) => (
+              <p
+                onClick={() => handleCategoryClick(item.category)}
+                key={index}
+                className={mode === true ? 'lightBg2' : 'darkBg1'}
+              >
+                {item.category === 'theatres' &&
+                  sessionStorage.getItem('movieState') === 'movie' && (
+                    <>
+                      {item.icon} {item.value}
+                    </>
+                  )}
+
+                {item.category === 'theatres' &&
+                  sessionStorage.getItem('movieState') === 'tv' && (
+                    <>{item.icon} On Air</>
+                  )}
+
+                {item.category !== 'theatres' && (
+                  <>
+                    {item.icon} {item.value}
+                  </>
+                )}
+                {/* {item.category === 'watchlist' &&
                       sessionStorage.getItem('movieState') === 'movie' &&
-                      savedMovies && <span>{savedMovies.length}</span>}
-                    {item.icon} {item.value}
-                  </p>
-                ))
-              : categoryArray.map((item, index) => (
-                  <p
-                    onClick={() => handleCategoryClick(item.category)}
-                    key={index}
-                    className={mode === true ? 'lightBg2' : 'darkBg1'}
-                  >
-                    {item.category === 'watchlist' &&
-                      sessionStorage.getItem('movieState') === 'tv' &&
-                      savedShows && <span>{savedShows.length}</span>}
-                    {item.icon} {item.value}
-                  </p>
-                ))}
+                      savedMovies && <span>{savedMovies.length}</span>} */}
+              </p>
+            ))}
           </div>
         </div>
 

@@ -53,9 +53,9 @@
       &--activeOption {
         font-weight: 500;
         position: absolute;
-        left: 0.5rem;
-        top: 0.5rem;
-        background: var(--red);
+        right: 0rem;
+        top: 0rem;
+        background: rgba(0, 0, 0, 0.8);
         color: #fff;
         padding: 0.5rem 1rem;
         border-top-left-radius: var(--border-radius);

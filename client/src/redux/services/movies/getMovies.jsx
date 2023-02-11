@@ -34,11 +34,11 @@ export const getMovies = createAsyncThunk(
       } else {
         data = await fetch(APIs.popular_movies_url + `&page=${page}`)
       }
-    } else if (category === 'upcoming') {
+    } else if (category === 'theatres') {
       if (page === 1) {
-        data = await fetch(APIs.upcoming_movies_url)
+        data = await fetch(APIs.playing_movies_url)
       } else {
-        data = await fetch(APIs.upcoming_movies_url + `&page=${page}`)
+        data = await fetch(APIs.playing_movies_url + `&page=${page}`)
       }
     } else if (category === 'top') {
       if (page === 1) {

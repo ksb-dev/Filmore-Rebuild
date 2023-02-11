@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // React Icons
-import { BsGraphUp, BsCheck2Circle } from 'react-icons/bs'
+import { BsGraphUp } from 'react-icons/bs'
 import { MdOutlineUpcoming } from 'react-icons/md'
 import { TfiStar } from 'react-icons/tfi'
 
@@ -14,9 +14,9 @@ export const categoryArray = [
   },
   {
     icon: <MdOutlineUpcoming size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    category: 'upcoming',
-    value: 'Upcoming',
-    path: '/upcoming'
+    category: 'theatres',
+    value: 'In Theatres',
+    path: '/theatres'
   },
   {
     icon: <TfiStar size={'20px'} style={{ marginRight: '0.5rem' }} />,
