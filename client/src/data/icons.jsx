@@ -18,6 +18,7 @@ import {
 import { TfiMenu } from 'react-icons/tfi'
 import { ImFilm } from 'react-icons/im'
 import { RiStarFill } from 'react-icons/ri'
+import { GoHome } from 'react-icons/go'
 
 export const iconsData = {
   sunIcon: <BsSun size={'20px'} />,
@@ -36,5 +37,6 @@ export const iconsData = {
   menu: <TfiMenu size={'20px'} />,
   back: <BiArrowBack size={'20px'} style={{ marginRight: '0.5rem' }} />,
   eyeOpen: <BsEye />,
-  eyeClose: <BsEyeSlash />
+  eyeClose: <BsEyeSlash />,
+  home: <GoHome size={'20px'} />
 }

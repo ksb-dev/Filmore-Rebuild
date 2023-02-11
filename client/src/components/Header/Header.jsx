@@ -31,6 +31,8 @@ const Header = () => {
   const dispatch = useDispatch()
   const moviesRef = useRef(null)
 
+  const navigate = useNavigate()
+
   // Title Click
   const handleTitleClick = () => {
     setMovieState(!movieState)
@@ -56,6 +58,7 @@ const Header = () => {
   return (
     <div className='header'>
       <div className='header__options'>
+        {/* One */}
         <div className='header__options__one'>
           <Link
             to='/'
@@ -70,8 +73,10 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* Middle */}
         {window.location.pathname === '/login' ||
-        window.location.pathname === '/register' ? (
+        window.location.pathname === '/register' ||
+        window.location.pathname === '/search' ? (
           <></>
         ) : (
           <div className='header__options__middle'>
@@ -103,13 +108,21 @@ const Header = () => {
           </div>
         )}
 
+        {/* Two */}
         <div className='header__options__two'>
           {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ? (
+          window.location.pathname === '/register' ||
+          window.location.pathname === '/search' ? (
             <></>
           ) : (
             <span ref={menuIconRef} className='menu-icon'>
               {iconsData.menu}
+            </span>
+          )}
+
+          {window.location.pathname === '/search' && (
+            <span onClick={() => navigate('/')} className='home-icon'>
+              {iconsData.home}
             </span>
           )}
 
@@ -118,7 +131,8 @@ const Header = () => {
           </span>
 
           {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ? (
+          window.location.pathname === '/register' ||
+          window.location.pathname === '/search' ? (
             <></>
           ) : (
             <Link to='/search' className='search-icon '>

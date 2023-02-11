@@ -13,6 +13,8 @@
   background: #000;
   color: #fff;
 
+  transition: var(--transition);
+
   &__options {
     width: 100%;
     max-width: 1280px;
@@ -89,7 +91,8 @@
 
       .mode-icon,
       .search-icon,
-      .menu-icon {
+      .menu-icon,
+      .home-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -130,7 +133,8 @@
       .user-icon:hover,
       .close-icon:hover,
       .login-icon:hover,
-      .menu-icon:hover {
+      .menu-icon:hover,
+      .home-icon:hover {
         color: var(--red);
         transition: var(--transition);
       }
