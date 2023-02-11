@@ -140,6 +140,57 @@
   }
 }
 
+@media screen and (max-width: 640px) {
+  .menu {
+    &__inner {
+      .category-title,
+      .genre-title {
+        font-size: 1rem;
+      }
+
+      &__genre {
+        height: calc(100vh - 400.4px);
+        overflow-y: scroll;
+
+        &__inner {
+          grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
+
+          span {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      &__category {
+        &__inner {
+          grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
+
+          span {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .menu {
+    &__inner {
+      &__category,
+      &__genre {
+        &__inner {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+          span {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 .activeCategory {
   background: var(--red);
   //color: #fff;
