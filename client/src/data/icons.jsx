@@ -1,8 +1,13 @@
 import React from 'react'
 
 // Recat Icons
-import { BsSun, BsMoonStars } from 'react-icons/bs'
-import { BiSearch, BiLogInCircle, BiUserCircle } from 'react-icons/bi'
+import { BsSun, BsMoonStars, BsEye, BsEyeSlash } from 'react-icons/bs'
+import {
+  BiSearch,
+  BiLogInCircle,
+  BiUserCircle,
+  BiArrowBack
+} from 'react-icons/bi'
 import { GiFilmSpool } from 'react-icons/gi'
 import {
   MdOutlineClose,
@@ -28,5 +33,8 @@ export const iconsData = {
   star: <RiStarFill size={'20px'} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
   prev: <MdOutlineArrowBackIosNew size={'20px'} />,
-  menu: <TfiMenu size={'20px'} />
+  menu: <TfiMenu size={'20px'} />,
+  back: <BiArrowBack size={'20px'} style={{ marginRight: '0.5rem' }} />,
+  eyeOpen: <BsEye />,
+  eyeClose: <BsEyeSlash />
 }

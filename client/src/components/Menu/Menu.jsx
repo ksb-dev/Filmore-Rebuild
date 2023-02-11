@@ -136,7 +136,13 @@ const Menu = () => {
               <p
                 onClick={() => handleCategoryClick(item.category)}
                 key={index}
-                className={mode === true ? 'lightBg2' : 'darkBg1'}
+                className={
+                  sessionStorage.getItem('option') === item.category
+                    ? 'activeCategory'
+                    : mode === true
+                    ? 'lightBg2'
+                    : 'darkBg1'
+                }
               >
                 {item.category === 'theatres' &&
                   sessionStorage.getItem('movieState') === 'movie' && (
@@ -173,7 +179,13 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={item.id}
-                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                    className={
+                      sessionStorage.getItem('option') === item.genre
+                        ? 'activeCategory'
+                        : mode === true
+                        ? 'lightBg2'
+                        : 'darkBg1'
+                    }
                   >
                     {item.icon1}
                     {item.genre}
@@ -183,7 +195,13 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={index}
-                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                    className={
+                      sessionStorage.getItem('option') === item.genre
+                        ? 'activeCategory'
+                        : mode === true
+                        ? 'lightBg2'
+                        : 'darkBg1'
+                    }
                   >
                     {item.icon1}
                     {item.genre}

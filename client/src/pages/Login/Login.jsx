@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // React router dom
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -15,8 +15,8 @@ import Header from '../../components/Header/Header'
 // other
 import LoadingOne from '../../other/LoadingOne/LoadingOne'
 
-// React Icons
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
+// data
+import { iconsData } from '../../data/icons'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -25,6 +25,8 @@ const Login = () => {
 
   const { mode } = useMovieContext()
   const { login, isPending, error } = useAuthentication()
+
+  const navigate = useNavigate()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -39,7 +41,11 @@ const Login = () => {
       }
     >
       <Header />
+
       <div className='login__inner '>
+        <span className='back' onClick={() => navigate('/')}>
+          {iconsData.back} Back
+        </span>
         <form
           className={
             'login__inner__form ' + (mode === true ? 'lightBg2' : 'darkBg1')
@@ -72,13 +78,13 @@ const Login = () => {
 
           {password && show && (
             <span className='eye' onClick={() => setShow(false)}>
-              <BsEye />
+              {iconsData.eyeOpen}
             </span>
           )}
 
           {password && !show && (
             <span className='eye' onClick={() => setShow(true)}>
-              <BsEyeSlash />
+              {iconsData.eyeClose}
             </span>
           )}
 

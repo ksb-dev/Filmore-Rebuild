@@ -3,11 +3,31 @@
   height: 100vh;
   margin: 0 auto;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__inner {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .back {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: var(--red);
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 2rem;
+    }
+
+    .back:hover {
+      filter: brightness(80%);
+      transition: var(--transition);
+    }
 
     &__form {
       position: relative;

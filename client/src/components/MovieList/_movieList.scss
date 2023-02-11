@@ -8,7 +8,7 @@
 
 .list {
   min-height: 100vh;
-  padding: calc(58.6px + 2rem) 0rem 0rem 0rem;
+  padding: calc(58.6px + 0rem) 0rem 0rem 0rem;
   //margin: 0 1rem;
 
   &__wall {
@@ -52,11 +52,12 @@
       }
 
       &--activeOption {
+        display: none;
         font-weight: 500;
         position: absolute;
         right: 0rem;
         top: 0rem;
-        background: rgba(0, 0, 0, 0.8);
+        background: var(--red);
         color: #fff;
         padding: 0.5rem 1rem;
         border-top-left-radius: var(--border-radius);
