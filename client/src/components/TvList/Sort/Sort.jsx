@@ -69,7 +69,9 @@ const Sort = () => {
 
       <div
         ref={closeRef}
-        className={mode === true ? 'sort__close ' : 'sort__close '}
+        className={
+          mode === true ? 'sort__close lightBg2' : 'sort__close darkBg1'
+        }
       >
         {sortArray.map((sort, index) => (
           <span
