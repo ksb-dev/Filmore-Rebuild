@@ -37,7 +37,7 @@ const Home = () => {
     }
 
     // Check for movie state
-    const savedMovieState = sessionStorage.getItem('movieState')
+    let savedMovieState = sessionStorage.getItem('movieState')
     if (!savedMovieState) {
       sessionStorage.setItem('movieState', 'movie')
       savedMovieState = 'movie'
