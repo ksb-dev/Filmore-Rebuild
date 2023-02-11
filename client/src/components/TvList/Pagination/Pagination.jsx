@@ -89,9 +89,11 @@ const Pagination = () => {
           onClick={() => goToPage('prev')}
           className={
             'tv__buttons--prevBtn ' +
-            (mode === true
-              ? `${number === 1 ? 'disabledBtn' : 'activeBtn'}`
-              : `${number === 1 ? 'disabledBtn' : 'activeBtn'}`)
+            (number === 1
+              ? 'disabledBtn '
+              : mode === true
+              ? 'primaryBg '
+              : 'primaryBg ')
           }
         >
           <i className='fa-solid fa-chevron-left'></i>
@@ -104,9 +106,13 @@ const Pagination = () => {
         <button
           className={
             'tv__buttons--btn ' +
-            (mode === true
-              ? `${number === item ? 'activeBtn' : 'lightBg2 darkColor1'} `
-              : `${number === item ? 'activeBtn' : 'darkBg1 lightColor1'} `)
+            (number === item
+              ? mode === true
+                ? 'primaryBg '
+                : 'primaryBg '
+              : mode === true
+              ? 'lightBg2 darkColor1'
+              : 'darkBg1 lightColor1')
           }
           onClick={changePage}
           key={index}
@@ -118,7 +124,10 @@ const Pagination = () => {
       {totalPages && number !== totalPages ? (
         <button
           onClick={() => goToPage('next')}
-          className='tv__buttons--nextBtn activeBtn'
+          className={
+            'tv__buttons--nextBtn ' +
+            (mode === true ? 'primaryBg' : 'primaryBg')
+          }
         >
           <i className='fa-solid fa-chevron-right'></i>
         </button>

@@ -11,6 +11,7 @@ import { useMovieContext } from '../../context/context'
 // data
 import { iconsData } from '../../data/icons'
 import { genreArray } from '../../data/genreData'
+import { tvGenreArray } from '../../data/tvGenreData'
 
 // hooks
 import { useShowHide } from '../../hooks/useShowHide'
@@ -59,7 +60,7 @@ const Menu = () => {
     sessionStorage.setItem('genreId', id)
     setMenuState(false)
 
-    if (movieState) {
+    if (sessionStorage.getItem('movieState') === 'movie') {
       dispatch(getMovies({ value: 'genre', id }))
     } else {
       dispatch(getTvShows({ value: 'genre', id }))
@@ -104,16 +105,27 @@ const Menu = () => {
 
         <div className='menu__inner__genre '>
           <div className='menu__inner__genre__inner'>
-            {genreArray.map(item => (
-              <span
-                onClick={() => handleGenreClick(item.id)}
-                key={item.id}
-                className={mode === true ? 'lightBg2' : 'darkBg1'}
-              >
-                {item.icon1}
-                {item.genre}
-              </span>
-            ))}
+            {sessionStorage.getItem('movieState') === 'movie'
+              ? genreArray.map(item => (
+                  <span
+                    onClick={() => handleGenreClick(item.id)}
+                    key={item.id}
+                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                  >
+                    {item.icon1}
+                    {item.genre}
+                  </span>
+                ))
+              : tvGenreArray.map((item, index) => (
+                  <span
+                    onClick={() => handleGenreClick(item.id)}
+                    key={index}
+                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                  >
+                    {item.icon1}
+                    {item.genre}
+                  </span>
+                ))}
           </div>
         </div>
       </div>

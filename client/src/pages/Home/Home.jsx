@@ -27,18 +27,27 @@ const Home = () => {
       behavior: 'smooth'
     })
 
+    const savedMovieState = sessionStorage.getItem('movieState')
+    !savedMovieState && sessionStorage.setItem('movieState', 'movie')
+
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
-      movieState ? dispatch(setSavedMovies()) : dispatch(setSavedShows())
+      sessionStorage.getItem('movieState')
+        ? dispatch(setSavedMovies())
+        : dispatch(setSavedShows())
     }
 
     const genreId = sessionStorage.getItem('genreId')
 
-    if (movieState && genreId) {
+    if (sessionStorage.getItem('movieState') === 'movie' && genreId) {
       dispatch(getMovies({ value: 'genre', id: genreId }))
-    } else if (!movieState && genreId) {
-    } else if (movieState) {
+    } else if (sessionStorage.getItem('movieState') === 'tv' && genreId) {
+      dispatch(getTvShows({ value: 'genre', id: genreId }))
+    } else if (
+      sessionStorage.getItem('movieState') === 'movie' ||
+      sessionStorage.getItem('movieState') === null
+    ) {
       dispatch(getMovies('popular'))
     } else {
       dispatch(getTvShows('popular'))
@@ -53,7 +62,12 @@ const Home = () => {
     >
       <Header />
       <Menu />
-      {movieState ? <MovieList /> : <TvList />}
+      {sessionStorage.getItem('movieState') === 'movie' ||
+      sessionStorage.getItem('movieState') === null ? (
+        <MovieList />
+      ) : (
+        <TvList />
+      )}
     </div>
   )
 }

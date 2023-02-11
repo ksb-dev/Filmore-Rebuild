@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { resetMovies, getMovies } from '../../redux/services/movies/getMovies'
+import { getMovies } from '../../redux/services/movies/getMovies'
 
 // Recat router dom
 import { Link, useNavigate } from 'react-router-dom'
@@ -15,7 +15,6 @@ import { iconsData } from '../../data/icons'
 
 // components
 import Logout from './Logout/Logout'
-import { APIs } from '../../APIs/APIs'
 
 const Header = () => {
   const {
@@ -28,30 +27,28 @@ const Header = () => {
     userIconRef,
     menuIconRef
   } = useMovieContext()
-  //const { showMenu, showForm, showLogout, hideLogout } = useShowHide()
-  const movies = useSelector(state => state.movies.movies)
   const user = useSelector(state => state.savedMovies.user)
   const dispatch = useDispatch()
   const moviesRef = useRef(null)
-  const navigate = useNavigate()
 
   // Title Click
   const handleTitleClick = () => {
+    setMovieState(!movieState)
+    sessionStorage.setItem('movieState', 'movie')
     sessionStorage.removeItem('genreId')
-    setMovieState(true)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     setIndex(0)
-    //dispatch(resetMovies({ movies, sortValue: 'All' }))
     dispatch(getMovies('popular'))
   }
 
   const handleMovieState = val => {
+    sessionStorage.setItem('movieState', val === 'movie' ? 'movie' : 'tv')
     setIndex(0)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     sessionStorage.removeItem('genreId')
-    val === 'movie' ? setMovieState(true) : setMovieState(false)
+    setMovieState(!movieState)
   }
 
   return (
@@ -78,7 +75,11 @@ const Header = () => {
           <div className='header__options__middle'>
             <div
               ref={moviesRef}
-              className={'movie ' + (movieState && 'activeMovie ')}
+              className={
+                'movie ' +
+                (sessionStorage.getItem('movieState') === 'movie' &&
+                  'activeMovie ')
+              }
               onClick={() => handleMovieState('movie')}
             >
               {iconsData.movie} <span>Movies</span>
@@ -87,7 +88,10 @@ const Header = () => {
             <span className='line'></span>
 
             <div
-              className={'tv ' + (!movieState && 'activeMovie')}
+              className={
+                'tv ' +
+                (sessionStorage.getItem('movieState') === 'tv' && 'activeMovie')
+              }
               onClick={() => handleMovieState('tv')}
             >
               {iconsData.tv} <span>Tv</span>

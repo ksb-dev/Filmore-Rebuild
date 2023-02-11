@@ -6,20 +6,21 @@ import {
   GiUfo,
   GiTank
 } from 'react-icons/gi'
-import { SlCompass, SlGhost, SlMusicToneAlt } from 'react-icons/sl'
+import { SlCompass } from 'react-icons/sl'
 import { BsCameraReels } from 'react-icons/bs'
 import { TfiFaceSmile, TfiFaceSad } from 'react-icons/tfi'
 import { MdOutlineFamilyRestroom } from 'react-icons/md'
-import { RxMagicWand } from 'react-icons/rx'
-import { BsHourglassSplit } from 'react-icons/bs'
+import { BsNewspaper } from 'react-icons/bs'
 import { IoFootstepsOutline } from 'react-icons/io5'
-import { RiHeartsLine, RiKnifeBloodLine, RiCactusLine } from 'react-icons/ri'
+import { RiKakaoTalkLine, RiCactusLine } from 'react-icons/ri'
+import { FaChild } from 'react-icons/fa'
+import { BiShow } from 'react-icons/bi'
 
-export const genreArray = [
+export const tvGenreArray = [
   {
     icon: <GiPunchBlast size={'25px'} style={{ marginRight: '0.5rem' }} />,
     icon1: <GiPunchBlast size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 28,
+    id: 10759,
     genre: 'Action',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
@@ -99,42 +100,16 @@ export const genreArray = [
     }`
   },
   {
-    icon: <RxMagicWand size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <RxMagicWand size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 14,
-    genre: 'Fantasy',
+    icon: <FaChild size={'25px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <FaChild size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    id: 10762,
+    genre: 'Kids',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
     }`
   },
 
-  {
-    icon: <BsHourglassSplit size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <BsHourglassSplit size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 36,
-    genre: 'History',
-    url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
-      import.meta.env.VITE_KEY
-    }`
-  },
-  {
-    icon: <SlGhost size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <SlGhost size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 27,
-    genre: 'Horror',
-    url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
-      import.meta.env.VITE_KEY
-    }`
-  },
-  {
-    icon: <SlMusicToneAlt size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <SlMusicToneAlt size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 10402,
-    genre: 'Music',
-    url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
-      import.meta.env.VITE_KEY
-    }`
-  },
+  ,
   {
     icon: (
       <IoFootstepsOutline size={'25px'} style={{ marginRight: '0.5rem' }} />
@@ -148,11 +123,21 @@ export const genreArray = [
       import.meta.env.VITE_KEY
     }`
   },
+
   {
-    icon: <RiHeartsLine size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <RiHeartsLine size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 10749,
-    genre: 'Romance',
+    icon: <BsNewspaper size={'25px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <BsNewspaper size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    id: 10763,
+    genre: 'News',
+    url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
+      import.meta.env.VITE_KEY
+    }`
+  },
+  {
+    icon: <BiShow size={'25px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <BiShow size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    id: 10764,
+    genre: 'Reality',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
     }`
@@ -160,17 +145,18 @@ export const genreArray = [
   {
     icon: <GiUfo size={'25px'} style={{ marginRight: '0.5rem' }} />,
     icon1: <GiUfo size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 878,
+    id: 10765,
     genre: 'Science Fiction',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
     }`
   },
+
   {
-    icon: <RiKnifeBloodLine size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <RiKnifeBloodLine size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 53,
-    genre: 'Thriller',
+    icon: <RiKakaoTalkLine size={'25px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <RiKakaoTalkLine size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    id: 10767,
+    genre: 'Talk',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
     }`
@@ -178,7 +164,7 @@ export const genreArray = [
   {
     icon: <GiTank size={'25px'} style={{ marginRight: '0.5rem' }} />,
     icon1: <GiTank size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 10752,
+    id: 10786,
     genre: 'War',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
