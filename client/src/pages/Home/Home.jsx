@@ -33,7 +33,7 @@ const Home = () => {
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
-      sessionStorage.getItem('movieState')
+      sessionStorage.getItem('movieState') === 'movie'
         ? dispatch(setSavedMovies())
         : dispatch(setSavedShows())
     }

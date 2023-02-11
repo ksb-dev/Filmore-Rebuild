@@ -12,6 +12,7 @@ import { useMovieContext } from '../../context/context'
 import { iconsData } from '../../data/icons'
 import { genreArray } from '../../data/genreData'
 import { tvGenreArray } from '../../data/tvGenreData'
+import { categoryArray } from '../../data/categoryData'
 
 // hooks
 import { useShowHide } from '../../hooks/useShowHide'
@@ -101,7 +102,35 @@ const Menu = () => {
           </p>
         </div>
 
-        <span className='genre-title'>Select genre</span>
+        <span className='category-title'>Categories</span>
+
+        <div className='menu__inner__category '>
+          <div className='menu__inner__category__inner'>
+            {sessionStorage.getItem('movieState') === 'movie'
+              ? categoryArray.map(item => (
+                  <span
+                    //onClick={() => handleGenreClick(item.id)}
+                    key={item.id}
+                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                  >
+                    {item.icon}
+                    {item.value}
+                  </span>
+                ))
+              : tvGenreArray.map((item, index) => (
+                  <span
+                    //onClick={() => handleGenreClick(item.id)}
+                    key={index}
+                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                  >
+                    {item.icon}
+                    {item.value}
+                  </span>
+                ))}
+          </div>
+        </div>
+
+        <span className='genre-title'>Genre</span>
 
         <div className='menu__inner__genre '>
           <div className='menu__inner__genre__inner'>

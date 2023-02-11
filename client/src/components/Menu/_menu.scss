@@ -74,13 +74,15 @@
       }
     }
 
+    .category-title,
     .genre-title {
       font-size: 1.2rem;
       font-weight: 500;
       padding-left: 2rem;
     }
 
-    &__genre {
+    &__genre,
+    &__category {
       padding: 1rem 1rem 1rem 2rem;
       position: relative;
       margin-bottom: 1rem;
@@ -110,6 +112,11 @@
           transition: var(--transition);
         }
       }
+    }
+
+    &__category {
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
   }
 }
