@@ -5,23 +5,35 @@ import { useMovieContext } from '../../../context/context'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  setShowsDefault,
-  getTvShows
-} from '../../../redux/services/shows/getTvShows'
+import { getTvShows } from '../../../redux/services/shows/getTvShows'
 
 const Pagination = () => {
   const { mode } = useMovieContext()
   const totalPages = useSelector(state => state.tvShows.totalPages)
-  //const [pages] = useState(Math.round(data.length / dataLimit))
   const dispatch = useDispatch()
 
   const storedPage = Number(sessionStorage.getItem('page'))
   const number = storedPage !== 0 ? storedPage : 1
 
-  const goToPage = value => {
-    dispatch(setShowsDefault('All'))
+  const check = () => {
+    // Check for option
+    let activeOption = sessionStorage.getItem('option')
+    if (!activeOption) {
+      sessionStorage.setItem('option', 'popular')
+      activeOption = 'popular'
+    }
 
+    const genreId = sessionStorage.getItem('genreId')
+
+    if (activeOption === 'popular' || activeOption === 'top') {
+      dispatch(getTvShows(activeOption))
+    } else {
+      dispatch(getTvShows({ value: 'genre', id: genreId }))
+    }
+  }
+
+  // Next and Prev
+  const goToPage = value => {
     let pageNumber = sessionStorage.getItem('page')
 
     if (value === 'prev') {
@@ -30,21 +42,7 @@ const Pagination = () => {
       sessionStorage.setItem('page', Number(pageNumber) + 1)
     }
 
-    const term = sessionStorage.getItem('term')
-
-    const genreId = Number(sessionStorage.getItem('genreId'))
-
-    if (genreId) {
-      dispatch(getTvShows({ value: 'genre', id: genreId }))
-    } else if (term && window.location.pathname === '/search') {
-      dispatch(getTvShows({ value: 'search', query: term }))
-    } else if (window.location.pathname === '/') {
-      dispatch(getTvShows('popular'))
-    } else if (window.location.pathname === '/upcoming') {
-      dispatch(getTvShows('air'))
-    } else {
-      dispatch(getTvShows('top'))
-    }
+    check()
   }
 
   const getPaginationGroup = () => {
@@ -59,27 +57,12 @@ const Pagination = () => {
       .map((_, idx) => start + idx + 1)
   }
 
+  // Change page
   const changePage = e => {
-    dispatch(setShowsDefault('All'))
-
     const pageNumber = Number(e.target.textContent)
-
     sessionStorage.setItem('page', pageNumber)
-    const term = sessionStorage.getItem('term')
 
-    const genreId = Number(sessionStorage.getItem('genreId'))
-
-    if (genreId) {
-      dispatch(getTvShows({ value: 'genre', id: genreId }))
-    } else if (term && window.location.pathname === '/search') {
-      dispatch(getTvShows({ value: 'search', query: term }))
-    } else if (window.location.pathname === '/') {
-      dispatch(getTvShows('popular'))
-    } else if (window.location.pathname === '/upcoming') {
-      dispatch(getTvShows('air'))
-    } else {
-      dispatch(getTvShows('top'))
-    }
+    check()
   }
 
   return (

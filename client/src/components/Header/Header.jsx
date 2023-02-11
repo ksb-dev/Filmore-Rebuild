@@ -36,6 +36,7 @@ const Header = () => {
     setMovieState(!movieState)
     sessionStorage.setItem('movieState', 'movie')
     sessionStorage.removeItem('genreId')
+    sessionStorage.removeItem('option')
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     setIndex(0)
@@ -48,6 +49,7 @@ const Header = () => {
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     sessionStorage.removeItem('genreId')
+    sessionStorage.removeItem('option')
     setMovieState(!movieState)
   }
 

@@ -149,6 +149,10 @@ const TvList = () => {
                 {index + 1 + ' / ' + sortedShows.length}
               </p>
 
+              <span className='list__wall__cover--activeOption'>
+                {sessionStorage.getItem('option') + ' Shows'}
+              </span>
+
               <div className='list__wall__cover__info'>
                 <div className='list__wall__cover__info__rating-title'>
                   {sortedShows.length > 0 && (
@@ -218,7 +222,12 @@ const TvList = () => {
         </>
       )}
 
-      {sortedShows && sortedShows.length > 0 && <Sort />}
+      <div className='list__sort-activeOption'>
+        {sortedShows && sortedShows.length > 0 && <Sort />}
+        <span className='activeOption'>
+          {sessionStorage.getItem('option') + ' Shows'}
+        </span>
+      </div>
 
       <div className='list__movies'>
         {sortedShows &&

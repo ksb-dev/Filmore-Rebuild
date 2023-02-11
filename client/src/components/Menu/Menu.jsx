@@ -27,7 +27,9 @@ const Menu = () => {
     menuRef,
     menuInnerRef,
     menuState,
-    setMenuState
+    setMenuState,
+    activeOption,
+    setActiveOption
   } = useMovieContext()
   const { showMenu, hideMenu } = useShowHide()
   const dispatch = useDispatch()
@@ -60,9 +62,24 @@ const Menu = () => {
     }
   }, [menuState])
 
-  const handleGenreClick = id => {
+  const handleCategoryClick = category => {
+    sessionStorage.setItem('page', 1)
+    sessionStorage.setItem('option', category)
+    setActiveOption(!activeOption)
+    setMenuState(false)
+
+    if (sessionStorage.getItem('movieState') === 'movie') {
+      dispatch(getMovies(category))
+    } else {
+      dispatch(getTvShows(category))
+    }
+  }
+
+  const handleGenreClick = (id, genre) => {
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('genreId', id)
+    sessionStorage.setItem('option', genre)
+    setActiveOption(!activeOption)
     setMenuState(false)
 
     if (sessionStorage.getItem('movieState') === 'movie') {
@@ -113,7 +130,7 @@ const Menu = () => {
             {sessionStorage.getItem('movieState') === 'movie'
               ? categoryArray.map((item, index) => (
                   <p
-                    //onClick={() => handleGenreClick(item.id)}
+                    onClick={() => handleCategoryClick(item.category)}
                     key={index}
                     className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
@@ -125,7 +142,7 @@ const Menu = () => {
                 ))
               : categoryArray.map((item, index) => (
                   <p
-                    //onClick={() => handleGenreClick(item.id)}
+                    onClick={() => handleCategoryClick(item.category)}
                     key={index}
                     className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
@@ -145,7 +162,7 @@ const Menu = () => {
             {sessionStorage.getItem('movieState') === 'movie'
               ? genreArray.map(item => (
                   <span
-                    onClick={() => handleGenreClick(item.id)}
+                    onClick={() => handleGenreClick(item.id, item.genre)}
                     key={item.id}
                     className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
@@ -155,7 +172,7 @@ const Menu = () => {
                 ))
               : tvGenreArray.map((item, index) => (
                   <span
-                    onClick={() => handleGenreClick(item.id)}
+                    onClick={() => handleGenreClick(item.id, item.genre)}
                     key={index}
                     className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >

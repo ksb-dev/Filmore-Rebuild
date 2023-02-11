@@ -8,7 +8,7 @@
 
 .list {
   min-height: 100vh;
-  padding: calc(58.6px + 0rem) 0rem 0rem 0rem;
+  padding: calc(58.6px + 2rem) 0rem 0rem 0rem;
   //margin: 0 1rem;
 
   &__wall {
@@ -49,6 +49,19 @@
         color: #fff;
         border-top-left-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
+      }
+
+      &--activeOption {
+        font-weight: 500;
+        position: absolute;
+        left: 0.5rem;
+        top: 0.5rem;
+        background: var(--red);
+        color: var(--red);
+        padding: 0.5rem 1rem;
+        border-top-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        text-decoration: none;
       }
 
       &__info {
@@ -109,6 +122,23 @@
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
       border-radius: var(--border-radius);
+    }
+  }
+
+  &__sort-activeOption {
+    margin: 0 4rem 0 0rem;
+    display: flex;
+    //flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    .activeOption {
+      display: none;
+      padding: 0.5rem 1rem;
+      // background: var(--red);
+      // color: #fff;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
   }
 

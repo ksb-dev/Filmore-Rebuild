@@ -29,6 +29,8 @@ const MovieProvider = ({ children }) => {
   const menuRef = useRef(null)
   const menuInnerRef = useRef(null)
 
+  const [activeOption, setActiveOption] = useState(false)
+
   return (
     <MovieContext.Provider
       value={{
@@ -54,7 +56,10 @@ const MovieProvider = ({ children }) => {
         setMenuState,
         menuIconRef,
         menuRef,
-        menuInnerRef
+        menuInnerRef,
+
+        activeOption,
+        setActiveOption
       }}
     >
       {children}

@@ -17,7 +17,7 @@ import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
 const Home = () => {
-  const { mode, movieState } = useMovieContext()
+  const { mode, movieState, activeOption } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -27,9 +27,7 @@ const Home = () => {
       behavior: 'smooth'
     })
 
-    const savedMovieState = sessionStorage.getItem('movieState')
-    !savedMovieState && sessionStorage.setItem('movieState', 'movie')
-
+    // Check for token
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
@@ -38,21 +36,69 @@ const Home = () => {
         : dispatch(setSavedShows())
     }
 
+    // Check for movie state
+    const savedMovieState = sessionStorage.getItem('movieState')
+    if (!savedMovieState) {
+      sessionStorage.setItem('movieState', 'movie')
+      savedMovieState = 'movie'
+    }
+
+    // Check for option
+    let activeOption = sessionStorage.getItem('option')
+    if (!activeOption) {
+      sessionStorage.setItem('option', 'popular')
+      activeOption = 'popular'
+    }
+
     const genreId = sessionStorage.getItem('genreId')
 
-    if (sessionStorage.getItem('movieState') === 'movie' && genreId) {
-      dispatch(getMovies({ value: 'genre', id: genreId }))
-    } else if (sessionStorage.getItem('movieState') === 'tv' && genreId) {
-      dispatch(getTvShows({ value: 'genre', id: genreId }))
-    } else if (
-      sessionStorage.getItem('movieState') === 'movie' ||
-      sessionStorage.getItem('movieState') === null
-    ) {
-      dispatch(getMovies('popular'))
-    } else {
-      dispatch(getTvShows('popular'))
+    if (activeOption === 'popular' || activeOption === 'top') {
+      if (sessionStorage.getItem('movieState') === 'movie') {
+        dispatch(getMovies(activeOption))
+      } else {
+        dispatch(getTvShows(activeOption))
+      }
+      return
     }
-  }, [dispatch, movieState])
+
+    if (savedMovieState === 'movie' && genreId) {
+      dispatch(getMovies({ value: 'genre', id: genreId }))
+    } else {
+      dispatch(getTvShows({ value: 'genre', id: genreId }))
+    }
+
+    // if (
+    //   sessionStorage.getItem('movieState') === 'movie' &&
+    //   activeOption &&
+    //   genreId
+    // ) {
+    //   dispatch(getMovies({ value: 'genre', id: genreId }))
+    // } else if (
+    //   sessionStorage.getItem('movieState') === 'tv' &&
+    //   activeOption &&
+    //   genreId
+    // ) {
+    //   dispatch(getTvShows({ value: 'genre', id: genreId }))
+    // } else if (
+    //   sessionStorage.getItem('movieState') === 'movie' &&
+    //   activeOption
+    // ) {
+    //   dispatch(getMovies(activeOption))
+    // } else if (sessionStorage.getItem('movieState') === 'tv' && activeOption) {
+    //   dispatch(getTvShows(activeOption))
+    // } else if (sessionStorage.getItem('movieState') === 'movie' && genreId) {
+    //   dispatch(getMovies({ value: 'genre', id: genreId }))
+    // } else if (sessionStorage.getItem('movieState') === 'tv' && genreId) {
+    //   dispatch(getTvShows({ value: 'genre', id: genreId }))
+    // } else if (
+    //   sessionStorage.getItem('movieState') === 'movie' ||
+    //   sessionStorage.getItem('movieState') === null
+    // ) {
+    //   dispatch(getMovies('popular'))
+    // } else {
+    //   dispatch(getTvShows('popular'))
+    // }
+  }, [dispatch, movieState, activeOption])
 
   return (
     <div

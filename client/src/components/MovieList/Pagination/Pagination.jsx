@@ -5,23 +5,35 @@ import { useMovieContext } from '../../../context/context'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  setMoviesDefault,
-  getMovies
-} from '../../../redux/services/movies/getMovies'
+import { getMovies } from '../../../redux/services/movies/getMovies'
 
 const Pagination = () => {
   const { mode } = useMovieContext()
   const totalPages = useSelector(state => state.movies.totalPages)
-  //const [pages] = useState(Math.round(data.length / dataLimit))
   const dispatch = useDispatch()
 
   const storedPage = Number(sessionStorage.getItem('page'))
   const number = storedPage !== 0 ? storedPage : 1
 
-  const goToPage = value => {
-    dispatch(setMoviesDefault('All'))
+  const check = () => {
+    // Check for option
+    let activeOption = sessionStorage.getItem('option')
+    if (!activeOption) {
+      sessionStorage.setItem('option', 'popular')
+      activeOption = 'popular'
+    }
 
+    const genreId = sessionStorage.getItem('genreId')
+
+    if (activeOption === 'popular' || activeOption === 'top') {
+      dispatch(getMovies(activeOption))
+    } else {
+      dispatch(getMovies({ value: 'genre', id: genreId }))
+    }
+  }
+
+  // Next and Prev
+  const goToPage = value => {
     let pageNumber = sessionStorage.getItem('page')
 
     if (value === 'prev') {
@@ -30,23 +42,10 @@ const Pagination = () => {
       sessionStorage.setItem('page', Number(pageNumber) + 1)
     }
 
-    const term = sessionStorage.getItem('term')
-
-    const genreId = sessionStorage.getItem('genreId')
-
-    if (genreId) {
-      dispatch(getMovies({ value: 'genre', id: genreId }))
-    } else if (term && window.location.pathname === '/search') {
-      dispatch(getMovies({ value: 'search', query: term }))
-    } else if (window.location.pathname === '/') {
-      dispatch(getMovies('popular'))
-    } else if (window.location.pathname === '/upcoming') {
-      dispatch(getMovies('upcoming'))
-    } else {
-      dispatch(getMovies('top'))
-    }
+    check()
   }
 
+  // Group of 5 buttons
   const getPaginationGroup = () => {
     let start = Math.floor((number - 1) / 5) * 5
 
@@ -59,27 +58,12 @@ const Pagination = () => {
       .map((_, idx) => start + idx + 1)
   }
 
+  // Change page
   const changePage = e => {
-    dispatch(setMoviesDefault('All'))
-
     const pageNumber = Number(e.target.textContent)
-
     sessionStorage.setItem('page', pageNumber)
-    const term = sessionStorage.getItem('term')
 
-    const genreId = Number(sessionStorage.getItem('genreId'))
-
-    if (genreId) {
-      dispatch(getMovies({ value: 'genre', id: genreId }))
-    } else if (term && window.location.pathname === '/search') {
-      dispatch(getMovies({ value: 'search', query: term }))
-    } else if (window.location.pathname === '/') {
-      dispatch(getMovies('popular'))
-    } else if (window.location.pathname === '/upcoming') {
-      dispatch(getMovies('upcoming'))
-    } else {
-      dispatch(getMovies('top'))
-    }
+    check()
   }
 
   return (

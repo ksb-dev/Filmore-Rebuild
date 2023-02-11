@@ -127,6 +127,10 @@ const MovieList = () => {
                 {index + 1 + ' / ' + sortedMovies.length}
               </p>
 
+              <span className='list__wall__cover--activeOption'>
+                {sessionStorage.getItem('option') + ' Movies'}
+              </span>
+
               <div className='list__wall__cover__info'>
                 <div className='list__wall__cover__info__rating-title'>
                   {sortedMovies.length > 0 && (
@@ -195,7 +199,12 @@ const MovieList = () => {
         </>
       )}
 
-      {sortedMovies && sortedMovies.length > 0 && <Sort />}
+      <div className='list__sort-activeOption'>
+        {sortedMovies && sortedMovies.length > 0 && <Sort />}
+        <span className='activeOption'>
+          {sessionStorage.getItem('option') + ' Movies'}
+        </span>
+      </div>
 
       <div className='list__movies'>
         {sortedMovies &&
