@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 
 // redux
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getMovies } from '../../redux/services/movies/getMovies'
+import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 import { getTvShows } from '../../redux/services/shows/getTvShows'
+import { setSavedShows} from '../../redux/services/shows/setSavedShows'
 
 // contetx
 import { useMovieContext } from '../../context/context'
@@ -29,6 +31,8 @@ const Menu = () => {
   } = useMovieContext()
   const { showMenu, hideMenu } = useShowHide()
   const dispatch = useDispatch()
+  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
+  const savedShows = useSelector(state => state.savedShows.savedShows)
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
@@ -108,24 +112,24 @@ const Menu = () => {
           <div className='menu__inner__category__inner'>
             {sessionStorage.getItem('movieState') === 'movie'
               ? categoryArray.map(item => (
-                  <span
+                  <p
                     //onClick={() => handleGenreClick(item.id)}
                     key={item.id}
                     className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
-                    {item.icon}
+                    {item.category === 'watchlist' && sessionStorage.getItem('movieState') === 'movie' ? savedMovies && <span>{savedMovies.length}</span> : item.icon}
                     {item.value}
-                  </span>
+                  </p>
                 ))
-              : tvGenreArray.map((item, index) => (
-                  <span
+              : categoryArray.map((item, index) => (
+                  <p
                     //onClick={() => handleGenreClick(item.id)}
                     key={index}
                     className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
-                    {item.icon}
+                    {item.category === 'watchlist' && sessionStorage.getItem('movieState') === 'tv' ? savedShows && <span>{savedShows.length}</span> : item.icon}
                     {item.value}
-                  </span>
+                  </p>
                 ))}
           </div>
         </div>

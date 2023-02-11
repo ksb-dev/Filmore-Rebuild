@@ -97,7 +97,9 @@
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 0rem;
 
+        p,
         span {
+          margin: 0;
           height: min-content;
           font-size: 0.9rem;
           padding: 0.5rem 1rem;
@@ -107,6 +109,19 @@
           display: flex;
         }
 
+        p {
+          span {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            width: 25px;
+            text-align: center;
+            padding: 0;
+            margin: 0 0.5rem 0 0;
+          }
+        }
+
+        p:hover,
         span:hover {
           letter-spacing: 2px;
           transition: var(--transition);
@@ -119,4 +134,10 @@
       padding-bottom: 0;
     }
   }
+}
+
+.activeCategory {
+  background: var(--red);
+  //color: #fff;
+  //pointer-events: none;
 }
