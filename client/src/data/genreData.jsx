@@ -161,7 +161,7 @@ export const genreArray = [
     icon: <GiUfo size={'25px'} style={{ marginRight: '0.5rem' }} />,
     icon1: <GiUfo size={'20px'} style={{ marginRight: '0.5rem' }} />,
     id: 878,
-    genre: 'Science Fiction',
+    genre: 'Science & Fiction',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
       import.meta.env.VITE_KEY
     }`

@@ -88,7 +88,6 @@ const Logout = () => {
           onClick={() => {
             hideLogout(logoutRef)
             setLogoutState(false)
-            sessionStorage.setItem('option', 'Watchlist')
             setMovieState(!movieState)
           }}
           className={
@@ -97,13 +96,21 @@ const Logout = () => {
             //(mode === true ? 'lightBg2' : 'darkBg1')
           }
         >
-          {iconsData.watchlist} Watchlist
+          {iconsData.star1}{' '}
+          {sessionStorage.getItem('movieState') === 'movie' ? (
+            <>Movies</>
+          ) : (
+            <>Tv</>
+          )}
           <p>
-            <span>
-              {savedMovies &&
+            {sessionStorage.getItem('movieState') === 'movie' &&
+              savedMovies && <span>{savedMovies.length}</span>}
+            {sessionStorage.getItem('movieState') === 'tv' && savedShows && (
+              <span>{savedShows.length}</span>
+            )}
+            {/* {savedMovies &&
                 savedShows &&
-                savedMovies.length + savedShows.length}
-            </span>
+                savedMovies.length + savedShows.length} */}
           </p>
         </Link>
 

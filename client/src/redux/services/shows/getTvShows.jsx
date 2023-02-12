@@ -28,19 +28,19 @@ export const getTvShows = createAsyncThunk(
 
     var data, res
 
-    if (category === 'popular') {
+    if (category === 'Popular') {
       if (page === 1) {
         data = await fetch(APIs.popular_tv_url)
       } else {
         data = await fetch(APIs.popular_tv_url + `&page=${page}`)
       }
-    } else if (category === 'air') {
+    } else if (category === 'On Air') {
       if (page === 1) {
         data = await fetch(APIs.onAir_tv_url)
       } else {
         data = await fetch(APIs.onAir_tv_url + `&page=${page}`)
       }
-    } else if (category === 'top') {
+    } else if (category === 'Top Rated') {
       if (page === 1) {
         data = await fetch(APIs.topRated_tv_url)
       } else {

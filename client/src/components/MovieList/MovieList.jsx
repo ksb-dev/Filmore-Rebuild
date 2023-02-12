@@ -28,6 +28,9 @@ import {
   MdOutlineArrowForwardIos
 } from 'react-icons/md'
 
+// data
+import { iconsData } from '../../data/icons'
+
 const MovieList = () => {
   const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
@@ -128,10 +131,6 @@ const MovieList = () => {
                 {index + 1 + ' / ' + sortedMovies.length}
               </p>
 
-              <span className='list__wall__cover--activeOption'>
-                {sessionStorage.getItem('option') + ' Movies'}
-              </span>
-
               <div className='list__wall__cover__info'>
                 <div className='list__wall__cover__info__rating-title'>
                   {sortedMovies.length > 0 && (
@@ -203,7 +202,13 @@ const MovieList = () => {
       <div className='list__sort-activeOption'>
         {sortedMovies && sortedMovies.length > 0 && <Sort />}
         <span className='activeOption'>
-          {sessionStorage.getItem('option') + ' Movies'}
+          {window.location.pathname === '/watchlist' ? (
+            <span className='activeOption'>Favourite Movies</span>
+          ) : (
+            <span className='activeOption'>
+              {sessionStorage.getItem('option') + ' shows'}
+            </span>
+          )}
         </span>
       </div>
 

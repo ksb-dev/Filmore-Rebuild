@@ -4,32 +4,17 @@ import React from 'react'
 import { useMovieContext } from '../../../context/context'
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux'
-import { getMovies } from '../../../redux/services/movies/getMovies'
+import { useSelector } from 'react-redux'
 
 const Pagination = () => {
-  const { mode } = useMovieContext()
+  const { mode, setMovieState, movieState } = useMovieContext()
   const totalPages = useSelector(state => state.movies.totalPages)
-  const dispatch = useDispatch()
 
   const storedPage = Number(sessionStorage.getItem('page'))
   const number = storedPage !== 0 ? storedPage : 1
 
   const check = () => {
-    // Check for option
-    let activeOption = sessionStorage.getItem('option')
-    if (!activeOption) {
-      sessionStorage.setItem('option', 'popular')
-      activeOption = 'popular'
-    }
-
-    const genreId = sessionStorage.getItem('genreId')
-
-    if (activeOption === 'popular' || activeOption === 'top') {
-      dispatch(getMovies(activeOption))
-    } else {
-      dispatch(getMovies({ value: 'genre', id: genreId }))
-    }
+    setMovieState(!movieState)
   }
 
   // Next and Prev

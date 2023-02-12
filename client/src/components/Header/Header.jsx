@@ -42,7 +42,7 @@ const Header = () => {
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     setIndex(0)
-    dispatch(getMovies('popular'))
+    dispatch(getMovies('Popular'))
   }
 
   const handleMovieState = val => {
@@ -113,10 +113,21 @@ const Header = () => {
         {/* Two */}
         <div className='header__options__two'>
           {(window.location.pathname === '/search' ||
-            window.location.pathname === '/watchlist') && (
-            <span onClick={() => navigate('/')} className='home-icon'>
+            window.location.pathname === '/watchlist' ||
+            window.location.pathname === '/login' ||
+            window.location.pathname === '/register') && (
+            <Link
+              to='/'
+              onClick={() => {
+                // if (window.location.pathname === '/watchlist') {
+                //   sessionStorage.removeItem('option')
+                // }
+                setMovieState(!movieState)
+              }}
+              className='home-icon'
+            >
               {iconsData.home}
-            </span>
+            </Link>
           )}
 
           <div ref={userIconRef} className='user'>

@@ -46,13 +46,18 @@ const Home = () => {
     // Check for option
     let activeOption = sessionStorage.getItem('option')
     if (!activeOption) {
-      sessionStorage.setItem('option', 'popular')
-      activeOption = 'popular'
+      sessionStorage.setItem('option', 'Popular')
+      activeOption = 'Popular'
     }
 
     const genreId = sessionStorage.getItem('genreId')
 
-    if (activeOption === 'popular' || activeOption === 'top') {
+    if (
+      activeOption === 'Popular' ||
+      activeOption === 'Top Rated' ||
+      activeOption === 'In Theatres' ||
+      activeOption === 'On Air'
+    ) {
       if (sessionStorage.getItem('movieState') === 'movie') {
         dispatch(getMovies(activeOption))
       } else {

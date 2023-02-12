@@ -4,32 +4,17 @@ import React from 'react'
 import { useMovieContext } from '../../../context/context'
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux'
-import { getTvShows } from '../../../redux/services/shows/getTvShows'
+import { useSelector } from 'react-redux'
 
 const Pagination = () => {
-  const { mode } = useMovieContext()
+  const { mode, movieState, setMovieState } = useMovieContext()
   const totalPages = useSelector(state => state.tvShows.totalPages)
-  const dispatch = useDispatch()
 
   const storedPage = Number(sessionStorage.getItem('page'))
   const number = storedPage !== 0 ? storedPage : 1
 
   const check = () => {
-    // Check for option
-    let activeOption = sessionStorage.getItem('option')
-    if (!activeOption) {
-      sessionStorage.setItem('option', 'popular')
-      activeOption = 'popular'
-    }
-
-    const genreId = sessionStorage.getItem('genreId')
-
-    if (activeOption === 'popular' || activeOption === 'top') {
-      dispatch(getTvShows(activeOption))
-    } else {
-      dispatch(getTvShows({ value: 'genre', id: genreId }))
-    }
+    setMovieState(!movieState)
   }
 
   // Next and Prev

@@ -28,19 +28,19 @@ export const getMovies = createAsyncThunk(
 
     var data, res
 
-    if (category === 'popular') {
+    if (category === 'Popular') {
       if (page === 1) {
         data = await fetch(APIs.popular_movies_url)
       } else {
         data = await fetch(APIs.popular_movies_url + `&page=${page}`)
       }
-    } else if (category === 'theatres') {
+    } else if (category === 'In Theatres') {
       if (page === 1) {
         data = await fetch(APIs.playing_movies_url)
       } else {
         data = await fetch(APIs.playing_movies_url + `&page=${page}`)
       }
-    } else if (category === 'top') {
+    } else if (category === 'Top Rated') {
       if (page === 1) {
         data = await fetch(APIs.topRated_movies_url)
       } else {

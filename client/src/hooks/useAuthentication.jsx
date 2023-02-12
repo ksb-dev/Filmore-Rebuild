@@ -10,23 +10,13 @@ import { useMovieContext } from '../context/context'
 // APIs
 import { APIs } from '../APIs/APIs'
 
-// Reudx
-import { useDispatch } from 'react-redux'
-import { getMovies } from '../Redux/Services/movies/getMovies'
-import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
-import { getTvShows } from '../redux/services/shows/getTvShows'
-import { setSavedShows } from '../redux/services/shows/setSavedShows'
-
 export const useAuthentication = () => {
   const { movieState, setMovieState } = useMovieContext()
-  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const [isCancelled, setIsCancelled] = useState(false)
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
-
-  //const { logoutRef } = useMovieContext()
 
   // ----------------------- Register user ---------------------------
   const register = async (
@@ -56,21 +46,12 @@ export const useAuthentication = () => {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
 
-        setMovieState(!movieState)
         sessionStorage.setItem('movieState', 'movie')
         sessionStorage.removeItem('genreId')
         sessionStorage.removeItem('option')
         sessionStorage.setItem('page', 1)
         sessionStorage.setItem('term', '')
-
-        // dispatch(setSavedMovies())
-        // dispatch(setSavedShows())
-
-        // if (window.location.pathname === '/watchlist') {
-        //   sessionStorage.getItem('movieState') === 'movie'
-        //     ? dispatch(getMovies('savedMovies'))
-        //     : dispatch(getTvShows('savedShows'))
-        // }
+        setMovieState(!movieState)
 
         setName('')
         setEmail('')
@@ -119,20 +100,12 @@ export const useAuthentication = () => {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
 
+        // sessionStorage.setItem('movieState', 'movie')
+        // sessionStorage.removeItem('genreId')
+        // sessionStorage.removeItem('option')
+        // sessionStorage.setItem('page', 1)
+        // sessionStorage.setItem('term', '')
         setMovieState(!movieState)
-        sessionStorage.setItem('movieState', 'movie')
-        sessionStorage.removeItem('genreId')
-        sessionStorage.removeItem('option')
-        sessionStorage.setItem('page', 1)
-        sessionStorage.setItem('term', '')
-
-        // dispatch(setSavedShows())
-
-        // if (window.location.pathname === '/watchlist') {
-        //   sessionStorage.getItem('movieState') === 'movie'
-        //     ? dispatch(getMovies('savedMovies'))
-        //     : dispatch(getTvShows('savedShows'))
-        // }
 
         setEmail('')
         setPassword('')
@@ -168,21 +141,12 @@ export const useAuthentication = () => {
 
   // ----------------------- Logout user ---------------------------
   const logout = () => {
+    // if (window.location.pathname === '/watchlist') {
+    //   sessionStorage.removeItem('option')
+    // }
     sessionStorage.removeItem('name')
     sessionStorage.removeItem('token')
-    //sessionStorage.removeItem('term')
-
-    //hideLogout(logoutRef)
-
-    if (window.location.pathname === '/watchlist') {
-      if (sessionStorage.getItem('movieState') === 'movie') {
-        dispatch(getMovies('savedMovies'))
-        dispatch(setSavedMovies())
-      } else {
-        dispatch(getTvShows('savedMovies'))
-        dispatch(setSavedShows())
-      }
-    }
+    setMovieState(!movieState)
   }
 
   return { register, login, logout, error, isPending }

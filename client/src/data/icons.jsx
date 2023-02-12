@@ -47,7 +47,17 @@ export const iconsData = {
       style={{ marginRight: '0.25rem', color: '#fff' }}
     />
   ),
+  movie1: (
+    <ImFilm size={'20px'} style={{ marginRight: '0.5rem', color: '#fff' }} />
+  ),
+  tv1: (
+    <MdOutlineMonitor
+      size={'20px'}
+      style={{ marginRight: '0.5rem', color: '#fff' }}
+    />
+  ),
   star: <RiStarFill size={'20px'} />,
+  star1: <RiStarFill size={'20px'} style={{ marginRight: '0.25rem' }} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
   prev: <MdOutlineArrowBackIosNew size={'20px'} />,
   menu: <TfiMenu size={'20px'} />,

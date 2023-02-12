@@ -30,7 +30,8 @@ const Menu = () => {
     menuState,
     setMenuState,
     activeOption,
-    setActiveOption
+    setActiveOption,
+    setIndex
   } = useMovieContext()
   const { showMenu, hideMenu } = useShowHide()
   const dispatch = useDispatch()
@@ -67,37 +68,48 @@ const Menu = () => {
     }
   }, [menuState])
 
-  const handleCategoryClick = category => {
+  const handleCategoryClick = (category, value) => {
+    setIndex(0)
     sessionStorage.setItem('page', 1)
-    sessionStorage.setItem('option', category)
     setActiveOption(!activeOption)
     setMenuState(false)
+    //sessionStorage.setItem('option', category)
 
-    if (sessionStorage.getItem('movieState') === 'movie') {
-      dispatch(getMovies(category))
+    if (
+      category === 'theatres' &&
+      sessionStorage.getItem('movieState') === 'tv'
+    ) {
+      sessionStorage.setItem('option', 'On Air')
     } else {
-      if (category === 'theatres') {
-        dispatch(getTvShows('air'))
-        return
-      }
-      dispatch(getTvShows(category))
+      sessionStorage.setItem('option', value)
     }
+
+    // if (sessionStorage.getItem('movieState') === 'movie') {
+    //   dispatch(getMovies(category))
+    // } else {
+    //   if (category === 'theatres') {
+    //     dispatch(getTvShows('air'))
+    //     return
+    //   }
+    //   dispatch(getTvShows(category))
+    // }
 
     navigate('/')
   }
 
   const handleGenreClick = (id, genre) => {
+    setIndex(0)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('genreId', id)
     sessionStorage.setItem('option', genre)
     setActiveOption(!activeOption)
     setMenuState(false)
 
-    if (sessionStorage.getItem('movieState') === 'movie') {
-      dispatch(getMovies({ value: 'genre', id }))
-    } else {
-      dispatch(getTvShows({ value: 'genre', id }))
-    }
+    // if (sessionStorage.getItem('movieState') === 'movie') {
+    //   dispatch(getMovies({ value: 'genre', id }))
+    // } else {
+    //   dispatch(getTvShows({ value: 'genre', id }))
+    // }
 
     navigate('/')
   }
@@ -143,15 +155,9 @@ const Menu = () => {
           <div className='menu__inner__category__inner'>
             {categoryArray.map((item, index) => (
               <p
-                onClick={() => handleCategoryClick(item.category)}
+                onClick={() => handleCategoryClick(item.category, item.value)}
                 key={index}
-                className={
-                  sessionStorage.getItem('option') === item.category
-                    ? 'activeCategory'
-                    : mode === true
-                    ? 'lightBg2'
-                    : 'darkBg1'
-                }
+                className={mode === true ? 'lightBg2' : 'darkBg1'}
               >
                 {item.category === 'theatres' &&
                   sessionStorage.getItem('movieState') === 'movie' && (
@@ -195,13 +201,7 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={item.id}
-                    className={
-                      sessionStorage.getItem('option') === item.genre
-                        ? 'activeCategory'
-                        : mode === true
-                        ? 'lightBg2'
-                        : 'darkBg1'
-                    }
+                    className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
                     {item.icon1}
                     {item.genre}
@@ -211,13 +211,7 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={index}
-                    className={
-                      sessionStorage.getItem('option') === item.genre
-                        ? 'activeCategory'
-                        : mode === true
-                        ? 'lightBg2'
-                        : 'darkBg1'
-                    }
+                    className={mode === true ? 'lightBg2' : 'darkBg1'}
                   >
                     {item.icon1}
                     {item.genre}
