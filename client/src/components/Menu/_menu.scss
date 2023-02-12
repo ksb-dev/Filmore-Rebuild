@@ -15,11 +15,12 @@
 
   &__inner {
     display: flex;
-    justify-content: center;
+    //justify-content: center;
     flex-direction: column;
     max-width: 1280px;
     width: 100%;
     margin-left: 8px;
+    box-shadow: 0px 15px 10px -15px #111;
 
     .title-close {
       padding: 1rem 2rem;
@@ -88,8 +89,6 @@
       margin-bottom: 1rem;
       display: flex;
       justify-content: center;
-      // height: calc(100vh - 120.4px);
-      // overflow-y: scroll;
 
       &__inner {
         width: 100%;
@@ -142,16 +141,25 @@
   }
 }
 
+@media screen and (max-width: 1280px) {
+  .menu {
+    &__inner {
+      margin-left: 0;
+    }
+  }
+}
+
 @media screen and (max-width: 640px) {
   .menu {
     &__inner {
+      min-height: 100vh;
       .category-title,
       .genre-title {
         font-size: 1rem;
       }
 
       &__genre {
-        height: calc(100vh - 400.4px);
+        height: calc(100vh - 280.4px);
         overflow-y: scroll;
 
         &__inner {
@@ -196,5 +204,24 @@
 .activeCategory {
   background: var(--red);
   color: #fff;
-  //pointer-events: none;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: rgb(180, 180, 180);
+  background: transparent;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background-color: var(--red);
+  //border-radius: 20px;
 }

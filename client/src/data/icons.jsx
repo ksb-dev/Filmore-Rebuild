@@ -1,7 +1,13 @@
 import React from 'react'
 
 // Recat Icons
-import { BsSun, BsMoonStars, BsEye, BsEyeSlash } from 'react-icons/bs'
+import {
+  BsSun,
+  BsMoonStars,
+  BsEye,
+  BsEyeSlash,
+  BsCheck2Circle
+} from 'react-icons/bs'
 import {
   BiSearch,
   BiLogInCircle,
@@ -38,5 +44,6 @@ export const iconsData = {
   back: <BiArrowBack size={'20px'} style={{ marginRight: '0.5rem' }} />,
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
-  home: <GoHome size={'20px'} />
+  home: <GoHome size={'20px'} />,
+  watchlist: <BsCheck2Circle size={'25px'} style={{ marginRight: '0.5rem' }} />
 }

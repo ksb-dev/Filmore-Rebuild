@@ -46,6 +46,10 @@ export const getMovies = createAsyncThunk(
       } else {
         data = await fetch(APIs.topRated_movies_url + `&page=${page}`)
       }
+    } else if (category === 'savedMovies') {
+      data = await fetch(APIs.get_movies_url)
+      res = await data.json()
+      console.log(res)
     } else if (category.value === 'genre') {
       if (page === 1) {
         data = await fetch(

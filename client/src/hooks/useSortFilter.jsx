@@ -81,7 +81,7 @@ export const useSortFilter = () => {
       const sorted = films.sort((a, b) => a.vote_average - b.vote_average)
 
       dispatch(
-        sortMoviesOneToTen({ movies: sorted, sortValue: 'Rating (1 - 10)' })
+        sortMoviesOneToTen({ movies: sorted, sortValue: 'Rating (1 - 9)' })
       )
     }
 
@@ -95,7 +95,7 @@ export const useSortFilter = () => {
       const sorted = films.sort((a, b) => b.vote_average - a.vote_average)
 
       dispatch(
-        sortMoviesTenToOne({ movies: sorted, sortValue: 'Rating (10 - 1)' })
+        sortMoviesTenToOne({ movies: sorted, sortValue: 'Rating (9 - 1)' })
       )
     }
   }

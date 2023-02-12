@@ -41,12 +41,15 @@ export const getTvShows = createAsyncThunk(
         data = await fetch(APIs.onAir_tv_url + `&page=${page}`)
       }
     } else if (category === 'top') {
-      //console.log(category)
       if (page === 1) {
         data = await fetch(APIs.topRated_tv_url)
       } else {
         data = await fetch(APIs.topRated_tv_url + `&page=${page}`)
       }
+    } else if (category === 'savedShows') {
+      data = await fetch(APIs.get_shows_url)
+      res = await data.json()
+      console.log(res)
     } else if (category.value === 'genre') {
       if (page === 1) {
         data = await fetch(APIs.genre_tv_url + `&with_genres=${category.id}`)

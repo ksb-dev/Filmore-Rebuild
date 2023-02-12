@@ -17,8 +17,8 @@ import Menu from '../../components/Menu/Menu'
 import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
-const Home = () => {
-  const { mode, movieState, activeOption } = useMovieContext()
+const Watchlist = () => {
+  const { mode, movieState } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -39,34 +39,19 @@ const Home = () => {
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
-      dispatch(setSavedMovies())
-      dispatch(setSavedShows())
-    }
+      savedMovieState === 'movie'
+        ? dispatch(setSavedMovies())
+        : dispatch(setSavedShows())
 
-    // Check for option
-    let activeOption = sessionStorage.getItem('option')
-    if (!activeOption) {
-      sessionStorage.setItem('option', 'popular')
-      activeOption = 'popular'
-    }
-
-    const genreId = sessionStorage.getItem('genreId')
-
-    if (activeOption === 'popular' || activeOption === 'top') {
-      if (sessionStorage.getItem('movieState') === 'movie') {
-        dispatch(getMovies(activeOption))
+      if (savedMovieState === 'movie') {
+        dispatch(getMovies('savedMovies'))
+        dispatch(setSavedMovies())
       } else {
-        dispatch(getTvShows(activeOption))
+        dispatch(getTvShows('savedShows'))
+        dispatch(setSavedShows())
       }
-      return
     }
-
-    if (savedMovieState === 'movie' && genreId) {
-      dispatch(getMovies({ value: 'genre', id: genreId }))
-    } else {
-      dispatch(getTvShows({ value: 'genre', id: genreId }))
-    }
-  }, [dispatch, movieState, activeOption])
+  }, [dispatch, movieState])
 
   return (
     <div
@@ -87,4 +72,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Watchlist

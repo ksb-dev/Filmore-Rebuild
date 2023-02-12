@@ -161,7 +161,7 @@
 
 @media screen and (max-width: 640px) {
   .list {
-    //padding-top: 2rem;
+    padding-top: calc(58.6px + 2rem);
     &__wall {
       display: none;
     }

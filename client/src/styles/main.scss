@@ -276,11 +276,13 @@ body {
 @import '../pages/Search/search';
 @import '../pages/Login/login';
 @import '../pages/Register/register';
+@import '../Pages/Watchlist/watchlist';
 
 // other
 @import '../other/Loading/loading';
 @import '../other/LoadingOne/loadingOne';
 @import '../other/Error/error';
+@import '../other/WatchlistIcon/watchlistIcon';
 
 body::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */

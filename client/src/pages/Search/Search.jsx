@@ -36,7 +36,7 @@ const Search = () => {
     <div
       className={
         'search ' +
-        (mode === true ? 'lightBg2 darColor1' : 'darkBg2 lightColor1')
+        (mode === true ? 'lightBg2 darColor1' : 'darkBg1 lightColor1')
       }
     >
       <Header />

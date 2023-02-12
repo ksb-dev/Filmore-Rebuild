@@ -161,9 +161,12 @@ const Menu = () => {
                     {item.icon} {item.value}
                   </>
                 )}
-                {/* {item.category === 'watchlist' &&
-                      sessionStorage.getItem('movieState') === 'movie' &&
-                      savedMovies && <span>{savedMovies.length}</span>} */}
+
+                {item.category === 'watchlist' && savedMovies && savedShows && (
+                  <span style={{ background: 'black', color: 'white' }}>
+                    {savedMovies.length + savedShows.length}
+                  </span>
+                )}
               </p>
             ))}
           </div>
@@ -173,7 +176,7 @@ const Menu = () => {
         <span className='genre-title'>Genre</span>
 
         <div className='menu__inner__genre '>
-          <div className='menu__inner__genre__inner'>
+          <div className='menu__inner__genre__inner scroll'>
             {sessionStorage.getItem('movieState') === 'movie'
               ? genreArray.map(item => (
                   <span
