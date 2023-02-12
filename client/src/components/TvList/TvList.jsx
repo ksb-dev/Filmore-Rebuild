@@ -35,7 +35,7 @@ const TvList = () => {
   const sortedShows = useSelector(state => state.tvShows.sortedShows)
   const loading = useSelector(state => state.tvShows.loading)
   const error = useSelector(state => state.tvShows.error)
-  //const user = useSelector(state => state.watchlist.user)
+  const user = useSelector(state => state.savedShows.user)
 
   // const [stop, setStop] = useState(0)
   // const timeoutRef = useRef(null)
@@ -62,36 +62,36 @@ const TvList = () => {
     )
   }
 
-  // if (user && window.location.pathname === '/watchlist' && error.isError) {
-  //   return (
-  //     <div className='error'>
-  //       <Error msg={error.msg} />
-  //     </div>
-  //   )
-  // }
+  if (user && window.location.pathname === '/watchlist' && error.isError) {
+    return (
+      <div className='error'>
+        <Error msg={error.msg} />
+      </div>
+    )
+  }
 
-  // if (
-  //   user &&
-  //   window.location.pathname === '/watchlist' &&
-  //   movies &&
-  //   movies.length === 0 &&
-  //   sortedShows &&
-  //   sortedShows.length === 0
-  // ) {
-  //   return (
-  //     <div className='error'>
-  //       <Error msg={'Add movies to watchlist'} />
-  //     </div>
-  //   )
-  // }
+  if (
+    user &&
+    window.location.pathname === '/watchlist' &&
+    shows &&
+    shows.length === 0 &&
+    sortedShows &&
+    sortedShows.length === 0
+  ) {
+    return (
+      <div className='error'>
+        <Error msg={'Add movies to watchlist'} />
+      </div>
+    )
+  }
 
-  // if (!user && window.location.pathname === '/watchlist') {
-  //   return (
-  //     <div className='error'>
-  //       <Error msg={'Login to see your watchlist'} />
-  //     </div>
-  //   )
-  // }
+  if (!user && window.location.pathname === '/watchlist') {
+    return (
+      <div className='error'>
+        <Error msg={'Login to see your watchlist'} />
+      </div>
+    )
+  }
 
   if (error.isError) {
     return (

@@ -26,15 +26,15 @@ export const tvGenreArray = [
       import.meta.env.VITE_KEY
     }`
   },
-  {
-    icon: <SlCompass size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    icon1: <SlCompass size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    id: 12,
-    genre: 'Adventure',
-    url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
-      import.meta.env.VITE_KEY
-    }`
-  },
+  // {
+  //   icon: <SlCompass size={'25px'} style={{ marginRight: '0.5rem' }} />,
+  //   icon1: <SlCompass size={'20px'} style={{ marginRight: '0.5rem' }} />,
+  //   id: 12,
+  //   genre: 'Adventure',
+  //   url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
+  //     import.meta.env.VITE_KEY
+  //   }`
+  // },
   {
     icon: <GiDualityMask size={'25px'} style={{ marginRight: '0.5rem' }} />,
     icon1: <GiDualityMask size={'20px'} style={{ marginRight: '0.5rem' }} />,

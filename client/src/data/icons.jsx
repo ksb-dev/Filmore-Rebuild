@@ -11,6 +11,7 @@ import {
 import {
   BiSearch,
   BiLogInCircle,
+  BiLogOutCircle,
   BiUserCircle,
   BiArrowBack
 } from 'react-icons/bi'
@@ -31,12 +32,21 @@ export const iconsData = {
   moonIcon: <BsMoonStars size={'20px'} />,
   searchIcon: <BiSearch size={'20px'} />,
   login: <BiLogInCircle size={'20px'} />,
+  logout: <BiLogOutCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
   user: <BiUserCircle size={'20px'} />,
+  user1: <BiUserCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
   close: <MdOutlineClose size={'20px'} />,
   close1: <MdOutlineClose size={'25px'} />,
   film: <GiFilmSpool size={'40px'} />,
-  movie: <ImFilm size={'20px'} style={{ marginRight: '0.25rem' }} />,
-  tv: <MdOutlineMonitor size={'20px'} style={{ marginRight: '0.25rem' }} />,
+  movie: (
+    <ImFilm size={'20px'} style={{ marginRight: '0.25rem', color: '#fff' }} />
+  ),
+  tv: (
+    <MdOutlineMonitor
+      size={'20px'}
+      style={{ marginRight: '0.25rem', color: '#fff' }}
+    />
+  ),
   star: <RiStarFill size={'20px'} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
   prev: <MdOutlineArrowBackIosNew size={'20px'} />,
@@ -45,5 +55,5 @@ export const iconsData = {
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
   home: <GoHome size={'20px'} />,
-  watchlist: <BsCheck2Circle size={'25px'} style={{ marginRight: '0.5rem' }} />
+  watchlist: <BsCheck2Circle size={'20px'} style={{ marginRight: '0.25rem' }} />
 }

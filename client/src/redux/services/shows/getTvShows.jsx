@@ -47,9 +47,17 @@ export const getTvShows = createAsyncThunk(
         data = await fetch(APIs.topRated_tv_url + `&page=${page}`)
       }
     } else if (category === 'savedShows') {
-      data = await fetch(APIs.get_shows_url)
-      res = await data.json()
-      console.log(res)
+      const savedToken = sessionStorage.getItem('token')
+      let response = ''
+
+      if (savedToken) {
+        response = await axios.get(APIs.get_shows_url, {
+          headers: {
+            Authorization: `Bearer ${savedToken}`
+          }
+        })
+      }
+      return response.data.shows
     } else if (category.value === 'genre') {
       if (page === 1) {
         data = await fetch(APIs.genre_tv_url + `&with_genres=${category.id}`)

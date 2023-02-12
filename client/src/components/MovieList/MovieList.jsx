@@ -31,6 +31,7 @@ import {
 const MovieList = () => {
   const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
+  const movies = useSelector(state => state.movies.movies)
   const sortedMovies = useSelector(state => state.movies.sortedMovies)
   const loading = useSelector(state => state.movies.loading)
   const error = useSelector(state => state.movies.error)

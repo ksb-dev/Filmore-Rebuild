@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 
+// react router dom
+import { useNavigate } from 'react-router-dom'
+
 // redux
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getMovies } from '../../redux/services/movies/getMovies'
-import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 import { getTvShows } from '../../redux/services/shows/getTvShows'
-import { setSavedShows } from '../../redux/services/shows/setSavedShows'
 
 // contetx
 import { useMovieContext } from '../../context/context'
@@ -36,13 +37,17 @@ const Menu = () => {
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
   const savedShows = useSelector(state => state.savedShows.savedShows)
 
+  const navigate = useNavigate()
+
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
     const toggleMenu = e => {
       if (menuInnerRef.current.contains(e.target)) {
         return
-      }
-      if (!menuIconRef.current.contains(e.target)) {
+      } else if (!menuIconRef.current) {
+        setMenuState(false)
+        return
+      } else if (!menuIconRef.current.contains(e.target)) {
         setMenuState(false)
       } else {
         setMenuState(!menuState)
@@ -77,6 +82,8 @@ const Menu = () => {
       }
       dispatch(getTvShows(category))
     }
+
+    navigate('/')
   }
 
   const handleGenreClick = (id, genre) => {
@@ -91,6 +98,8 @@ const Menu = () => {
     } else {
       dispatch(getTvShows({ value: 'genre', id }))
     }
+
+    navigate('/')
   }
 
   return (
@@ -162,11 +171,15 @@ const Menu = () => {
                   </>
                 )}
 
-                {item.category === 'watchlist' && savedMovies && savedShows && (
-                  <span style={{ background: 'black', color: 'white' }}>
-                    {savedMovies.length + savedShows.length}
-                  </span>
-                )}
+                {item.category === 'watchlist' &&
+                  sessionStorage.getItem('movieState') === 'movie' && (
+                    <span>{savedMovies.length}</span>
+                  )}
+
+                {item.category === 'watchlist' &&
+                  sessionStorage.getItem('movieState') === 'tv' && (
+                    <span>{savedShows.length}</span>
+                  )}
               </p>
             ))}
           </div>

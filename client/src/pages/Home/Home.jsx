@@ -61,7 +61,7 @@ const Home = () => {
       return
     }
 
-    if (savedMovieState === 'movie' && genreId) {
+    if (savedMovieState === 'movie' && genreId !== null) {
       dispatch(getMovies({ value: 'genre', id: genreId }))
     } else {
       dispatch(getTvShows({ value: 'genre', id: genreId }))

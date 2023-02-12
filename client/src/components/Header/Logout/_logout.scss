@@ -1,10 +1,10 @@
 .logout {
   position: absolute;
-  top: 2rem;
-  right: -2rem;
+  top: 2.3rem;
+  right: -4rem;
 
   transition: var(--transition);
-  min-width: 100px;
+  //min-width: 100px;
 
   opacity: 0;
   z-index: -1;
@@ -12,29 +12,61 @@
   box-shadow: 0 2px 5px #000;
   border-radius: var(--border-radius-1);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  &__inner {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  span {
-    padding: 0.5rem 0;
-  }
+    // &--user {
+    //   background: var(--blue);
+    //   color: #fff;
+    // }
 
-  span:last-child {
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    background: var(--red);
-    color: #fff;
+    &--user,
+    &--watchlist,
+    &--logoutBtn {
+      display: flex;
+      align-items: center;
+      width: 88%;
+      text-align: center;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-    border-bottom-left-radius: var(--border-radius-1);
-    border-bottom-right-radius: var(--border-radius-1);
-  }
+    &--watchlist {
+      text-decoration: none;
+      background: var(--gold);
+      color: #000;
+      cursor: pointer;
 
-  span:last-child:hover {
-    filter: brightness(80%);
-    transition: var(--transition);
+      p {
+        position: re;
+        background: #000;
+        color: #fff;
+        margin: 0 0 0 0.5rem;
+        height: 25px;
+        width: 40px;
+      }
+    }
+
+    &--logoutBtn {
+      cursor: pointer;
+      text-align: center;
+      background: var(--red);
+      color: #fff;
+      margin-bottom: 0;
+
+      border-bottom-left-radius: var(--border-radius-1);
+      border-bottom-right-radius: var(--border-radius-1);
+    }
+
+    &--watchlist:hover,
+    &--logoutBtn:hover {
+      filter: brightness(80%);
+      transition: var(--transition);
+    }
   }
 }
 
@@ -42,13 +74,14 @@
   .logout {
     position: absolute;
     //top: -5.3rem;
-    right: 0rem;
+    right: -3rem;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 786px) {
   .logout {
     position: absolute;
-    top: -5rem;
+    top: -9.8rem;
+    right: -3rem;
   }
 }

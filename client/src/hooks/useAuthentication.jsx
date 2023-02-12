@@ -14,6 +14,8 @@ import { APIs } from '../APIs/APIs'
 import { useDispatch } from 'react-redux'
 import { getMovies } from '../Redux/Services/movies/getMovies'
 import { setSavedMovies } from '../redux/services/movies/setSavedMovies'
+import { getTvShows } from '../redux/services/shows/getTvShows'
+import { setSavedShows } from '../redux/services/shows/setSavedShows'
 
 export const useAuthentication = () => {
   const { movieState, setMovieState } = useMovieContext()
@@ -61,11 +63,14 @@ export const useAuthentication = () => {
         sessionStorage.setItem('page', 1)
         sessionStorage.setItem('term', '')
 
-        dispatch(setSavedMovies())
+        // dispatch(setSavedMovies())
+        // dispatch(setSavedShows())
 
-        if (window.location.pathname === '/watchlist') {
-          dispatch(getMovies('watchlist'))
-        }
+        // if (window.location.pathname === '/watchlist') {
+        //   sessionStorage.getItem('movieState') === 'movie'
+        //     ? dispatch(getMovies('savedMovies'))
+        //     : dispatch(getTvShows('savedShows'))
+        // }
 
         setName('')
         setEmail('')
@@ -121,11 +126,13 @@ export const useAuthentication = () => {
         sessionStorage.setItem('page', 1)
         sessionStorage.setItem('term', '')
 
-        dispatch(setSavedMovies())
+        // dispatch(setSavedShows())
 
-        if (window.location.pathname === '/watchlist') {
-          dispatch(getMovies('watchlist'))
-        }
+        // if (window.location.pathname === '/watchlist') {
+        //   sessionStorage.getItem('movieState') === 'movie'
+        //     ? dispatch(getMovies('savedMovies'))
+        //     : dispatch(getTvShows('savedShows'))
+        // }
 
         setEmail('')
         setPassword('')
@@ -167,10 +174,14 @@ export const useAuthentication = () => {
 
     //hideLogout(logoutRef)
 
-    dispatch(setSavedMovies())
-
     if (window.location.pathname === '/watchlist') {
-      dispatch(getMovies('watchlist'))
+      if (sessionStorage.getItem('movieState') === 'movie') {
+        dispatch(getMovies('savedMovies'))
+        dispatch(setSavedMovies())
+      } else {
+        dispatch(getTvShows('savedMovies'))
+        dispatch(setSavedShows())
+      }
     }
   }
 

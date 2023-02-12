@@ -47,9 +47,17 @@ export const getMovies = createAsyncThunk(
         data = await fetch(APIs.topRated_movies_url + `&page=${page}`)
       }
     } else if (category === 'savedMovies') {
-      data = await fetch(APIs.get_movies_url)
-      res = await data.json()
-      console.log(res)
+      const savedToken = sessionStorage.getItem('token')
+      let response = ''
+
+      if (savedToken) {
+        response = await axios.get(APIs.get_movies_url, {
+          headers: {
+            Authorization: `Bearer ${savedToken}`
+          }
+        })
+      }
+      return response.data.movies
     } else if (category.value === 'genre') {
       if (page === 1) {
         data = await fetch(

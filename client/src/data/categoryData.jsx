@@ -23,11 +23,11 @@ export const categoryArray = [
     category: 'top',
     value: 'Top Rated',
     path: '/top'
-  },
-  {
-    icon: <BsCheck2Circle size={'20px'} style={{ marginRight: '0.5rem' }} />,
-    category: 'watchlist',
-    value: 'Watchlist',
-    path: '/watchlist'
   }
+  // {
+  //   icon: <BsCheck2Circle size={'20px'} style={{ marginRight: '0.5rem' }} />,
+  //   category: 'watchlist',
+  //   value: 'Watchlist',
+  //   path: '/watchlist'
+  // }
 ]

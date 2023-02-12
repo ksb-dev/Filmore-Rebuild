@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react'
 
+// react router dom
+
+// data
+import { iconsData } from '../../../data/icons'
+
 // Redux
 import { useSelector } from 'react-redux'
+
+// react router dom
+import { Link } from 'react-router-dom'
 
 // Hooks
 import { useShowHide } from '../../../hooks/useShowHide'
@@ -11,11 +19,20 @@ import { useAuthentication } from '../../../hooks/useAuthentication'
 import { useMovieContext } from '../../../context/context'
 
 const Logout = () => {
-  const { mode, logoutState, setLogoutState, logoutRef, userIconRef } =
-    useMovieContext()
+  const {
+    mode,
+    logoutState,
+    setLogoutState,
+    logoutRef,
+    userIconRef,
+    movieState,
+    setMovieState
+  } = useMovieContext()
   const { showLogout, hideLogout } = useShowHide()
   const { logout } = useAuthentication()
   const user = useSelector(state => state.savedMovies.user)
+  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
+  const savedShows = useSelector(state => state.savedShows.savedShows)
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
@@ -53,11 +70,50 @@ const Logout = () => {
       ref={logoutRef}
       className={
         'logout ' +
-        (mode === true ? 'lightBg1 darkColor2' : 'darkBg2 lightColor1')
+        (mode === true ? 'lightBg2 darkColor2' : 'darkBg1 lightColor1')
       }
     >
-      <span> {user && user.charAt(0).toUpperCase() + user.substring(1)}</span>
-      <span onClick={() => handleLogout()}>Logout</span>
+      <div className='logout__inner'>
+        <span
+          className={
+            'logout__inner--user ' + (mode === true ? 'lightBg1' : 'darkBg2')
+          }
+        >
+          {iconsData.user1}
+          {user && user.charAt(0).toUpperCase() + user.substring(1)}
+        </span>
+
+        <Link
+          to='/watchlist'
+          onClick={() => {
+            hideLogout(logoutRef)
+            setLogoutState(false)
+            sessionStorage.setItem('option', 'Watchlist')
+            setMovieState(!movieState)
+          }}
+          className={
+            'logout__inner--watchlist '
+            //+
+            //(mode === true ? 'lightBg2' : 'darkBg1')
+          }
+        >
+          {iconsData.watchlist} Watchlist
+          <p>
+            <span>
+              {savedMovies &&
+                savedShows &&
+                savedMovies.length + savedShows.length}
+            </span>
+          </p>
+        </Link>
+
+        <span
+          className='logout__inner--logoutBtn'
+          onClick={() => handleLogout()}
+        >
+          {iconsData.logout} Logout
+        </span>
+      </div>
     </div>
   )
 }

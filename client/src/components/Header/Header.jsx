@@ -51,7 +51,9 @@ const Header = () => {
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     sessionStorage.removeItem('genreId')
-    sessionStorage.removeItem('option')
+    if (window.location.pathname !== '/watchlist') {
+      sessionStorage.removeItem('option')
+    }
     setMovieState(!movieState)
   }
 
@@ -110,34 +112,11 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ||
-          window.location.pathname === '/search' ? (
-            <></>
-          ) : (
-            <span ref={menuIconRef} className='menu-icon'>
-              {iconsData.menu}
-            </span>
-          )}
-
-          {window.location.pathname === '/search' && (
+          {(window.location.pathname === '/search' ||
+            window.location.pathname === '/watchlist') && (
             <span onClick={() => navigate('/')} className='home-icon'>
               {iconsData.home}
             </span>
-          )}
-
-          <span onClick={() => setMode(!mode)} className='mode-icon'>
-            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-          </span>
-
-          {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ||
-          window.location.pathname === '/search' ? (
-            <></>
-          ) : (
-            <Link to='/search' className='search-icon '>
-              {iconsData.searchIcon}
-            </Link>
           )}
 
           <div ref={userIconRef} className='user'>
@@ -158,6 +137,30 @@ const Header = () => {
             )}
             <Logout />
           </div>
+
+          <span onClick={() => setMode(!mode)} className='mode-icon'>
+            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
+          </span>
+
+          {window.location.pathname === '/login' ||
+          window.location.pathname === '/register' ||
+          window.location.pathname === '/search' ? (
+            <></>
+          ) : (
+            <Link to='/search' className='search-icon '>
+              {iconsData.searchIcon}
+            </Link>
+          )}
+
+          {window.location.pathname === '/login' ||
+          window.location.pathname === '/register' ||
+          window.location.pathname === '/search' ? (
+            <></>
+          ) : (
+            <span ref={menuIconRef} className='menu-icon'>
+              {iconsData.menu}
+            </span>
+          )}
         </div>
       </div>
     </div>

@@ -6,11 +6,10 @@ import { useMovieContext } from './context/context'
 
 // components
 import Home from './pages/Home/Home'
-import Upcoming from './pages/Upcoming/Upcoming'
-import TopRated from './pages/TopRated/TopRated'
 import Search from './pages/Search/Search'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import Watchlist from './pages/Watchlist/Watchlist'
 
 const App = () => {
   const { mode } = useMovieContext()
@@ -20,11 +19,10 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/upcoming' element={<Upcoming />} />
-          <Route path='/top' element={<TopRated />} />
           <Route path='/search' element={<Search />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/watchlist' element={<Watchlist />} />
         </Routes>
       </BrowserRouter>
     </div>

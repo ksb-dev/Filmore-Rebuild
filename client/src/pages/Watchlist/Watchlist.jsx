@@ -45,10 +45,10 @@ const Watchlist = () => {
 
       if (savedMovieState === 'movie') {
         dispatch(getMovies('savedMovies'))
-        dispatch(setSavedMovies())
+        //dispatch(setSavedMovies())
       } else {
         dispatch(getTvShows('savedShows'))
-        dispatch(setSavedShows())
+        //dispatch(setSavedShows())
       }
     }
   }, [dispatch, movieState])
