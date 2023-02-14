@@ -1,7 +1,7 @@
 .logout {
   position: absolute;
   top: 2.3rem;
-  right: -4rem;
+  right: 0rem;
 
   transition: var(--transition);
   //min-width: 100px;
@@ -74,14 +74,14 @@
   .logout {
     position: absolute;
     //top: -5.3rem;
-    right: -3rem;
+    //right: -3rem;
   }
 }
 
 @media screen and (max-width: 786px) {
   .logout {
     position: absolute;
-    top: -9.8rem;
-    right: -3rem;
+    top: -6.8rem;
+    //right: -3rem;
   }
 }

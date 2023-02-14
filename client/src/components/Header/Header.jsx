@@ -145,6 +145,7 @@ const Header = () => {
                   optionState === 'movie' ? 'Search Movie' : 'Search Tv'
                 }
               />
+              <span>{iconsData.searchIcon}</span>
             </form>
           </div>
         </div>
@@ -186,6 +187,10 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
+          <span onClick={() => setMode(!mode)} className='mode-icon'>
+            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
+          </span>
+
           <div ref={userIconRef} className='user'>
             {user ? (
               logoutState ? (
@@ -205,10 +210,6 @@ const Header = () => {
             {/* Logout Component */}
             <Logout />
           </div>
-
-          <span onClick={() => setMode(!mode)} className='mode-icon'>
-            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-          </span>
         </div>
       </div>
     </div>
