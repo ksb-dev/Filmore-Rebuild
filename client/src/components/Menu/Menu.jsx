@@ -129,18 +129,9 @@ const Menu = () => {
         }
         ref={menuInnerRef}
       >
+        {/* Title-Close */}
         <div className='title-close '>
-          <div className='title'>
-            <span className='title__part--1'>Film</span>
-            <span
-              className={
-                'title__icon ' + (mode === true ? 'darkColor1' : 'lightColor1')
-              }
-            >
-              {iconsData.film}
-            </span>
-            <span className='title__part--2'>ra</span>
-          </div>
+          <div className='title'>TMDb</div>
           <p className='close-icon' onClick={() => setMenuState(false)}>
             <span>
               <i className='fa-solid fa-xmark'></i>

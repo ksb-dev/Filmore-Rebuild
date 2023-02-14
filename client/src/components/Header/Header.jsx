@@ -1,4 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+
+// hooks
+import { useShowHide } from '../../hooks/useShowHide'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
@@ -27,11 +30,42 @@ const Header = () => {
     userIconRef,
     menuIconRef
   } = useMovieContext()
+  const [optionState, setOptionState] = useState(
+    sessionStorage.getItem('movieState') || 'movie'
+  )
+  const [open, setOpen] = useState(false)
+  const { showSort, hideSort } = useShowHide()
+
   const user = useSelector(state => state.savedMovies.user)
   const dispatch = useDispatch()
+  const btnRef = useRef(null)
+  const optionRef = useRef(null)
+  const closeRef = useRef(null)
   const moviesRef = useRef(null)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const toggleSort = e => {
+      if (!optionRef.current.contains(e.target)) {
+        setOpen(false)
+      } else {
+        setOpen(!open)
+      }
+    }
+
+    if (open) {
+      showSort(btnRef, closeRef)
+    } else {
+      hideSort(btnRef, closeRef)
+    }
+
+    document.body.addEventListener('click', toggleSort)
+
+    return () => {
+      document.body.removeEventListener('click', toggleSort)
+    }
+  }, [open])
 
   // Title Click
   const handleTitleClick = () => {
@@ -45,8 +79,16 @@ const Header = () => {
     dispatch(getMovies('Popular'))
   }
 
-  const handleMovieState = val => {
-    sessionStorage.setItem('movieState', val === 'movie' ? 'movie' : 'tv')
+  const handleOptionState = () => {
+    if (optionState === 'movie') {
+      setOptionState('tv')
+    } else {
+      setOptionState('movie')
+    }
+    sessionStorage.setItem(
+      'movieState',
+      optionState === 'movie' ? 'tv' : 'movie'
+    )
     setIndex(0)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
@@ -69,14 +111,39 @@ const Header = () => {
               handleTitleClick()
             }}
           >
-            <span className='title__part--1'>Film</span>
+            TMDb
+            {/* <span className='title__part--1'>Film</span>
             <span className='title__icon'>{iconsData.film}</span>
-            <span className='title__part--2'>ra</span>
+            <span className='title__part--2'>ra</span> */}
           </Link>
+          <span ref={menuIconRef} className='menu-icon'>
+            {iconsData.menu} Menu
+          </span>
+        </div>
+
+        <div className='header__options__middle'>
+          <div className='header__options__middle__options' ref={optionRef}>
+            <div className='current'>
+              <span>{optionState}</span>
+              <span>
+                <i className='fa-solid fa-chevron-down' ref={btnRef}></i>
+              </span>
+            </div>
+            <div
+              className='remaining'
+              ref={closeRef}
+              onClick={() => handleOptionState()}
+            >
+              <span>{optionState === 'movie' ? 'tv' : 'movie'}</span>
+            </div>
+          </div>
+          <div className='header__options__middle__options__serach-bar'>
+            searchbar
+          </div>
         </div>
 
         {/* Middle */}
-        {window.location.pathname === '/login' ||
+        {/* {window.location.pathname === '/login' ||
         window.location.pathname === '/register' ||
         window.location.pathname === '/search' ? (
           <></>
@@ -108,7 +175,7 @@ const Header = () => {
               {iconsData.tv} <span>Tv</span>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Two */}
         <div className='header__options__two'>
@@ -128,19 +195,12 @@ const Header = () => {
                 {iconsData.login}
               </Link>
             )}
+            {/* Logout Component */}
             <Logout />
           </div>
 
           <span onClick={() => setMode(!mode)} className='mode-icon'>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-          </span>
-
-          <Link to='/search' className='search-icon '>
-            {iconsData.searchIcon}
-          </Link>
-
-          <span ref={menuIconRef} className='menu-icon'>
-            {iconsData.menu}
           </span>
         </div>
       </div>

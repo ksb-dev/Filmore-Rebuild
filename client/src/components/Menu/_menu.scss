@@ -15,7 +15,6 @@
 
   &__inner {
     display: flex;
-    //justify-content: center;
     flex-direction: column;
     max-width: 1280px;
     width: 100%;
@@ -29,25 +28,14 @@
       justify-content: space-between;
 
       .title {
+        padding: 0.1rem 0.5rem;
         text-align: center;
         position: relative;
         text-decoration: none;
-        color: var(--red);
-        font-weight: var(--font-weight-2);
-        font-size: 2rem;
-
-        &__part--1 {
-          margin-right: 0rem;
-        }
-
-        &__part--2 {
-          margin-left: 2.4rem;
-        }
-
-        &__icon {
-          position: absolute;
-          bottom: -0.5rem;
-        }
+        background: var(--primary);
+        color: #000;
+        font-weight: var(--font-weight-5);
+        font-size: 1.5rem;
       }
 
       .close-icon {
@@ -55,8 +43,8 @@
         margin: 0;
         width: 40px;
         height: 40px;
-        background: var(--red);
-        color: #fff;
+        background: var(--primary);
+        color: #000;
         border-radius: 50%;
         cursor: pointer;
 
@@ -118,8 +106,8 @@
             top: 0.25rem;
             right: -0.25rem;
             display: inline-block;
-            background: #fff;
-            color: #000;
+            background: #000;
+            color: #fff;
             width: 25px;
             text-align: center;
             padding: 0.25rem;
@@ -130,8 +118,8 @@
 
         a {
           text-decoration: none;
-          background: var(--red);
-          color: #fff;
+          background: var(--primary);
+          color: #000;
         }
 
         p:hover,

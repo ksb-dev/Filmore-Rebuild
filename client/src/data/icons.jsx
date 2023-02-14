@@ -60,7 +60,7 @@ export const iconsData = {
   star1: <RiStarFill size={'20px'} style={{ marginRight: '0.25rem' }} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
   prev: <MdOutlineArrowBackIosNew size={'20px'} />,
-  menu: <TfiMenu size={'20px'} />,
+  menu: <TfiMenu size={'20px'} style={{ marginRight: '0.25rem' }} />,
   back: <BiArrowBack size={'20px'} style={{ marginRight: '0.5rem' }} />,
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
