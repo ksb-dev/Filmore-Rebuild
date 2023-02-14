@@ -37,10 +37,6 @@ const Header = () => {
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
   const savedShows = useSelector(state => state.savedShows.savedShows)
   const dispatch = useDispatch()
-  const btnRef = useRef(null)
-  const optionRef = useRef(null)
-  const closeRef = useRef(null)
-  const moviesRef = useRef(null)
 
   const navigate = useNavigate()
 
@@ -89,9 +85,9 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          <span ref={menuIconRef} className='menu-icon'>
+          {/* <span ref={menuIconRef} className='header__options__two__menu-icon'>
             {iconsData.menu}
-          </span>
+          </span> */}
 
           <Link to='/watchlist' className='watchlist'>
             {iconsData.star1} Watchlist

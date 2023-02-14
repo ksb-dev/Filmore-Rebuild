@@ -39,11 +39,11 @@
         cursor: pointer;
         font-weight: var(--font-weight-5);
         font-size: 1.5rem;
-        border-radius: 5px;
+        //border-radius: 5px;
       }
 
       .title:hover {
-        transform: translateY(3deg);
+        filter: brightness(80%);
         transition: var(--transition);
       }
 
@@ -66,12 +66,9 @@
       align-items: center;
       justify-content: center;
 
-      .menu-icon {
-        display: none;
-      }
-
       .watchlist,
       .watchlist-1 {
+        font-weight: 500;
         text-decoration: none;
         color: #fff;
         cursor: pointer;
@@ -184,9 +181,13 @@
 
     &__options {
       &__one {
-        display: none;
+        //display: none;
         .title {
           display: none;
+        }
+
+        .menu-icon {
+          //display: none;
         }
       }
 
@@ -195,7 +196,7 @@
       }
 
       &__two {
-        .menu-icon {
+        &__menu-icon {
           cursor: pointer;
           display: flex;
           align-items: center;
@@ -209,11 +210,11 @@
           display: flex;
         }
 
-        width: 100vw;
+        //width: 100vw;
         justify-content: space-between;
 
         .user {
-          margin-right: 2rem;
+          //margin-right: 2rem;
         }
       }
     }

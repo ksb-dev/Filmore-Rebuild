@@ -42,6 +42,7 @@ const Menu = () => {
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
+    console.log(true)
     const toggleMenu = e => {
       if (menuInnerRef.current.contains(e.target)) {
         return
@@ -73,7 +74,6 @@ const Menu = () => {
     sessionStorage.setItem('page', 1)
     setActiveOption(!activeOption)
     setMenuState(false)
-    //sessionStorage.setItem('option', category)
 
     if (
       category === 'theatres' &&
@@ -83,16 +83,6 @@ const Menu = () => {
     } else {
       sessionStorage.setItem('option', value)
     }
-
-    // if (sessionStorage.getItem('movieState') === 'movie') {
-    //   dispatch(getMovies(category))
-    // } else {
-    //   if (category === 'theatres') {
-    //     dispatch(getTvShows('air'))
-    //     return
-    //   }
-    //   dispatch(getTvShows(category))
-    // }
 
     navigate('/')
   }
@@ -104,12 +94,6 @@ const Menu = () => {
     sessionStorage.setItem('option', genre)
     setActiveOption(!activeOption)
     setMenuState(false)
-
-    // if (sessionStorage.getItem('movieState') === 'movie') {
-    //   dispatch(getMovies({ value: 'genre', id }))
-    // } else {
-    //   dispatch(getTvShows({ value: 'genre', id }))
-    // }
 
     navigate('/')
   }
