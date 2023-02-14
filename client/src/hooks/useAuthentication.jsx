@@ -12,7 +12,7 @@ import { APIs } from '../APIs/APIs'
 
 export const useAuthentication = () => {
   const { movieState, setMovieState } = useMovieContext()
-  const navigate = useNavigate()
+  let navigate = useNavigate()
 
   const [isCancelled, setIsCancelled] = useState(false)
   const [error, setError] = useState(null)
@@ -46,10 +46,10 @@ export const useAuthentication = () => {
         sessionStorage.setItem('name', response.data.user.name)
         sessionStorage.setItem('token', response.data.token)
 
-        sessionStorage.setItem('movieState', 'movie')
+        //sessionStorage.setItem('movieState', 'movie')
         sessionStorage.removeItem('genreId')
-        sessionStorage.removeItem('option')
-        sessionStorage.setItem('page', 1)
+        //sessionStorage.removeItem('option')
+        //sessionStorage.setItem('page', 1)
         sessionStorage.setItem('term', '')
         setMovieState(!movieState)
 
@@ -58,7 +58,7 @@ export const useAuthentication = () => {
         setPassword('')
         setError('')
 
-        navigate('/')
+        //navigate('/')
       }
 
       // Update state

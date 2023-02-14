@@ -112,24 +112,6 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          {/* {(window.location.pathname === '/search' ||
-            window.location.pathname === '/watchlist' ||
-            window.location.pathname === '/login' ||
-            window.location.pathname === '/register') && (
-            <Link
-              to='/'
-              onClick={() => {
-                // if (window.location.pathname === '/watchlist') {
-                //   sessionStorage.removeItem('option')
-                // }
-                setMovieState(!movieState)
-              }}
-              className='home-icon'
-            >
-              {iconsData.home}
-            </Link>
-          )} */}
-
           <div ref={userIconRef} className='user'>
             {user ? (
               logoutState ? (
@@ -153,25 +135,13 @@ const Header = () => {
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
 
-          {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ||
-          window.location.pathname === '/search' ? (
-            <></>
-          ) : (
-            <Link to='/search' className='search-icon '>
-              {iconsData.searchIcon}
-            </Link>
-          )}
+          <Link to='/search' className='search-icon '>
+            {iconsData.searchIcon}
+          </Link>
 
-          {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ||
-          window.location.pathname === '/search' ? (
-            <></>
-          ) : (
-            <span ref={menuIconRef} className='menu-icon'>
-              {iconsData.menu}
-            </span>
-          )}
+          <span ref={menuIconRef} className='menu-icon'>
+            {iconsData.menu}
+          </span>
         </div>
       </div>
     </div>

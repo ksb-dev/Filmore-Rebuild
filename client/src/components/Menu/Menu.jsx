@@ -155,7 +155,7 @@ const Menu = () => {
           <div className='menu__inner__category__inner'>
             {categoryArray.map((item, index) =>
               item.category === 'watchlist' ? (
-                <Link to='/watchlist'>
+                <Link to='/watchlist' key={index}>
                   {sessionStorage.getItem('movieState') === 'movie' && (
                     <>
                       <>

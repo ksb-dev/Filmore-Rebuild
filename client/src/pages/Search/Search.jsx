@@ -11,6 +11,7 @@ import { useMovieContext } from '../../context/context'
 
 // components
 import Header from '../../components/Header/Header'
+import Menu from '../../components/Menu/Menu'
 
 const Search = () => {
   const { mode } = useMovieContext()
@@ -40,6 +41,7 @@ const Search = () => {
       }
     >
       <Header />
+      <Menu />
     </div>
   )
 }
