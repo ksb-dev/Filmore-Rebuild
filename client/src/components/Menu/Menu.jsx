@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 // react router dom
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // redux
 import { useDispatch, useSelector } from 'react-redux'
@@ -153,41 +153,63 @@ const Menu = () => {
 
         <div className='menu__inner__category '>
           <div className='menu__inner__category__inner'>
-            {categoryArray.map((item, index) => (
-              <p
-                onClick={() => handleCategoryClick(item.category, item.value)}
-                key={index}
-                className={mode === true ? 'lightBg2' : 'darkBg1'}
-              >
-                {item.category === 'theatres' &&
-                  sessionStorage.getItem('movieState') === 'movie' && (
+            {categoryArray.map((item, index) =>
+              item.category === 'watchlist' ? (
+                <Link to='/watchlist'>
+                  {sessionStorage.getItem('movieState') === 'movie' && (
+                    <>
+                      <>
+                        {item.icon} {item.value}
+                      </>
+                      <span>{savedMovies.length}</span>
+                    </>
+                  )}
+
+                  {sessionStorage.getItem('movieState') === 'tv' && (
+                    <>
+                      <>
+                        {item.icon} {item.value}
+                      </>
+                      <span>{savedShows.length}</span>
+                    </>
+                  )}
+                </Link>
+              ) : (
+                <p
+                  onClick={() => handleCategoryClick(item.category, item.value)}
+                  key={index}
+                  className={mode === true ? 'lightBg2' : 'darkBg1'}
+                >
+                  {item.category === 'theatres' &&
+                    sessionStorage.getItem('movieState') === 'movie' && (
+                      <>
+                        {item.icon} {item.value}
+                      </>
+                    )}
+
+                  {item.category === 'theatres' &&
+                    sessionStorage.getItem('movieState') === 'tv' && (
+                      <>{item.icon} On Air</>
+                    )}
+
+                  {item.category !== 'theatres' && (
                     <>
                       {item.icon} {item.value}
                     </>
                   )}
 
-                {item.category === 'theatres' &&
-                  sessionStorage.getItem('movieState') === 'tv' && (
-                    <>{item.icon} On Air</>
-                  )}
+                  {item.category === 'watchlist' &&
+                    sessionStorage.getItem('movieState') === 'movie' && (
+                      <span>{savedMovies.length}</span>
+                    )}
 
-                {item.category !== 'theatres' && (
-                  <>
-                    {item.icon} {item.value}
-                  </>
-                )}
-
-                {item.category === 'watchlist' &&
-                  sessionStorage.getItem('movieState') === 'movie' && (
-                    <span>{savedMovies.length}</span>
-                  )}
-
-                {item.category === 'watchlist' &&
-                  sessionStorage.getItem('movieState') === 'tv' && (
-                    <span>{savedShows.length}</span>
-                  )}
-              </p>
-            ))}
+                  {item.category === 'watchlist' &&
+                    sessionStorage.getItem('movieState') === 'tv' && (
+                      <span>{savedShows.length}</span>
+                    )}
+                </p>
+              )
+            )}
           </div>
         </div>
 

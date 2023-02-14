@@ -83,7 +83,7 @@ const Logout = () => {
           {user && user.charAt(0).toUpperCase() + user.substring(1)}
         </span>
 
-        <Link
+        {/* <Link
           to='/watchlist'
           onClick={() => {
             hideLogout(logoutRef)
@@ -108,11 +108,9 @@ const Logout = () => {
             {sessionStorage.getItem('movieState') === 'tv' && savedShows && (
               <span>{savedShows.length}</span>
             )}
-            {/* {savedMovies &&
-                savedShows &&
-                savedMovies.length + savedShows.length} */}
+       
           </p>
-        </Link>
+        </Link> */}
 
         <span
           className='logout__inner--logoutBtn'

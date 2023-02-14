@@ -112,7 +112,7 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          {(window.location.pathname === '/search' ||
+          {/* {(window.location.pathname === '/search' ||
             window.location.pathname === '/watchlist' ||
             window.location.pathname === '/login' ||
             window.location.pathname === '/register') && (
@@ -128,7 +128,7 @@ const Header = () => {
             >
               {iconsData.home}
             </Link>
-          )}
+          )} */}
 
           <div ref={userIconRef} className='user'>
             {user ? (
