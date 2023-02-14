@@ -13,8 +13,6 @@
   background: #000;
   color: #fff;
 
-  //transition: var(--transition);
-
   &__options {
     width: 100%;
     max-width: 1280px;
@@ -39,7 +37,6 @@
         cursor: pointer;
         font-weight: var(--font-weight-5);
         font-size: 1.5rem;
-        //border-radius: 5px;
       }
 
       .title:hover {
@@ -155,7 +152,6 @@
 
 .activeMovie {
   background: var(--red);
-  //color: #fff;
   pointer-events: none;
 }
 
@@ -166,6 +162,11 @@
     justify-content: space-between;
 
     &__options {
+      &__one {
+        .title {
+          display: none;
+        }
+      }
       &__middle {
         display: none;
       }
@@ -181,13 +182,8 @@
 
     &__options {
       &__one {
-        //display: none;
         .title {
           display: none;
-        }
-
-        .menu-icon {
-          //display: none;
         }
       }
 
@@ -210,12 +206,7 @@
           display: flex;
         }
 
-        //width: 100vw;
         justify-content: space-between;
-
-        .user {
-          //margin-right: 2rem;
-        }
       }
     }
   }

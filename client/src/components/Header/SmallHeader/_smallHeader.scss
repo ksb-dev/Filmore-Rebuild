@@ -37,7 +37,20 @@
 @media screen and (max-width: 786px) {
   .small-header {
     display: flex;
+    &__options {
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
 
+      .title {
+        //display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .small-header {
     &__options {
       .title {
         display: none;

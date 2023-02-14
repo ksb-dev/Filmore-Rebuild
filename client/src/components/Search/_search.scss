@@ -15,8 +15,6 @@
       background: #fff;
       color: #000;
       height: 30.4px;
-      // border-top-left-radius: 5px;
-      // border-bottom-left-radius: 5px;
 
       span {
         padding: 0.25rem 0.5rem;
@@ -34,9 +32,7 @@
       background: #fff;
       color: #000;
       z-index: -1;
-      //height: 30.4px;
       box-shadow: 0px 2px 4px #000;
-      // border-radius: 5px;
     }
 
     .remaining:hover {
@@ -54,8 +50,6 @@
         border: none;
         padding: 0 1rem;
         height: 30.4px;
-        // border-top-right-radius: 5px;
-        // border-bottom-right-radius: 5px;
       }
 
       input:focus {
@@ -94,13 +88,10 @@
 
 @media screen and (max-width: 786px) {
   .search__component {
-    width: 100vw;
-    justify-content: center;
-
     &__search-bar {
       form {
         input {
-          width: 400px;
+          //width: 400px;
         }
       }
     }
@@ -109,9 +100,6 @@
 
 @media screen and (max-width: 640px) {
   .search__component {
-    width: 100vw;
-    justify-content: flex-start;
-
     &__search-bar {
       form {
         input {
