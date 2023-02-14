@@ -85,35 +85,57 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          {/* <span ref={menuIconRef} className='header__options__two__menu-icon'>
-            {iconsData.menu}
-          </span> */}
-
-          <Link to='/watchlist' className='watchlist'>
-            {iconsData.star1} Watchlist
-            <p>
-              <span>
-                {optionState === 'movie'
-                  ? savedMovies && savedMovies.length
-                  : savedShows && savedShows.length}
-              </span>
-            </p>
-          </Link>
-
-          <Link to='/watchlist' className='watchlist-1'>
-            {iconsData.star1}
-            <p>
-              <span>
-                {optionState === 'movie'
-                  ? savedMovies && savedMovies.length
-                  : savedShows && savedShows.length}
-              </span>
-            </p>
-          </Link>
-
           <span onClick={() => setMode(!mode)} className='mode-icon'>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
+
+          {window.location.pathname === '/' ? (
+            <span
+              onClick={() => navigate('/')}
+              className='home-icon activeMovie'
+            >
+              {iconsData.home}
+            </span>
+          ) : (
+            <span onClick={() => navigate('/')} className='home-icon'>
+              {iconsData.home}
+            </span>
+          )}
+
+          {window.location.pathname === '/watchlist' ? (
+            <Link to='/watchlist' className='watchlist activeMovie'>
+              {iconsData.star}
+              <p>
+                <span>
+                  {optionState === 'movie'
+                    ? savedMovies && savedMovies.length
+                    : savedShows && savedShows.length}
+                </span>
+              </p>
+            </Link>
+          ) : (
+            <Link to='/watchlist' className='watchlist'>
+              {iconsData.star}
+              <p>
+                <span>
+                  {optionState === 'movie'
+                    ? savedMovies && savedMovies.length
+                    : savedShows && savedShows.length}
+                </span>
+              </p>
+            </Link>
+          )}
+
+          {/* <Link to='/watchlist' className='watchlist-1'>
+            {iconsData.star}
+            <p>
+              <span>
+                {optionState === 'movie'
+                  ? savedMovies && savedMovies.length
+                  : savedShows && savedShows.length}
+              </span>
+            </p>
+          </Link> */}
 
           <div ref={userIconRef} className='user'>
             {user ? (
@@ -126,11 +148,17 @@ const Header = () => {
                   {iconsData.user}
                 </div>
               )
+            ) : window.location.pathname === '/login' ||
+              window.location.pathname === '/register' ? (
+              <Link to='/login' className='login-icon activeMovie'>
+                {iconsData.login}
+              </Link>
             ) : (
               <Link to='/login' className='login-icon'>
                 {iconsData.login}
               </Link>
             )}
+
             {/* Logout Component */}
             <Logout />
           </div>

@@ -25,7 +25,7 @@ import {
 import { TfiMenu } from 'react-icons/tfi'
 import { ImFilm } from 'react-icons/im'
 import { RiStarFill } from 'react-icons/ri'
-import { GoHome } from 'react-icons/go'
+import { TfiHome } from 'react-icons/tfi'
 
 export const iconsData = {
   sunIcon: <BsSun size={'20px'} />,
@@ -64,6 +64,6 @@ export const iconsData = {
   back: <BiArrowBack size={'20px'} style={{ marginRight: '0.5rem' }} />,
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
-  home: <GoHome size={'20px'} />,
+  home: <TfiHome size={'17px'} />,
   watchlist: <BsCheck2Circle size={'20px'} style={{ marginRight: '0.25rem' }} />
 }

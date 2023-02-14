@@ -65,6 +65,7 @@
 
       .watchlist,
       .watchlist-1 {
+        padding: 0.5rem;
         font-weight: 500;
         text-decoration: none;
         color: #fff;
@@ -72,6 +73,7 @@
         margin: 0;
         display: flex;
         align-items: center;
+        margin-left: 1rem;
 
         p {
           display: none;
@@ -103,7 +105,8 @@
         display: none;
       }
 
-      .mode-icon {
+      .mode-icon,
+      .home-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -113,6 +116,7 @@
         margin-left: 1rem;
         background: #000;
         color: #fff;
+        padding: 0.5rem;
       }
 
       .user {
@@ -130,6 +134,7 @@
           margin-left: 1rem;
           background: #000;
           color: #fff;
+          padding: 0.5rem;
         }
 
         .user-icon,
@@ -142,7 +147,8 @@
       .mode-icon:hover,
       .user-icon:hover,
       .close-icon:hover,
-      .login-icon:hover {
+      .login-icon:hover,
+      .home-icon:hover {
         color: var(--primary);
         transition: var(--transition);
       }
@@ -151,8 +157,9 @@
 }
 
 .activeMovie {
-  background: var(--red);
-  pointer-events: none;
+  background: var(--gold) !important;
+  color: #000 !important;
+  //pointer-events: none;
 }
 
 @media screen and (max-width: 786px) {
@@ -199,7 +206,7 @@
         }
 
         .watchlist {
-          display: none;
+          //display: none;
         }
 
         .watchlist-1 {
