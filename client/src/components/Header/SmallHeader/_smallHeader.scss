@@ -6,32 +6,25 @@
   background: #000;
   z-index: 4;
   display: none;
+  height: 58.6px;
 
   &__options {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 0.5rem 1rem;
 
     .title {
       position: relative;
       text-decoration: none;
-      color: var(--red);
-      margin-right: 1rem;
+      padding: 0.1rem 0.25rem;
       cursor: pointer;
-      font-weight: var(--font-weight-2);
-      font-size: 2rem;
-
-      &__part--1 {
-        margin-right: 0rem;
-      }
-
-      &__part--2 {
-        margin-left: 2.4rem;
-      }
-
-      &__icon {
-        color: #fff;
-        position: absolute;
-        bottom: -0.5rem;
-      }
+      font-weight: var(--font-weight-5);
+      font-size: 1.5rem;
+      background: var(--primary);
+      color: #000;
+      border-radius: 5px;
     }
 
     .title:hover {
@@ -44,5 +37,11 @@
 @media screen and (max-width: 786px) {
   .small-header {
     display: flex;
+
+    &__options {
+      .title {
+        display: none;
+      }
+    }
   }
 }

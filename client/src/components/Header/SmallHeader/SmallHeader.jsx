@@ -12,6 +12,9 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getMovies } from '../../../redux/services/movies/getMovies'
 
+// components
+import Search from '../../../components/Search/Search'
+
 const SmallHeader = () => {
   const { setIndex, movieState, setMovieState } = useMovieContext()
   const dispatch = useDispatch()
@@ -39,11 +42,11 @@ const SmallHeader = () => {
               handleTitleClick()
             }}
           >
-            <span className='title__part--1'>Film</span>
-            <span className='title__icon'>{iconsData.film}</span>
-            <span className='title__part--2'>ra</span>
+            TMDb
           </Link>
         </div>
+
+        <Search />
       </div>
     </div>
   )

@@ -39,20 +39,7 @@
         cursor: pointer;
         font-weight: var(--font-weight-5);
         font-size: 1.5rem;
-
-        &__part--1 {
-          margin-right: 0rem;
-        }
-
-        &__part--2 {
-          margin-left: 2.4rem;
-        }
-
-        &__icon {
-          color: #000;
-          position: absolute;
-          bottom: -0.8rem;
-        }
+        border-radius: 5px;
       }
 
       .title:hover {
@@ -74,93 +61,55 @@
       }
     }
 
-    &__middle {
-      display: flex;
-      //align-items: center;
-
-      &__options {
-        position: relative;
-        width: 100px;
-        margin-right: 0.25rem;
-
-        .current {
-          font-weight: 500;
-          cursor: pointer;
-          text-transform: capitalize;
-          display: flex;
-          justify-content: space-between;
-          background: #fff;
-          color: #000;
-          height: 30.4px;
-
-          span {
-            padding: 0.25rem 0.5rem;
-          }
-        }
-
-        .remaining {
-          font-weight: 500;
-          cursor: pointer;
-          padding: 0rem 0.5rem;
-          width: 84%;
-          text-transform: capitalize;
-          position: absolute;
-          top: 2.05rem;
-          background: #fff;
-          color: #000;
-          z-index: -1;
-          height: 30.4px;
-          box-shadow: 0px 2px 4px #000;
-        }
-
-        .remaining:hover {
-          background: var(--primary);
-          transition: var(--transition);
-        }
-      }
-
-      &__search-bar {
-        form {
-          position: relative;
-
-          input {
-            width: 400px;
-            border: none;
-            padding: 0 1rem;
-            height: 30.4px;
-          }
-
-          input:focus {
-            outline: none;
-          }
-
-          ::placeholder {
-            letter-spacing: 0.5px;
-          }
-
-          input:focus::placeholder {
-            color: transparent;
-          }
-
-          span {
-            color: #555;
-            position: absolute;
-            top: 0.35rem;
-            right: 0.5rem;
-          }
-        }
-      }
-    }
-
     &__two {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      .mode-icon,
-      .search-icon,
-      .menu-icon,
-      .home-icon {
+      .menu-icon {
+        display: none;
+      }
+
+      .watchlist,
+      .watchlist-1 {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        margin: 0;
+        display: flex;
+        align-items: center;
+
+        p {
+          display: none;
+          margin: 0;
+          margin-left: 0.5rem;
+          position: relative;
+          width: 30px;
+          height: 30px;
+          background: var(--primary);
+          color: #000;
+          border-radius: 50%;
+
+          span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+          }
+        }
+      }
+
+      .watchlist:hover,
+      .watchlist-1:hover {
+        color: var(--primary);
+        transition: var(--transition);
+      }
+
+      .watchlist-1 {
+        display: none;
+      }
+
+      .mode-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -220,6 +169,20 @@
     justify-content: space-between;
 
     &__options {
+      &__middle {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header {
+    height: 58.6px;
+    bottom: 0;
+    justify-content: space-between;
+
+    &__options {
       &__one {
         display: none;
         .title {
@@ -228,11 +191,29 @@
       }
 
       &__middle {
-        .line {
-          display: block;
+        display: none;
+      }
+
+      &__two {
+        .menu-icon {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
         }
-        span {
+
+        .watchlist {
           display: none;
+        }
+
+        .watchlist-1 {
+          display: flex;
+        }
+
+        width: 100vw;
+        justify-content: space-between;
+
+        .user {
+          margin-right: 2rem;
         }
       }
     }

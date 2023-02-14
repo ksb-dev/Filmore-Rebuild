@@ -11,6 +11,7 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 
 // components
 import Header from '../../components/Header/Header'
+import Menu from '../../components/Menu/Menu'
 
 // other
 import LoadingOne from '../../other/LoadingOne/LoadingOne'
@@ -42,6 +43,8 @@ const Register = () => {
       }
     >
       <Header />
+      <Menu />
+
       <div className='register__inner '>
         {/* <span className='back' onClick={() => navigate('/')}>
           {iconsData.back} Back

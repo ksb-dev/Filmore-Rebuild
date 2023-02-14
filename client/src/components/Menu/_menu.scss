@@ -36,6 +36,7 @@
         color: #000;
         font-weight: var(--font-weight-5);
         font-size: 1.5rem;
+        border-radius: 5px;
       }
 
       .close-icon {
@@ -124,9 +125,10 @@
         }
 
         p:hover,
-        span:hover {
-          letter-spacing: 1px;
-          transition: var(--transition);
+        span:hover,
+        a:hover {
+          font-weight: 500;
+          //transition: var(--transition);
         }
       }
     }
@@ -160,27 +162,37 @@
         overflow-y: scroll;
 
         &__inner {
-          grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
+          //grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
         }
       }
 
       &__category {
         &__inner {
-          grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
+          //grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
         }
       }
     }
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
   .menu {
     &__inner {
       &__category,
       &__genre {
         &__inner {
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          //grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+
+          p,
+          span,
+          a {
+            font-size: 1rem;
+          }
         }
+      }
+
+      &__genre {
+        height: calc(100vh - 320.4px);
       }
     }
   }

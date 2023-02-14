@@ -11,6 +11,7 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 
 // components
 import Header from '../../components/Header/Header'
+import Menu from '../../components/Menu/Menu'
 
 // other
 import LoadingOne from '../../other/LoadingOne/LoadingOne'
@@ -41,6 +42,7 @@ const Login = () => {
       }
     >
       <Header />
+      <Menu />
 
       <div className='login__inner '>
         {/* <span className='back' onClick={() => navigate('/')}>

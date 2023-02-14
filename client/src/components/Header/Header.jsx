@@ -18,6 +18,7 @@ import { iconsData } from '../../data/icons'
 
 // components
 import Logout from './Logout/Logout'
+import Search from '../Search/Search'
 
 const Header = () => {
   const {
@@ -28,15 +29,13 @@ const Header = () => {
     movieState,
     setMovieState,
     userIconRef,
-    menuIconRef
+    menuIconRef,
+    optionState
   } = useMovieContext()
-  const [optionState, setOptionState] = useState(
-    sessionStorage.getItem('movieState') || 'movie'
-  )
-  const [open, setOpen] = useState(false)
-  const { showSort, hideSort } = useShowHide()
 
   const user = useSelector(state => state.savedMovies.user)
+  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
+  const savedShows = useSelector(state => state.savedShows.savedShows)
   const dispatch = useDispatch()
   const btnRef = useRef(null)
   const optionRef = useRef(null)
@@ -44,28 +43,6 @@ const Header = () => {
   const moviesRef = useRef(null)
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const toggleSort = e => {
-      if (!optionRef.current.contains(e.target)) {
-        setOpen(false)
-      } else {
-        setOpen(!open)
-      }
-    }
-
-    if (open) {
-      showSort(btnRef, closeRef)
-    } else {
-      hideSort(btnRef, closeRef)
-    }
-
-    document.body.addEventListener('click', toggleSort)
-
-    return () => {
-      document.body.removeEventListener('click', toggleSort)
-    }
-  }, [open])
 
   // Title Click
   const handleTitleClick = () => {
@@ -77,26 +54,6 @@ const Header = () => {
     sessionStorage.setItem('term', '')
     setIndex(0)
     dispatch(getMovies('Popular'))
-  }
-
-  const handleOptionState = () => {
-    if (optionState === 'movie') {
-      setOptionState('tv')
-    } else {
-      setOptionState('movie')
-    }
-    sessionStorage.setItem(
-      'movieState',
-      optionState === 'movie' ? 'tv' : 'movie'
-    )
-    setIndex(0)
-    sessionStorage.setItem('page', 1)
-    sessionStorage.setItem('term', '')
-    sessionStorage.removeItem('genreId')
-    if (window.location.pathname !== '/watchlist') {
-      sessionStorage.removeItem('option')
-    }
-    setMovieState(!movieState)
   }
 
   return (
@@ -121,72 +78,43 @@ const Header = () => {
           </span>
         </div>
 
-        <div className='header__options__middle'>
-          <div className='header__options__middle__options' ref={optionRef}>
-            <div className='current'>
-              <span>{optionState}</span>
-              <span>
-                <i className='fa-solid fa-chevron-down' ref={btnRef}></i>
-              </span>
-            </div>
-            <div
-              className='remaining'
-              ref={closeRef}
-              onClick={() => handleOptionState()}
-            >
-              <span>{optionState === 'movie' ? 'tv' : 'movie'}</span>
-            </div>
-          </div>
-          <div className='header__options__middle__search-bar'>
-            <form>
-              <input
-                type='text'
-                placeholder={
-                  optionState === 'movie' ? 'Search Movie' : 'Search Tv'
-                }
-              />
-              <span>{iconsData.searchIcon}</span>
-            </form>
-          </div>
-        </div>
-
-        {/* Middle */}
-        {/* {window.location.pathname === '/login' ||
-        window.location.pathname === '/register' ||
-        window.location.pathname === '/search' ? (
+        {window.location.pathname === '/login' ||
+        window.location.pathname === '/register' ? (
           <></>
         ) : (
           <div className='header__options__middle'>
-            <div
-              ref={moviesRef}
-              className={
-                'movie ' +
-                (sessionStorage.getItem('movieState') === 'movie' ||
-                sessionStorage.getItem('movieState') === null
-                  ? 'activeMovie'
-                  : '')
-              }
-              onClick={() => handleMovieState('movie')}
-            >
-              {iconsData.movie} <span>Movies</span>
-            </div>
-
-            <span className='line'></span>
-
-            <div
-              className={
-                'tv ' +
-                (sessionStorage.getItem('movieState') === 'tv' && 'activeMovie')
-              }
-              onClick={() => handleMovieState('tv')}
-            >
-              {iconsData.tv} <span>Tv</span>
-            </div>
+            <Search />
           </div>
-        )} */}
+        )}
 
         {/* Two */}
         <div className='header__options__two'>
+          <span ref={menuIconRef} className='menu-icon'>
+            {iconsData.menu}
+          </span>
+
+          <Link to='/watchlist' className='watchlist'>
+            {iconsData.star1} Watchlist
+            <p>
+              <span>
+                {optionState === 'movie'
+                  ? savedMovies && savedMovies.length
+                  : savedShows && savedShows.length}
+              </span>
+            </p>
+          </Link>
+
+          <Link to='/watchlist' className='watchlist-1'>
+            {iconsData.star1}
+            <p>
+              <span>
+                {optionState === 'movie'
+                  ? savedMovies && savedMovies.length
+                  : savedShows && savedShows.length}
+              </span>
+            </p>
+          </Link>
+
           <span onClick={() => setMode(!mode)} className='mode-icon'>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>

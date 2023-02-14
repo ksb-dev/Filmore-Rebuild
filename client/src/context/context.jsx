@@ -1,4 +1,10 @@
-import React, { useState, useRef, createContext, useContext } from 'react'
+import React, {
+  useState,
+  useRef,
+  createContext,
+  useContext,
+  useEffect
+} from 'react'
 
 // 1. Create Context
 const MovieContext = createContext()
@@ -31,6 +37,10 @@ const MovieProvider = ({ children }) => {
 
   const [activeOption, setActiveOption] = useState(false)
 
+  const [optionState, setOptionState] = useState(
+    sessionStorage.getItem('movieState') || 'movie'
+  )
+
   return (
     <MovieContext.Provider
       value={{
@@ -59,7 +69,10 @@ const MovieProvider = ({ children }) => {
         menuInnerRef,
 
         activeOption,
-        setActiveOption
+        setActiveOption,
+
+        optionState,
+        setOptionState
       }}
     >
       {children}
