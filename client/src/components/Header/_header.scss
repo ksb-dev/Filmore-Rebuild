@@ -61,6 +61,7 @@
       }
 
       .menu-icon {
+        font-weight: 500;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -83,6 +84,7 @@
         margin-right: 0.25rem;
 
         .current {
+          font-weight: 500;
           cursor: pointer;
           text-transform: capitalize;
           display: flex;
@@ -97,6 +99,7 @@
         }
 
         .remaining {
+          font-weight: 500;
           cursor: pointer;
           padding: 0rem 0.5rem;
           width: 84%;
@@ -107,6 +110,7 @@
           color: #000;
           z-index: -1;
           height: 30.4px;
+          box-shadow: 0px 2px 4px #000;
         }
 
         .remaining:hover {
@@ -139,9 +143,9 @@
           }
 
           span {
-            color: #000;
+            color: #555;
             position: absolute;
-            top: 0.25rem;
+            top: 0.35rem;
             right: 0.5rem;
           }
         }

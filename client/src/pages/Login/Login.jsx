@@ -43,9 +43,9 @@ const Login = () => {
       <Header />
 
       <div className='login__inner '>
-        <span className='back' onClick={() => navigate('/')}>
+        {/* <span className='back' onClick={() => navigate('/')}>
           {iconsData.back} Back
-        </span>
+        </span> */}
         <form
           className={
             'login__inner__form ' + (mode === true ? 'lightBg2' : 'darkBg1')
@@ -91,12 +91,12 @@ const Login = () => {
           {/* Button */}
 
           {isPending ? (
-            <button className={mode === true ? 'primaryBg' : 'secondaryBg'}>
+            <button className={mode === true ? 'primaryBg' : 'primaryBg'}>
               <LoadingOne />
             </button>
           ) : (
             <button
-              className={mode === true ? 'primaryBg' : 'secondaryBg'}
+              className={mode === true ? 'primaryBg' : 'primaryBg'}
               onSubmit={handleSubmit}
             >
               Submit
