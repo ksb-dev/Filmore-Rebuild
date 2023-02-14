@@ -137,8 +137,15 @@ const Header = () => {
               <span>{optionState === 'movie' ? 'tv' : 'movie'}</span>
             </div>
           </div>
-          <div className='header__options__middle__options__serach-bar'>
-            searchbar
+          <div className='header__options__middle__search-bar'>
+            <form>
+              <input
+                type='text'
+                placeholder={
+                  optionState === 'movie' ? 'Search Movie' : 'Search Tv'
+                }
+              />
+            </form>
           </div>
         </div>
 

@@ -75,18 +75,21 @@
 
     &__middle {
       display: flex;
-      align-items: center;
+      //align-items: center;
 
       &__options {
         position: relative;
         width: 100px;
+        margin-right: 0.25rem;
 
         .current {
+          cursor: pointer;
           text-transform: capitalize;
           display: flex;
           justify-content: space-between;
           background: #fff;
           color: #000;
+          height: 30.4px;
 
           span {
             padding: 0.25rem 0.5rem;
@@ -94,40 +97,45 @@
         }
 
         .remaining {
-          padding: 0.25rem 0.5rem;
+          cursor: pointer;
+          padding: 0rem 0.5rem;
           width: 84%;
           text-transform: capitalize;
           position: absolute;
-          top: 2rem;
+          top: 2.05rem;
           background: #fff;
           color: #000;
           z-index: -1;
+          height: 30.4px;
+        }
+
+        .remaining:hover {
+          background: var(--primary);
+          transition: var(--transition);
         }
       }
 
-      .movie,
-      .tv {
-        padding: 0.25rem 0.5rem;
-        font-weight: 400;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        font-size: 1rem;
-      }
+      &__search-bar {
+        form {
+          input {
+            width: 400px;
+            border: none;
+            padding: 0 1rem;
+            height: 30.4px;
+          }
 
-      .line {
-        margin: 0 0.5rem;
-        border-right: 3px solid #fff;
-      }
+          input:focus {
+            outline: none;
+          }
 
-      .movie {
-        margin-right: 0rem;
-      }
+          ::placeholder {
+            letter-spacing: 0.5px;
+          }
 
-      .movie:hover,
-      .tv:hover {
-        color: var(--red);
-        transition: var(--transition);
+          input:focus::placeholder {
+            color: transparent;
+          }
+        }
       }
     }
 
