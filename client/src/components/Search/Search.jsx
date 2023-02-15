@@ -15,7 +15,8 @@ const Search = () => {
   const optionRef = useRef(null)
   const closeRef = useRef(null)
 
-  const { setMovieState, setIndex, movieState } = useMovieContext()
+  const { setMovieState, setIndex, movieState, mode, setMode } =
+    useMovieContext()
   const { showSort, hideSort } = useShowHide()
   const [optionState, setOptionState] = useState(
     sessionStorage.getItem('movieState') || 'movie'
@@ -106,6 +107,10 @@ const Search = () => {
           />
           <span>{iconsData.searchIcon}</span>
         </form>
+
+        <span onClick={() => setMode(!mode)} className='mode-icon'>
+          {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
+        </span>
       </div>
     </div>
   )

@@ -42,7 +42,6 @@ const Menu = () => {
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
-    console.log(true)
     const toggleMenu = e => {
       if (menuInnerRef.current.contains(e.target)) {
         return

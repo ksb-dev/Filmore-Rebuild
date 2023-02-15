@@ -12,7 +12,7 @@
     justify-content: space-between;
     padding: 0.6rem 1rem;
     cursor: pointer;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-1);
 
     span {
       display: inline-block;
@@ -25,7 +25,7 @@
     width: 182px;
     display: flex;
     flex-direction: column;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-1);
     box-shadow: 5px 8px 10px #000;
 
     opacity: 0;
@@ -39,15 +39,15 @@
       cursor: pointer;
     }
 
-    // span:first-child {
-    //   border-top-left-radius: var(--border-radius);
-    //   border-top-right-radius: var(--border-radius);
-    // }
+    span:first-child {
+      border-top-left-radius: var(--border-radius-1);
+      border-top-right-radius: var(--border-radius-1);
+    }
 
-    // span:last-child {
-    //   border-bottom-left-radius: var(--border-radius);
-    //   border-bottom-right-radius: var(--border-radius);
-    // }
+    span:last-child {
+      border-bottom-left-radius: var(--border-radius-1);
+      border-bottom-right-radius: var(--border-radius-1);
+    }
 
     span:hover {
       filter: brightness(80%);

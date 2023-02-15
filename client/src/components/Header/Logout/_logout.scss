@@ -1,10 +1,9 @@
 .logout {
   position: absolute;
-  top: 2.3rem;
-  right: 0rem;
+  top: 0rem;
+  right: 2.5rem;
 
   transition: var(--transition);
-  //min-width: 100px;
 
   opacity: 0;
   z-index: -1;
@@ -13,42 +12,24 @@
   border-radius: var(--border-radius-1);
 
   &__inner {
-    padding: 0.5rem;
+    min-width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    // &--user {
-    //   background: var(--blue);
-    //   color: #fff;
-    // }
-
     &--user,
-    &--watchlist,
     &--logoutBtn {
       display: flex;
       align-items: center;
       width: 88%;
       text-align: center;
       padding: 0.5rem;
-      margin-bottom: 0.5rem;
     }
 
-    &--watchlist {
-      text-decoration: none;
-      background: var(--gold);
-      color: #000;
-      cursor: pointer;
-
-      p {
-        position: re;
-        background: #000;
-        color: #fff;
-        margin: 0 0 0 0.5rem;
-        height: 25px;
-        width: 40px;
-      }
+    &--user {
+      border-top-left-radius: var(--border-radius-1);
+      border-top-right-radius: var(--border-radius-1);
     }
 
     &--logoutBtn {
@@ -73,15 +54,12 @@
 @media screen and (max-width: 1300px) {
   .logout {
     position: absolute;
-    //top: -5.3rem;
-    //right: -3rem;
   }
 }
 
 @media screen and (max-width: 786px) {
   .logout {
     position: absolute;
-    top: -6.8rem;
-    //right: -3rem;
+    top: -2.5rem;
   }
 }

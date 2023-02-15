@@ -1,12 +1,13 @@
 import React from 'react'
 
 // Recat Icons
+import { AiOutlinePlus, AiOutlineCheck } from 'react-icons/ai'
 import {
   BsSun,
   BsMoonStars,
   BsEye,
   BsEyeSlash,
-  BsCheck2Circle
+  BsCheckCircle
 } from 'react-icons/bs'
 import {
   BiSearch,
@@ -65,5 +66,7 @@ export const iconsData = {
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
   home: <TfiHome size={'17px'} />,
-  watchlist: <BsCheck2Circle size={'20px'} style={{ marginRight: '0.25rem' }} />
+  watchlist: <BsCheckCircle size={'20px'} />,
+  addBookmark: <AiOutlinePlus size={'20px'} />,
+  deleteBookmark: <AiOutlineCheck size={'20px'} style={{ color: '#000' }} />
 }

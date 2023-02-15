@@ -83,35 +83,6 @@ const Logout = () => {
           {user && user.charAt(0).toUpperCase() + user.substring(1)}
         </span>
 
-        {/* <Link
-          to='/watchlist'
-          onClick={() => {
-            hideLogout(logoutRef)
-            setLogoutState(false)
-            setMovieState(!movieState)
-          }}
-          className={
-            'logout__inner--watchlist '
-            //+
-            //(mode === true ? 'lightBg2' : 'darkBg1')
-          }
-        >
-          {iconsData.star1}{' '}
-          {sessionStorage.getItem('movieState') === 'movie' ? (
-            <>Movies</>
-          ) : (
-            <>Tv</>
-          )}
-          <p>
-            {sessionStorage.getItem('movieState') === 'movie' &&
-              savedMovies && <span>{savedMovies.length}</span>}
-            {sessionStorage.getItem('movieState') === 'tv' && savedShows && (
-              <span>{savedShows.length}</span>
-            )}
-       
-          </p>
-        </Link> */}
-
         <span
           className='logout__inner--logoutBtn'
           onClick={() => handleLogout()}

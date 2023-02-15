@@ -37,6 +37,7 @@
         cursor: pointer;
         font-weight: var(--font-weight-5);
         font-size: 1.5rem;
+        border-radius: var(--border-radius-1);
       }
 
       .title:hover {
@@ -110,7 +111,6 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        border-radius: var(--border-radius-1);
         padding: 0.25rem 0.5rem;
         cursor: pointer;
         margin-left: 1rem;
@@ -159,7 +159,7 @@
 .activeMovie {
   background: var(--gold) !important;
   color: #000 !important;
-  //pointer-events: none;
+  border-radius: 50% !important;
 }
 
 @media screen and (max-width: 786px) {

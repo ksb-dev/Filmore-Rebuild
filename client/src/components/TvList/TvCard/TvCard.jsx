@@ -78,7 +78,7 @@ const TvCard = ({ tv }) => {
             )
           }
         >
-          <span className='card__btn--icon'>{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
 
@@ -86,30 +86,26 @@ const TvCard = ({ tv }) => {
       {user &&
         savedShows &&
         savedShows.length > 0 &&
-        savedShows.map((item, index) => {
-          if (item.id !== id) {
-            return (
-              <p
-                key={index}
-                className='card__add__btn '
-                onClick={() =>
-                  addShow(
-                    id,
-                    name,
-                    poster_path,
-                    backdrop_path,
-                    first_air_date,
-                    vote_average,
-                    genre_ids,
-                    overview
-                  )
-                }
-              >
-                <span className='card__btn--icon'>{iconsData.star}</span>
-              </p>
-            )
-          }
-        })}
+        savedShows.every((item, index) => item.id !== id) && (
+          <p
+            key={id}
+            className='card__add__btn '
+            onClick={() =>
+              addShow(
+                id,
+                name,
+                poster_path,
+                backdrop_path,
+                first_air_date,
+                vote_average,
+                genre_ids,
+                overview
+              )
+            }
+          >
+            <span className='card__btn--icon'>{iconsData.addBookmark}</span>
+          </p>
+        )}
 
       {/* DELETE-BUTTON */}
       {user &&
@@ -122,12 +118,10 @@ const TvCard = ({ tv }) => {
                 key={index}
                 className='card__delete__btn '
                 onClick={() => deleteShow(id)}
+                style={{ background: 'gold' }}
               >
-                <span
-                  className='card__btn--icon'
-                  style={{ color: 'var(--gold)' }}
-                >
-                  {iconsData.star}
+                <span className='card__btn--icon'>
+                  {iconsData.deleteBookmark}
                 </span>
               </p>
             )
@@ -135,9 +129,9 @@ const TvCard = ({ tv }) => {
         })}
 
       {/* ADD-BUTTON (without user) */}
-      {sessionStorage.getItem('name') === null && (
+      {!user && (
         <p className='card__btn ' onClick={() => navigate('/login')}>
-          <span className='card__btn--icon'>{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
 

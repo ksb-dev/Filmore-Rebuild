@@ -85,9 +85,9 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          <span onClick={() => setMode(!mode)} className='mode-icon'>
+          {/* <span onClick={() => setMode(!mode)} className='mode-icon'>
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-          </span>
+          </span> */}
 
           {window.location.pathname === '/' ? (
             <span
@@ -104,7 +104,7 @@ const Header = () => {
 
           {window.location.pathname === '/watchlist' ? (
             <Link to='/watchlist' className='watchlist activeMovie'>
-              {iconsData.star}
+              {iconsData.watchlist}
               <p>
                 <span>
                   {optionState === 'movie'
@@ -115,7 +115,7 @@ const Header = () => {
             </Link>
           ) : (
             <Link to='/watchlist' className='watchlist'>
-              {iconsData.star}
+              {iconsData.watchlist}
               <p>
                 <span>
                   {optionState === 'movie'
@@ -125,17 +125,6 @@ const Header = () => {
               </p>
             </Link>
           )}
-
-          {/* <Link to='/watchlist' className='watchlist-1'>
-            {iconsData.star}
-            <p>
-              <span>
-                {optionState === 'movie'
-                  ? savedMovies && savedMovies.length
-                  : savedShows && savedShows.length}
-              </span>
-            </p>
-          </Link> */}
 
           <div ref={userIconRef} className='user'>
             {user ? (

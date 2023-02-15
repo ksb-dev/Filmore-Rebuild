@@ -16,16 +16,18 @@
     height: 480px;
 
     position: relative;
-    border-radius: var(--border-radius);
     user-select: none;
     margin-bottom: calc(2rem + 0x);
+    border-bottom-left-radius: var(--border-radius-1);
+    border-bottom-right-radius: var(--border-radius-1);
 
     &--image {
       width: 100%;
       height: 480px;
-      border-radius: var(--border-radius);
       object-fit: cover;
       transition: var(--transition);
+      border-bottom-left-radius: var(--border-radius-1);
+      border-bottom-right-radius: var(--border-radius-1);
     }
 
     &__cover {
@@ -35,7 +37,8 @@
       bottom: 0;
       width: 100%;
       height: 480px;
-      border-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius-1);
+      border-bottom-right-radius: var(--border-radius-1);
 
       &--number {
         font-weight: 500;
@@ -46,8 +49,8 @@
         padding: 0.5rem 1rem;
         background: rgba(0, 0, 0, 0.8);
         color: #fff;
-        border-top-left-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
+        border-top-left-radius: var(--border-radius-1);
+        border-bottom-right-radius: var(--border-radius-1);
       }
 
       &__info {
@@ -127,7 +130,7 @@
 
   &__movies {
     max-width: 1280px;
-    margin: 2rem 2rem 3rem 2rem;
+    margin: 4rem 2rem 3rem 2rem;
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -144,8 +147,12 @@
 @media screen and (max-width: 640px) {
   .list {
     padding-top: calc(58.6px + 2rem);
+
     &__wall {
       display: none;
+    }
+    &__movies {
+      margin-top: 2rem;
     }
   }
 }
