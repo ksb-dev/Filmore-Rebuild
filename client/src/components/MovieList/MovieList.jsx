@@ -203,10 +203,10 @@ const MovieList = () => {
         {sortedMovies && sortedMovies.length > 0 && <Sort />}
         <span className='activeOption'>
           {window.location.pathname === '/watchlist' ? (
-            <span className='activeOption'>Watchlist</span>
+            <span className='activeOption'>Watchlist (Movies)</span>
           ) : (
             <span className='activeOption'>
-              {sessionStorage.getItem('option')}
+              {sessionStorage.getItem('option') + ' Movies'}
             </span>
           )}
         </span>

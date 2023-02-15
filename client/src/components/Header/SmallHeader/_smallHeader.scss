@@ -40,10 +40,10 @@
     &__options {
       width: 100vw;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
 
       .title {
-        //display: none;
+        display: none;
       }
     }
   }

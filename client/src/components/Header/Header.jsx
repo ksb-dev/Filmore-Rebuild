@@ -65,13 +65,16 @@ const Header = () => {
             }}
           >
             TMDb
-            {/* <span className='title__part--1'>Film</span>
-            <span className='title__icon'>{iconsData.film}</span>
-            <span className='title__part--2'>ra</span> */}
           </Link>
-          <span ref={menuIconRef} className='menu-icon'>
-            {iconsData.menu} Menu
-          </span>
+
+          {window.location.pathname === '/login' ||
+          window.location.pathname === '/register' ? (
+            <></>
+          ) : (
+            <span ref={menuIconRef} className='menu-icon'>
+              {iconsData.menu} Menu
+            </span>
+          )}
         </div>
 
         {window.location.pathname === '/login' ||
@@ -85,10 +88,6 @@ const Header = () => {
 
         {/* Two */}
         <div className='header__options__two'>
-          {/* <span onClick={() => setMode(!mode)} className='mode-icon'>
-            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-          </span> */}
-
           {window.location.pathname === '/' ? (
             <span
               onClick={() => navigate('/')}

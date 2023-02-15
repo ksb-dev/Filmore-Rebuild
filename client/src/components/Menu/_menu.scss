@@ -153,22 +153,44 @@
     &__inner {
       min-height: 100vh;
       .category-title,
-      .genre-title {
+      .title-close {
+        padding: 1rem;
+      }
+
+      .genre-title,
+      .category-title {
         font-size: 1rem;
+        padding-left: 1rem;
       }
 
       &__genre {
+        padding: 1rem 1rem 1rem 1rem;
         height: calc(100vh - 280.4px);
         overflow-y: scroll;
 
         &__inner {
-          //grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+          p,
+          a,
+          span {
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+          }
         }
       }
 
       &__category {
+        padding: 1rem 1rem 1rem 1rem;
         &__inner {
-          //grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+          p,
+          a,
+          span {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+          }
         }
       }
     }
@@ -178,18 +200,18 @@
 @media screen and (max-width: 376px) {
   .menu {
     &__inner {
-      &__category,
-      &__genre {
-        &__inner {
-          //grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      // &__category,
+      // &__genre {
+      //   &__inner {
+      //     //grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
 
-          p,
-          span,
-          a {
-            font-size: 1rem;
-          }
-        }
-      }
+      //     p,
+      //     span,
+      //     a {
+      //       font-size: 1rem;
+      //     }
+      //   }
+      // }
 
       &__genre {
         height: calc(100vh - 320.4px);

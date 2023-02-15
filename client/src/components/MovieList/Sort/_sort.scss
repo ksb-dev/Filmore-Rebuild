@@ -56,12 +56,22 @@
   }
 }
 
-// @media screen and (max-width: 640px) {
-//   .sort {
-//     top: 80px;
-//     left: 1rem;
-//   }
-// }
+@media screen and (max-width: 640px) {
+  .sort {
+    &__open {
+      width: 120px;
+      span {
+        font-size: 0.9rem;
+      }
+    }
+    &__close {
+      width: 152px;
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
 
 // @media screen and (max-width: 375px) {
 //   .sort {

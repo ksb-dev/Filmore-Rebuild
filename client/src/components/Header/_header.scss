@@ -78,7 +78,6 @@
         p {
           display: none;
           margin: 0;
-          margin-left: 0.5rem;
           position: relative;
           width: 30px;
           height: 30px;
@@ -100,12 +99,10 @@
         transition: var(--transition);
       }
 
-      .mode-icon,
       .home-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
-        padding: 0.25rem 0.5rem;
         cursor: pointer;
         margin-left: 1rem;
         background: #000;
@@ -123,7 +120,6 @@
           display: flex;
           align-items: center;
           border-radius: var(--border-radius-1);
-          padding: 0.25rem 0.5rem;
           cursor: pointer;
           margin-left: 1rem;
           background: #000;
@@ -174,7 +170,7 @@
     &__options {
       &__one {
         .title {
-          display: none;
+          //display: none;
         }
       }
       &__middle {
@@ -193,7 +189,7 @@
     &__options {
       &__one {
         .title {
-          display: none;
+          font-size: 1.1rem;
         }
       }
 
@@ -208,12 +204,17 @@
           align-items: center;
         }
 
-        .watchlist {
-          //display: none;
+        .watchlist,
+        .home-icon {
+          padding: 0.25rem;
         }
 
-        .watchlist-1 {
-          display: flex;
+        .user {
+          .user-icon,
+          .close-icon,
+          .login-icon {
+            padding: 0.25rem;
+          }
         }
 
         justify-content: space-between;

@@ -224,10 +224,10 @@ const TvList = () => {
       <div className='list__sort-activeOption'>
         {sortedShows && sortedShows.length > 0 && <Sort />}
         {window.location.pathname === '/watchlist' ? (
-          <span className='activeOption'>Watchlist</span>
+          <span className='activeOption'>Watchlist (Shows)</span>
         ) : (
           <span className='activeOption'>
-            {sessionStorage.getItem('option')}
+            {sessionStorage.getItem('option') + ' Shows'}
           </span>
         )}
       </div>

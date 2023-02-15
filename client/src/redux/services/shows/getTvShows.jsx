@@ -79,7 +79,7 @@ export const getTvShows = createAsyncThunk(
             Authorization: `Bearer ${savedToken}`
           }
         })
-        return response.data.watchlist
+        return response.data.shows
       }
     }
     res = await data.json()
@@ -161,6 +161,7 @@ export const tvSlice = createSlice({
       })
       .addCase(getTvShows.fulfilled, (state, action) => {
         state.loading = false
+
         if (action.payload.results) {
           state.sortedShows = action.payload.results
           state.shows = action.payload.results

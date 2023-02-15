@@ -93,7 +93,6 @@ export const useWatchlistOperations = () => {
         dispatch(setSavedMovies())
 
         if (window.location.pathname === '/watchlist') {
-          console.log(true)
           dispatch(getMovies('watchlist'))
         }
       }
@@ -180,7 +179,6 @@ export const useWatchlistOperations = () => {
         dispatch(setSavedShows())
 
         if (window.location.pathname === '/watchlist') {
-          console.log(true)
           dispatch(getTvShows('watchlist'))
         }
       }
