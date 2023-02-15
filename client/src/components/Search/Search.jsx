@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 
+// react-router-dom
+import { useNavigate } from 'react-router-dom'
+
 // APIs
 import { APIs } from '../../APIs/APIs'
 
@@ -37,13 +40,14 @@ const Search = () => {
     sessionStorage.getItem('movieState') || 'movie'
   )
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    sessionStorage.setItem('searchQuery', searchQuery)
-    if (searchQuery.length === 0) {
-      setMovieState(!movieState)
-    }
-  }, [searchQuery])
+  // useEffect(() => {
+  //   sessionStorage.setItem('searchQuery', searchQuery)
+  //   if (searchQuery.length === 0) {
+  //     setMovieState(!movieState)
+  //   }
+  // }, [searchQuery])
 
   useEffect(() => {
     window.scroll({
@@ -105,22 +109,23 @@ const Search = () => {
   }
 
   const handleSubmit = e => {
+    e.preventDefault()
+    sessionStorage.setItem('searchQuery', searchQuery)
     setIndex(0)
     sessionStorage.setItem('page', 1)
 
-    e.preventDefault()
-    sessionStorage.setItem('searchQuery', searchQuery)
-
     //searchQuery = sessionStorage.getItem('searchQuery')
-    const movieState = sessionStorage.getItem('movieState')
+    // const movieState = sessionStorage.getItem('movieState')
 
-    if (searchQuery && movieState === 'movie') {
-      dispatch(getMovies('search'))
-    }
+    // if (searchQuery && movieState === 'movie') {
+    //   dispatch(getMovies('search'))
+    // }
 
-    if (searchQuery && movieState === 'tv') {
-      dispatch(getTvShows('search'))
-    }
+    // if (searchQuery && movieState === 'tv') {
+    //   dispatch(getTvShows('search'))
+    // }
+
+    navigate('/search')
   }
 
   return (

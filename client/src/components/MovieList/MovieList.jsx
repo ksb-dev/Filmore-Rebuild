@@ -101,13 +101,13 @@ const MovieList = () => {
     )
   }
 
-  if (sortedMovies && sortedMovies.length === 0) {
-    return (
-      <div className='error'>
-        <Error msg={'No movies found!'} />
-      </div>
-    )
-  }
+  // if (!loading && sortedMovies && sortedMovies.length === 0) {
+  //   return (
+  //     <div className='error'>
+  //       <Error msg={'No movies found!'} />
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className='list'>
@@ -210,13 +210,20 @@ const MovieList = () => {
       <div className='list__sort-activeOption'>
         {sortedMovies && sortedMovies.length > 0 && <Sort />}
         <span className='activeOption'>
-          {window.location.pathname === '/watchlist' ? (
+          {window.location.pathname === '/watchlist' && (
             <span className='activeOption'>Watchlist (Movies)</span>
-          ) : (
+          )}
+
+          {window.location.pathname !== '/watchlist' &&
+            window.location.pathname !== '/search' && (
+              <span className='activeOption'>
+                {sessionStorage.getItem('option') + ' Movies'}
+              </span>
+            )}
+
+          {window.location.pathname === '/search' && (
             <span className='activeOption'>
-              {!searchQuery
-                ? sessionStorage.getItem('option') + ' Movies'
-                : searchQuery + ' (movie search results)'}
+              {searchQuery + ' (search results)'}
             </span>
           )}
         </span>
@@ -231,7 +238,6 @@ const MovieList = () => {
       </div>
 
       {window.location.pathname !== '/watchlist' &&
-        window.location.pathname !== '/search' &&
         sortedMovies &&
         sortedMovies.length > 0 && (
           <div className='pagination'>

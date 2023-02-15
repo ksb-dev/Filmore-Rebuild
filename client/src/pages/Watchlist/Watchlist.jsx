@@ -33,10 +33,10 @@ const Watchlist = () => {
 
     // Check for movie state
     let savedMovieState = sessionStorage.getItem('movieState')
-    if (!savedMovieState) {
-      sessionStorage.setItem('movieState', 'movie')
-      savedMovieState = 'movie'
-    }
+    // if (!savedMovieState) {
+    //   sessionStorage.setItem('movieState', 'movie')
+    //   savedMovieState = 'movie'
+    // }
 
     // Check for token
     const savedToken = sessionStorage.getItem('token')

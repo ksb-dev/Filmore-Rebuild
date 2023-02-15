@@ -28,26 +28,19 @@ const Home = () => {
       behavior: 'smooth'
     })
 
-    // Check for movie state
+    // 1. Set search query to ''
+    sessionStorage.removeItem('searchQuery')
+    setSearchQuery('')
+
+    // 2. Check for movie state
     let savedMovieState = sessionStorage.getItem('movieState')
+
     if (!savedMovieState) {
       sessionStorage.setItem('movieState', 'movie')
       savedMovieState = 'movie'
     }
 
-    const searchQuery = sessionStorage.getItem('searchQuery')
-
-    if (searchQuery && savedMovieState === 'movie') {
-      dispatch(getMovies('search'))
-      console.log(1)
-    }
-
-    if (searchQuery && savedMovieState === 'tv') {
-      dispatch(getTvShows('search'))
-      console.log(2)
-    }
-
-    // Check for token
+    // 3. Check for token
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
@@ -56,14 +49,13 @@ const Home = () => {
       console.log(3)
     }
 
-    // Check for option
+    // 4. Check for active category
     let activeOption = sessionStorage.getItem('option')
+
     if (!activeOption) {
       sessionStorage.setItem('option', 'Popular')
       activeOption = 'Popular'
     }
-
-    const genreId = sessionStorage.getItem('genreId')
 
     if (
       activeOption === 'Popular' ||
@@ -71,22 +63,25 @@ const Home = () => {
       activeOption === 'In Theatres' ||
       activeOption === 'On Air'
     ) {
-      if (!searchQuery && sessionStorage.getItem('movieState') === 'movie') {
+      if (sessionStorage.getItem('movieState') === 'movie') {
         dispatch(getMovies(activeOption))
         console.log(4)
       }
-      if (!searchQuery && sessionStorage.getItem('movieState') === 'tv') {
+      if (sessionStorage.getItem('movieState') === 'tv') {
         dispatch(getTvShows(activeOption))
         console.log(5)
       }
       //return
     }
 
-    if (!searchQuery && savedMovieState === 'movie' && genreId !== null) {
+    // 5. Check for active genre
+    const genreId = sessionStorage.getItem('genreId')
+
+    if (savedMovieState === 'movie' && genreId !== null) {
       dispatch(getMovies({ value: 'genre', id: genreId }))
       console.log(6)
     }
-    if (!searchQuery && savedMovieState === 'tv' && genreId !== null) {
+    if (savedMovieState === 'tv' && genreId !== null) {
       dispatch(getTvShows({ value: 'genre', id: genreId }))
       console.log(7)
     }

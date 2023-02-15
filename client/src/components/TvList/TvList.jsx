@@ -231,13 +231,21 @@ const TvList = () => {
 
       <div className='list__sort-activeOption'>
         {sortedShows && sortedShows.length > 0 && <Sort />}
-        {window.location.pathname === '/watchlist' ? (
+
+        {window.location.pathname === '/watchlist' && (
           <span className='activeOption'>Watchlist (Shows)</span>
-        ) : (
+        )}
+
+        {window.location.pathname !== '/watchlist' &&
+          window.location.pathname !== '/search' && (
+            <span className='activeOption'>
+              {sessionStorage.getItem('option') + ' shows'}
+            </span>
+          )}
+
+        {window.location.pathname === '/search' && (
           <span className='activeOption'>
-            {!searchQuery
-              ? sessionStorage.getItem('option') + ' Shows'
-              : searchQuery + ' (tv search results)'}
+            {searchQuery + ' (search results)'}
           </span>
         )}
       </div>
@@ -249,7 +257,6 @@ const TvList = () => {
       </div>
 
       {window.location.pathname !== '/watchlist' &&
-        window.location.pathname !== '/search' &&
         sortedShows &&
         sortedShows.length > 0 && (
           <div className='pagination'>
