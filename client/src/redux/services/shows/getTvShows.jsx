@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { RiCoinsLine } from 'react-icons/ri'
 
 // APIs
 import { APIs } from '../../../APIs/APIs'
@@ -67,9 +68,9 @@ export const getTvShows = createAsyncThunk(
         )
       }
     } else if (category === 'search') {
-      const term = sessionStorage.getItem('term')
+      const searchQuery = sessionStorage.getItem('searchQuery')
 
-      data = await fetch(APIs.search__url + `&query=` + term)
+      data = await fetch(APIs.search__tv__url + `&query=` + searchQuery)
     } else {
       const savedToken = sessionStorage.getItem('token')
 

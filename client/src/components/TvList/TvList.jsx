@@ -32,7 +32,7 @@ import {
 import { iconsData } from '../../data/icons'
 
 const TvList = () => {
-  const { mode, index, setIndex } = useMovieContext()
+  const { mode, index, setIndex, searchQuery } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
   const shows = useSelector(state => state.tvShows.sortedShows)
   const sortedShows = useSelector(state => state.tvShows.sortedShows)
@@ -227,7 +227,9 @@ const TvList = () => {
           <span className='activeOption'>Watchlist (Shows)</span>
         ) : (
           <span className='activeOption'>
-            {sessionStorage.getItem('option') + ' Shows'}
+            {!searchQuery
+              ? sessionStorage.getItem('option') + ' Shows'
+              : searchQuery + ' (tv search results)'}
           </span>
         )}
       </div>

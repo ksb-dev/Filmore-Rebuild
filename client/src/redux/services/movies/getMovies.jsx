@@ -69,10 +69,14 @@ export const getMovies = createAsyncThunk(
         )
       }
     } else if (category === 'search') {
-      if (page === 1) {
-        data = await fetch(APIs.topRated_movies_url)
+      const searchQuery = sessionStorage.getItem('searchQuery')
+
+      if (searchQuery !== null && page === 1) {
+        data = await fetch(APIs.search__movie__url + `&query=${searchQuery}`)
       } else {
-        data = await fetch(APIs.topRated_movies_url + `&page=${page}`)
+        data = await fetch(
+          APIs.search__movie__url + `&query=${searchQuery}&page=${page}`
+        )
       }
     } else {
       const savedToken = sessionStorage.getItem('token')
@@ -177,6 +181,7 @@ export const moviesSlice = createSlice({
         state.error.isError = false
       })
       .addCase(getMovies.rejected, state => {
+        console.log('rejected')
         state.loading = false
         state.error.isError = true
         state.error.msg = 'Failed to fetch movies.'

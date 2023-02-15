@@ -47,6 +47,7 @@ const Header = () => {
     sessionStorage.setItem('movieState', 'movie')
     sessionStorage.removeItem('genreId')
     sessionStorage.removeItem('option')
+    sessionStorage.removeItem('searchQuery')
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     setIndex(0)

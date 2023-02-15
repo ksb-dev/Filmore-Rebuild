@@ -32,7 +32,7 @@ import {
 import { iconsData } from '../../data/icons'
 
 const MovieList = () => {
-  const { mode, index, setIndex } = useMovieContext()
+  const { mode, index, setIndex, searchQuery } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
   const movies = useSelector(state => state.movies.movies)
   const sortedMovies = useSelector(state => state.movies.sortedMovies)
@@ -206,7 +206,9 @@ const MovieList = () => {
             <span className='activeOption'>Watchlist (Movies)</span>
           ) : (
             <span className='activeOption'>
-              {sessionStorage.getItem('option') + ' Movies'}
+              {!searchQuery
+                ? sessionStorage.getItem('option') + ' Movies'
+                : searchQuery + ' (movie search results)'}
             </span>
           )}
         </span>

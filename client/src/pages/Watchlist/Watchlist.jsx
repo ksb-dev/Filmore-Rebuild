@@ -18,7 +18,7 @@ import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
 const Watchlist = () => {
-  const { mode, movieState } = useMovieContext()
+  const { mode, movieState, setSearchQuery } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -27,6 +27,9 @@ const Watchlist = () => {
       left: 0,
       behavior: 'smooth'
     })
+
+    sessionStorage.removeItem('searchQuery')
+    setSearchQuery('')
 
     // Check for movie state
     let savedMovieState = sessionStorage.getItem('movieState')
@@ -45,10 +48,8 @@ const Watchlist = () => {
 
       if (savedMovieState === 'movie') {
         dispatch(getMovies('savedMovies'))
-        //dispatch(setSavedMovies())
       } else {
         dispatch(getTvShows('savedShows'))
-        //dispatch(setSavedShows())
       }
     }
   }, [dispatch, movieState])

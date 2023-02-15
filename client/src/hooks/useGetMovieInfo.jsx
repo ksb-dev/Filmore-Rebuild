@@ -23,6 +23,7 @@ export const useGetMovieInfo = () => {
     }
   }
 
+  // Get cast
   const getCast = async (id, setCast, setCastLoading, setCastError) => {
     try {
       const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${
@@ -47,6 +48,7 @@ export const useGetMovieInfo = () => {
     }
   }
 
+  // Get backdrops
   const getBackdrops = async (
     id,
     setBackdrops,
@@ -117,6 +119,7 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
     }
   }
 
+  // Get reviews
   const getReviews = async (
     id,
     setReviews,
@@ -145,6 +148,7 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
     }
   }
 
+  // Get videos
   const getVideos = async (id, setVideos, setVideosLoading, setVideosError) => {
     const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${
       import.meta.env.VITE_KEY
@@ -168,6 +172,7 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
     }
   }
 
+  // Get actor detail
   const getActorDetail = async (
     id,
     setActorDetail,

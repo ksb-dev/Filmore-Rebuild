@@ -18,7 +18,7 @@ import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
 const Home = () => {
-  const { mode, movieState, activeOption } = useMovieContext()
+  const { mode, movieState, activeOption, setSearchQuery } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -35,12 +35,25 @@ const Home = () => {
       savedMovieState = 'movie'
     }
 
+    const searchQuery = sessionStorage.getItem('searchQuery')
+
+    if (searchQuery && savedMovieState === 'movie') {
+      dispatch(getMovies('search'))
+      console.log(1)
+    }
+
+    if (searchQuery && savedMovieState === 'tv') {
+      dispatch(getTvShows('search'))
+      console.log(2)
+    }
+
     // Check for token
     const savedToken = sessionStorage.getItem('token')
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
       dispatch(setSavedMovies())
       dispatch(setSavedShows())
+      console.log(3)
     }
 
     // Check for option
@@ -58,19 +71,26 @@ const Home = () => {
       activeOption === 'In Theatres' ||
       activeOption === 'On Air'
     ) {
-      if (sessionStorage.getItem('movieState') === 'movie') {
+      if (!searchQuery && sessionStorage.getItem('movieState') === 'movie') {
         dispatch(getMovies(activeOption))
-      } else {
-        dispatch(getTvShows(activeOption))
+        console.log(4)
       }
-      return
+      if (!searchQuery && sessionStorage.getItem('movieState') === 'tv') {
+        dispatch(getTvShows(activeOption))
+        console.log(5)
+      }
+      //return
     }
 
-    if (savedMovieState === 'movie' && genreId !== null) {
+    if (!searchQuery && savedMovieState === 'movie' && genreId !== null) {
       dispatch(getMovies({ value: 'genre', id: genreId }))
-    } else {
-      dispatch(getTvShows({ value: 'genre', id: genreId }))
+      console.log(6)
     }
+    if (!searchQuery && savedMovieState === 'tv' && genreId !== null) {
+      dispatch(getTvShows({ value: 'genre', id: genreId }))
+      console.log(7)
+    }
+    console.log('-------------------------')
   }, [dispatch, movieState, activeOption])
 
   return (

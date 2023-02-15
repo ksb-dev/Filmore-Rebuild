@@ -35,10 +35,17 @@ const MovieProvider = ({ children }) => {
   const menuRef = useRef(null)
   const menuInnerRef = useRef(null)
 
+  // action, popular, war ...
   const [activeOption, setActiveOption] = useState(false)
 
+  // movie / tv
   const [optionState, setOptionState] = useState(
     sessionStorage.getItem('movieState') || 'movie'
+  )
+
+  // search query
+  const [searchQuery, setSearchQuery] = useState(
+    sessionStorage.getItem('searchQuery') || ''
   )
 
   return (
@@ -72,7 +79,10 @@ const MovieProvider = ({ children }) => {
         setActiveOption,
 
         optionState,
-        setOptionState
+        setOptionState,
+
+        searchQuery,
+        setSearchQuery
       }}
     >
       {children}
