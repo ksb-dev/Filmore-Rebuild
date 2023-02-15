@@ -104,6 +104,14 @@ const TvList = () => {
     )
   }
 
+  if (sortedShows && sortedShows.length === 0) {
+    return (
+      <div className='error'>
+        <Error msg={'No shows found!'} />
+      </div>
+    )
+  }
+
   return (
     <div className='list'>
       {sortedShows && sortedShows.length > 0 && (
@@ -241,7 +249,9 @@ const TvList = () => {
       </div>
 
       {window.location.pathname !== '/watchlist' &&
-        window.location.pathname !== '/search' && (
+        window.location.pathname !== '/search' &&
+        sortedShows &&
+        sortedShows.length > 0 && (
           <div className='pagination'>
             <Pagination data={sortedShows} pageLimit={5} dataLimit={20} />
           </div>

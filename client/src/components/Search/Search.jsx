@@ -39,6 +39,13 @@ const Search = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    sessionStorage.setItem('searchQuery', searchQuery)
+    if (searchQuery.length === 0) {
+      setMovieState(!movieState)
+    }
+  }, [searchQuery])
+
+  useEffect(() => {
     window.scroll({
       top: 0,
       left: 0,
@@ -98,6 +105,9 @@ const Search = () => {
   }
 
   const handleSubmit = e => {
+    setIndex(0)
+    sessionStorage.setItem('page', 1)
+
     e.preventDefault()
     sessionStorage.setItem('searchQuery', searchQuery)
 

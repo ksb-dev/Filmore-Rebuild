@@ -101,6 +101,14 @@ const MovieList = () => {
     )
   }
 
+  if (sortedMovies && sortedMovies.length === 0) {
+    return (
+      <div className='error'>
+        <Error msg={'No movies found!'} />
+      </div>
+    )
+  }
+
   return (
     <div className='list'>
       {sortedMovies && sortedMovies.length > 0 && (
@@ -223,7 +231,9 @@ const MovieList = () => {
       </div>
 
       {window.location.pathname !== '/watchlist' &&
-        window.location.pathname !== '/search' && (
+        window.location.pathname !== '/search' &&
+        sortedMovies &&
+        sortedMovies.length > 0 && (
           <div className='pagination'>
             <Pagination data={sortedMovies} pageLimit={5} dataLimit={20} />
           </div>

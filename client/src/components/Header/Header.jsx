@@ -30,7 +30,8 @@ const Header = () => {
     setMovieState,
     userIconRef,
     menuIconRef,
-    optionState
+    optionState,
+    setSearchQuery
   } = useMovieContext()
 
   const user1 = useSelector(state => state.savedMovies.user)
@@ -48,6 +49,7 @@ const Header = () => {
     sessionStorage.removeItem('genreId')
     sessionStorage.removeItem('option')
     sessionStorage.removeItem('searchQuery')
+    setSearchQuery('')
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     setIndex(0)
