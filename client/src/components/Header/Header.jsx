@@ -33,7 +33,8 @@ const Header = () => {
     optionState
   } = useMovieContext()
 
-  const user = useSelector(state => state.savedMovies.user)
+  const user1 = useSelector(state => state.savedMovies.user)
+  const user2 = useSelector(state => state.savedShows.user)
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
   const savedShows = useSelector(state => state.savedShows.savedShows)
   const dispatch = useDispatch()
@@ -126,7 +127,7 @@ const Header = () => {
           )}
 
           <div ref={userIconRef} className='user'>
-            {user ? (
+            {user1 && user2 ? (
               logoutState ? (
                 <div to='#' className='close-icon'>
                   {iconsData.close}
