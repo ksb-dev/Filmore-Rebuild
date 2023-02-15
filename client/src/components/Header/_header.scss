@@ -64,8 +64,7 @@
       align-items: center;
       justify-content: center;
 
-      .watchlist,
-      .watchlist-1 {
+      .watchlist {
         padding: 0.5rem;
         font-weight: 500;
         text-decoration: none;
@@ -96,14 +95,9 @@
         }
       }
 
-      .watchlist:hover,
-      .watchlist-1:hover {
+      .watchlist:hover {
         color: var(--primary);
         transition: var(--transition);
-      }
-
-      .watchlist-1 {
-        display: none;
       }
 
       .mode-icon,
@@ -137,6 +131,12 @@
           padding: 0.5rem;
         }
 
+        .close-icon {
+          background: var(--primary);
+          border-radius: 50%;
+          color: #000;
+        }
+
         .user-icon,
         .close-icon,
         .login-icon {
@@ -144,12 +144,15 @@
         }
       }
 
-      .mode-icon:hover,
       .user-icon:hover,
-      .close-icon:hover,
       .login-icon:hover,
       .home-icon:hover {
         color: var(--primary);
+        transition: var(--transition);
+      }
+
+      .close-icon:hover {
+        filter: brightness(80%);
         transition: var(--transition);
       }
     }
@@ -157,7 +160,7 @@
 }
 
 .activeMovie {
-  background: var(--gold) !important;
+  background: var(--primary) !important;
   color: #000 !important;
   border-radius: 50% !important;
 }

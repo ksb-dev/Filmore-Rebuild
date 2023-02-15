@@ -65,7 +65,7 @@ export const iconsData = {
   back: <BiArrowBack size={'20px'} style={{ marginRight: '0.5rem' }} />,
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
-  home: <TfiHome size={'17px'} />,
+  home: <TfiHome size={'20px'} />,
   watchlist: <BsCheckCircle size={'20px'} />,
   addBookmark: <AiOutlinePlus size={'20px'} />,
   deleteBookmark: <AiOutlineCheck size={'20px'} style={{ color: '#000' }} />
