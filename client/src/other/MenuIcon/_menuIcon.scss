@@ -1,0 +1,32 @@
+div {
+  .menu-icon {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  div {
+    .menu-icon {
+      //margin-left: 2rem;
+      //margin-right: 2rem;
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  div {
+    .menu-icon {
+      margin-left: 0rem;
+      span {
+        display: none;
+      }
+    }
+  }
+}

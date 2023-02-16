@@ -20,6 +20,9 @@ import { iconsData } from '../../data/icons'
 import Logout from './Logout/Logout'
 import Search from '../Search/Search'
 
+// other
+import MenuIcon from '../../other/MenuIcon/MenuIcon'
+
 const Header = () => {
   const {
     mode,
@@ -71,18 +74,9 @@ const Header = () => {
             TMDb
           </Link>
 
-          {window.location.pathname === '/login' ||
-          window.location.pathname === '/register' ? (
-            <></>
-          ) : (
-            <span ref={menuIconRef} className='menu-icon'>
-              {iconsData.menu} Menu
-            </span>
-          )}
-
-          <span onClick={() => setMode(!mode)} className='mode-icon'>
-            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-          </span>
+          <div className='header-menu-icon'>
+            <MenuIcon menuIconRef={menuIconRef} />
+          </div>
         </div>
 
         {window.location.pathname === '/login' ||
@@ -158,6 +152,10 @@ const Header = () => {
             {/* Logout Component */}
             <Logout />
           </div>
+
+          <span onClick={() => setMode(!mode)} className='mode-icon'>
+            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
+          </span>
         </div>
       </div>
     </div>

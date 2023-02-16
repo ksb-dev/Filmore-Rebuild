@@ -127,63 +127,41 @@ const Menu = () => {
 
         <div className='menu__inner__category '>
           <div className='menu__inner__category__inner'>
-            {categoryArray.map((item, index) =>
-              item.category === 'watchlist' ? (
-                <Link to='/watchlist' key={index}>
-                  {sessionStorage.getItem('movieState') === 'movie' && (
-                    <>
-                      <>
-                        {item.icon} {item.value}
-                      </>
-                      <span>{savedMovies.length}</span>
-                    </>
-                  )}
-
-                  {sessionStorage.getItem('movieState') === 'tv' && (
-                    <>
-                      <>
-                        {item.icon} {item.value}
-                      </>
-                      <span>{savedShows.length}</span>
-                    </>
-                  )}
-                </Link>
-              ) : (
-                <p
-                  onClick={() => handleCategoryClick(item.category, item.value)}
-                  key={index}
-                  className={mode === true ? 'lightBg2' : 'darkBg1'}
-                >
-                  {item.category === 'theatres' &&
-                    sessionStorage.getItem('movieState') === 'movie' && (
-                      <>
-                        {item.icon} {item.value}
-                      </>
-                    )}
-
-                  {item.category === 'theatres' &&
-                    sessionStorage.getItem('movieState') === 'tv' && (
-                      <>{item.icon} On Air</>
-                    )}
-
-                  {item.category !== 'theatres' && (
+            {categoryArray.map((item, index) => (
+              <p
+                onClick={() => handleCategoryClick(item.category, item.value)}
+                key={index}
+                className={mode === true ? 'lightBg1' : 'darkBg2'}
+              >
+                {item.category === 'theatres' &&
+                  sessionStorage.getItem('movieState') === 'movie' && (
                     <>
                       {item.icon} {item.value}
                     </>
                   )}
 
-                  {item.category === 'watchlist' &&
-                    sessionStorage.getItem('movieState') === 'movie' && (
-                      <span>{savedMovies.length}</span>
-                    )}
+                {item.category === 'theatres' &&
+                  sessionStorage.getItem('movieState') === 'tv' && (
+                    <>{item.icon} On Air</>
+                  )}
 
-                  {item.category === 'watchlist' &&
-                    sessionStorage.getItem('movieState') === 'tv' && (
-                      <span>{savedShows.length}</span>
-                    )}
-                </p>
-              )
-            )}
+                {item.category !== 'theatres' && (
+                  <>
+                    {item.icon} {item.value}
+                  </>
+                )}
+
+                {item.category === 'watchlist' &&
+                  sessionStorage.getItem('movieState') === 'movie' && (
+                    <span>{savedMovies.length}</span>
+                  )}
+
+                {item.category === 'watchlist' &&
+                  sessionStorage.getItem('movieState') === 'tv' && (
+                    <span>{savedShows.length}</span>
+                  )}
+              </p>
+            ))}
           </div>
         </div>
 
@@ -197,7 +175,7 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={item.id}
-                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                    className={mode === true ? 'lightBg1' : 'darkBg2'}
                   >
                     {item.icon1}
                     {item.genre}
@@ -207,7 +185,7 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={index}
-                    className={mode === true ? 'lightBg2' : 'darkBg1'}
+                    className={mode === true ? 'lightBg1' : 'darkBg2'}
                   >
                     {item.icon1}
                     {item.genre}

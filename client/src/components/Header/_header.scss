@@ -44,21 +44,6 @@
         filter: brightness(80%);
         transition: var(--transition);
       }
-
-      .menu-icon,
-      .mode-icon {
-        font-weight: 500;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        cursor: pointer;
-        margin-right: 1rem;
-      }
-
-      .menu-icon:hover {
-        color: var(--primary);
-        transition: var(--transition);
-      }
     }
 
     &__two {
@@ -101,7 +86,8 @@
         transition: var(--transition);
       }
 
-      .home-icon {
+      .home-icon,
+      .mode-icon {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -110,6 +96,10 @@
         background: #000;
         color: #fff;
         padding: 0.5rem;
+      }
+
+      .home-icon {
+        margin-left: 0;
       }
 
       .user {
@@ -170,28 +160,13 @@
     justify-content: space-between;
 
     &__options {
-      &__one {
-        .title {
-          //display: none;
-        }
-      }
-      &__middle {
-        display: none;
-      }
-    }
-  }
-}
+      margin-left: 1rem;
+      margin-right: 0;
 
-@media screen and (max-width: 640px) {
-  .header {
-    height: 58.6px;
-    bottom: 0;
-    justify-content: space-between;
-
-    &__options {
       &__one {
         .title {
           font-size: 1.1rem;
+          display: none;
         }
       }
 
@@ -200,15 +175,23 @@
       }
 
       &__two {
+        width: calc(100vw - 20%);
         &__menu-icon {
           cursor: pointer;
           display: flex;
           align-items: center;
+          margin-left: 0;
         }
 
         .watchlist,
-        .home-icon {
+        .home-icon,
+        .mode-icon {
           padding: 0.25rem;
+          margin-left: 0;
+        }
+
+        .mode-icon {
+          margin-right: 1rem;
         }
 
         .user {
@@ -216,6 +199,8 @@
           .close-icon,
           .login-icon {
             padding: 0.25rem;
+            margin-left: 0;
+            margin-right: 0;
           }
         }
 

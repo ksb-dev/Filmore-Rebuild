@@ -37,7 +37,7 @@
   --darkAplha-5: rgba(34, 34, 34, 0.9);
   --darkAlpha-6: rgba(34, 34, 34, 0.9);
 
-  --border-radius-1: 0px;
+  --border-radius-1: 5px;
   --border-radius-2: 10px;
   --border-radius-2: 15px;
 
@@ -286,6 +286,7 @@ body {
 @import '../other/LoadingOne/loadingOne';
 @import '../other/Error/error';
 @import '../other/WatchlistIcon/watchlistIcon';
+@import '../other/MenuIcon/menuIcon';
 
 body::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */

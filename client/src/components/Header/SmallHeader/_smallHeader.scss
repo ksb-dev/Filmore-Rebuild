@@ -9,7 +9,7 @@
   height: 58.6px;
 
   &__options {
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,12 +24,19 @@
       font-size: 1.5rem;
       background: var(--primary);
       color: #000;
-      border-radius: 5px;
+      border-radius: var(--border-radius-1);
     }
 
     .title:hover {
       transform: translateY(3deg);
       transition: var(--transition);
+    }
+
+    .menu-icon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #fff;
     }
   }
 }
@@ -37,24 +44,5 @@
 @media screen and (max-width: 786px) {
   .small-header {
     display: flex;
-    &__options {
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-
-      .title {
-        display: none;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .small-header {
-    &__options {
-      .title {
-        display: none;
-      }
-    }
   }
 }

@@ -20,7 +20,13 @@ const SearchResults = ({ results }) => {
     >
       <div className='search__results__inner'>
         {results.map((result, index) => (
-          <div key={index} className='search__results__inner__card'>
+          <div
+            key={index}
+            className={
+              'search__results__inner__card ' +
+              (mode === true ? 'lightBg1' : 'darkBg2')
+            }
+          >
             <div className='search__results__inner__card__image'>
               <img
                 src={
@@ -32,11 +38,13 @@ const SearchResults = ({ results }) => {
               />
             </div>
             <div className='search__results__inner__card__title-date'>
-              <span>{result.title ? result.title : result.name}</span>
-              <span>
-                {result.release_date
-                  ? result.release_date
-                  : result.first_air_date}
+              <span className='title'>
+                {result.title ? result.title : result.name}
+              </span>
+              <span className='date'>
+                {result.release_date && result.release_date.substring(0, 4)}
+
+                {result.first_air_date && result.first_air_date.substring(0, 4)}
               </span>
             </div>
           </div>
