@@ -1,11 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-
-// hooks
-import { useShowHide } from '../../hooks/useShowHide'
-
 // redux
-import { useSelector, useDispatch } from 'react-redux'
-import { getMovies } from '../../redux/services/movies/getMovies'
+import { useSelector } from 'react-redux'
 
 // Recat router dom
 import { Link, useNavigate } from 'react-router-dom'
@@ -34,29 +28,31 @@ const Header = () => {
     userIconRef,
     menuIconRef,
     optionState,
-    setSearchQuery
+    setSearchQuery,
+    setOptionState
   } = useMovieContext()
 
   const user1 = useSelector(state => state.savedMovies.user)
   const user2 = useSelector(state => state.savedShows.user)
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
   const savedShows = useSelector(state => state.savedShows.savedShows)
-  const dispatch = useDispatch()
 
   const navigate = useNavigate()
 
   // Title Click
   const handleTitleClick = () => {
-    setMovieState(!movieState)
     sessionStorage.setItem('movieState', 'movie')
+    setOptionState('movie')
     sessionStorage.removeItem('genreId')
     sessionStorage.removeItem('option')
     sessionStorage.removeItem('searchQuery')
     setSearchQuery('')
     sessionStorage.setItem('page', 1)
-    sessionStorage.setItem('term', '')
     setIndex(0)
-    dispatch(getMovies('Popular'))
+    //dispatch(getMovies('Popular'))
+    setMovieState(!movieState)
+
+    navigate('/')
   }
 
   return (
@@ -64,15 +60,15 @@ const Header = () => {
       <div className='header__options'>
         {/* One */}
         <div className='header__options__one'>
-          <Link
-            to='/'
+          <span
+            //to='#'
             className='title '
             onClick={() => {
               handleTitleClick()
             }}
           >
             TMDb
-          </Link>
+          </span>
 
           <div className='header-menu-icon'>
             <MenuIcon menuIconRef={menuIconRef} />
@@ -93,7 +89,7 @@ const Header = () => {
           {window.location.pathname === '/' ? (
             <span
               onClick={() => navigate('/')}
-              className='home-icon activeMovie'
+              className='home-icon activeRoute'
             >
               {iconsData.home}
             </span>
@@ -104,7 +100,7 @@ const Header = () => {
           )}
 
           {window.location.pathname === '/watchlist' ? (
-            <Link to='/watchlist' className='watchlist activeMovie'>
+            <Link to='/watchlist' className='watchlist activeRoute'>
               {iconsData.watchlist}
               <p>
                 <span>
@@ -140,7 +136,7 @@ const Header = () => {
               )
             ) : window.location.pathname === '/login' ||
               window.location.pathname === '/register' ? (
-              <Link to='/login' className='login-icon activeMovie'>
+              <Link to='/login' className='login-icon activeRoute'>
                 {iconsData.login}
               </Link>
             ) : (

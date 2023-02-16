@@ -16,9 +16,7 @@ const MovieProvider = ({ children }) => {
   const [index, setIndex] = useState(0)
 
   // For switching between movie & tv
-  const [movieState, setMovieState] = useState(
-    sessionStorage.getItem('appState') || true
-  )
+  const [movieState, setMovieState] = useState(true)
 
   // Logout component properties
   const [logoutState, setLogoutState] = useState(false)

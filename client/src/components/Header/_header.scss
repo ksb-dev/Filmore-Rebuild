@@ -147,12 +147,6 @@
   }
 }
 
-.activeMovie {
-  background: var(--primary) !important;
-  color: #000 !important;
-  border-radius: 50% !important;
-}
-
 @media screen and (max-width: 786px) {
   .header {
     height: 58.6px;
@@ -175,7 +169,7 @@
       }
 
       &__two {
-        width: calc(100vw - 20%);
+        width: calc(100vw - (20% + 0rem));
         &__menu-icon {
           cursor: pointer;
           display: flex;
@@ -208,4 +202,10 @@
       }
     }
   }
+}
+
+.activeRoute {
+  background: var(--primary) !important;
+  color: #000 !important;
+  border-radius: 50% !important;
 }

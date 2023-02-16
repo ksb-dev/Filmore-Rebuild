@@ -3,50 +3,6 @@
   position: relative;
   display: flex;
 
-  &__options {
-    position: relative;
-    width: 100px;
-    margin-right: 1px;
-
-    .current {
-      font-weight: 400;
-      cursor: pointer;
-      text-transform: capitalize;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      color: #000;
-      height: 36px;
-      border-top-left-radius: var(--border-radius-1);
-      border-bottom-left-radius: var(--border-radius-1);
-
-      span {
-        padding: 0.25rem 0.5rem;
-      }
-    }
-
-    .remaining {
-      font-weight: 400;
-      cursor: pointer;
-      padding: 0.5rem 0.5rem;
-      width: 84%;
-      text-transform: capitalize;
-      position: absolute;
-      top: 2.05rem;
-      background: #fff;
-      color: #000;
-      z-index: -1;
-      box-shadow: 0px 2px 4px #000;
-      border-radius: var(--border-radius-1);
-    }
-
-    .remaining:hover {
-      background: var(--primary);
-      transition: var(--transition);
-    }
-  }
-
   &__search-bar {
     display: flex;
     align-items: center;
@@ -55,12 +11,14 @@
       position: relative;
 
       input {
-        width: 400px;
+        width: 484px;
         border: none;
-        padding: 0.62rem 1rem;
-        //height: 30.4px;
+        padding: 0.6rem 0.5rem;
         border-top-right-radius: var(--border-radius-1);
         border-bottom-right-radius: var(--border-radius-1);
+        background: transparent;
+        color: #fff;
+        border-bottom: 1px solid #fff;
       }
 
       input:focus {
@@ -69,6 +27,7 @@
 
       ::placeholder {
         letter-spacing: 0.5px;
+        color: #fff;
       }
 
       input:focus::placeholder {
@@ -76,10 +35,10 @@
       }
 
       span {
-        color: #555;
+        color: #fff;
         position: absolute;
         top: 0.45rem;
-        right: 0.5rem;
+        right: 0.3rem;
       }
     }
 
@@ -102,7 +61,7 @@
     &__search-bar {
       form {
         input {
-          width: 200px;
+          width: 280px;
         }
       }
     }

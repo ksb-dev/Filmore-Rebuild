@@ -69,6 +69,12 @@ const Menu = () => {
   }, [menuState])
 
   const handleCategoryClick = (category, value) => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     setIndex(0)
     sessionStorage.setItem('page', 1)
     setActiveOption(!activeOption)
@@ -87,6 +93,12 @@ const Menu = () => {
   }
 
   const handleGenreClick = (id, genre) => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     setIndex(0)
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('genreId', id)
@@ -131,7 +143,14 @@ const Menu = () => {
               <p
                 onClick={() => handleCategoryClick(item.category, item.value)}
                 key={index}
-                className={mode === true ? 'lightBg1' : 'darkBg2'}
+                //className={mode === true ? 'lightBg1' : 'darkBg2'}
+                className={
+                  sessionStorage.getItem('option') === `${item.value}`
+                    ? 'activeCategory'
+                    : mode === true
+                    ? 'lightBg2'
+                    : 'darkBg1'
+                }
               >
                 {item.category === 'theatres' &&
                   sessionStorage.getItem('movieState') === 'movie' && (
@@ -175,7 +194,13 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={item.id}
-                    className={mode === true ? 'lightBg1' : 'darkBg2'}
+                    className={
+                      sessionStorage.getItem('option') === `${item.genre}`
+                        ? 'activeCategory'
+                        : mode === true
+                        ? 'lightBg2'
+                        : 'darkBg1'
+                    }
                   >
                     {item.icon1}
                     {item.genre}
@@ -185,7 +210,13 @@ const Menu = () => {
                   <span
                     onClick={() => handleGenreClick(item.id, item.genre)}
                     key={index}
-                    className={mode === true ? 'lightBg1' : 'darkBg2'}
+                    className={
+                      sessionStorage.getItem('option') === `${item.genre}`
+                        ? 'activeCategory'
+                        : mode === true
+                        ? 'lightBg2'
+                        : 'darkBg1'
+                    }
                   >
                     {item.icon1}
                     {item.genre}

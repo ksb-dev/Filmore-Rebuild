@@ -18,7 +18,8 @@ import MovieList from '../../components/MovieList/MovieList'
 import TvList from '../../components/TvList/TvList'
 
 const Home = () => {
-  const { mode, movieState, activeOption, setSearchQuery } = useMovieContext()
+  const { mode, movieState, activeOption, setSearchQuery, setOptionState } =
+    useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const Home = () => {
     if (!savedMovieState) {
       sessionStorage.setItem('movieState', 'movie')
       savedMovieState = 'movie'
+      //setOptionState('movie')
     }
 
     // 3. Check for token

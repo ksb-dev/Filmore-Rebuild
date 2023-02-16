@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -28,8 +28,8 @@ import {
   MdOutlineArrowForwardIos
 } from 'react-icons/md'
 
-// data
-import { iconsData } from '../../data/icons'
+// other
+import Options from '../../other/Options/Options'
 
 const MovieList = () => {
   const { mode, index, setIndex, searchQuery } = useMovieContext()
@@ -209,7 +209,10 @@ const MovieList = () => {
 
       <div className='list__sort-activeOption'>
         {sortedMovies && sortedMovies.length > 0 && <Sort />}
-        <span className='activeOption'>
+
+        {sortedMovies && sortedMovies.length > 0 && <Options />}
+
+        {/* <span className='activeOption'>
           {window.location.pathname === '/watchlist' && (
             <span className='activeOption'>Watchlist (Movies)</span>
           )}
@@ -226,7 +229,7 @@ const MovieList = () => {
               {searchQuery + ' (search results)'}
             </span>
           )}
-        </span>
+        </span> */}
       </div>
 
       <div className='list__movies'>

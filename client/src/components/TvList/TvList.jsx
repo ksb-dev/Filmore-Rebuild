@@ -28,8 +28,8 @@ import {
   MdOutlineArrowForwardIos
 } from 'react-icons/md'
 
-// data
-import { iconsData } from '../../data/icons'
+// other
+import Options from '../../other/Options/Options'
 
 const TvList = () => {
   const { mode, index, setIndex, searchQuery } = useMovieContext()
@@ -232,7 +232,9 @@ const TvList = () => {
       <div className='list__sort-activeOption'>
         {sortedShows && sortedShows.length > 0 && <Sort />}
 
-        {window.location.pathname === '/watchlist' && (
+        {sortedShows && sortedShows.length > 0 && <Options />}
+
+        {/* {window.location.pathname === '/watchlist' && (
           <span className='activeOption'>Watchlist (Shows)</span>
         )}
 
@@ -247,7 +249,7 @@ const TvList = () => {
           <span className='activeOption'>
             {searchQuery + ' (search results)'}
           </span>
-        )}
+        )} */}
       </div>
 
       <div className='list__movies'>

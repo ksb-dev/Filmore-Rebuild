@@ -67,27 +67,28 @@
     .category-title,
     .genre-title {
       font-size: 1.2rem;
-      font-weight: 400;
+      font-weight: 700;
       padding-left: 2rem;
-      color: var(--primary);
+      margin-bottom: 1rem;
+      //color: var(--primary);
     }
 
     &__genre,
     &__category {
       padding: 1rem 1rem 1rem 2rem;
       position: relative;
-      margin-bottom: 1rem;
+      //margin-bottom: 1rem;
       display: flex;
-      justify-content: center;
+      //justify-content: center;
 
       &__inner {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 0rem;
+        // display: grid;
+        // grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+        // gap: 0rem;
 
-        // display: flex;
-        // flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
 
         p,
         span,
@@ -95,8 +96,8 @@
           font-weight: 400;
           margin: 0;
           height: min-content;
-          font-size: 1rem;
-          //padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          padding: 0.5rem 1rem;
           margin-right: 1rem;
           margin-bottom: 1rem;
           cursor: pointer;
@@ -132,14 +133,14 @@
         p:hover,
         span:hover,
         a:hover {
-          letter-spacing: 2px;
+          filter: brightness(80%);
           transition: var(--transition);
         }
       }
     }
 
     &__category {
-      margin-bottom: 0;
+      margin-bottom: 1rem;
       padding-bottom: 0;
     }
   }
@@ -162,38 +163,38 @@
         padding: 1rem;
       }
 
-      .genre-title,
-      .category-title {
-        font-size: 1rem;
+      .genre-title {
         padding-left: 1rem;
       }
 
       &__genre {
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem 1rem 1rem 2rem;
         height: calc(100vh - 280.4px);
         overflow-y: scroll;
 
         &__inner {
+          display: grid;
           grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
           p,
           a,
           span {
             font-size: 0.9rem;
-            margin-right: 0.5rem;
+            margin-right: 1rem;
           }
         }
       }
 
       &__category {
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 0rem 2rem;
         &__inner {
+          display: grid;
           grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
           p,
           a,
           span {
-            margin-right: 0.5rem;
+            margin-right: 1rem;
             font-size: 0.9rem;
           }
         }
@@ -205,19 +206,6 @@
 @media screen and (max-width: 376px) {
   .menu {
     &__inner {
-      // &__category,
-      // &__genre {
-      //   &__inner {
-      //     //grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
-
-      //     p,
-      //     span,
-      //     a {
-      //       font-size: 1rem;
-      //     }
-      //   }
-      // }
-
       &__genre {
         height: calc(100vh - 320.4px);
       }
@@ -226,8 +214,9 @@
 }
 
 .activeCategory {
-  background: var(--red);
-  color: #fff;
+  background: var(--primary) !important;
+  color: #000 !important;
+  //border-radius: 50px !important;
 }
 
 .scroll {
