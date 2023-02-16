@@ -83,7 +83,9 @@ const Options = () => {
           </span>
         </div>
         <div
-          className='option__main__option'
+          className={
+            'option__main__option ' + (mode === true ? 'lightBg2' : 'darkBg1')
+          }
           ref={closeRef}
           onClick={() => handleOptionState()}
         >

@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     border-radius: var(--border-radius-1);
-    box-shadow: 5px 8px 10px #000;
+    //box-shadow: 0 0 5px var(--primary);
 
     opacity: 0;
     transition: var(--transition);
@@ -72,9 +72,3 @@
     }
   }
 }
-
-// @media screen and (max-width: 375px) {
-//   .sort {
-//     left: 25%;
-//   }
-// }
