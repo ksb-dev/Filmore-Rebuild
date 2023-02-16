@@ -150,20 +150,20 @@ const Search = () => {
           <span>{iconsData.searchIcon}</span>
         </form>
 
-        <span onClick={() => setMode(!mode)} className='mode-icon'>
+        {/* <span onClick={() => setMode(!mode)} className='mode-icon'>
           {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
-        </span>
+        </span> */}
       </div>
 
       {sessionStorage.getItem('movieState') === 'movie' &&
         searchQuery &&
         movieResults &&
-        movieResults.length > 0 && <SearchResults />}
+        movieResults.length > 0 && <SearchResults results={movieResults} />}
 
       {sessionStorage.getItem('movieState') === 'tv' &&
         searchQuery &&
         tvResults &&
-        tvResults.length > 0 && <SearchResults />}
+        tvResults.length > 0 && <SearchResults results={tvResults} />}
     </div>
   )
 }

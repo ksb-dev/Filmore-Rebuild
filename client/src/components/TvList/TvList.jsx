@@ -104,7 +104,7 @@ const TvList = () => {
     )
   }
 
-  if (sortedShows && sortedShows.length === 0) {
+  if (!loading && sortedShows && sortedShows.length === 0) {
     return (
       <div className='error'>
         <Error msg={'No shows found!'} />

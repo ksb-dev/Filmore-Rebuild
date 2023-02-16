@@ -79,6 +79,10 @@ const Header = () => {
               {iconsData.menu} Menu
             </span>
           )}
+
+          <span onClick={() => setMode(!mode)} className='mode-icon'>
+            {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
+          </span>
         </div>
 
         {window.location.pathname === '/login' ||

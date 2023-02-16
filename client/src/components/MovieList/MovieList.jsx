@@ -101,13 +101,13 @@ const MovieList = () => {
     )
   }
 
-  // if (!loading && sortedMovies && sortedMovies.length === 0) {
-  //   return (
-  //     <div className='error'>
-  //       <Error msg={'No movies found!'} />
-  //     </div>
-  //   )
-  // }
+  if (!loading && sortedMovies && sortedMovies.length === 0) {
+    return (
+      <div className='error'>
+        <Error msg={'No movies found!'} />
+      </div>
+    )
+  }
 
   return (
     <div className='list'>
