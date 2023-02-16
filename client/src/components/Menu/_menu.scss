@@ -128,7 +128,8 @@
         p:hover,
         span:hover,
         a:hover {
-          font-weight: 500;
+          filter: brightness(80%);
+          transition: var(--transition);
         }
       }
     }
