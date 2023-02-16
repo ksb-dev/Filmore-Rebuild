@@ -48,6 +48,9 @@ const MovieProvider = ({ children }) => {
     sessionStorage.getItem('searchQuery') || ''
   )
 
+  // search results component
+  const searchResultsRef = useRef(null)
+
   return (
     <MovieContext.Provider
       value={{
@@ -82,7 +85,9 @@ const MovieProvider = ({ children }) => {
         setOptionState,
 
         searchQuery,
-        setSearchQuery
+        setSearchQuery,
+
+        searchResultsRef
       }}
     >
       {children}

@@ -1,13 +1,14 @@
 .search__component {
+  position: relative;
   display: flex;
 
   &__options {
     position: relative;
     width: 100px;
-    margin-right: 0.1rem;
+    margin-right: 1px;
 
     .current {
-      font-weight: 500;
+      font-weight: 400;
       cursor: pointer;
       text-transform: capitalize;
       display: flex;
@@ -25,7 +26,7 @@
     }
 
     .remaining {
-      font-weight: 500;
+      font-weight: 400;
       cursor: pointer;
       padding: 0.325rem 0.5rem;
       width: 84%;

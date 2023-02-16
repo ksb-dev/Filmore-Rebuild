@@ -217,7 +217,7 @@ const MovieList = () => {
           {window.location.pathname !== '/watchlist' &&
             window.location.pathname !== '/search' && (
               <span className='activeOption'>
-                {sessionStorage.getItem('option') + ' Movies'}
+                {sessionStorage.getItem('option') + ' movies'}
               </span>
             )}
 

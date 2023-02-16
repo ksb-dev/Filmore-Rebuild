@@ -46,7 +46,7 @@ const Home = () => {
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
       dispatch(setSavedMovies())
       dispatch(setSavedShows())
-      console.log(3)
+      //console.log(3)
     }
 
     // 4. Check for active category
@@ -65,11 +65,11 @@ const Home = () => {
     ) {
       if (sessionStorage.getItem('movieState') === 'movie') {
         dispatch(getMovies(activeOption))
-        console.log(4)
+        //console.log(4)
       }
       if (sessionStorage.getItem('movieState') === 'tv') {
         dispatch(getTvShows(activeOption))
-        console.log(5)
+        //console.log(5)
       }
       //return
     }
@@ -79,13 +79,13 @@ const Home = () => {
 
     if (savedMovieState === 'movie' && genreId !== null) {
       dispatch(getMovies({ value: 'genre', id: genreId }))
-      console.log(6)
+      //console.log(6)
     }
     if (savedMovieState === 'tv' && genreId !== null) {
       dispatch(getTvShows({ value: 'genre', id: genreId }))
-      console.log(7)
+      //console.log(7)
     }
-    console.log('-------------------------')
+    //console.log('-------------------------')
   }, [dispatch, movieState, activeOption])
 
   return (

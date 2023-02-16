@@ -17,14 +17,19 @@ import { iconsData } from '../../data/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { getMovies } from '../../redux/services/movies/getMovies'
-import { getTvShows } from '../../redux/services/shows/getTvShows'
+import { getMovieResults } from '../../redux/services/movies/getMovieResults'
+import { getTvResults } from '../../redux/services/shows/getTvResults'
+
+// components
+import SearchResults from '../SearchResults/SearchResults'
 
 const Search = () => {
   const [open, setOpen] = useState(false)
   const btnRef = useRef(null)
   const optionRef = useRef(null)
   const closeRef = useRef(null)
+  const movieResults = useSelector(state => state.movieResults.movieResults)
+  const tvResults = useSelector(state => state.tvResults.tvResults)
 
   const {
     setMovieState,
@@ -33,7 +38,8 @@ const Search = () => {
     mode,
     setMode,
     searchQuery,
-    setSearchQuery
+    setSearchQuery,
+    searchResultsRef
   } = useMovieContext()
   const { showSort, hideSort } = useShowHide()
   const [optionState, setOptionState] = useState(
@@ -55,17 +61,6 @@ const Search = () => {
       left: 0,
       behavior: 'smooth'
     })
-
-    //searchQuery = sessionStorage.getItem('searchQuery')
-    // const movieState = sessionStorage.getItem('movieState')
-
-    // if (searchQuery && movieState === 'movie') {
-    //   dispatch(getMovies('search'))
-    // }
-
-    // if (searchQuery && movieState === 'tv') {
-    //   dispatch(getTvShows('search'))
-    // }
 
     const toggleSort = e => {
       if (!optionRef.current.contains(e.target)) {
@@ -114,17 +109,6 @@ const Search = () => {
     setIndex(0)
     sessionStorage.setItem('page', 1)
 
-    //searchQuery = sessionStorage.getItem('searchQuery')
-    // const movieState = sessionStorage.getItem('movieState')
-
-    // if (searchQuery && movieState === 'movie') {
-    //   dispatch(getMovies('search'))
-    // }
-
-    // if (searchQuery && movieState === 'tv') {
-    //   dispatch(getTvShows('search'))
-    // }
-
     navigate('/search')
   }
 
@@ -150,7 +134,17 @@ const Search = () => {
           <input
             type='text'
             placeholder={optionState === 'movie' ? 'Search Movie' : 'Search Tv'}
-            onChange={e => setSearchQuery(e.target.value)}
+            onChange={e => {
+              setSearchQuery(e.target.value)
+              //sessionStorage.setItem('searchQuery', searchQuery)
+              if (sessionStorage.getItem('movieState') === 'movie') {
+                dispatch(getMovieResults(searchQuery))
+              }
+
+              if (sessionStorage.getItem('movieState') === 'tv') {
+                dispatch(getTvResults(searchQuery))
+              }
+            }}
             value={searchQuery}
           />
           <span>{iconsData.searchIcon}</span>
@@ -160,6 +154,16 @@ const Search = () => {
           {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
         </span>
       </div>
+
+      {sessionStorage.getItem('movieState') === 'movie' &&
+        searchQuery &&
+        movieResults &&
+        movieResults.length > 0 && <SearchResults />}
+
+      {sessionStorage.getItem('movieState') === 'tv' &&
+        searchQuery &&
+        tvResults &&
+        tvResults.length > 0 && <SearchResults />}
     </div>
   )
 }

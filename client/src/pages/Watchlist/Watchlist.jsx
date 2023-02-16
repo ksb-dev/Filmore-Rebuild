@@ -33,10 +33,6 @@ const Watchlist = () => {
 
     // Check for movie state
     let savedMovieState = sessionStorage.getItem('movieState')
-    // if (!savedMovieState) {
-    //   sessionStorage.setItem('movieState', 'movie')
-    //   savedMovieState = 'movie'
-    // }
 
     // Check for token
     const savedToken = sessionStorage.getItem('token')
@@ -47,9 +43,9 @@ const Watchlist = () => {
         : dispatch(setSavedShows())
 
       if (savedMovieState === 'movie') {
-        dispatch(getMovies('savedMovies'))
+        sessionStorage.getItem('token') && dispatch(getMovies('savedMovies'))
       } else {
-        dispatch(getTvShows('savedShows'))
+        sessionStorage.getItem('token') && dispatch(getTvShows('savedShows'))
       }
     }
   }, [dispatch, movieState])
