@@ -115,7 +115,7 @@
   }
 
   &__sort-activeOption {
-    margin: 0 0rem 0 0rem;
+    margin: 0 4rem 0rem 0rem;
     display: flex;
     //flex-direction: row-reverse;
     align-items: center;
@@ -149,10 +149,11 @@
 @media screen and (max-width: 786px) {
   .list {
     &__sort-activeOption {
+      flex-direction: row-reverse;
+
       .switch {
-        //border: 2px solid #000;
         display: flex;
-        margin-right: 2rem;
+        margin-left: 2rem;
       }
     }
   }
@@ -167,8 +168,11 @@
     }
 
     &__sort-activeOption {
-      margin: 0 1.25rem 0 1rem;
-      margin: 0;
+      margin: 0 1.5rem 0 0;
+
+      .switch {
+        margin-left: 1rem;
+      }
 
       .activeOption {
         font-size: 1rem;

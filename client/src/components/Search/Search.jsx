@@ -60,7 +60,31 @@ const Search = () => {
             }}
             value={searchQuery}
           />
-          <span>{iconsData.searchIcon}</span>
+          {sessionStorage.getItem('movieState') === 'movie' && searchQuery && (
+            <span
+              onClick={() => {
+                setSearchQuery('')
+                //sessionStorage.removeItem('searchQuery')
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              {iconsData.close}
+            </span>
+          )}
+
+          {sessionStorage.getItem('movieState') === 'tv' && searchQuery && (
+            <span
+              onClick={() => {
+                setSearchQuery('')
+                //sessionStorage.removeItem('searchQuery')
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              {iconsData.close}
+            </span>
+          )}
+
+          {!searchQuery && <span>{iconsData.searchIcon}</span>}
         </form>
       </div>
 

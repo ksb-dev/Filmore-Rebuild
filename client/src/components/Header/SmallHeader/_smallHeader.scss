@@ -32,10 +32,8 @@
       transition: var(--transition);
     }
 
-    .menu-icon {
+    .search-icon {
       cursor: pointer;
-      display: flex;
-      align-items: center;
       color: #fff;
     }
   }
@@ -53,11 +51,9 @@
   .small-header {
     &__options {
       .title {
+        text-align: center;
         display: flex;
         align-items: center;
-        font-size: 1.2rem;
-        padding: 0 0.25rem;
-        height: 32.3px;
       }
     }
   }

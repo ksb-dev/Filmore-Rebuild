@@ -2,6 +2,7 @@ import React from 'react'
 
 // data
 import { iconsData } from '../../../data/icons'
+
 // context
 import { useMovieContext } from '../../../context/context'
 
@@ -42,11 +43,13 @@ const SmallHeader = () => {
               handleTitleClick()
             }}
           >
-            TMDb
+            <span>TMDb</span>
           </Link>
         </div>
 
-        <Search />
+        {/* <Search /> */}
+
+        <span className='search-icon'>{iconsData.searchIcon}</span>
       </div>
     </div>
   )

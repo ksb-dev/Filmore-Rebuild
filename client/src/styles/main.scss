@@ -196,13 +196,13 @@
 }
 
 .whiteBorder {
-  //border: 1px solid #fff;
-  box-shadow: 0 0 3px #fff;
+  border: 2px solid #fff;
+  //box-shadow: 0 0 3px #fff;
 }
 
 .blackBorder {
-  //border: 1px solid var(--dark-1);
-  box-shadow: 0 0 3px var(--dark-1);
+  border: 2px solid var(--dark-1);
+  //box-shadow: 0 0 3px var(--dark-1);
 }
 
 .greenBg {

@@ -114,9 +114,8 @@
   }
 
   &__sort-activeOption {
-    margin: 0 0rem 0 0rem;
+    margin: 0 4.25rem 0 0rem;
     display: flex;
-    //flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
 
@@ -141,6 +140,19 @@
   }
 }
 
+@media screen and (max-width: 786px) {
+  .list {
+    &__sort-activeOption {
+      flex-direction: row-reverse;
+
+      .switch {
+        display: flex;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 640px) {
   .list {
     padding-top: calc(58.6px + 2rem);
@@ -150,8 +162,11 @@
     }
 
     &__sort-activeOption {
-      margin: 0 1.25rem 0 1rem;
-      margin: 0;
+      margin: 0 1.5rem 0 0;
+
+      .switch {
+        margin-left: 1rem;
+      }
 
       .activeOption {
         font-size: 1rem;

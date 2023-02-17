@@ -5,20 +5,17 @@
   max-height: 80vh;
   overflow-y: scroll;
   border-radius: var(--border-radius-1);
-  box-shadow: 0 3px 6px #000;
 
   &__inner {
-    //padding: 0.5rem;
-
     display: flex;
     flex-direction: column;
+    padding: 0.5rem;
 
     &__card {
       cursor: pointer;
       padding: 0.5rem;
       display: flex;
       border-bottom: 1px solid #999;
-      //border-radius: var(--border-radius-1);
 
       &__image {
         height: 75px;
@@ -38,11 +35,13 @@
         span:first-child {
           font-size: 1rem;
           font-weight: 500;
+          margin-bottom: 0.5rem;
         }
 
         span:last-child {
-          font-size: 0.9rem;
-          font-weight: 400;
+          font-size: 1rem;
+          font-weight: 500;
+          color: #999;
         }
       }
     }

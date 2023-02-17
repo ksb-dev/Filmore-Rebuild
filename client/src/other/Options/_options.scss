@@ -50,8 +50,8 @@
   .option__main {
     &__current {
       font-weight: 500;
-      height: unset;
-      padding: calc(0.5rem - 0px) 1rem;
+      height: 38.8px;
+      //padding: calc(0.5rem - 0px) 1rem;
       background: var(--primary);
       color: #000;
       border-radius: var(--border-radius-1);
@@ -59,9 +59,9 @@
 
     &__option {
       font-weight: 500;
-      height: unset;
-      top: 2.4rem;
-      padding: calc(0.5rem - 0px) 1rem;
+      height: 38.8px;
+      top: 2.6rem;
+      //padding: calc(0.5rem - 0px) 1rem;
       background: var(--primary);
       color: #000;
     }

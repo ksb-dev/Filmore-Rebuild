@@ -18,6 +18,7 @@
 
       input {
         width: 484px;
+        width: 40vw;
         border: none;
         padding: 0.51rem 0.5rem;
         border-top-right-radius: var(--border-radius-1);
@@ -67,7 +68,7 @@
     &__search-bar {
       form {
         input {
-          width: 240px;
+          width: 30vw;
         }
       }
     }
@@ -85,6 +86,10 @@
       form {
         width: calc(100vw - (88.58px + 3rem));
         input {
+          // display: flex;
+          // align-items: center;
+          // padding: 0 0.5rem;
+          // height: 58.4px;
           width: calc(100vw - (88.58px + 3rem + 1rem));
           border-radius: var(--border-radius-1);
         }
@@ -95,6 +100,7 @@
 
 @media screen and (max-width: 640px) {
   .search__component {
+    display: none;
     width: calc(100vw - (74.06px + 2.5rem));
     &__search-bar {
       width: calc(100vw - (74.06px + 2.5rem));
