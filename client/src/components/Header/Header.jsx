@@ -1,3 +1,5 @@
+import React, { useRef } from 'react'
+
 // redux
 import { useSelector } from 'react-redux'
 
@@ -17,11 +19,15 @@ import Search from '../Search/Search'
 // other
 import MenuIcon from '../../other/MenuIcon/MenuIcon'
 
+// hooks
+import { useShowHide } from '../../hooks/useShowHide'
+
 const Header = () => {
   const {
     mode,
     setMode,
     logoutState,
+    setLogoutState,
     setIndex,
     movieState,
     setMovieState,
@@ -29,8 +35,10 @@ const Header = () => {
     menuIconRef,
     optionState,
     setSearchQuery,
-    setOptionState
+    setOptionState,
+    logoutRef
   } = useMovieContext()
+  const { hideLogout } = useShowHide()
 
   const user1 = useSelector(state => state.savedMovies.user)
   const user2 = useSelector(state => state.savedShows.user)
@@ -38,6 +46,37 @@ const Header = () => {
   const savedShows = useSelector(state => state.savedShows.savedShows)
 
   const navigate = useNavigate()
+
+  const headerRef = useRef(null)
+
+  let prevScrollpos = window.pageYOffset
+
+  //Window Scroll Function
+  window.onscroll = () => {
+    scrollFunction()
+  }
+
+  const scrollFunction = () => {
+    if (logoutRef.current !== null) hideLogout(logoutRef)
+    setLogoutState(false)
+
+    var currentScrollpos = window.pageYOffset
+
+    if (prevScrollpos === 0 || prevScrollpos > currentScrollpos) {
+      setTimeout(() => {
+        if (headerRef.current !== null) {
+          headerRef.current.style.top = '0rem'
+        }
+      }, 300)
+    } else {
+      setTimeout(() => {
+        if (headerRef.current !== null) {
+          headerRef.current.style.top = '-100%'
+        }
+      }, 300)
+    }
+    prevScrollpos = currentScrollpos
+  }
 
   // Title Click
   const handleTitleClick = () => {
@@ -49,14 +88,13 @@ const Header = () => {
     setSearchQuery('')
     sessionStorage.setItem('page', 1)
     setIndex(0)
-    //dispatch(getMovies('Popular'))
     setMovieState(!movieState)
 
     navigate('/')
   }
 
   return (
-    <div className='header'>
+    <div className='header' ref={headerRef}>
       <div className='header__options'>
         {/* One */}
         <div className='header__options__one'>
