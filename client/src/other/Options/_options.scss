@@ -37,7 +37,6 @@
     background: #fff;
     color: #000;
     border-radius: var(--border-radius-1);
-    box-shadow: 0 0 5px #000;
   }
 
   &__option:hover {
@@ -50,18 +49,22 @@
   .option__main {
     &__current {
       font-weight: 500;
-      height: 38.4px;
+      height: unset;
+      padding: calc(0.5rem - 1px) 1rem;
       background: var(--primary);
       color: #000;
       border-radius: var(--border-radius-1);
+      border: 2px solid #000;
     }
 
     &__option {
       font-weight: 500;
-      top: 2.6rem;
-      height: 38.4px;
+      height: unset;
+      top: 2.4rem;
+      padding: calc(0.5rem - 1px) 1rem;
       background: var(--primary);
       color: #000;
+      border: 2px solid #000;
     }
   }
 }

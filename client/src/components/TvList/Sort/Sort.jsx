@@ -57,7 +57,9 @@ const Sort = () => {
         ref={openRef}
         className={
           'sort__open ' +
-          (mode === true ? 'lightBg2 darkColor2' : 'darkBg1 lightColor1')
+          (mode === true
+            ? 'lightBg1 darkColor2 blackBorder'
+            : 'darkBg2 lightColor1 whiteBorder')
         }
       >
         <span>{sortState}</span>
@@ -70,13 +72,15 @@ const Sort = () => {
       <div
         ref={closeRef}
         className={
-          mode === true ? 'sort__close lightBg2' : 'sort__close darkBg1'
+          mode === true
+            ? 'sort__close lightBg1 blackBorder'
+            : 'sort__close darkBg2 whiteBorder'
         }
       >
         {sortArray.map((sort, index) => (
           <span
             className={
-              mode === true ? ' lightBg2 darkColor2' : ' darkBg1 lightColor1'
+              mode === true ? ' lightBg1 darkColor2' : ' darkBg2 lightColor1'
             }
             onClick={() => {
               sortShows(sort.id)

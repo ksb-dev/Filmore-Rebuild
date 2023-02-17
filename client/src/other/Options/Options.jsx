@@ -76,12 +76,7 @@ const Options = () => {
   return (
     <div>
       <div className='option__main' ref={optionRef}>
-        <div
-          className='option__main__current'
-          // className={
-          //   'option__main__current ' + (mode === true ? 'lightBg2' : 'darkBg1')
-          // }
-        >
+        <div className='option__main__current'>
           <span>{optionState}</span>
           <span className='option__main__current__icon'>
             <i className='fa-solid fa-chevron-down' ref={btnRef}></i>
@@ -89,9 +84,6 @@ const Options = () => {
         </div>
         <div
           className='option__main__option'
-          // className={
-          //   'option__main__option ' + (mode === true ? 'lightBg2' : 'darkBg1')
-          // }
           ref={closeRef}
           onClick={() => handleOptionState()}
         >

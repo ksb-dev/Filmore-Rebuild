@@ -195,6 +195,14 @@
   border-bottom: 2px solid var(--dark-1) !important;
 }
 
+.whiteBorder {
+  border: 2px solid #fff;
+}
+
+.blackBorder {
+  border: 2px solid var(--dark-2);
+}
+
 .greenBg {
   background-color: var(--green);
   color: #fff !important;
@@ -299,6 +307,6 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: #999; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
+  //border-radius: 20px; /* roundness of the scroll thumb */
   //border: 3px solid #fff; /* creates padding around scroll thumb */
 }
