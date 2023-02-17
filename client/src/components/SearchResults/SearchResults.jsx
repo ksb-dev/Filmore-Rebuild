@@ -15,7 +15,7 @@ const SearchResults = ({ results }) => {
     <div
       className={
         'search__results scroll-1 ' +
-        (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <div className='search__results__inner'>
@@ -24,7 +24,7 @@ const SearchResults = ({ results }) => {
             key={index}
             className={
               'search__results__inner__card ' +
-              (mode === true ? 'lightBg2' : 'darkBg1')
+              (mode === true ? 'lightBg1' : 'darkBg2')
             }
           >
             <div className='search__results__inner__card__image'>
@@ -38,10 +38,8 @@ const SearchResults = ({ results }) => {
               />
             </div>
             <div className='search__results__inner__card__title-date'>
-              <span className='title'>
-                {result.title ? result.title : result.name}
-              </span>
-              <span className='date'>
+              <span>{result.title ? result.title : result.name}</span>
+              <span>
                 {result.release_date && result.release_date.substring(0, 4)}
 
                 {result.first_air_date && result.first_air_date.substring(0, 4)}

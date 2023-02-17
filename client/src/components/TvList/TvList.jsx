@@ -232,7 +232,9 @@ const TvList = () => {
       <div className='list__sort-activeOption'>
         {sortedShows && sortedShows.length > 0 && <Sort />}
 
-        {sortedShows && sortedShows.length > 0 && <Options />}
+        <div className='switch'>
+          {sortedShows && sortedShows.length > 0 && <Options />}
+        </div>
 
         {/* {window.location.pathname === '/watchlist' && (
           <span className='activeOption'>Watchlist (Shows)</span>

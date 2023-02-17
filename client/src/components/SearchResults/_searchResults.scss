@@ -2,9 +2,13 @@
   width: 100%;
   position: absolute;
   top: 2.5rem;
-  max-height: 350px;
+  max-height: 80vh;
   overflow-y: scroll;
   border-radius: var(--border-radius-1);
+  box-shadow: 0 0 5px #000;
+  // background: #000;
+  // color: #fff;
+  //border-top: 4px solid var(--primary);
 
   &__inner {
     padding: 0.5rem;
@@ -48,6 +52,26 @@
     &__card:hover {
       filter: brightness(80%);
       transition: var(--transition);
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .search__results {
+    &__inner {
+      &__card {
+        &__title-date {
+          span:first-child {
+            font-size: 0.8rem;
+            font-weight: 500;
+          }
+
+          span:last-child {
+            font-size: 0.8rem;
+            font-weight: 400;
+          }
+        }
+      }
     }
   }
 }

@@ -16,6 +16,7 @@ import { getTvResults } from '../../redux/services/shows/getTvResults'
 
 // components
 import SearchResults from '../SearchResults/SearchResults'
+import Options from '../../other/Options/Options'
 
 const Search = () => {
   const movieResults = useSelector(state => state.movieResults.movieResults)
@@ -38,6 +39,9 @@ const Search = () => {
 
   return (
     <div className='search__component'>
+      <div className='search__component__switch'>
+        <Options />
+      </div>
       <div className='search__component__search-bar'>
         <form onSubmit={e => handleSubmit(e)}>
           <input
