@@ -47,6 +47,7 @@ const MovieProvider = ({ children }) => {
   )
 
   // search results component
+  const searchInputRef = useRef(null)
   const searchResultsRef = useRef(null)
 
   return (
@@ -85,6 +86,7 @@ const MovieProvider = ({ children }) => {
         searchQuery,
         setSearchQuery,
 
+        searchInputRef,
         searchResultsRef
       }}
     >

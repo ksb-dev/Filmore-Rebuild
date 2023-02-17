@@ -196,13 +196,25 @@
 }
 
 .whiteBorder {
-  border: 2px solid #fff;
-  //box-shadow: 0 0 3px #fff;
+  //border: 2px solid #fff;
+  box-shadow: 0 0 3px #fff;
 }
 
 .blackBorder {
-  border: 2px solid var(--dark-1);
+  //border: 2px solid var(--dark-1);
+  box-shadow: 0 0 3px var(--dark-1);
+}
+
+.lightCardInfo {
+  background: rgba(220, 220, 220, 0.9);
+  color: var(--dark-1);
   //box-shadow: 0 0 3px var(--dark-1);
+}
+
+.darkCardInfo {
+  background: rgba(57, 62, 70, 0.9);
+  color: #fff;
+  //box-shadow: 0 0 3px #fff;
 }
 
 .greenBg {

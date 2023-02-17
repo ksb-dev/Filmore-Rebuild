@@ -57,25 +57,29 @@ const Header = () => {
   }
 
   const scrollFunction = () => {
+    // To close search results
+    setSearchQuery('')
+
+    // To close logout component
     if (logoutRef.current !== null) hideLogout(logoutRef)
     setLogoutState(false)
 
-    var currentScrollpos = window.pageYOffset
+    // var currentScrollpos = window.pageYOffset
 
-    if (prevScrollpos === 0 || prevScrollpos > currentScrollpos) {
-      setTimeout(() => {
-        if (headerRef.current !== null) {
-          headerRef.current.style.top = '0rem'
-        }
-      }, 300)
-    } else {
-      setTimeout(() => {
-        if (headerRef.current !== null) {
-          headerRef.current.style.top = '-100%'
-        }
-      }, 300)
-    }
-    prevScrollpos = currentScrollpos
+    // if (prevScrollpos === 0 || prevScrollpos > currentScrollpos) {
+    //   setTimeout(() => {
+    //     if (headerRef.current !== null) {
+    //       headerRef.current.style.top = '0rem'
+    //     }
+    //   }, 300)
+    // } else {
+    //   setTimeout(() => {
+    //     if (headerRef.current !== null) {
+    //       headerRef.current.style.top = '-100%'
+    //     }
+    //   }, 300)
+    // }
+    // prevScrollpos = currentScrollpos
   }
 
   // Title Click
@@ -89,6 +93,8 @@ const Header = () => {
     sessionStorage.setItem('page', 1)
     setIndex(0)
     setMovieState(!movieState)
+
+    //dispatch(resetSortState('All'))
 
     navigate('/')
   }

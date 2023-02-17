@@ -26,6 +26,11 @@ export const getMovies = createAsyncThunk(
 
     sessionStorage.setItem('page', page)
 
+    const searchPageNo = Number(sessionStorage.getItem('searchPage'))
+    const searchPage = searchPageNo ? searchPageNo : 1
+
+    sessionStorage.setItem('searchPage', searchPage)
+
     var data, res
 
     if (category === 'Popular') {
@@ -75,7 +80,7 @@ export const getMovies = createAsyncThunk(
         data = await fetch(APIs.search__movie__url + `&query=${searchQuery}`)
       } else {
         data = await fetch(
-          APIs.search__movie__url + `&query=${searchQuery}&page=${page}`
+          APIs.search__movie__url + `&query=${searchQuery}&page=${searchPage}`
         )
       }
     } else {
@@ -97,6 +102,7 @@ export const getMovies = createAsyncThunk(
 )
 
 const setMoviesSortValues = (state, action) => {
+  console.log(action)
   if (action.payload.movies.length > 0) {
     state.sortedMovies = action.payload.movies
     state.sortState = action.payload.sortValue
@@ -132,6 +138,9 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
+    resetMovieSortState: (state, action) => {
+      state.sortState = action.payload
+    },
     resetMovies: (state, action) => {
       setMoviesSortValues(state, action)
     },
@@ -194,6 +203,7 @@ export const moviesSlice = createSlice({
 
 export default moviesSlice.reducer
 export const {
+  resetMovieSortState,
   resetMovies,
   sortMoviesAtoZ,
   sortMoviesZtoA,

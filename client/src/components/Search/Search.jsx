@@ -22,8 +22,15 @@ const Search = () => {
   const movieResults = useSelector(state => state.movieResults.movieResults)
   const tvResults = useSelector(state => state.tvResults.tvResults)
 
-  const { setIndex, searchQuery, setSearchQuery, optionState } =
-    useMovieContext()
+  const {
+    setIndex,
+    searchQuery,
+    setSearchQuery,
+    optionState,
+    searchInputRef,
+    movieState,
+    setMovieState
+  } = useMovieContext()
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -32,7 +39,10 @@ const Search = () => {
     e.preventDefault()
     sessionStorage.setItem('searchQuery', searchQuery)
     setIndex(0)
-    sessionStorage.setItem('page', 1)
+    sessionStorage.setItem('searchPage', 1)
+
+    setSearchQuery('')
+    setMovieState(!movieState)
 
     navigate('/search')
   }
@@ -45,16 +55,19 @@ const Search = () => {
       <div className='search__component__search-bar'>
         <form onSubmit={e => handleSubmit(e)}>
           <input
+            ref={searchInputRef}
             type='text'
             placeholder={optionState === 'movie' ? 'Search Movie' : 'Search Tv'}
             onChange={e => {
               setSearchQuery(e.target.value)
               //sessionStorage.setItem('searchQuery', searchQuery)
               if (sessionStorage.getItem('movieState') === 'movie') {
+                console.log(1)
                 dispatch(getMovieResults(searchQuery))
               }
 
               if (sessionStorage.getItem('movieState') === 'tv') {
+                console.log(2)
                 dispatch(getTvResults(searchQuery))
               }
             }}
@@ -66,9 +79,9 @@ const Search = () => {
                 setSearchQuery('')
                 //sessionStorage.removeItem('searchQuery')
               }}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', color: 'red' }}
             >
-              {iconsData.close}
+              {iconsData.close2}
             </span>
           )}
 
@@ -78,9 +91,9 @@ const Search = () => {
                 setSearchQuery('')
                 //sessionStorage.removeItem('searchQuery')
               }}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', color: 'red' }}
             >
-              {iconsData.close}
+              {iconsData.close2}
             </span>
           )}
 

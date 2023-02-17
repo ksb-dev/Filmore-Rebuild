@@ -7,11 +7,18 @@ import { useMovieContext } from '../../../context/context'
 import { useSelector } from 'react-redux'
 
 const Pagination = () => {
-  const { mode, movieState, setMovieState } = useMovieContext()
+  const { mode, setMovieState, movieState } = useMovieContext()
   const totalPages = useSelector(state => state.tvShows.totalPages)
 
   const storedPage = Number(sessionStorage.getItem('page'))
-  const number = storedPage !== 0 ? storedPage : 1
+  const storedSearchPage = Number(sessionStorage.getItem('searchPage'))
+
+  let number = 0
+  if (window.location.pathname === '/search') {
+    number = storedSearchPage !== 0 ? storedSearchPage : 1
+  } else {
+    number = storedPage !== 0 ? storedPage : 1
+  }
 
   const check = () => {
     setMovieState(!movieState)
@@ -19,17 +26,23 @@ const Pagination = () => {
 
   // Next and Prev
   const goToPage = value => {
-    let pageNumber = sessionStorage.getItem('page')
+    let pageNumber = 0
+    if (window.location.pathname === '/search') {
+      pageNumber = sessionStorage.getItem('searchPage')
+    } else {
+      pageNumber = sessionStorage.getItem('page')
+    }
 
     if (value === 'prev') {
-      sessionStorage.setItem('page', Number(pageNumber) - 1)
+      sessionStorage.setItem('searchPage', Number(pageNumber) - 1)
     } else {
-      sessionStorage.setItem('page', Number(pageNumber) + 1)
+      sessionStorage.setItem('searchPage', Number(pageNumber) + 1)
     }
 
     check()
   }
 
+  // Group of 5 buttons
   const getPaginationGroup = () => {
     let start = Math.floor((number - 1) / 5) * 5
 
@@ -45,18 +58,23 @@ const Pagination = () => {
   // Change page
   const changePage = e => {
     const pageNumber = Number(e.target.textContent)
-    sessionStorage.setItem('page', pageNumber)
+
+    if (window.location.pathname === '/search') {
+      sessionStorage.setItem('searchPage', pageNumber)
+    } else {
+      sessionStorage.setItem('page', pageNumber)
+    }
 
     check()
   }
 
   return (
-    <div className='tv__buttons'>
+    <div className='movie__buttons'>
       {totalPages ? (
         <button
           onClick={() => goToPage('prev')}
           className={
-            'tv__buttons--prevBtn ' +
+            'movie__buttons--prevBtn ' +
             (number === 1
               ? 'disabledBtn '
               : mode === true
@@ -73,7 +91,7 @@ const Pagination = () => {
       {getPaginationGroup().map((item, index) => (
         <button
           className={
-            'tv__buttons--btn ' +
+            'movie__buttons--btn ' +
             (number === item
               ? mode === true
                 ? 'primaryBg '
@@ -93,7 +111,7 @@ const Pagination = () => {
         <button
           onClick={() => goToPage('next')}
           className={
-            'tv__buttons--nextBtn ' +
+            'movie__buttons--nextBtn ' +
             (mode === true ? 'primaryBg' : 'primaryBg')
           }
         >

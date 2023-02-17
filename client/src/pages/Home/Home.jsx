@@ -6,6 +6,8 @@ import { getMovies } from '../../redux/services/movies/getMovies'
 import { getTvShows } from '../../redux/services/shows/getTvShows'
 import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 import { setSavedShows } from '../../redux/services/shows/setSavedShows'
+import { resetMovieSortState } from '../../redux/services/movies/getMovies'
+import { resetTvSortState } from '../../redux/services/shows/getTvShows'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -39,7 +41,14 @@ const Home = () => {
     if (!savedMovieState) {
       sessionStorage.setItem('movieState', 'movie')
       savedMovieState = 'movie'
-      //setOptionState('movie')
+    }
+
+    if (savedMovieState === 'movie') {
+      dispatch(resetMovieSortState('All'))
+    }
+
+    if (savedMovieState === 'tv') {
+      dispatch(resetTvSortState('All'))
     }
 
     // 3. Check for token
@@ -48,7 +57,6 @@ const Home = () => {
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
       dispatch(setSavedMovies())
       dispatch(setSavedShows())
-      //console.log(3)
     }
 
     // 4. Check for active category
@@ -65,15 +73,12 @@ const Home = () => {
       activeOption === 'In Theatres' ||
       activeOption === 'On Air'
     ) {
-      if (sessionStorage.getItem('movieState') === 'movie') {
+      if (savedMovieState === 'movie') {
         dispatch(getMovies(activeOption))
-        //console.log(4)
       }
-      if (sessionStorage.getItem('movieState') === 'tv') {
+      if (savedMovieState === 'tv') {
         dispatch(getTvShows(activeOption))
-        //console.log(5)
       }
-      //return
     }
 
     // 5. Check for active genre
@@ -81,13 +86,10 @@ const Home = () => {
 
     if (savedMovieState === 'movie' && genreId !== null) {
       dispatch(getMovies({ value: 'genre', id: genreId }))
-      //console.log(6)
     }
     if (savedMovieState === 'tv' && genreId !== null) {
       dispatch(getTvShows({ value: 'genre', id: genreId }))
-      //console.log(7)
     }
-    //console.log('-------------------------')
   }, [dispatch, movieState, activeOption])
 
   return (
@@ -99,11 +101,12 @@ const Home = () => {
       <Header />
       <SmallHeader />
       <Menu />
+
       {sessionStorage.getItem('movieState') === 'movie' ||
       sessionStorage.getItem('movieState') === null ? (
-        <MovieList />
+        <MovieList state={'movie'} />
       ) : (
-        <TvList />
+        <TvList state={'tv'} />
       )}
     </div>
   )

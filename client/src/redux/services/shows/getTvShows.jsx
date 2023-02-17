@@ -27,6 +27,11 @@ export const getTvShows = createAsyncThunk(
 
     sessionStorage.setItem('page', page)
 
+    const searchPageNo = Number(sessionStorage.getItem('searchPage'))
+    const searchPage = searchPageNo ? searchPageNo : 1
+
+    sessionStorage.setItem('searchPage', searchPage)
+
     var data, res
 
     if (category === 'Popular') {
@@ -70,7 +75,13 @@ export const getTvShows = createAsyncThunk(
     } else if (category === 'search') {
       const searchQuery = sessionStorage.getItem('searchQuery')
 
-      data = await fetch(APIs.search__tv__url + `&query=` + searchQuery)
+      if (searchQuery !== null && page === 1) {
+        data = await fetch(APIs.search__tv__url + `&query=${searchQuery}`)
+      } else {
+        data = await fetch(
+          APIs.search__tv__url + `&query=${searchQuery}&page=${searchPage}`
+        )
+      }
     } else {
       const savedToken = sessionStorage.getItem('token')
 
@@ -125,6 +136,9 @@ export const tvSlice = createSlice({
   name: 'tvShows',
   initialState,
   reducers: {
+    resetTvSortState: (state, action) => {
+      state.sortState = action.payload
+    },
     resetShows: (state, action) => {
       setShowsSortValues(state, action)
     },
@@ -186,6 +200,7 @@ export const tvSlice = createSlice({
 
 export default tvSlice.reducer
 export const {
+  resetTvSortState,
   resetShows,
   sortShowsAtoZ,
   sortShowsZtoA,

@@ -32,7 +32,7 @@ import {
 import Options from '../../other/Options/Options'
 
 const MovieList = () => {
-  const { mode, index, setIndex, searchQuery } = useMovieContext()
+  const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
   const movies = useSelector(state => state.movies.movies)
   const sortedMovies = useSelector(state => state.movies.sortedMovies)
@@ -41,18 +41,6 @@ const MovieList = () => {
   const user = useSelector(state => state.savedMovies.user)
 
   const buttonsRef = useRef(null)
-
-  const previousImage = () => {
-    index < 1
-      ? setIndex(sortedMovies.length - 1)
-      : setIndex(prevIndex => prevIndex - 1)
-  }
-
-  const nextImage = () => {
-    index === sortedMovies.length - 1
-      ? setIndex(0)
-      : setIndex(prevIndex => prevIndex + 1)
-  }
 
   if (loading) {
     return (
@@ -107,6 +95,18 @@ const MovieList = () => {
         <Error msg={'No movies found!'} />
       </div>
     )
+  }
+
+  const previousImage = () => {
+    index < 1
+      ? setIndex(sortedMovies.length - 1)
+      : setIndex(prevIndex => prevIndex - 1)
+  }
+
+  const nextImage = () => {
+    index === sortedMovies.length - 1
+      ? setIndex(0)
+      : setIndex(prevIndex => prevIndex + 1)
   }
 
   return (

@@ -11,7 +11,14 @@ const Pagination = () => {
   const totalPages = useSelector(state => state.movies.totalPages)
 
   const storedPage = Number(sessionStorage.getItem('page'))
-  const number = storedPage !== 0 ? storedPage : 1
+  const storedSearchPage = Number(sessionStorage.getItem('searchPage'))
+
+  let number = 0
+  if (window.location.pathname === '/search') {
+    number = storedSearchPage !== 0 ? storedSearchPage : 1
+  } else {
+    number = storedPage !== 0 ? storedPage : 1
+  }
 
   const check = () => {
     setMovieState(!movieState)
@@ -19,12 +26,17 @@ const Pagination = () => {
 
   // Next and Prev
   const goToPage = value => {
-    let pageNumber = sessionStorage.getItem('page')
+    let pageNumber = 0
+    if (window.location.pathname === '/search') {
+      pageNumber = sessionStorage.getItem('searchPage')
+    } else {
+      pageNumber = sessionStorage.getItem('page')
+    }
 
     if (value === 'prev') {
-      sessionStorage.setItem('page', Number(pageNumber) - 1)
+      sessionStorage.setItem('searchPage', Number(pageNumber) - 1)
     } else {
-      sessionStorage.setItem('page', Number(pageNumber) + 1)
+      sessionStorage.setItem('searchPage', Number(pageNumber) + 1)
     }
 
     check()
@@ -46,7 +58,12 @@ const Pagination = () => {
   // Change page
   const changePage = e => {
     const pageNumber = Number(e.target.textContent)
-    sessionStorage.setItem('page', pageNumber)
+
+    if (window.location.pathname === '/search') {
+      sessionStorage.setItem('searchPage', pageNumber)
+    } else {
+      sessionStorage.setItem('page', pageNumber)
+    }
 
     check()
   }

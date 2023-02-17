@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -7,17 +7,34 @@ import { useMovieContext } from '../../context/context'
 import { APIs } from '../../APIs/APIs'
 
 const SearchResults = ({ results }) => {
-  const { mode, searchResultsRef } = useMovieContext()
+  const { mode, searchResultsRef, searchInputRef, setSearchQuery } =
+    useMovieContext()
 
-  console.log(results[0])
+  // Close search results
+  useEffect(() => {
+    const closeSearchResults = e => {
+      if (
+        results &&
+        !searchResultsRef.current.contains(e.target) &&
+        !searchInputRef.current.contains(e.target)
+      ) {
+        setSearchQuery('')
+      }
+    }
+
+    document.body.addEventListener('click', closeSearchResults)
+
+    return () => {
+      document.body.removeEventListener('click', closeSearchResults)
+    }
+  }, [])
 
   return (
     <div
+      ref={searchResultsRef}
       className={
         'search__results scroll-1 ' +
-        (mode === true
-          ? 'lightBg1 darkColor1 blackBorder'
-          : 'darkBg2 lightColor1 whiteBorder')
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <div className='search__results__inner'>

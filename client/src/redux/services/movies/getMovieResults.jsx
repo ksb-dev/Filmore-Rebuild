@@ -18,15 +18,19 @@ export const getMovieResults = createAsyncThunk(
   async value => {
     var data, res
 
-    const page = sessionStorage.getItem('page')
-
-    if (value !== null && page === 1) {
+    if (value !== null) {
       data = await fetch(APIs.search__movie__url + `&query=${value}`)
-    } else {
-      data = await fetch(
-        APIs.search__movie__url + `&query=${value}&page=${page}`
-      )
     }
+
+    // const page = sessionStorage.getItem('page')
+
+    // if (value !== null && page === 1) {
+    //   data = await fetch(APIs.search__movie__url + `&query=${value}`)
+    // } else {
+    //   data = await fetch(
+    //     APIs.search__movie__url + `&query=${value}&page=${page}`
+    //   )
+    // }
 
     res = await data.json()
 

@@ -1,7 +1,11 @@
 import React from 'react'
 
 // Recat Icons
-import { AiOutlinePlus, AiOutlineCheck } from 'react-icons/ai'
+import {
+  AiOutlinePlus,
+  AiOutlineCheck,
+  AiFillCloseCircle
+} from 'react-icons/ai'
 import {
   BsSun,
   BsMoonStars,
@@ -27,6 +31,7 @@ import { TfiMenu } from 'react-icons/tfi'
 import { ImFilm } from 'react-icons/im'
 import { RiStarFill } from 'react-icons/ri'
 import { TfiHome } from 'react-icons/tfi'
+import { FaWindowClose } from 'react-icons/fa'
 
 export const iconsData = {
   sunIcon: <BsSun size={'20px'} />,
@@ -38,6 +43,7 @@ export const iconsData = {
   user1: <BiUserCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
   close: <MdOutlineClose size={'20px'} />,
   close1: <MdOutlineClose size={'25px'} />,
+  close2: <FaWindowClose size={'20px'} />,
   film: <GiFilmSpool size={'40px'} />,
   movie: (
     <ImFilm size={'20px'} style={{ marginRight: '0.25rem', color: '#fff' }} />
