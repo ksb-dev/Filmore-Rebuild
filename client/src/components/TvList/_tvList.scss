@@ -143,6 +143,7 @@
 @media screen and (max-width: 786px) {
   .list {
     &__sort-activeOption {
+      margin: 0 3rem 0rem 0rem;
       flex-direction: row-reverse;
 
       .switch {

@@ -67,5 +67,5 @@ export const iconsData = {
   home: <TfiHome size={'20px'} />,
   watchlist: <BsCheckCircle size={'20px'} />,
   addBookmark: <AiOutlinePlus size={'20px'} />,
-  deleteBookmark: <AiOutlineCheck size={'20px'} style={{ color: '#000' }} />
+  deleteBookmark: <AiOutlineCheck size={'20px'} />
 }

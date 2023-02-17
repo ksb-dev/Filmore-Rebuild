@@ -62,7 +62,7 @@ const MovieCard = ({ movie }) => {
 
       {user && savedMovies && savedMovies.length === 0 && (
         <p
-          className='card__add__btn '
+          className='card__add__btn'
           onClick={() =>
             addMovie(
               id,
@@ -76,7 +76,7 @@ const MovieCard = ({ movie }) => {
             )
           }
         >
-          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
+          <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
 
@@ -87,7 +87,7 @@ const MovieCard = ({ movie }) => {
         savedMovies.every((item, index) => item.id !== id) && (
           <p
             key={id}
-            className='card__add__btn '
+            className='card__add__btn'
             onClick={() =>
               addMovie(
                 id,
@@ -101,7 +101,7 @@ const MovieCard = ({ movie }) => {
               )
             }
           >
-            <span className='card__btn--icon'>{iconsData.addBookmark}</span>
+            <span className='card__btn--icon'>{iconsData.star}</span>
           </p>
         )}
 
@@ -114,15 +114,12 @@ const MovieCard = ({ movie }) => {
             return (
               <p
                 key={index}
-                className='card__delete__btn '
+                className='card__delete__btn'
                 onClick={() => deleteMovie(id)}
                 style={{ background: 'gold' }}
               >
-                <span
-                  className='card__btn--icon'
-                  style={{ color: 'var(--gold)' }}
-                >
-                  {iconsData.deleteBookmark}
+                <span className='card__btn--icon' style={{ color: '#000' }}>
+                  {iconsData.star}
                 </span>
               </p>
             )
@@ -132,7 +129,7 @@ const MovieCard = ({ movie }) => {
       {/* ADD-BUTTON (without user) */}
       {!user && (
         <p className='card__btn ' onClick={() => navigate('/login')}>
-          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
+          <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
 

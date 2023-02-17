@@ -36,6 +36,11 @@
       cursor: pointer;
       color: #fff;
     }
+
+    .search-icon:hover {
+      color: var(--primary);
+      transition: var(--transition);
+    }
   }
 }
 

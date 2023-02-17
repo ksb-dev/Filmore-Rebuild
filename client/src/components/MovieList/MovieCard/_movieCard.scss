@@ -21,9 +21,7 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    background: rgb(0, 0, 0, 1);
-    //box-shadow: 1px 1px 3px #000;
-    color: #fff;
+    background: #000;
     border-top-left-radius: var(--border-radius-1);
     border-bottom-right-radius: var(--border-radius-1);
 
@@ -34,13 +32,6 @@
       transform: translate(-50%, -45%);
     }
   }
-
-  // &__btn:hover,
-  // &__add__btn:hover,
-  // &__delete__btn:hover {
-  //   filter: brightness(120%);
-  //   transition: var(--transition);
-  // }
 
   &__info {
     text-decoration: none;
