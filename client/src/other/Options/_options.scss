@@ -37,6 +37,7 @@
     background: #fff;
     color: #000;
     border-radius: var(--border-radius-1);
+    box-shadow: 0 3px 6px #000;
   }
 
   &__option:hover {
@@ -50,21 +51,19 @@
     &__current {
       font-weight: 500;
       height: unset;
-      padding: calc(0.5rem - 1px) 1rem;
+      padding: calc(0.5rem - 0px) 1rem;
       background: var(--primary);
       color: #000;
       border-radius: var(--border-radius-1);
-      border: 2px solid #000;
     }
 
     &__option {
       font-weight: 500;
       height: unset;
       top: 2.4rem;
-      padding: calc(0.5rem - 1px) 1rem;
+      padding: calc(0.5rem - 0px) 1rem;
       background: var(--primary);
       color: #000;
-      border: 2px solid #000;
     }
   }
 }

@@ -15,9 +15,7 @@ const SearchResults = ({ results }) => {
     <div
       className={
         'search__results scroll-1 ' +
-        (mode === true
-          ? 'lightBg1 darkColor1 blackBorder'
-          : 'darkBg2 lightColor1 whiteBorder')
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <div className='search__results__inner'>

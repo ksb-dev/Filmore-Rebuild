@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: calc(0.5rem - 1px) 1rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: var(--border-radius-1);
 
@@ -22,10 +22,11 @@
   &__close {
     position: absolute;
     z-index: -1;
-    width: 182px;
+    width: calc(182px - 0px);
     display: flex;
     flex-direction: column;
     border-radius: var(--border-radius-1);
+    box-shadow: 0 3px 6px #000;
 
     opacity: 0;
     transition: var(--transition);
@@ -34,7 +35,7 @@
     span {
       display: flex;
       align-items: center;
-      padding: calc(0.5rem - 1px) 1rem;
+      padding: 0.5rem 1rem;
       cursor: pointer;
     }
 
@@ -46,6 +47,7 @@
     span:last-child {
       border-bottom-left-radius: var(--border-radius-1);
       border-bottom-right-radius: var(--border-radius-1);
+      margin-bottom: 0;
     }
 
     span:hover {
