@@ -45,15 +45,8 @@ export const iconsData = {
   close1: <MdOutlineClose size={'25px'} />,
   close2: <FaWindowClose size={'20px'} />,
   film: <GiFilmSpool size={'40px'} />,
-  movie: (
-    <ImFilm size={'20px'} style={{ marginRight: '0.25rem', color: '#fff' }} />
-  ),
-  tv: (
-    <MdOutlineMonitor
-      size={'20px'}
-      style={{ marginRight: '0.25rem', color: '#fff' }}
-    />
-  ),
+  movie: <ImFilm size={'20px'} style={{ marginRight: '0.25rem' }} />,
+  tv: <MdOutlineMonitor size={'20px'} style={{ marginRight: '0.25rem' }} />,
   movie1: (
     <ImFilm size={'20px'} style={{ marginRight: '0.5rem', color: '#fff' }} />
   ),

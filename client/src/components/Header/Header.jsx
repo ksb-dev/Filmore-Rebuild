@@ -49,7 +49,7 @@ const Header = () => {
 
   const headerRef = useRef(null)
 
-  let prevScrollpos = window.pageYOffset
+  //let prevScrollpos = window.pageYOffset
 
   //Window Scroll Function
   window.onscroll = () => {
@@ -93,8 +93,6 @@ const Header = () => {
     sessionStorage.setItem('page', 1)
     setIndex(0)
     setMovieState(!movieState)
-
-    //dispatch(resetSortState('All'))
 
     navigate('/')
   }

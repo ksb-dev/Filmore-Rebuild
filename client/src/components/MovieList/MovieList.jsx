@@ -30,6 +30,7 @@ import {
 
 // other
 import Options from '../../other/Options/Options'
+import Switch from '../../other/Switch/Switch'
 
 const MovieList = () => {
   const { mode, index, setIndex } = useMovieContext()
@@ -211,7 +212,7 @@ const MovieList = () => {
         {sortedMovies && sortedMovies.length > 0 && <Sort />}
 
         <div className='switch'>
-          {sortedMovies && sortedMovies.length > 0 && <Options />}
+          {sortedMovies && sortedMovies.length > 0 && <Switch />}
         </div>
 
         {/* <span className='activeOption'>

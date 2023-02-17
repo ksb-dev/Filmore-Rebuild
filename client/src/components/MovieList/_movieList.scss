@@ -117,7 +117,6 @@
   &__sort-activeOption {
     margin: 0 4rem 0rem 0rem;
     display: flex;
-    //flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
 
@@ -153,7 +152,7 @@
 
       .switch {
         display: flex;
-        margin-left: 2rem;
+        margin-left: 1rem;
       }
     }
   }
@@ -168,18 +167,14 @@
     }
 
     &__sort-activeOption {
-      margin: 0 1.5rem 0 0;
+      margin: 0 1.25rem 0 0;
 
       .switch {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
       }
 
       .activeOption {
         font-size: 1rem;
-      }
-
-      .switch {
-        margin-right: 1rem;
       }
     }
 

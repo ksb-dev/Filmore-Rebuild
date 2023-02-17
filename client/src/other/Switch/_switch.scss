@@ -1,0 +1,41 @@
+.switch {
+  &__movie,
+  &__tv {
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 37.6px;
+    padding: 0 1rem;
+    border-radius: var(--border-radius-1);
+  }
+
+  &__gap {
+    margin: 0 0.5rem;
+    border-left: 0.5px solid #000;
+    border-right: 0.5px solid #000;
+  }
+}
+
+.darkGapBorder {
+}
+
+.lightGapBorder {
+}
+
+@media screen and (max-width: 640px) {
+  .switch {
+    &__movie,
+    &__tv {
+      font-size: 0.9rem;
+      height: 35.2px;
+      padding: 0 0.5rem;
+    }
+  }
+}
+
+.activeSwitch {
+  background: var(--primary);
+  color: #000;
+  font-weight: 700 !important;
+}

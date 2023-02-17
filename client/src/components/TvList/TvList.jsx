@@ -30,6 +30,7 @@ import {
 
 // other
 import Options from '../../other/Options/Options'
+import Switch from '../../other/Switch/Switch'
 
 const TvList = () => {
   const { mode, index, setIndex, searchQuery } = useMovieContext()
@@ -233,7 +234,7 @@ const TvList = () => {
         {sortedShows && sortedShows.length > 0 && <Sort />}
 
         <div className='switch'>
-          {sortedShows && sortedShows.length > 0 && <Options />}
+          {sortedShows && sortedShows.length > 0 && <Switch />}
         </div>
 
         {/* {window.location.pathname === '/watchlist' && (

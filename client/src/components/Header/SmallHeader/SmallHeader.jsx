@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Recat router dom
+import { useNavigate } from 'react-router-dom'
+
 // data
 import { iconsData } from '../../../data/icons'
 
@@ -11,25 +14,30 @@ import { Link } from 'react-router-dom'
 
 // redux
 import { useDispatch } from 'react-redux'
-import { getMovies } from '../../../redux/services/movies/getMovies'
-
-// components
-import Search from '../../../components/Search/Search'
 
 const SmallHeader = () => {
-  const { setIndex, movieState, setMovieState } = useMovieContext()
-  const dispatch = useDispatch()
+  const {
+    setIndex,
+    movieState,
+    setMovieState,
+    setOptionState,
+    setSearchQuery
+  } = useMovieContext()
+  const navigate = useNavigate()
 
   // Title Click
   const handleTitleClick = () => {
-    setMovieState(!movieState)
     sessionStorage.setItem('movieState', 'movie')
+    setOptionState('movie')
     sessionStorage.removeItem('genreId')
     sessionStorage.removeItem('option')
+    sessionStorage.removeItem('searchQuery')
+    setSearchQuery('')
     sessionStorage.setItem('page', 1)
-    sessionStorage.setItem('term', '')
     setIndex(0)
-    dispatch(getMovies('popular'))
+    setMovieState(!movieState)
+
+    navigate('/')
   }
 
   return (
