@@ -53,7 +53,11 @@ const Switch = () => {
         </p>
       )}
 
-      <span className='switch__gap'></span>
+      <span
+        className={
+          'switch__gap ' + (mode === true ? 'darkGapBorder' : 'lightGapBorder')
+        }
+      ></span>
 
       {optionState === 'tv' ? (
         <p
