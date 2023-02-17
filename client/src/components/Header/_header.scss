@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   width: 100vw;
@@ -97,7 +98,7 @@
         margin-left: 1rem;
         background: #000;
         color: #fff;
-        padding: 0.5rem;
+        padding: 0.25rem;
       }
 
       .home-icon {
@@ -118,7 +119,7 @@
           margin-left: 1rem;
           background: #000;
           color: #fff;
-          padding: 0.5rem;
+          padding: 0.25rem;
         }
 
         .close-icon {
@@ -151,9 +152,15 @@
 
 @media screen and (max-width: 786px) {
   .header {
+    top: unset;
     height: 58.6px;
-    bottom: 0;
     justify-content: space-between;
+
+    position: fixed;
+    width: 100vw;
+    right: unset;
+    bottom: 0 !important;
+    top: unset !important;
 
     &__options {
       margin-left: 1rem;
@@ -171,7 +178,7 @@
       }
 
       &__two {
-        width: calc(100vw - (20% + 0rem));
+        width: calc(100vw - (20% + 0.5rem));
         &__menu-icon {
           cursor: pointer;
           display: flex;
@@ -182,7 +189,6 @@
         .watchlist,
         .home-icon,
         .mode-icon {
-          padding: 0.25rem;
           margin-left: 0;
         }
 
@@ -194,7 +200,6 @@
           .user-icon,
           .close-icon,
           .login-icon {
-            padding: 0.25rem;
             margin-left: 0;
             margin-right: 0;
           }
