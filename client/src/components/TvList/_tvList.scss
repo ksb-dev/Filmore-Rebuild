@@ -114,7 +114,7 @@
   }
 
   &__sort-activeOption {
-    margin: 0 4.25rem 0 0rem;
+    margin: 0 4.25rem 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,7 +143,7 @@
 @media screen and (max-width: 786px) {
   .list {
     &__sort-activeOption {
-      margin: 0 3rem 0rem 0rem;
+      margin: 0 3rem 0rem 1rem;
       flex-direction: row-reverse;
 
       .switch {
@@ -163,7 +163,7 @@
     }
 
     &__sort-activeOption {
-      margin: 0 1.25rem 0 0;
+      margin: 0 1.25rem 0 0.5rem;
 
       .switch {
         margin-left: 0.5rem;

@@ -39,35 +39,47 @@ const Switch = () => {
   }
 
   return (
-    <div className={'switch ' + (mode === true ? 'darkColor2' : 'lightColor1')}>
+    <div
+      className={
+        'switch__component ' +
+        (mode === true ? 'lightBg2 darkColor2' : 'darkBg1 lightColor1')
+      }
+    >
       {optionState === 'movie' ? (
         <p
-          className='switch__movie activeSwitch'
+          className='switch__component__movie activeSwitch'
           onClick={() => handleOptionState('movie')}
         >
           {iconsData.movie} <span>Movie</span>
         </p>
       ) : (
-        <p className='switch__movie' onClick={() => handleOptionState('movie')}>
+        <p
+          className='switch__component__movie'
+          onClick={() => handleOptionState('movie')}
+        >
           {iconsData.movie} <span>Movie</span>
         </p>
       )}
 
-      <span
+      {/* <span
         className={
-          'switch__gap ' + (mode === true ? 'darkGapBorder' : 'lightGapBorder')
+          'switch__component__gap ' +
+          (mode === true ? 'darkGapBorder' : 'lightGapBorder')
         }
-      ></span>
+      ></span> */}
 
       {optionState === 'tv' ? (
         <p
-          className='switch__tv activeSwitch'
+          className='switch__component__tv activeSwitch'
           onClick={() => handleOptionState('tv')}
         >
           {iconsData.tv} <span>Tv</span>
         </p>
       ) : (
-        <p className='switch__tv' onClick={() => handleOptionState('tv')}>
+        <p
+          className='switch__component__tv'
+          onClick={() => handleOptionState('tv')}
+        >
           {iconsData.tv} <span>Tv</span>
         </p>
       )}
