@@ -102,7 +102,6 @@ export const getMovies = createAsyncThunk(
 )
 
 const setMoviesSortValues = (state, action) => {
-  console.log(action)
   if (action.payload.movies.length > 0) {
     state.sortedMovies = action.payload.movies
     state.sortState = action.payload.sortValue

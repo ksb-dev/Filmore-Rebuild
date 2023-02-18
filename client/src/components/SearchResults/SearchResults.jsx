@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -9,9 +9,18 @@ import { APIs } from '../../APIs/APIs'
 const SearchResults = ({ results }) => {
   const { mode, searchResultsRef, searchInputRef, setSearchQuery } =
     useMovieContext()
+  const [windowWidth, setWindowWidth] = useState(787)
+
+  window.onresize = () => {
+    setWindowWidth(window.innerWidth)
+  }
 
   // Close search results
   useEffect(() => {
+    if (windowWidth <= '786') {
+      setSearchQuery('')
+    }
+
     const closeSearchResults = e => {
       if (
         results &&

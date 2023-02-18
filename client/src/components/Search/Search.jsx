@@ -62,12 +62,10 @@ const Search = () => {
               setSearchQuery(e.target.value)
               //sessionStorage.setItem('searchQuery', searchQuery)
               if (sessionStorage.getItem('movieState') === 'movie') {
-                console.log(1)
                 dispatch(getMovieResults(searchQuery))
               }
 
               if (sessionStorage.getItem('movieState') === 'tv') {
-                console.log(2)
                 dispatch(getTvResults(searchQuery))
               }
             }}

@@ -36,7 +36,8 @@ const Header = () => {
     optionState,
     setSearchQuery,
     setOptionState,
-    logoutRef
+    logoutRef,
+    headerRef
   } = useMovieContext()
   const { hideLogout } = useShowHide()
 
@@ -46,8 +47,6 @@ const Header = () => {
   const savedShows = useSelector(state => state.savedShows.savedShows)
 
   const navigate = useNavigate()
-
-  const headerRef = useRef(null)
 
   //let prevScrollpos = window.pageYOffset
 

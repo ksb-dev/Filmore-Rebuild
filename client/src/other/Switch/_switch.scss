@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
 
-  border-radius: 5px;
+  border-radius: 0px;
 
   &__movie,
   &__tv {
     height: 37.6px;
+    max-height: 37.6px;
     width: 100px;
     cursor: pointer;
     margin: 0;
@@ -16,18 +17,16 @@
   }
 
   &__movie {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-right: 0.1rem;
   }
 
   &__tv {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-left: 0.1rem;
   }
-
-  // &__gap {
-  //   margin: 0 0.5rem;
-  // }
 }
 
 .darkGapBorder {
@@ -47,14 +46,14 @@
       width: 80px;
       font-size: 0.8rem;
       height: 35.2px;
+      max-height: 35.2px;
     }
   }
 }
 
 .activeSwitch {
   font-weight: 500 !important;
-  background: var(--red) !important;
-  color: #fff !important;
-  border-radius: 5px !important;
-  box-shadow: 2px 0px 3px #000;
+  background: var(--primary) !important;
+  color: #000 !important;
+  border-radius: 0px !important;
 }

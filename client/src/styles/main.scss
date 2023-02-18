@@ -1,5 +1,9 @@
 #root {
   --primary: #f3ce13;
+  // --primary: #1db954;
+  // --primary: #1da1f2;
+  // --primary: #e50914;
+  //--primary: goldenrod;
   --secondary: #e50914;
 
   --green: #1db954;
@@ -17,9 +21,12 @@
   --white-1: #fff;
   --white-2: rgb(220, 220, 220);
 
-  --dark-1: #393e46;
-  //--dark-1: #333333;
-  --dark-2: #222831;
+  --dark-2: #393e46;
+  --dark-2: #222222;
+
+  --dark-1: #222831;
+  --dark-1: #444444;
+
   //--dark-2: #222222;
   //--dark-2: #1f1f1f;
 
@@ -37,7 +44,7 @@
   --darkAplha-5: rgba(34, 34, 34, 0.9);
   --darkAlpha-6: rgba(34, 34, 34, 0.9);
 
-  --border-radius-1: 5px;
+  --border-radius-1: 0px;
   --border-radius-2: 10px;
   --border-radius-2: 15px;
 
@@ -147,7 +154,8 @@
   background: var(--darkAplha-6);
 }
 
-.lightGradient {
+.lightGradient1 {
+  //box-shadow: 0px 15px 10px -15px #111;
   background: linear-gradient(
     to right top,
     rgba(255, 255, 255, 1) 20%,
@@ -163,7 +171,7 @@
   );
 }
 
-.lightGradient1 {
+.lightGradient {
   background: linear-gradient(
     to right top,
     rgba(220, 220, 220, 1) 20%,
@@ -172,9 +180,10 @@
 }
 
 .darkGradient1 {
+  //box-shadow: 0px 15px 10px -15px #111;
   background: linear-gradient(
     to right top,
-    rgba(57, 62, 70, 1) 20%,
+    rgba(34, 34, 34, 1) 20%,
     rgba(34, 40, 49, 0)
   );
 }
@@ -206,19 +215,19 @@
 }
 
 .lightCardInfo {
-  background: rgba(220, 220, 220, 0.9);
+  background: rgba(250, 250, 250, 0.9);
   color: var(--dark-1);
-  //box-shadow: 0 0 3px var(--dark-1);
+  outline: 2px solid var(--primary);
 }
 
 .darkCardInfo {
-  background: rgba(57, 62, 70, 0.9);
+  background: rgba(17, 17, 17, 0.9);
   color: #fff;
-  //box-shadow: 0 0 3px #fff;
+  outline: 2px solid var(--primary);
 }
 
 .greenBg {
-  background-color: var(--green);
+  background-color: green;
   color: #fff !important;
 }
 

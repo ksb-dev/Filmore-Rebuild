@@ -50,6 +50,8 @@ const MovieProvider = ({ children }) => {
   const searchInputRef = useRef(null)
   const searchResultsRef = useRef(null)
 
+  const headerRef = useRef(null)
+
   return (
     <MovieContext.Provider
       value={{
@@ -87,7 +89,9 @@ const MovieProvider = ({ children }) => {
         setSearchQuery,
 
         searchInputRef,
-        searchResultsRef
+        searchResultsRef,
+
+        headerRef
       }}
     >
       {children}
