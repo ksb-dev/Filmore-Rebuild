@@ -150,6 +150,8 @@
     &__sort-activeOption {
       margin: 0 3rem 0rem 1rem;
       flex-direction: row-reverse;
+      height: 37.6px;
+      max-height: 37.6px;
 
       .switch {
         display: flex;
@@ -169,6 +171,8 @@
 
     &__sort-activeOption {
       margin: 0 1.25rem 0 0.5rem;
+      height: 35.2px;
+      max-height: 35.2px;
 
       .switch {
         margin-left: 0.5rem;
