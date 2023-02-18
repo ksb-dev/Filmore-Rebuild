@@ -51,7 +51,7 @@ const Switch = () => {
           className='switch__component__movie activeSwitch '
           onClick={() => handleOptionState('movie')}
         >
-          {iconsData.movie} <span>Movie</span>
+          <span>Movie</span>
         </p>
       ) : (
         <p
@@ -61,7 +61,7 @@ const Switch = () => {
           }
           onClick={() => handleOptionState('movie')}
         >
-          {iconsData.movie} <span>Movie</span>
+          <span>Movie</span>
         </p>
       )}
 
@@ -77,7 +77,7 @@ const Switch = () => {
           className='switch__component__tv activeSwitch'
           onClick={() => handleOptionState('tv')}
         >
-          {iconsData.tv} <span>Tv</span>
+          <span>Tv</span>
         </p>
       ) : (
         <p
@@ -87,7 +87,7 @@ const Switch = () => {
           }
           onClick={() => handleOptionState('tv')}
         >
-          {iconsData.tv} <span>Tv</span>
+          <span>Tv</span>
         </p>
       )}
     </div>

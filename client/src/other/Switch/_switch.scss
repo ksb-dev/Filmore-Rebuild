@@ -6,9 +6,8 @@
 
   &__movie,
   &__tv {
-    height: 37.6px;
-    max-height: 37.6px;
     width: 100px;
+    padding: 0.5rem 0;
     cursor: pointer;
     margin: 0;
     display: flex;
@@ -45,8 +44,6 @@
     &__tv {
       width: 80px;
       font-size: 0.9rem;
-      height: 35.2px;
-      max-height: 35.2px;
     }
   }
 }
