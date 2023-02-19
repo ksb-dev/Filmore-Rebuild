@@ -54,11 +54,12 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className='card'>
-      <img
-        className='card--image'
-        src={poster_path === null ? url : IMG_PATH + poster_path}
-        alt={title}
-      />
+      <Link to={`/movie/${id}`} className='card--image'>
+        <img
+          src={poster_path === null ? url : IMG_PATH + poster_path}
+          alt={title}
+        />
+      </Link>
 
       {user && savedMovies && savedMovies.length === 0 && (
         <p
@@ -134,51 +135,34 @@ const MovieCard = ({ movie }) => {
       )}
 
       {/* CARD-INFO */}
-      <div
-        to='#'
-        ref={ratingTitleDateRef}
-        onMouseOver={show}
-        onMouseLeave={hide}
+      <Link
+        to={`/movie/${id}`}
         className={
-          'card__info ' + (mode === true ? 'lightCardInfo' : 'darkCardInfo')
+          'card__info ' +
+          (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
         }
       >
-        {vote_average ? (
-          <span
-            className={`card__info--rating ${getClassBg(
-              Number(String(vote_average).substring(0, 3))
-            )}`}
-          >
-            {Number(String(vote_average).substring(0, 3))}
-          </span>
-        ) : (
-          <span className='rating red'>0.0</span>
-        )}
+        <p classname='card__info--title'>{title && title}</p>
 
-        <div className='card__info__inner'>
-          <span className='card__info__inner--title'>
-            {title ? (
-              title.length >= 50 ? (
-                title.substring(0, 45) + '...'
-              ) : (
-                title
-              )
-            ) : (
-              <></>
-            )}
-          </span>
-          <span className='card__info__inner--date'>
-            {release_date ? moment(release_date).format('Do MMM, YYYY') : <></>}
-          </span>
-        </div>
-
-        <Link
-          to={`/movie/${id}`}
-          className={`card__info--more ${getClassBg(vote_average)}`}
+        <div
+          className={
+            'card__info__date-rating ' +
+            (mode === true ? 'lightBg1' : 'darkBg2')
+          }
         >
-          View More
-        </Link>
-      </div>
+          <span className='card__info__date-rating--date'>
+            {release_date && moment(release_date).format('Do MMM, YYYY')}
+          </span>
+          <p
+            className={
+              'card__info__date-rating--rating ' +
+              getClassBg(Number(String(vote_average).substring(0, 3)))
+            }
+          >
+            <span>{Number(String(vote_average).substring(0, 3))}</span>
+          </p>
+        </div>
+      </Link>
     </div>
   )
 }

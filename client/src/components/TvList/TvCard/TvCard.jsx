@@ -56,11 +56,12 @@ const TvCard = ({ tv }) => {
 
   return (
     <div className='card'>
-      <img
-        className='card--image'
-        src={poster_path === null ? url : IMG_PATH + poster_path}
-        alt={name}
-      />
+      <Link to={`/movie/${id}`} className='card--image'>
+        <img
+          src={poster_path === null ? url : IMG_PATH + poster_path}
+          alt={name}
+        />
+      </Link>
 
       {user && savedShows && savedShows.length === 0 && (
         <p
@@ -81,7 +82,6 @@ const TvCard = ({ tv }) => {
           <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
-
       {/* ADD-BUTTON */}
       {user &&
         savedShows &&
@@ -106,7 +106,6 @@ const TvCard = ({ tv }) => {
             <span className='card__btn--icon'>{iconsData.star}</span>
           </p>
         )}
-
       {/* DELETE-BUTTON */}
       {user &&
         savedShows &&
@@ -127,64 +126,36 @@ const TvCard = ({ tv }) => {
             )
           }
         })}
-
       {/* ADD-BUTTON (without user) */}
       {!user && (
         <p className='card__btn ' onClick={() => navigate('/login')}>
           <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
-
       {/* CARD-INFO */}
-      <div
-        to='#'
-        ref={ratingTitleDateRef}
-        onMouseOver={show}
-        onMouseLeave={hide}
+      <Link
+        to={`/tv/${id}`}
         className={
-          'card__info ' + (mode === true ? 'lightCardInfo' : 'darkCardInfo')
+          'card__info ' +
+          (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
         }
       >
-        {vote_average ? (
-          <span
-            className={`card__info--rating ${getClassBg(
-              Number(String(vote_average).substring(0, 3))
-            )}`}
+        <p classname='card__info--title'>{name && name}</p>
+
+        <div className='card__info__date-rating'>
+          <span className='card__info__date-rating--date'>
+            {first_air_date && moment(first_air_date).format('Do MMM, YYYY')}
+          </span>
+          <p
+            className={
+              'card__info__date-rating--rating ' +
+              getClassBg(Number(String(vote_average).substring(0, 3)))
+            }
           >
-            {Number(String(vote_average).substring(0, 3))}
-          </span>
-        ) : (
-          <span className='rating red'>0.0</span>
-        )}
-
-        <div className='card__info__inner'>
-          <span className='card__info__inner--title'>
-            {name ? (
-              name.length >= 50 ? (
-                name.substring(0, 45) + '...'
-              ) : (
-                name
-              )
-            ) : (
-              <></>
-            )}
-          </span>
-          <span className='card__info__inner--date'>
-            {first_air_date ? (
-              moment(first_air_date).format('Do MMM, YYYY')
-            ) : (
-              <></>
-            )}
-          </span>
+            <span>{Number(String(vote_average).substring(0, 3))}</span>
+          </p>
         </div>
-
-        <Link
-          to={`/movie/${id}`}
-          className={`card__info--more ${getClassBg(vote_average)}`}
-        >
-          View More
-        </Link>
-      </div>
+      </Link>
     </div>
   )
 }
