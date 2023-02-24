@@ -13,8 +13,13 @@
     top: 0;
     left: 0;
     width: 292px;
-    height: 100%;
-    background: transparent;
+    height: 97%;
+  }
+
+  .cover:hover {
+    background: rgba(0, 0, 0, 0.2);
+    height: 97%;
+    transition: var(--transition);
   }
 }
 
