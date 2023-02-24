@@ -26,6 +26,12 @@
     border-bottom-right-radius: var(--border-radius-1);
     margin-left: 0.1rem;
   }
+
+  &__movie:hover,
+  &__tv:hover {
+    filter: brightness(80%);
+    transition: var(--transition);
+  }
 }
 
 .darkGapBorder {
