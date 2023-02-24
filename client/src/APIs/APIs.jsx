@@ -73,5 +73,5 @@ export const APIs = {
 
   // get_shows_url: `/api/v1/filmora/shows`,
   // add_show_url: `/api/v1/filmora/shows`,
-  // delete_show_url: `/api/v1/filmora/shows/`
+  // delete_show_url: `/api/v1/filmora/shows/`,
 }

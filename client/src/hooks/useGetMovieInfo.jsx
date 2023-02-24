@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback } from "react";
 
 export const useGetMovieInfo = () => {
   // Get movie info
@@ -6,47 +6,47 @@ export const useGetMovieInfo = () => {
     try {
       const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${
         import.meta.env.VITE_KEY
-      }&language=en-US`
+      }&language=en-US`;
 
-      const res = await fetch(url)
-      const data = await res.json()
+      const res = await fetch(url);
+      const data = await res.json();
 
       if (data) {
-        setData(data)
-        setLoading(false)
-        setError('')
+        setData(data);
+        setLoading(false);
+        setError("");
       }
     } catch (error) {
-      setData('')
-      setLoading(false)
-      setError('No details found.')
+      setData("");
+      setLoading(false);
+      setError("No details found.");
     }
-  }
+  };
 
   // Get cast
   const getCast = async (id, setCast, setCastLoading, setCastError) => {
     try {
       const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${
         import.meta.env.VITE_KEY
-      }&language=en-US`
+      }&language=en-US`;
 
-      setCastLoading(true)
-      setCastError('')
+      setCastLoading(true);
+      setCastError("");
 
-      const res = await fetch(url)
-      const data = await res.json()
+      const res = await fetch(url);
+      const data = await res.json();
 
       if (data) {
-        setCast(data.cast)
-        setCastLoading(false)
-        setCastError('')
+        setCast(data.cast);
+        setCastLoading(false);
+        setCastError("");
       }
     } catch (error) {
-      setCast('')
-      setCastLoading(false)
-      setCastError('No cast found.')
+      setCast("");
+      setCastLoading(false);
+      setCastError("No cast found.");
     }
-  }
+  };
 
   // Get backdrops
   const getBackdrops = async (
@@ -58,26 +58,26 @@ export const useGetMovieInfo = () => {
     const url = `
 https://api.themoviedb.org/3/movie/${id}/images?api_key=${
       import.meta.env.VITE_KEY
-    }`
+    }`;
 
-    setBackdropsLoading(true)
-    setBackdropsError('')
+    setBackdropsLoading(true);
+    setBackdropsError("");
 
     try {
-      const response = await fetch(url)
-      const data = await response.json()
+      const response = await fetch(url);
+      const data = await response.json();
 
       if (data) {
-        setBackdropsLoading(false)
-        setBackdrops(data.backdrops)
-        setBackdropsError('')
+        setBackdropsLoading(false);
+        setBackdrops(data.backdrops);
+        setBackdropsError("");
       }
     } catch (error) {
-      setBackdrops('')
-      setBackdropsLoading(false)
-      setBackdropsError('Backdrops not found.')
+      setBackdrops("");
+      setBackdropsLoading(false);
+      setBackdropsError("Backdrops not found.");
     }
-  }
+  };
 
   // Get trailer
   const getTrailer = async (
@@ -88,36 +88,42 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
     setPlayerError
   ) => {
     if (trailerUrl && id) {
-      setTrailerUrl('')
+      setTrailerUrl("");
     } else {
       try {
-        setPlayerLoading(true)
-        setPlayerError('')
+        setPlayerLoading(true);
+        setPlayerError("");
 
         let response = await fetch(
           `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${
             import.meta.env.VITE_KEY
           }&language=en-US`
-        )
-        let trailerUrl = await response.json()
+        );
+        let trailerUrl = await response.json();
+        let value = "";
 
-        trailerUrl.results.map(result => {
+        trailerUrl.results.map((result) => {
           if (result.official === true) {
-            setTrailerUrl(result.key)
+            value = result.key;
+            setTrailerUrl(result.key);
           }
-          return 0
-        })
+          //return 0
+        });
+
+        if (value === "") {
+          setTrailerUrl(trailerUrl.results[0].key);
+        }
 
         //setTrailerUrl(trailerUrl.results[0].key)
 
-        setPlayerLoading(false)
-        setPlayerError('')
+        setPlayerLoading(false);
+        setPlayerError("");
       } catch (error) {
-        setPlayerLoading(false)
-        setPlayerError('Failed to play video')
+        setPlayerLoading(false);
+        setPlayerError("Failed to play video");
       }
     }
-  }
+  };
 
   // Get reviews
   const getReviews = async (
@@ -128,49 +134,49 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
   ) => {
     const url = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${
       import.meta.env.VITE_KEY
-    }&language=en-US&page=1`
+    }&language=en-US&page=1`;
 
-    setReviewsLoading(true)
-    setReviewsError(true)
+    setReviewsLoading(true);
+    setReviewsError(true);
 
     try {
-      const response = await fetch(url)
-      const data = await response.json()
+      const response = await fetch(url);
+      const data = await response.json();
 
       if (data) {
-        setReviews(data.results)
-        setReviewsLoading(false)
-        setReviewsError(false)
+        setReviews(data.results);
+        setReviewsLoading(false);
+        setReviewsError(false);
       }
     } catch (err) {
-      setReviewsLoading(false)
-      setReviewsError(true)
+      setReviewsLoading(false);
+      setReviewsError(true);
     }
-  }
+  };
 
   // Get videos
   const getVideos = async (id, setVideos, setVideosLoading, setVideosError) => {
     const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${
       import.meta.env.VITE_KEY
-    }&language=en-US`
+    }&language=en-US`;
 
-    setVideosLoading(true)
-    setVideosError(true)
+    setVideosLoading(true);
+    setVideosError(true);
 
     try {
-      const response = await fetch(url)
-      const data = await response.json()
+      const response = await fetch(url);
+      const data = await response.json();
 
       if (data) {
-        setVideos(data.results)
-        setVideosLoading(false)
-        setVideosError(false)
+        setVideos(data.results);
+        setVideosLoading(false);
+        setVideosError(false);
       }
     } catch (err) {
-      setVideosLoading(false)
-      setVideosError(true)
+      setVideosLoading(false);
+      setVideosError(true);
     }
-  }
+  };
 
   // Get actor detail
   const getActorDetail = async (
@@ -181,24 +187,24 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
   ) => {
     const url = `https://api.themoviedb.org/3/person/${id}?api_key=${
       import.meta.env.VITE_KEY
-    }&language=en-US`
-    setActorDetailLoading(true)
-    setActorDetailError(true)
+    }&language=en-US`;
+    setActorDetailLoading(true);
+    setActorDetailError(true);
 
     try {
-      const response = await fetch(url)
-      const data = await response.json()
+      const response = await fetch(url);
+      const data = await response.json();
 
       if (data) {
-        setActorDetail(data)
-        setActorDetailLoading(false)
-        setActorDetailError(false)
+        setActorDetail(data);
+        setActorDetailLoading(false);
+        setActorDetailError(false);
       }
     } catch (err) {
-      setActorDetailLoading(false)
-      setActorDetailError(true)
+      setActorDetailLoading(false);
+      setActorDetailError(true);
     }
-  }
+  };
 
   return {
     getMovieInfo,
@@ -207,6 +213,6 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${
     getTrailer,
     getReviews,
     getVideos,
-    getActorDetail
-  }
-}
+    getActorDetail,
+  };
+};

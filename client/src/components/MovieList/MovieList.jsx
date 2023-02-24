@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -29,7 +29,6 @@ import {
 } from 'react-icons/md'
 
 // other
-import Options from '../../other/Options/Options'
 import Switch from '../../other/Switch/Switch'
 
 const MovieList = () => {
@@ -42,6 +41,9 @@ const MovieList = () => {
   const user = useSelector(state => state.savedMovies.user)
 
   const buttonsRef = useRef(null)
+  const imgRef = useRef(null)
+
+  const [[page, direction], setPage] = useState([0, 0])
 
   if (loading) {
     return (
@@ -118,6 +120,7 @@ const MovieList = () => {
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
             <img
+              ref={imgRef}
               className='list__wall--image'
               src={
                 sortedMovies[index].backdrop_path === null
@@ -185,7 +188,7 @@ const MovieList = () => {
                       padding: '0.5rem',
                       borderRadius: '50%'
                     }}
-                    onClick={previousImage}
+                    onClick={() => previousImage(-1)}
                   />
                   <MdOutlineArrowForwardIos
                     cursor={'pointer'}
@@ -197,7 +200,7 @@ const MovieList = () => {
                       padding: '0.5rem',
                       borderRadius: '50%'
                     }}
-                    onClick={nextImage}
+                    onClick={() => nextImage(1)}
                   />
                 </>
               ) : (

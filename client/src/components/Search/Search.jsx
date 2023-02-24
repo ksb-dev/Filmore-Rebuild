@@ -1,95 +1,120 @@
-import React from 'react'
+import React from "react";
 
 // react-router-dom
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 // context
-import { useMovieContext } from '../../context/context'
+import { useMovieContext } from "../../context/context";
 
 // data
-import { iconsData } from '../../data/icons'
+import { iconsData } from "../../data/icons";
 
 // redux
-import { useSelector, useDispatch } from 'react-redux'
-import { getMovieResults } from '../../redux/services/movies/getMovieResults'
-import { getTvResults } from '../../redux/services/shows/getTvResults'
+import { useSelector, useDispatch } from "react-redux";
+import { getMovieResults } from "../../redux/services/movies/getMovieResults";
+import { getTvResults } from "../../redux/services/shows/getTvResults";
 
 // components
-import SearchResults from '../SearchResults/SearchResults'
-import Options from '../../other/Options/Options'
+import Options from "../../other/Options/Options";
+import SearchResults from "../SearchResults/SearchResults";
 
 const Search = () => {
-  const movieResults = useSelector(state => state.movieResults.movieResults)
-  const tvResults = useSelector(state => state.tvResults.tvResults)
+  const movieResults = useSelector((state) => state.movieResults.movieResults);
+  const tvResults = useSelector((state) => state.tvResults.tvResults);
 
   const {
+    mode,
     setIndex,
     searchQuery,
     setSearchQuery,
     optionState,
+    searchOptionState,
     searchInputRef,
     movieState,
-    setMovieState
-  } = useMovieContext()
+    setMovieState,
+    clearMovieInputRef,
+    clearTvInputRef,
+  } = useMovieContext();
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    sessionStorage.setItem('searchQuery', searchQuery)
-    setIndex(0)
-    sessionStorage.setItem('searchPage', 1)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem("searchQuery", searchQuery);
+    setIndex(0);
+    sessionStorage.setItem("searchPage", 1);
 
-    setSearchQuery('')
-    setMovieState(!movieState)
+    setSearchQuery("");
+    setMovieState(!movieState);
 
-    navigate('/search')
-  }
+    navigate("/search");
+  };
 
   return (
-    <div className='search__component'>
-      <div className='search__component__switch'>
+    <div
+      className={
+        "search__component "
+        //+ (mode === true ? "lightAlpha5" : "darkAlpha5")
+      }
+    >
+      {/* Options */}
+      <div className="search__component__switch">
         <Options />
       </div>
-      <div className='search__component__search-bar'>
-        <form onSubmit={e => handleSubmit(e)}>
+
+      {/* Search bar */}
+      <div className="search__component__search-bar">
+        <form onSubmit={(e) => handleSubmit(e)} ref={searchInputRef}>
           <input
-            ref={searchInputRef}
-            type='text'
-            placeholder={optionState === 'movie' ? 'Search Movie' : 'Search Tv'}
-            onChange={e => {
-              setSearchQuery(e.target.value)
+            //ref={searchInputRef}
+            type="text"
+            //placeholder={optionState === "movie" ? "Search Movie" : "Search Tv"}
+            placeholder={
+              searchOptionState === "movie" ? "Search Movie" : "Search Tv"
+            }
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
               //sessionStorage.setItem('searchQuery', searchQuery)
-              if (sessionStorage.getItem('movieState') === 'movie') {
-                dispatch(getMovieResults(searchQuery))
+              // if (sessionStorage.getItem("movieState") === "movie") {
+              //   dispatch(getMovieResults(searchQuery));
+              // }
+
+              // if (sessionStorage.getItem("movieState") === "tv") {
+              //   dispatch(getTvResults(searchQuery));
+              // }
+
+              if (searchOptionState === "movie") {
+                dispatch(getMovieResults(searchQuery));
               }
 
-              if (sessionStorage.getItem('movieState') === 'tv') {
-                dispatch(getTvResults(searchQuery))
+              if (searchOptionState === "tv") {
+                dispatch(getTvResults(searchQuery));
               }
             }}
             value={searchQuery}
           />
-          {sessionStorage.getItem('movieState') === 'movie' && searchQuery && (
+          {searchOptionState === "movie" && searchQuery && (
             <span
+              //ref={clearMovieInputRef}
               onClick={() => {
-                setSearchQuery('')
+                setSearchQuery("");
                 //sessionStorage.removeItem('searchQuery')
               }}
-              style={{ cursor: 'pointer', color: 'red' }}
+              style={{ cursor: "pointer", color: "red" }}
             >
               {iconsData.close2}
             </span>
           )}
 
-          {sessionStorage.getItem('movieState') === 'tv' && searchQuery && (
+          {searchOptionState === "tv" && searchQuery && (
             <span
+              //ref={clearTvInputRef}
               onClick={() => {
-                setSearchQuery('')
+                setSearchQuery("");
                 //sessionStorage.removeItem('searchQuery')
               }}
-              style={{ cursor: 'pointer', color: 'red' }}
+              style={{ cursor: "pointer", color: "red" }}
             >
               {iconsData.close2}
             </span>
@@ -99,17 +124,17 @@ const Search = () => {
         </form>
       </div>
 
-      {sessionStorage.getItem('movieState') === 'movie' &&
+      {searchOptionState === "movie" &&
         searchQuery &&
         movieResults &&
         movieResults.length > 0 && <SearchResults results={movieResults} />}
 
-      {sessionStorage.getItem('movieState') === 'tv' &&
+      {searchOptionState === "tv" &&
         searchQuery &&
         tvResults &&
         tvResults.length > 0 && <SearchResults results={tvResults} />}
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

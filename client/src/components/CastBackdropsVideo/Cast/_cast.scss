@@ -1,0 +1,57 @@
+.load,
+.err {
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.cast {
+  padding: 2rem 2rem 2rem 0;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+@media screen and (max-width: 920px) {
+  .cast {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .cast {
+    gap: 1rem;
+    display: flex;
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cast {
+    gap: 0rem;
+  }
+}
+
+.scroll {
+  overflow-x: scroll;
+}
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: rgb(180, 180, 180);
+  background: transparent;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  //background-color: #999;
+  //border-radius: 20px;
+}

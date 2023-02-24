@@ -63,6 +63,13 @@
   }
 }
 
+@media screen and (max-width: 786px) {
+  .search__results {
+    // width: 90%;
+    // margin-top: 2rem;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .search__results {
     height: 50vh;

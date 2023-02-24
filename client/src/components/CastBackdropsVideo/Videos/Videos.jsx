@@ -1,0 +1,50 @@
+import React, { useState } from 'react'
+
+// Context
+import { useMovieContext } from '../../../context/context'
+
+// Components
+import Video from '../Videos/Video/Video'
+
+// Sub-Components
+import Loading from '../../../other/Loading/Loading'
+import Error from '../../../other/Error/Error'
+
+const Videos = ({ videos, videosLoading, videosError }) => {
+  const { mode } = useMovieContext()
+
+  if (videosLoading) {
+    return (
+      <div className='load'>
+        <Loading />
+      </div>
+    )
+  }
+
+  if (videosError) {
+    return (
+      <div className='err'>
+        <Error msg={'No videos found.'} />
+      </div>
+    )
+  }
+
+  if (videos.length === 0) {
+    return (
+      <div className='err'>
+        <Error msg={'No videos found.'} />
+      </div>
+    )
+  }
+
+  return (
+    <div className={'videos ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+      {videos.map(
+        (video, index) =>
+          index < 4 && <Video key={index} video={video} index={index} />
+      )}
+    </div>
+  )
+}
+
+export default Videos

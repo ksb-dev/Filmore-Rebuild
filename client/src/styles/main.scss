@@ -26,6 +26,7 @@
 
   --dark-1: #222831;
   --dark-1: #333333;
+  --dark-1: #444444;
 
   //--dark-2: #222222;
   //--dark-2: #1f1f1f;
@@ -166,8 +167,8 @@
 .darkGradient {
   background: linear-gradient(
     to right top,
-    rgba(34, 40, 49, 1) 20%,
-    rgba(34, 40, 49, 0)
+    rgba(34, 34, 34, 1) 20%,
+    rgba(34, 34, 34, 0)
   );
 }
 
@@ -184,7 +185,7 @@
   background: linear-gradient(
     to right top,
     rgba(34, 34, 34, 1) 20%,
-    rgba(34, 40, 49, 0)
+    rgba(34, 34, 34, 0)
   );
 }
 
@@ -291,7 +292,6 @@ body {
 @import '../components/Header/header';
 @import '../components/Header/SmallHeader/smallHeader';
 @import '../components/Header/Logout/logout';
-@import '../components/Search/search';
 
 @import '../components/MovieList/movieList';
 @import '../components/MovieList/MovieCard/movieCard';
@@ -303,7 +303,18 @@ body {
 @import '../components/TvList/Pagination/pagination';
 @import '../components/Menu/menu';
 
+@import '../components/Search/search';
 @import '../components/SearchResults/searchResults';
+@import '../components/SearchModal/searchModal';
+
+@import '../components/MovieInfo/movieInfo';
+@import '../components/CastBackdropsVideo/castBackdropsVideo';
+@import '../components/CastBackdropsVideo/Cast/cast';
+@import '../components/CastBackdropsVideo/Cast/Actor/actor';
+@import '../components/CastBackdropsVideo/Backdrops/backdrops';
+@import '../components/CastBackdropsVideo/Backdrops/Backdrop/backdrop';
+@import '../components/CastBackdropsVideo/Videos/videos';
+@import '../components/CastBackdropsVideo/Videos/Video/video';
 
 // pages
 @import '../pages/Home/home';
@@ -311,6 +322,7 @@ body {
 @import '../pages/Login/login';
 @import '../pages/Register/register';
 @import '../Pages/Watchlist/watchlist';
+@import '../pages/MovieDetail/movieDetail';
 
 // other
 @import '../other/Loading/loading';
@@ -320,6 +332,7 @@ body {
 @import '../other/MenuIcon/menuIcon';
 @import '../other/Options/options';
 @import '../other/Switch/switch';
+@import '../other/VideoPlayer/videoPlayer';
 
 body::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */

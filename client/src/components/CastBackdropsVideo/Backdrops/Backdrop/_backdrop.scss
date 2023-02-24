@@ -1,0 +1,27 @@
+.backdrop {
+  margin-right: 1rem;
+  cursor: pointer;
+  width: 292px;
+
+  img {
+    width: 292px;
+  }
+
+  img:hover {
+    filter: brightness(80%);
+    transition: var(--transition);
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .backdrop {
+    img {
+      //width: 500px;
+      //object-fit: cover;
+    }
+  }
+}
+
+.backdrop:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,74 @@
+.castBackdropVideo {
+  padding: 0.5rem 2.5% 2rem 2.5%;
+
+  &__cast,
+  &__backdrops,
+  &__videos {
+    &__title {
+      width: fit-content;
+      cursor: pointer;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      font-weight: 500;
+
+      .length {
+        margin: 0;
+        position: relative;
+        height: 40px;
+        width: 40px;
+        background: var(--primary);
+        border-radius: 50%;
+        margin-left: 0.5rem;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #000;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &__title:hover .icon {
+      //color: var(--primary);
+      transform: translateX(40%) scale(1.25);
+      transition: var(--transition);
+    }
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .castBackdropVideo {
+    padding: 0 2rem 2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .castBackdropVideo {
+    padding: 0 1rem 2rem 1rem;
+
+    &__cast {
+      &__title {
+        font-size: 1.2rem;
+
+        .length {
+          height: 30px;
+          width: 30px;
+
+          span {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.activeCastBackdropVideo {
+  background: var(--primary) !important;
+  color: #000;
+}

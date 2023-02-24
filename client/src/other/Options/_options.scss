@@ -4,7 +4,8 @@
   border-bottom-left-radius: var(--border-radius-1);
 
   &__current {
-    font-weight: 700;
+    border-right: 2px solid #000;
+    font-weight: 500;
     font-size: 0.9rem;
     width: 80px;
     cursor: pointer;
@@ -21,7 +22,7 @@
   }
 
   &__option {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -50,18 +51,16 @@
   .option__main {
     &__current {
       font-weight: 400;
-      height: 35.2px;
-      background: var(--primary);
-      color: #000;
-      border-radius: var(--border-radius-1);
+      height: 32.7px;
+      border: 2px solid var(--primary);
+      //border-radius: var(--border-radius-1);
     }
 
     &__option {
       font-weight: 400;
-      height: 35.2px;
+      height: 32.7px;
       top: 2.3rem;
-      background: var(--primary);
-      color: #000;
+      border: 2px solid var(--primary);
     }
   }
 }

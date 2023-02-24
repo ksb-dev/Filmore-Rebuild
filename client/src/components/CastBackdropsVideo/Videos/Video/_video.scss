@@ -1,0 +1,12 @@
+.video {
+  margin-right: 1rem;
+  width: 292px;
+
+  iframe {
+    width: 292px;
+  }
+}
+
+.video:last-child {
+  margin-right: 0;
+}

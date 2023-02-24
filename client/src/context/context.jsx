@@ -3,54 +3,65 @@ import React, {
   useRef,
   createContext,
   useContext,
-  useEffect
-} from 'react'
+  useEffect,
+} from "react";
 
 // 1. Create Context
-const MovieContext = createContext()
+const MovieContext = createContext();
 
 const MovieProvider = ({ children }) => {
-  const [mode, setMode] = useState(true)
+  const [mode, setMode] = useState(true);
 
   // For wall images
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   // For switching between movie & tv
-  const [movieState, setMovieState] = useState(true)
+  const [movieState, setMovieState] = useState(true);
 
   // Logout component properties
-  const [logoutState, setLogoutState] = useState(false)
-  const logoutRef = useRef(null)
-  const userIconRef = useRef(null)
+  const [logoutState, setLogoutState] = useState(false);
+  const logoutRef = useRef(null);
+  const userIconRef = useRef(null);
 
   // Category component properties
-  const [categoryState, setCategoryState] = useState(false)
-  const categoryRef = useRef(null)
+  const [categoryState, setCategoryState] = useState(false);
+  const categoryRef = useRef(null);
 
   // Menu component properties
-  const [menuState, setMenuState] = useState(false)
-  const menuIconRef = useRef(null)
-  const menuRef = useRef(null)
-  const menuInnerRef = useRef(null)
+  const [menuState, setMenuState] = useState(false);
+  const menuIconRef = useRef(null);
+  const menuRef = useRef(null);
+  const menuInnerRef = useRef(null);
 
   // action, popular, war ...
-  const [activeOption, setActiveOption] = useState(false)
+  const [activeOption, setActiveOption] = useState(false);
 
   // movie / tv
   const [optionState, setOptionState] = useState(
-    sessionStorage.getItem('movieState') || 'movie'
-  )
+    sessionStorage.getItem("movieState") || "movie"
+  );
+  const [searchOptionState, setSearchOptionState] = useState("movie");
 
   // search query
   const [searchQuery, setSearchQuery] = useState(
-    sessionStorage.getItem('searchQuery') || ''
-  )
+    sessionStorage.getItem("searchQuery") || ""
+  );
 
   // search results component
-  const searchInputRef = useRef(null)
-  const searchResultsRef = useRef(null)
+  const searchInputRef = useRef(null);
+  const searchResultsRef = useRef(null);
 
-  const headerRef = useRef(null)
+  const headerRef = useRef(null);
+
+  const searchIconRef = useRef(null);
+  const searchModalRef = useRef(null);
+  const clearMovieInputRef = useRef(null);
+  const clearTvInputRef = useRef(null);
+
+  // Backdrops states
+  const [backdrops, setBackdrops] = useState([]);
+  const [backdropsLoading, setBackdropsLoading] = useState(false);
+  const [backdropsError, setBackdropsError] = useState("");
 
   return (
     <MovieContext.Provider
@@ -85,22 +96,37 @@ const MovieProvider = ({ children }) => {
         optionState,
         setOptionState,
 
+        searchOptionState,
+        setSearchOptionState,
+
         searchQuery,
         setSearchQuery,
 
         searchInputRef,
         searchResultsRef,
 
-        headerRef
+        headerRef,
+
+        searchIconRef,
+        searchModalRef,
+        clearMovieInputRef,
+        clearTvInputRef,
+
+        backdrops,
+        setBackdrops,
+        backdropsLoading,
+        setBackdropsLoading,
+        backdropsError,
+        setBackdropsError,
       }}
     >
       {children}
     </MovieContext.Provider>
-  )
-}
+  );
+};
 
 export const useMovieContext = () => {
-  return useContext(MovieContext)
-}
+  return useContext(MovieContext);
+};
 
-export { MovieContext, MovieProvider }
+export { MovieContext, MovieProvider };

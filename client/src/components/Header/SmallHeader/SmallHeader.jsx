@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
 
 // Recat router dom
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 // data
-import { iconsData } from '../../../data/icons'
+import { iconsData } from "../../../data/icons";
 
 // context
-import { useMovieContext } from '../../../context/context'
+import { useMovieContext } from "../../../context/context";
 
 // react router dom
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 // redux
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 
 const SmallHeader = () => {
   const {
@@ -21,34 +21,41 @@ const SmallHeader = () => {
     movieState,
     setMovieState,
     setOptionState,
-    setSearchQuery
-  } = useMovieContext()
-  const navigate = useNavigate()
+    setSearchQuery,
+    searchIconRef,
+    searchModalRef,
+  } = useMovieContext();
+  const navigate = useNavigate();
 
   // Title Click
   const handleTitleClick = () => {
-    sessionStorage.setItem('movieState', 'movie')
-    setOptionState('movie')
-    sessionStorage.removeItem('genreId')
-    sessionStorage.removeItem('option')
-    sessionStorage.removeItem('searchQuery')
-    setSearchQuery('')
-    sessionStorage.setItem('page', 1)
-    setIndex(0)
-    setMovieState(!movieState)
+    sessionStorage.setItem("movieState", "movie");
+    setOptionState("movie");
+    sessionStorage.removeItem("genreId");
+    sessionStorage.removeItem("option");
+    sessionStorage.removeItem("searchQuery");
+    setSearchQuery("");
+    sessionStorage.setItem("page", 1);
+    setIndex(0);
+    setMovieState(!movieState);
 
-    navigate('/')
-  }
+    navigate("/");
+  };
+
+  const showModal = () => {
+    searchModalRef.current.style.zIndex = "5";
+    searchModalRef.current.style.opacity = "1";
+  };
 
   return (
-    <div className='small-header'>
-      <div className='small-header__options'>
-        <div className='title'>
+    <div className="small-header">
+      <div className="small-header__options">
+        <div className="title">
           <Link
-            to='/'
-            className='title '
+            to="/"
+            className="title "
             onClick={() => {
-              handleTitleClick()
+              handleTitleClick();
             }}
           >
             <span>TMDb</span>
@@ -57,10 +64,16 @@ const SmallHeader = () => {
 
         {/* <Search /> */}
 
-        <span className='search-icon'>{iconsData.searchIcon}</span>
+        <span
+          ref={searchIconRef}
+          className="search-icon"
+          onClick={() => showModal()}
+        >
+          {iconsData.searchIcon}
+        </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SmallHeader
+export default SmallHeader;
