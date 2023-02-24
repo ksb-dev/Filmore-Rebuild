@@ -1,9 +1,20 @@
 .video {
+  position: relative;
   margin-right: 1rem;
   width: 292px;
 
   iframe {
     width: 292px;
+  }
+
+  .cover {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 292px;
+    height: 100%;
+    background: transparent;
   }
 }
 

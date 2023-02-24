@@ -1,9 +1,11 @@
 import React from 'react'
 
-// other
-import VideoPlayer from '../../../../other/VideoPlayer/VideoPlayer'
+// context
+import { useMovieContext } from '../../../../context/context'
 
 const Video = ({ video }) => {
+  const { mode } = useMovieContext()
+
   return (
     <div className='video'>
       <iframe
@@ -13,6 +15,7 @@ const Video = ({ video }) => {
         allowFullScreen
         title='Embedded youtube'
       />
+      <div className='cover'></div>
     </div>
   )
 }
