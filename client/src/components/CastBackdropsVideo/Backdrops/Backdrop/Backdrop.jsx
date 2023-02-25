@@ -5,9 +5,14 @@ import React from 'react'
 // APIs
 import { APIs } from '../../../../APIs/APIs'
 
+// context
+import { useMovieContext } from '../../../../context/context'
+
 const Backdrop = ({ backdrop, index }) => {
+  const { mode } = useMovieContext()
+
   return (
-    <div className='backdrop'>
+    <div className={'backdrop ' + (mode === true ? 'lightBg2' : 'darkBg1')}>
       <img
         className='img'
         loading='lazy'

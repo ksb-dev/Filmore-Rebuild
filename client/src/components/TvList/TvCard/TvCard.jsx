@@ -48,11 +48,18 @@ const TvCard = ({ tv }) => {
 
   return (
     <div className='card'>
-      <Link to={`/movie/${id}`} className='card--image'>
+      <Link
+        to={`/movie/${id}`}
+        className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
+      >
         <img
           className='img'
           loading='lazy'
-          src={poster_path === null ? url : IMG_PATH + poster_path}
+          src={
+            poster_path === null
+              ? APIs.no_image_url
+              : APIs.img_path + poster_path
+          }
           alt={name}
         />
         {/* <LazyLoadImage

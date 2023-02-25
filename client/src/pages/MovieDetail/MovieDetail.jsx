@@ -34,8 +34,14 @@ const MovieDetail = () => {
   const { mode, movieState } = useMovieContext()
   const dispatch = useDispatch()
 
-  const { getMovieInfo, getCast, getBackdrops, getVideos, getReviews } =
-    useGetMovieInfo()
+  const {
+    getTrailer,
+    getMovieInfo,
+    getCast,
+    getBackdrops,
+    getVideos,
+    getReviews
+  } = useGetMovieInfo()
 
   // Movie info
   const { id } = useParams()
@@ -63,6 +69,11 @@ const MovieDetail = () => {
   const [reviewsLoading, setReviewsLoading] = useState(true)
   const [reviewsError, setReviewsError] = useState('')
 
+  // Youtube
+  const [trailerUrl, setTrailerUrl] = useState('')
+  const [playerLoading, setPlayerLoading] = useState(true)
+  const [playerError, setPlayerError] = useState('')
+
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -81,22 +92,25 @@ const MovieDetail = () => {
     // 1. Get movie info
     getMovieInfo(id, setData, setLoading, setError)
 
-    //2. Get cast
+    // 2. Get Trailer
+    getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+
+    //3. Get cast
     setTimeout(() => {
       getCast(id, setCast, setCastLoading, setCastError)
     }, 250)
 
-    //3. Get backdrops
+    //4. Get backdrops
     setTimeout(() => {
       getBackdrops(id, setBackdrops, setBackdropsLoading, setBackdropsError)
     }, 500)
 
-    //4. Get videos
+    //5. Get videos
     setTimeout(() => {
       getVideos(id, setVideos, setVideosLoading, setVideosError)
     }, 750)
 
-    //5. Get reviews
+    //6. Get reviews
     setTimeout(() => {
       getReviews(id, setReviews, setReviewsLoading, setReviewsError)
     }, 1000)
@@ -109,7 +123,15 @@ const MovieDetail = () => {
       <Menu />
       <SearchModal />
 
-      <MovieInfo id={id} data={data} loading={loading} error={error} />
+      <MovieInfo
+        id={id}
+        data={data}
+        loading={loading}
+        error={error}
+        trailerUrl={trailerUrl}
+        playerLoading={playerLoading}
+        playerError={playerError}
+      />
 
       {!loading && !error && (
         <CastBackdropsVideo

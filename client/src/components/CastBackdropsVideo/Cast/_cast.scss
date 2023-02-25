@@ -2,17 +2,17 @@
 .err {
   display: flex;
   align-items: center;
-  //justify-content: center;
   margin-top: 2rem;
   margin-left: 2rem;
 }
 
 .cast {
-  padding: 2rem 2rem 2rem 0;
+  padding: 2rem 0rem 2rem 0;
   margin-bottom: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 2rem;
+  min-height: 100px;
 }
 
 @media screen and (max-width: 920px) {

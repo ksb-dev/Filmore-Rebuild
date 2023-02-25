@@ -37,7 +37,15 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import { BsCalendar2Date } from 'react-icons/bs'
 import { MdOutlineAccessTime } from 'react-icons/md'
 
-const MovieInfo = ({ id, data, loading, error }) => {
+const MovieInfo = ({
+  id,
+  data,
+  loading,
+  error,
+  trailerUrl,
+  playerLoading,
+  playerError
+}) => {
   const navigate = useNavigate()
 
   //context
@@ -46,33 +54,14 @@ const MovieInfo = ({ id, data, loading, error }) => {
   // hooks
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
-  const { getTrailer } = useGetMovieInfo()
 
   // states
   const [genres, setGenres] = useState(new Set())
   const [genre_ids, setGenre_ids] = useState(new Set())
 
-  // Youtube player properties
-  const [trailerUrl, setTrailerUrl] = useState('')
-  const [playerLoading, setPlayerLoading] = useState(true)
-  const [playerError, setPlayerError] = useState('')
-
   // redux state
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
   const user = useSelector(state => state.savedMovies.user)
-
-  // Get trailer
-  useEffect(() => {
-    setTimeout(() => {
-      getTrailer(
-        id,
-        trailerUrl,
-        setTrailerUrl,
-        setPlayerLoading,
-        setPlayerError
-      )
-    }, 500)
-  }, [])
 
   // Get & store genre__ids
   useEffect(() => {
@@ -151,16 +140,21 @@ const MovieInfo = ({ id, data, loading, error }) => {
       {/* Image Video */}
 
       <div className='info__image__video'>
-        <img
-          className='info__image__video--image'
-          loading='lazy'
-          src={
-            data.poster_path === null ? url : APIs.img_path + data.poster_path
+        <div
+          className={
+            'info__image__video--image ' +
+            (mode === true ? 'lightBg2' : 'darkBg1')
           }
-          alt={data.title}
-        />
+        >
+          <img
+            loading='lazy'
+            src={
+              data.poster_path === null ? url : APIs.img_path + data.poster_path
+            }
+            alt={data.title}
+          />
 
-        {/* <LazyLoadImage
+          {/* <LazyLoadImage
           //width={'100%'}
           //height={'100%'}
           className='info__image__video--image'
@@ -177,6 +171,7 @@ const MovieInfo = ({ id, data, loading, error }) => {
               : APIs.img_path_w342 + data.poster_path
           }
         /> */}
+        </div>
 
         <div
           className={
@@ -277,7 +272,12 @@ const MovieInfo = ({ id, data, loading, error }) => {
             </span>
           </p>
         )}
-        <div className='info__image__video__player'>
+        <div
+          className={
+            'info__image__video__player ' +
+            (mode === true ? 'lightBg2' : 'darkBg1')
+          }
+        >
           {playerLoading && <Loading />}
           {playerError && <Error />}
           {!playerLoading && !playerError && (
@@ -291,23 +291,35 @@ const MovieInfo = ({ id, data, loading, error }) => {
 
       {/* Image Detail */}
       <div className='info__image__detail'>
-        <img
-          className='info__image__detail--image'
-          src={
-            data.poster_path === null ? url : APIs.img_path + data.poster_path
+        <div
+          className={
+            'info__image__detail--image ' +
+            (mode === true ? 'lightBg2' : 'darkBg1')
           }
-          alt={data.title}
-        />
+        >
+          <img
+            src={
+              data.poster_path === null ? url : APIs.img_path + data.poster_path
+            }
+            alt={data.title}
+          />
+        </div>
 
-        <img
-          className='info__image__detail--image-1'
-          src={
-            data.backdrop_path === null
-              ? url
-              : APIs.img_path + data.backdrop_path
+        <div
+          className={
+            'info__image__detail--image-1 ' +
+            (mode === true ? 'lightBg2' : 'darkBg1')
           }
-          alt={data.title}
-        />
+        >
+          <img
+            src={
+              data.backdrop_path === null
+                ? url
+                : APIs.img_path + data.backdrop_path
+            }
+            alt={data.title}
+          />
+        </div>
 
         <div
           className={

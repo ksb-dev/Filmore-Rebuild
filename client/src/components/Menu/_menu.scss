@@ -176,7 +176,7 @@
 
         &__inner {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
 
           p,
           a,
@@ -189,9 +189,10 @@
 
       &__category {
         padding: 0rem 2rem;
+
         &__inner {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
 
           p,
           a,

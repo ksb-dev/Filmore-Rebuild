@@ -7,7 +7,7 @@ const Video = ({ video }) => {
   const { mode } = useMovieContext()
 
   return (
-    <div className='video'>
+    <div className={'video ' + (mode === true ? 'lightBg2' : 'darkBg1')}>
       <iframe
         src={`https://www.youtube.com/embed/${video.key}`}
         loading='lazy'

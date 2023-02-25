@@ -2,6 +2,9 @@ import React from 'react'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import 'react-lazy-load-image-component/src/effects/blur.css'
 
+// recat router dom
+import { Link } from 'react-router-dom'
+
 // context
 import { useMovieContext } from '../../../../context/context'
 
@@ -13,14 +16,22 @@ const Actor = ({ actor }) => {
   const { original_name, character, profile_path, id } = actor
 
   return (
-    <div className={'actor ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
-      <div className='actor__image'>
+    <Link
+      to='#'
+      className={
+        'actor ' +
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+      }
+    >
+      <div
+        className={'actor__image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
+      >
         <img
           className='img'
           loading='lazy'
           src={
             profile_path !== null
-              ? APIs.img_path + profile_path
+              ? APIs.img_path_original + profile_path
               : APIs.no_image_url
           }
           alt='actor'
@@ -47,7 +58,7 @@ const Actor = ({ actor }) => {
         <span className='name'>{original_name && original_name}</span>
         <span className='character'>{character && character}</span>
       </div>
-    </div>
+    </Link>
   )
 }
 

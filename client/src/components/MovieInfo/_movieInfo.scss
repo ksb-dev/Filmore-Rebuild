@@ -3,7 +3,7 @@
   width: 95%;
   min-height: 100vh;
   margin: 0 2.5%;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 
   &__detail {
     padding: calc(58.4px + 2rem) 0 1rem 0;
@@ -37,10 +37,10 @@
 
         .date,
         .time {
-          color: gray;
+          color: rgb(156, 156, 156);
           display: flex;
           align-items: center;
-          font-weight: 500;
+          font-weight: 400;
           font-size: 0.9rem;
         }
 
@@ -57,10 +57,15 @@
     margin-bottom: 2rem;
 
     &--image {
-      //width: 300px;
       height: 450px;
       margin-right: 0.5rem;
       border-radius: var(--border-radius-1);
+      margin-right: 0.5rem;
+
+      img {
+        height: 450px;
+        border-radius: var(--border-radius-1);
+      }
     }
 
     &__rating {
@@ -120,6 +125,10 @@
     &--image {
       display: none;
       width: 250px;
+
+      img {
+        width: 250px;
+      }
     }
 
     &--image-1 {
@@ -249,6 +258,10 @@
         display: flex;
         margin-right: 2rem;
         border-radius: var(--border-radius-1);
+
+        img {
+          border-radius: var(--border-radius-1);
+        }
       }
 
       &__rating {
@@ -317,6 +330,14 @@
         width: 100%;
         //height: 00px;
         object-fit: cover;
+        border-radius: var(--border-radius-1);
+
+        img {
+          width: 100%;
+          //height: 00px;
+          object-fit: cover;
+          border-radius: var(--border-radius-1);
+        }
       }
 
       &__inner {

@@ -3,9 +3,15 @@
   align-items: center;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  border-radius: var(--border-radius-1);
+  width: fit-content;
+  text-decoration: none;
 
   &__image {
     margin-right: 1rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 
     .img {
       width: 100px;
@@ -21,13 +27,15 @@
 
     .name {
       font-weight: 500;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
   }
 }
 
-.actor:hover {
-  filter: brightness(80%);
+.actor:hover .actor__image .img {
+  //filter: brightness(80%);
+  //transform: rotate(360deg);
+  box-shadow: 0 0 25px #000;
   transition: var(--transition);
 }
 
@@ -38,6 +46,8 @@
 
     &__image {
       margin: 0;
+      width: 150px;
+      height: 150px;
 
       .img {
         width: 150px;
@@ -57,7 +67,7 @@
 
       .character {
         text-align: center;
-        font-weight: 0.7rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -71,6 +81,8 @@
 
     &__image {
       margin: 0;
+      width: 125px;
+      height: 125px;
 
       .img {
         width: 125px;
@@ -85,7 +97,7 @@
       }
 
       .character {
-        font-weight: 0.7rem;
+        font-size: 0.8rem;
       }
     }
   }

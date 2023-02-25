@@ -12,6 +12,7 @@
       align-items: center;
       font-size: 1.4rem;
       font-weight: 500;
+      //min-height: 200px;
 
       .length {
         margin: 0;
@@ -51,7 +52,9 @@
   .castBackdropVideo {
     padding: 0 1rem 2rem 1rem;
 
-    &__cast {
+    &__cast,
+    &__backdrops,
+    &__videos {
       &__title {
         font-size: 1.2rem;
 
