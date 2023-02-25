@@ -58,7 +58,7 @@
       padding: 0.25rem;
 
       .watchlist {
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
         font-weight: 500;
         text-decoration: none;
         //background: var(--primary);
@@ -106,7 +106,7 @@
         border-radius: var(--border-radius-1);
         //background: var(--primary);
         color: #fff;
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem 1rem;
       }
 
       .home-icon {
@@ -128,12 +128,12 @@
           margin-left: 0.5rem;
           //background: var(--primary);
           color: #fff;
-          padding: 0.5rem 0.5rem;
+          padding: 0.5rem 1rem;
         }
 
         .close-icon {
           background: var(--primary);
-          border-radius: 50%;
+          border-radius: 0;
           color: #000;
         }
 
@@ -236,5 +236,5 @@
   //background: #000 !important;
   color: #000 !important;
   //color: var(--primary) !important;
-  border-radius: 50% !important;
+  border-radius: 0 !important;
 }
