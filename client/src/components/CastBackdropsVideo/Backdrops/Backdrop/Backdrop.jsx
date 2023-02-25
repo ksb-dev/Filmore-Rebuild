@@ -25,7 +25,7 @@ const Backdrop = ({ backdrop, index }) => {
         placeholderSrc={
           backdrop.file_path === null
             ? url
-            : APIs.img_path_w92 + backdrop.file_path
+            : APIs.img_path_w342 + backdrop.file_path
         }
         src={
           backdrop.file_path === null

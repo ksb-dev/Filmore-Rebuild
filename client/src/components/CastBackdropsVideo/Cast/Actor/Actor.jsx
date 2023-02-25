@@ -30,9 +30,15 @@ const Actor = ({ actor }) => {
           alt='image'
           effect='blur'
           placeholderSrc={
-            profile_path === null ? url : APIs.img_path_w92 + profile_path
+            profile_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w185 + profile_path
           }
-          src={profile_path === null ? url : APIs.img_path_w342 + profile_path}
+          src={
+            profile_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w185 + profile_path
+          }
         />
       </div>
       <div className='actor__name-character'>
