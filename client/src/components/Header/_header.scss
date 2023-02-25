@@ -53,15 +53,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      //background: var(--primary);
       border-radius: var(--border-radius-1);
       padding: 0.25rem;
 
       .watchlist {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem;
         font-weight: 500;
         text-decoration: none;
-        //background: var(--primary);
         color: #fff;
         border-radius: var(--border-radius-1);
         cursor: pointer;
@@ -106,7 +104,7 @@
         border-radius: var(--border-radius-1);
         //background: var(--primary);
         color: #fff;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.5rem;
       }
 
       .home-icon {
@@ -128,12 +126,12 @@
           margin-left: 0.5rem;
           //background: var(--primary);
           color: #fff;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 0.5rem;
         }
 
         .close-icon {
           background: var(--primary);
-          border-radius: 0;
+          border-radius: 50%;
           color: #000;
         }
 
@@ -232,9 +230,9 @@
 }
 
 .activeRoute {
-  //background: var(--primary) !important;
+  background: var(--primary) !important;
   //background: #000 !important;
-  color: var(--primary) !important;
+  color: #000 !important;
   //color: var(--primary) !important;
-  border-radius: 0 !important;
+  border-radius: 50% !important;
 }

@@ -77,14 +77,14 @@
   }
 }
 
-@media screen and (max-width: 786px){
+@media screen and (max-width: 786px) {
   .search__component {
     display: flex;
     align-items: center;
     justify-content: center;
 
     &__switch {
-     // display: none;
+      // display: none;
     }
 
     &__search-bar {
