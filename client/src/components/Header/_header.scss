@@ -221,6 +221,12 @@
             background: #000;
             color: #fff;
           }
+
+          .close-icon {
+            background: var(--primary);
+            border-radius: 50%;
+            color: #000;
+          }
         }
 
         justify-content: space-between;

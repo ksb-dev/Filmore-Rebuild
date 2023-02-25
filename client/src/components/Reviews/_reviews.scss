@@ -1,0 +1,46 @@
+.reviews {
+  padding: 0rem 2.5% 2rem 2.5%;
+
+  &__title {
+    width: fit-content;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+
+    .length {
+      margin: 0;
+      position: relative;
+      height: 40px;
+      width: 40px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin-left: 0.5rem;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .reviews {
+    padding: 0rem 1rem;
+  }
+}

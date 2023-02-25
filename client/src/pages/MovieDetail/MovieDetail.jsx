@@ -21,14 +21,11 @@ import SearchModal from '../../components/SearchModal/SearchModal'
 
 import MovieInfo from '../../components/MovieInfo/MovieInfo'
 import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdropsVideo'
+import Reviews from '../../components/Reviews/Reviews'
 //import YouTubePlayer from '../../Components/MovieDetail/YoutubePlayer/YouTubePlayer'
 //import CastBackdropVideo from '../../Components/CastBackdropVideo/CastBackdropVideo'
 //import Reviews from '../../Components/Reviews/Reviews'
 //import ImageViewer from '../../Components/ImageViewer/ImageViewer'
-
-// Sub-Components
-import Loading from '../../other/Loading/Loading'
-import Error from '../../other/Error/Error'
 
 const MovieDetail = () => {
   const { mode, movieState } = useMovieContext()
@@ -134,21 +131,29 @@ const MovieDetail = () => {
       />
 
       {!loading && !error && (
-        <CastBackdropsVideo
-          id={id}
-          cast={cast}
-          castError={castError}
-          castLoading={castLoading}
-          backdrops={backdrops}
-          backdropsLoading={backdropsLoading}
-          backdropsError={backdropsError}
-          videos={videos}
-          videosLoading={videosLoading}
-          videosError={videosError}
-          reviews={reviews}
-          reviewsError={reviewsError}
-          reviewsLoading={reviewsLoading}
-        />
+        <>
+          <CastBackdropsVideo
+            id={id}
+            cast={cast}
+            castError={castError}
+            castLoading={castLoading}
+            backdrops={backdrops}
+            backdropsLoading={backdropsLoading}
+            backdropsError={backdropsError}
+            videos={videos}
+            videosLoading={videosLoading}
+            videosError={videosError}
+            reviews={reviews}
+            reviewsError={reviewsError}
+            reviewsLoading={reviewsLoading}
+          />
+
+          <Reviews
+            reviews={reviews}
+            reviewsLoading={reviewsLoading}
+            reviewsError={reviewsError}
+          />
+        </>
       )}
 
       {/* <MovieDetail
