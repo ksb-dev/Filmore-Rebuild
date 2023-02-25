@@ -51,9 +51,9 @@ const TvCard = ({ tv }) => {
       <Link to={`/movie/${id}`} className='card--image'>
         <img
           className='img'
+          loading='lazy'
           src={poster_path === null ? url : IMG_PATH + poster_path}
           alt={name}
-          loading='lazy'
         />
         {/* <LazyLoadImage
           width={'100%'}

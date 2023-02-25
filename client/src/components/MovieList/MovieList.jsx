@@ -120,6 +120,7 @@ const MovieList = () => {
           >
             <img
               className='list__wall--image'
+              loading='lazy'
               src={
                 sortedMovies[index].backdrop_path === null
                   ? APIs.no_image_url

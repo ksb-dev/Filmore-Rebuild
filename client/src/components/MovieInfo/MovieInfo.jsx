@@ -153,11 +153,11 @@ const MovieInfo = ({ id, data, loading, error }) => {
       <div className='info__image__video'>
         <img
           className='info__image__video--image'
+          loading='lazy'
           src={
             data.poster_path === null ? url : APIs.img_path + data.poster_path
           }
           alt={data.title}
-          loading='lazy'
         />
 
         {/* <LazyLoadImage

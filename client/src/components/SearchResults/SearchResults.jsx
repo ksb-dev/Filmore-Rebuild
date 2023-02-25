@@ -56,13 +56,13 @@ const SearchResults = ({ results }) => {
             <div className='search__results__inner__card__image'>
               <img
                 className='img'
+                loading='lazy'
                 src={
                   result.poster_path === null
                     ? APIs.no_image_url
                     : APIs.img_path + result.poster_path
                 }
                 alt='image'
-                loading='lazy'
               />
 
               {/* <LazyLoadImage

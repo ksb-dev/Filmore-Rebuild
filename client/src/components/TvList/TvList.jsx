@@ -130,6 +130,7 @@ const TvList = () => {
           >
             <img
               className='list__wall--image'
+              loading='lazy'
               src={
                 sortedShows[index].backdrop_path === null
                   ? APIs.no_image_url

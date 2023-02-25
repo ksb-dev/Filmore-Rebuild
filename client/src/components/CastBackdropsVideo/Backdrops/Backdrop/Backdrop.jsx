@@ -10,13 +10,13 @@ const Backdrop = ({ backdrop, index }) => {
     <div className='backdrop'>
       <img
         className='img'
+        loading='lazy'
         src={
           backdrop.file_path !== null
             ? APIs.img_path + backdrop.file_path
             : APIs.no_image_url
         }
         alt={backdrop.file_path}
-        loading='lazy'
       />
       {/* <LazyLoadImage
         width={'100%'}

@@ -17,13 +17,13 @@ const Actor = ({ actor }) => {
       <div className='actor__image'>
         <img
           className='img'
+          loading='lazy'
           src={
             profile_path !== null
               ? APIs.img_path + profile_path
               : APIs.no_image_url
           }
           alt='actor'
-          loading='lazy'
         />
         {/* <LazyLoadImage
           width={'100%'}
