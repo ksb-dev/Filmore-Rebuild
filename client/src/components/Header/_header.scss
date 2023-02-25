@@ -232,9 +232,9 @@
 }
 
 .activeRoute {
-  background: var(--primary) !important;
+  //background: var(--primary) !important;
   //background: #000 !important;
-  color: #000 !important;
+  color: var(--primary) !important;
   //color: var(--primary) !important;
   border-radius: 0 !important;
 }
