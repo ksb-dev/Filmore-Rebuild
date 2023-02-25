@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -41,9 +43,6 @@ const MovieList = () => {
   const user = useSelector(state => state.savedMovies.user)
 
   const buttonsRef = useRef(null)
-  const imgRef = useRef(null)
-
-  const [[page, direction], setPage] = useState([0, 0])
 
   if (loading) {
     return (
@@ -119,7 +118,7 @@ const MovieList = () => {
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
-            <img
+            {/* <img
               ref={imgRef}
               className='list__wall--image'
               src={
@@ -128,6 +127,24 @@ const MovieList = () => {
                   : APIs.img_path + sortedMovies[index].backdrop_path
               }
               alt={sortedMovies[index].title}
+            /> */}
+
+            <LazyLoadImage
+              width={'100%'}
+              height={'100%'}
+              className='list__wall--image'
+              alt={sortedMovies[index].title}
+              effect='black-and-white'
+              placeholderSrc={
+                sortedMovies[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path_w300 + sortedMovies[index].backdrop_path
+              }
+              src={
+                sortedMovies[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path + sortedMovies[index].backdrop_path
+              }
             />
 
             <Link

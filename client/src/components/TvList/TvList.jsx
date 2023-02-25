@@ -1,5 +1,6 @@
-//import React, { useState, useEffect, useRef } from 'react'
 import React, { useRef } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -29,11 +30,10 @@ import {
 } from 'react-icons/md'
 
 // other
-import Options from '../../other/Options/Options'
 import Switch from '../../other/Switch/Switch'
 
 const TvList = () => {
-  const { mode, index, setIndex, searchQuery } = useMovieContext()
+  const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
   const shows = useSelector(state => state.tvShows.sortedShows)
   const sortedShows = useSelector(state => state.tvShows.sortedShows)
@@ -44,7 +44,6 @@ const TvList = () => {
   // const [stop, setStop] = useState(0)
   // const timeoutRef = useRef(null)
   const btnRef = useRef(null)
-  const infoRef = useRef(null)
 
   const previousImage = () => {
     index < 1
@@ -129,7 +128,7 @@ const TvList = () => {
               //btnRef.current.style.zIndex = '-1'
             }}
           >
-            <img
+            {/* <img
               className='list__wall--image'
               src={
                 sortedShows[index].backdrop_path === null
@@ -137,6 +136,24 @@ const TvList = () => {
                   : APIs.img_path + sortedShows[index].backdrop_path
               }
               alt={sortedShows[index].name}
+            /> */}
+
+            <LazyLoadImage
+              width={'100%'}
+              height={'100%'}
+              className='list__wall--image'
+              alt={sortedShows[index].title}
+              effect='black-and-white'
+              placeholderSrc={
+                sortedShows[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path + sortedShows[index].backdrop_path
+              }
+              src={
+                sortedShows[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path + sortedShows[index].backdrop_path
+              }
             />
 
             <Link

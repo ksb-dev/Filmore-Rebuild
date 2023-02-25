@@ -1,37 +1,40 @@
-import React, { useState, useEffect, useRef } from "react";
-import moment from "moment";
+import React from 'react'
+import moment from 'moment'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // data
-import { iconsData } from "../../../data/icons";
+import { iconsData } from '../../../data/icons'
 
 // Hooks
-import { useWatchlistOperations } from "../../../hooks/useWatchlistOperations";
-import { useGetClassByVote } from "../../../hooks/useGetClassByVote";
+import { useWatchlistOperations } from '../../../hooks/useWatchlistOperations'
+import { useGetClassByVote } from '../../../hooks/useGetClassByVote'
 
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
 // Recat Router
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom'
 
 // Context
-import { useMovieContext } from "../../../context/context";
+import { useMovieContext } from '../../../context/context'
+
+// APIs
+import { APIs } from '../../../APIs/APIs'
 
 const url =
-  "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
-const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
+  'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
+//const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
 const MovieCard = ({ movie }) => {
-  const { mode } = useMovieContext();
-  const { addMovie, deleteMovie } = useWatchlistOperations();
-  const { getClassBg } = useGetClassByVote();
+  const { mode } = useMovieContext()
+  const { addMovie, deleteMovie } = useWatchlistOperations()
+  const { getClassBg } = useGetClassByVote()
 
-  const user = useSelector((state) => state.savedMovies.user);
-  const savedMovies = useSelector((state) => state.savedMovies.savedMovies);
+  const user = useSelector(state => state.savedMovies.user)
+  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
 
-  const ratingTitleDateRef = useRef(null);
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const {
     title,
@@ -41,29 +44,33 @@ const MovieCard = ({ movie }) => {
     backdrop_path,
     id,
     genre_ids,
-    overview,
-  } = movie;
-
-  const show = () => {
-    ratingTitleDateRef.current.style.opacity = "1";
-  };
-
-  const hide = () => {
-    ratingTitleDateRef.current.style.opacity = "0";
-  };
+    overview
+  } = movie
 
   return (
-    <div className="card">
-      <Link to={`/movie/${id}`} className="card--image">
-        <img
-          src={poster_path === null ? url : IMG_PATH + poster_path}
+    <div className='card'>
+      <Link to={`/movie/${id}`} className='card--image'>
+        {/* <img
+          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
           alt={title}
+          loading='lazy'
+        /> */}
+        <LazyLoadImage
+          width={'100%'}
+          height={'100%'}
+          className='img'
+          alt='image'
+          effect='blur'
+          placeholderSrc={
+            poster_path === null ? url : APIs.img_path_w92 + poster_path
+          }
+          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
         />
       </Link>
 
       {user && savedMovies && savedMovies.length === 0 && (
         <p
-          className="card__add__btn"
+          className='card__add__btn'
           onClick={() =>
             addMovie(
               id,
@@ -77,7 +84,7 @@ const MovieCard = ({ movie }) => {
             )
           }
         >
-          <span className="card__btn--icon">{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
 
@@ -88,7 +95,7 @@ const MovieCard = ({ movie }) => {
         savedMovies.every((item, index) => item.id !== id) && (
           <p
             key={id}
-            className="card__add__btn"
+            className='card__add__btn'
             onClick={() =>
               addMovie(
                 id,
@@ -102,7 +109,7 @@ const MovieCard = ({ movie }) => {
               )
             }
           >
-            <span className="card__btn--icon">{iconsData.star}</span>
+            <span className='card__btn--icon'>{iconsData.star}</span>
           </p>
         )}
 
@@ -115,22 +122,22 @@ const MovieCard = ({ movie }) => {
             return (
               <p
                 key={index}
-                className="card__delete__btn"
+                className='card__delete__btn'
                 onClick={() => deleteMovie(id)}
-                style={{ background: "gold" }}
+                style={{ background: 'gold' }}
               >
-                <span className="card__btn--icon" style={{ color: "#000" }}>
+                <span className='card__btn--icon' style={{ color: '#000' }}>
                   {iconsData.star}
                 </span>
               </p>
-            );
+            )
           }
         })}
 
       {/* ADD-BUTTON (without user) */}
       {!user && (
-        <p className="card__btn " onClick={() => navigate("/login")}>
-          <span className="card__btn--icon">{iconsData.star}</span>
+        <p className='card__btn ' onClick={() => navigate('/login')}>
+          <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
 
@@ -138,26 +145,26 @@ const MovieCard = ({ movie }) => {
       <Link
         to={`/movie/${id}`}
         className={
-          "card__info " +
-          (mode === true ? "lightBg2 darkColor1" : "darkBg1 lightColor1")
+          'card__info ' +
+          (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
         }
       >
-        <p className="card__info--title">
-          {title && title.length <= 35 ? title : title.substring(0, 32) + "..."}
+        <p className='card__info--title'>
+          {title && title.length <= 35 ? title : title.substring(0, 32) + '...'}
         </p>
 
         <div
           className={
-            "card__info__date-rating " +
-            (mode === true ? "lightBg1" : "darkBg2")
+            'card__info__date-rating ' +
+            (mode === true ? 'lightBg1' : 'darkBg2')
           }
         >
-          <span className="card__info__date-rating--date">
-            {release_date && moment(release_date).format("Do MMM, YYYY")}
+          <span className='card__info__date-rating--date'>
+            {release_date && moment(release_date).format('Do MMM, YYYY')}
           </span>
           <p
             className={
-              "card__info__date-rating--rating " +
+              'card__info__date-rating--rating ' +
               getClassBg(Number(String(vote_average).substring(0, 3)))
             }
           >
@@ -166,7 +173,7 @@ const MovieCard = ({ movie }) => {
         </div>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default MovieCard;
+export default MovieCard

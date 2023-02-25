@@ -2,9 +2,11 @@
   position: relative;
   margin-right: 1rem;
   width: 292px;
+  border-radius: var(--border-radius-1);
 
   iframe {
     width: 292px;
+    border-radius: var(--border-radius-1);
   }
 
   .cover {
