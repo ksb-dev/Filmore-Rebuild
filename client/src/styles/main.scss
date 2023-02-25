@@ -21,25 +21,26 @@
   --white-1: #fff;
   --white-2: rgb(220, 220, 220);
 
-  --dark-2: #393e46;
-  --dark-2: #222222;
+  //--dark-2: #393e46;
+  --dark-1: #222222;
 
-  --dark-1: #222831;
-  --dark-1: #333333;
+  //--dark-1: #222831;
+  --dark-2: #333333;
   //--dark-1: #444444;
 
   //--dark-2: #222222;
   //--dark-2: #1f1f1f;
 
-  --whiteAlpha-1: rgba(255, 255, 255, 0.5);
-  --whiteAlpha-2: rgba(220, 220, 220, 0.5);
+  --whiteAlpha-1: rgba(255, 255, 255, 0.9);
+  --whiteAlpha-2: rgba(220, 220, 220, 0.9);
   --whiteAlpha-3: rgba(255, 255, 255, 0.7);
   --whiteAlpha-4: rgba(220, 220, 220, 0.7);
   --whiteAlpha-5: rgba(255, 255, 255, 0.9);
   --whiteAlpha-6: rgba(220, 220, 220, 0.9);
 
   --darkAplha-1: rgba(51, 51, 51, 0.5);
-  --darkAlpha-2: rgba(34, 34, 34, 0.5);
+  --darkAplha-1: rgba(34, 34, 34, 0.9);
+  --darkAlpha-2: rgba(34, 34, 34, 0.9);
   --darkAplha-3: rgba(51, 51, 51, 0.7);
   --darkAlpha-4: rgba(34, 34, 34, 0.7);
   --darkAplha-5: rgba(34, 34, 34, 0.9);
@@ -136,7 +137,7 @@
 }
 
 .darkAlpha2 {
-  background: var(--darkAplha-2);
+  background: var(--darkAlpha-2);
 }
 
 .darkAlpha3 {
