@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import moment from 'moment'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+// import { LazyLoadImage } from 'react-lazy-load-image-component'
+// import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // react router dom
 import { useNavigate } from 'react-router-dom'
@@ -34,11 +34,8 @@ import VideoPlayer from '../../other/VideoPlayer/VideoPlayer'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 
 // Recat Icons
-import { IoAddOutline, IoCheckmark } from 'react-icons/io5'
 import { BsCalendar2Date } from 'react-icons/bs'
 import { MdOutlineAccessTime } from 'react-icons/md'
-import { TbMessageLanguage } from 'react-icons/tb'
-import { FiPlay } from 'react-icons/fi'
 
 const MovieInfo = ({ id, data, loading, error }) => {
   const navigate = useNavigate()
@@ -50,7 +47,6 @@ const MovieInfo = ({ id, data, loading, error }) => {
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { getTrailer } = useGetMovieInfo()
-  const { showPlayer } = useShowHide()
 
   // states
   const [genres, setGenres] = useState(new Set())
@@ -60,8 +56,6 @@ const MovieInfo = ({ id, data, loading, error }) => {
   const [trailerUrl, setTrailerUrl] = useState('')
   const [playerLoading, setPlayerLoading] = useState(true)
   const [playerError, setPlayerError] = useState('')
-  const playerRef = useRef(null)
-  const playerInnerRef = useRef(null)
 
   // redux state
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
@@ -157,15 +151,16 @@ const MovieInfo = ({ id, data, loading, error }) => {
       {/* Image Video */}
 
       <div className='info__image__video'>
-        {/* <img
+        <img
           className='info__image__video--image'
           src={
             data.poster_path === null ? url : APIs.img_path + data.poster_path
           }
           alt={data.title}
-        /> */}
+          loading='lazy'
+        />
 
-        <LazyLoadImage
+        {/* <LazyLoadImage
           //width={'100%'}
           //height={'100%'}
           className='info__image__video--image'
@@ -181,7 +176,7 @@ const MovieInfo = ({ id, data, loading, error }) => {
               ? APIs.no_image_url
               : APIs.img_path_w342 + data.poster_path
           }
-        />
+        /> */}
 
         <div
           className={

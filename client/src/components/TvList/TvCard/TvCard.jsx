@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+// import { LazyLoadImage } from 'react-lazy-load-image-component'
+// import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // data
 import { iconsData } from '../../../data/icons'
@@ -49,11 +49,13 @@ const TvCard = ({ tv }) => {
   return (
     <div className='card'>
       <Link to={`/movie/${id}`} className='card--image'>
-        {/* <img
+        <img
+          className='img'
           src={poster_path === null ? url : IMG_PATH + poster_path}
           alt={name}
-        /> */}
-        <LazyLoadImage
+          loading='lazy'
+        />
+        {/* <LazyLoadImage
           width={'100%'}
           height={'100%'}
           className='img'
@@ -63,7 +65,7 @@ const TvCard = ({ tv }) => {
             poster_path === null ? url : APIs.img_path_w342 + poster_path
           }
           src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
-        />
+        /> */}
       </Link>
 
       {user && savedShows && savedShows.length === 0 && (

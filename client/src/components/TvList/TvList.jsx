@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+// import { LazyLoadImage } from 'react-lazy-load-image-component'
+// import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -128,7 +128,7 @@ const TvList = () => {
               //btnRef.current.style.zIndex = '-1'
             }}
           >
-            {/* <img
+            <img
               className='list__wall--image'
               src={
                 sortedShows[index].backdrop_path === null
@@ -136,9 +136,9 @@ const TvList = () => {
                   : APIs.img_path + sortedShows[index].backdrop_path
               }
               alt={sortedShows[index].name}
-            /> */}
+            />
 
-            <LazyLoadImage
+            {/* <LazyLoadImage
               width={'100%'}
               height={'100%'}
               className='list__wall--image'
@@ -154,7 +154,7 @@ const TvList = () => {
                   ? APIs.no_image_url
                   : APIs.img_path + sortedShows[index].backdrop_path
               }
-            />
+            /> */}
 
             <Link
               to={`/tv/${sortedShows[index].id}`}
