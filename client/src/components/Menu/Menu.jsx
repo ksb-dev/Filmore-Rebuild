@@ -56,9 +56,11 @@ const Menu = () => {
     }
 
     if (menuState) {
-      showMenu(menuRef)
+      if (window.innerWidth > 640) showMenu(menuRef)
+      else menuRef.current.style.transform = 'translateX(0%)'
     } else {
-      hideMenu(menuRef)
+      if (window.innerWidth > 640) hideMenu(menuRef)
+      else menuRef.current.style.transform = 'translateX(-120%)'
     }
 
     document.body.addEventListener('click', toggleMenu)

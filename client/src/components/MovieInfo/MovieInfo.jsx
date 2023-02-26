@@ -311,7 +311,7 @@ const MovieInfo = ({
           />
         </div>
 
-        <div
+        {/* <div
           className={
             'info__image__detail--image-1 ' +
             (mode === true ? 'lightBg2' : 'darkBg1')
@@ -325,7 +325,7 @@ const MovieInfo = ({
             }
             alt={data.title}
           />
-        </div>
+        </div> */}
 
         <div
           className={
