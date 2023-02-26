@@ -28,7 +28,7 @@ import Reviews from '../../components/Reviews/Reviews'
 //import ImageViewer from '../../Components/ImageViewer/ImageViewer'
 
 const MovieDetail = () => {
-  const { mode, movieState } = useMovieContext()
+  const { mode, movieState, movieIdState } = useMovieContext()
   const dispatch = useDispatch()
 
   const { getTrailer, getInfo, getCast, getBackdrops, getVideos, getReviews } =
@@ -80,16 +80,18 @@ const MovieDetail = () => {
   }, [dispatch, movieState])
 
   useEffect(() => {
+    //console.log(true)
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth'
     })
-    // 1. Get info
-    getInfo(id, setData, setLoading, setError)
 
-    // 2. Get Trailer
-    getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+    // 1. Get Trailer
+    getTrailer(id, setTrailerUrl, setPlayerLoading, setPlayerError)
+
+    // 2. Get info
+    getInfo(id, setData, setLoading, setError)
 
     //3. Get cast
     setTimeout(() => {
@@ -110,7 +112,7 @@ const MovieDetail = () => {
     setTimeout(() => {
       getReviews(id, setReviews, setReviewsLoading, setReviewsError)
     }, 1000)
-  }, [id])
+  }, [movieIdState])
 
   return (
     <div className={'movie-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>

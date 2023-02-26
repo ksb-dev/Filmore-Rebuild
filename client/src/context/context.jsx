@@ -70,6 +70,8 @@ const MovieProvider = ({ children }) => {
 
   const [type, setType] = useState(sessionStorage.getItem('movieState'))
 
+  const [movieIdState, setMovieIdState] = useState(false)
+
   return (
     <MovieContext.Provider
       value={{
@@ -127,7 +129,10 @@ const MovieProvider = ({ children }) => {
         setBackdropsError,
 
         type,
-        setType
+        setType,
+
+        movieIdState,
+        setMovieIdState
       }}
     >
       {children}

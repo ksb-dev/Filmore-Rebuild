@@ -80,11 +80,17 @@ const TvDetail = () => {
   }, [dispatch, movieState])
 
   useEffect(() => {
-    // 1. Get info
-    getInfo(id, setData, setLoading, setError)
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
 
-    // 2. Get Trailer
-    getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+    // 1. Get Trailer
+    getTrailer(id, setTrailerUrl, setPlayerLoading, setPlayerError)
+
+    // 2. Get info
+    getInfo(id, setData, setLoading, setError)
 
     //3. Get cast
     setTimeout(() => {

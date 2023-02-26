@@ -29,7 +29,7 @@ export const useGetTvInfo = () => {
   // Get cast
   const getCast = async (id, setCast, setCastLoading, setCastError) => {
     const type = 'tv'
-      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${
@@ -61,8 +61,8 @@ export const useGetTvInfo = () => {
     setBackdropsLoading,
     setBackdropsError
   ) => {
-    const type ='tv'
-      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `
 https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
@@ -91,49 +91,41 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   // Get trailer
   const getTrailer = async (
     id,
-    trailerUrl,
     setTrailerUrl,
     setPlayerLoading,
     setPlayerError
   ) => {
-    const type ='tv'
-      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
-    if (trailerUrl && id) {
-      setTrailerUrl('')
-    } else {
-      try {
-        setPlayerLoading(true)
-        setPlayerError('')
+    try {
+      setPlayerLoading(true)
+      setPlayerError('')
 
-        let response = await fetch(
-          `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
-            import.meta.env.VITE_KEY
-          }&language=en-US`
-        )
-        let trailerUrl = await response.json()
-        let value = ''
+      let response = await fetch(
+        `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
+          import.meta.env.VITE_KEY
+        }&language=en-US`
+      )
+      let trailerUrl = await response.json()
+      let value = ''
 
-        trailerUrl.results.map(result => {
-          if (result.official === true) {
-            value = result.key
-            setTrailerUrl(result.key)
-          }
-          //return 0
-        })
-
-        if (value === '') {
-          setTrailerUrl(trailerUrl.results[0].key)
+      trailerUrl.results.map(result => {
+        if (result.official === true) {
+          value = result.key
+          setTrailerUrl(result.key)
         }
+      })
 
-        //setTrailerUrl(trailerUrl.results[0].key)
-
-        setPlayerLoading(false)
-        setPlayerError('')
-      } catch (error) {
-        setPlayerLoading(false)
-        setPlayerError('Failed to play video')
+      if (value === '') {
+        setTrailerUrl(trailerUrl.results[0].key)
       }
+
+      setPlayerLoading(false)
+      setPlayerError('')
+    } catch (error) {
+      setPlayerLoading(false)
+      setPlayerError('Failed to play video')
     }
   }
 
@@ -144,8 +136,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setReviewsLoading,
     setReviewsError
   ) => {
-    const type ='tv'
-      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/reviews?api_key=${
       import.meta.env.VITE_KEY
@@ -171,8 +163,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
 
   // Get videos
   const getVideos = async (id, setVideos, setVideosLoading, setVideosError) => {
-    const type ='tv'
-      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
       import.meta.env.VITE_KEY
@@ -226,8 +218,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
 
   // Get movie crew
   const getMovieCrew = async (id, setCrew, setCrewLoading, setCrewError) => {
-    const type ='tv'
-      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${
       import.meta.env.VITE_KEY

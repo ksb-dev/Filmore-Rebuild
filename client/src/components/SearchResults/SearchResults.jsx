@@ -18,7 +18,9 @@ const SearchResults = ({ results }) => {
     searchInputRef,
     setSearchQuery,
     searchOptionState,
-    searchModalRef
+    searchModalRef,
+    movieIdState,
+    setMovieIdState
   } = useMovieContext()
   const [windowWidth, setWindowWidth] = useState(787)
 
@@ -26,7 +28,6 @@ const SearchResults = ({ results }) => {
     setWindowWidth(window.innerWidth)
   }
 
-  console.log(searchOptionState)
   // Close search results
   useEffect(() => {
     if (windowWidth <= '786') {
@@ -47,6 +48,7 @@ const SearchResults = ({ results }) => {
   }, [windowWidth])
 
   const hideModal = () => {
+    setMovieIdState(!movieIdState)
     setSearchQuery("");
     searchModalRef.current.style.zIndex = "-1";
     searchModalRef.current.style.opacity = "0";

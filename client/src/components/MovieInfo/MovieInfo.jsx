@@ -15,8 +15,6 @@ import { useMovieContext } from '../../context/context'
 // hooks
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
-//import { useGetMovieInfo } from '../../hooks/useGetMovieOrTvInfo'
-//import { useShowHide } from '../../hooks/useShowHide'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -292,10 +290,7 @@ const MovieInfo = ({
           {playerLoading && <Loading />}
           {playerError && <Error />}
           {!playerLoading && !playerError && (
-            <VideoPlayer
-              embedId={trailerUrl && trailerUrl}
-              lazyframe={'lazyframe'}
-            />
+            <VideoPlayer embedId={trailerUrl && trailerUrl} />
           )}
         </div>
       </div>

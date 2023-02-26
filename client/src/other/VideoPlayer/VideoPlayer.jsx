@@ -1,6 +1,8 @@
 import React from 'react'
 
 const VideoPlayer = ({ embedId }) => {
+  //console.log(embedId)
+
   return (
     <iframe
       className='frame'
