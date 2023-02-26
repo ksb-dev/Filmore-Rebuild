@@ -158,18 +158,23 @@ const Menu = () => {
                 {item.category === 'theatres' &&
                   sessionStorage.getItem('movieState') === 'movie' && (
                     <>
-                      {item.icon} {item.value}
+                      {/* {item.icon}  */}
+                      {item.value}
                     </>
                   )}
 
                 {item.category === 'theatres' &&
                   sessionStorage.getItem('movieState') === 'tv' && (
-                    <>{item.icon} On Air</>
+                    <>
+                      {/* {item.icon}  */}
+                      On Air
+                    </>
                   )}
 
                 {item.category !== 'theatres' && (
                   <>
-                    {item.icon} {item.value}
+                    {/* {item.icon}  */}
+                    {item.value}
                   </>
                 )}
 
@@ -207,7 +212,7 @@ const Menu = () => {
                         : 'darkBg1'
                     }
                   >
-                    {item.icon1}
+                    {/* {item.icon1} */}
                     {item.genre}
                   </span>
                 ))
@@ -223,7 +228,7 @@ const Menu = () => {
                         : 'darkBg1'
                     }
                   >
-                    {item.icon1}
+                    {/* {item.icon1} */}
                     {item.genre}
                   </span>
                 ))}
