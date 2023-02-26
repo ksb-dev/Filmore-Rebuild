@@ -84,7 +84,8 @@ const Sort = () => {
             }}
             key={index}
           >
-            {sort.icon} {sort.value}
+            {/* {sort.icon}  */}
+            {sort.value}
           </span>
         ))}
       </div>

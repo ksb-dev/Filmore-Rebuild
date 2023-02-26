@@ -153,6 +153,11 @@
   .menu {
     &__inner {
       min-height: 100vh;
+
+      .title-close {
+        margin-bottom: 0rem;
+      }
+
       .category-title,
       .title-close {
         padding: 1rem;
@@ -163,8 +168,8 @@
       }
 
       &__genre {
-        padding: 1rem 1rem 1rem 2rem;
-        height: calc(100vh - 470.4px);
+        padding: 1rem 1rem 1rem 1rem;
+        height: calc(100vh - 420.4px);
         overflow-y: scroll;
 
         &__inner {
@@ -182,7 +187,7 @@
       }
 
       &__category {
-        padding: 0rem 2rem;
+        padding: 0rem 1rem;
 
         &__inner {
           display: grid;
@@ -206,7 +211,7 @@
   .menu {
     &__inner {
       &__genre {
-        height: calc(100vh - 470.4px);
+        height: calc(100vh - 420.4px);
       }
     }
   }

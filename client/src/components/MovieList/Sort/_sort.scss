@@ -2,11 +2,11 @@
   position: relative;
   margin-left: 2rem;
   user-select: none;
-  width: 150px;
+  width: 120px;
   background: transparent;
 
   &__open {
-    width: 130px;
+    width: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,7 +22,7 @@
   &__close {
     position: absolute;
     z-index: -1;
-    width: 162px;
+    width: 152px;
     display: flex;
     flex-direction: column;
     border-radius: var(--border-radius-1);

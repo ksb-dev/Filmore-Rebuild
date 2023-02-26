@@ -3,7 +3,7 @@
   width: 95%;
   min-height: 100vh;
   margin: 0 2.5%;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
 
   &__detail {
     padding: calc(58.4px + 2rem) 0 2rem 0;
@@ -210,7 +210,7 @@
   .info {
     width: 100%;
     margin: 0;
-    padding-bottom: 2rem;
+    //padding-bottom: 2rem;
 
     &__detail {
       padding: calc(58.4px + 1rem) 0 1rem 0;
@@ -298,15 +298,13 @@
 
 @media screen and (max-width: 640px) {
   .info {
+    padding-bottom: 3rem;
+
     &__detail {
       &__one {
         &__title-tgline {
-          .title {
-            font-size: 1.2rem;
-          }
-
           .tagline {
-            font-size: 0.8rem;
+            display: none;
           }
         }
 
@@ -314,7 +312,6 @@
           .date,
           .time {
             font-weight: 400;
-            font-size: 0.8rem;
           }
         }
       }
@@ -333,23 +330,40 @@
       flex-direction: column;
 
       &__inner {
+        margin-top: 2rem;
+
         &__genres {
           span {
             font-size: 0.9rem;
           }
         }
+
+        &__overview {
+          span {
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+          }
+        }
       }
 
       &__rating {
-        left: unset;
-        right: 1.25rem;
+        position: relative;
+        left: 0rem;
+        // right: 1rem;
+        //margin-left: 4rem;
+        margin-top: -1.25rem;
+        border-radius: 0;
       }
 
       &__btn,
       &__add__btn,
       &__delete__btn {
+        //position: relative;
         height: 50px;
         width: 50px;
+        left: unset;
+        right: 1rem;
+        top: -2rem;
       }
 
       &--image {
@@ -359,6 +373,7 @@
       &--image-1 {
         position: relative;
         display: block;
+        display: none;
         margin-bottom: 2rem;
         margin-right: 0;
         width: 100%;

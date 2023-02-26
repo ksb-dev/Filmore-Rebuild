@@ -50,20 +50,20 @@
 
 @media screen and (max-width: 640px) {
   .castBackdropVideo {
-    padding: 0 1rem 2rem 1rem;
+    padding: 0 0rem 2rem 1rem;
 
     &__cast,
     &__backdrops,
     &__videos {
       &__title {
-        font-size: 1.2rem;
+        //font-size: 1.2rem;
 
         .length {
-          height: 30px;
-          width: 30px;
+          //height: 30px;
+          //width: 30px;
 
           span {
-            font-size: 0.7rem;
+            //font-size: 0.7rem;
           }
         }
       }

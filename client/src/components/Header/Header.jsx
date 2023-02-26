@@ -132,17 +132,17 @@ const Header = () => {
               onClick={() => navigate('/')}
               className='home-icon activeRoute'
             >
-              {iconsData.home}
+              {iconsData.homeFilled}
             </span>
           ) : (
             <span onClick={() => navigate('/')} className='home-icon'>
-              {iconsData.home}
+              {iconsData.homeOutlined}
             </span>
           )}
 
           {window.location.pathname === '/watchlist' ? (
             <Link to='/watchlist' className='watchlist activeRoute'>
-              {iconsData.star2}
+              {iconsData.starFilled}
               <p>
                 <span>
                   {optionState === 'movie'
@@ -153,7 +153,7 @@ const Header = () => {
             </Link>
           ) : (
             <Link to='/watchlist' className='watchlist'>
-              {iconsData.star2}
+              {iconsData.starOutlined}
               <p>
                 <span>
                   {optionState === 'movie'
@@ -178,11 +178,11 @@ const Header = () => {
             ) : window.location.pathname === '/login' ||
               window.location.pathname === '/register' ? (
               <Link to='/login' className='login-icon activeRoute'>
-                {iconsData.login}
+                {iconsData.loginFilled}
               </Link>
             ) : (
               <Link to='/login' className='login-icon'>
-                {iconsData.login}
+                {iconsData.loginOutlined}
               </Link>
             )}
 
