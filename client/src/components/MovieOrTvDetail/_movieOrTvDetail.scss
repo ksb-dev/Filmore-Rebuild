@@ -6,7 +6,7 @@
   padding-bottom: 3rem;
 
   &__detail {
-    padding: calc(58.4px + 2rem) 0 1rem 0;
+    padding: calc(58.4px + 2rem) 0 2rem 0;
 
     display: flex;
     flex-direction: column;
@@ -21,12 +21,14 @@
 
         .title {
           font-weight: 500;
-          font-size: 2rem;
+          font-size: 2.5rem;
         }
 
         .tagline {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          //display: none;
           font-weight: 500;
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
 
@@ -41,11 +43,16 @@
           display: flex;
           align-items: center;
           font-weight: 400;
-          font-size: 0.9rem;
+          font-size: 1rem;
         }
 
-        .date {
-          margin-right: 1rem;
+        // .date {
+        //   margin-right: 1rem;
+        // }
+
+        .gap {
+          color: rgb(156, 156, 156);
+          padding: 0 0.5rem;
         }
       }
     }
@@ -287,6 +294,17 @@
 
 @media screen and (max-width: 640px) {
   .info {
+    &__detail {
+      &__one {
+        &__date-time {
+          .date,
+          .time {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
     &__image__video {
       margin-bottom: 1rem;
 

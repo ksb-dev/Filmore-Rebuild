@@ -8,14 +8,24 @@ import { useMovieContext } from '../../context/context'
 // APIs
 import { APIs } from '../../APIs/APIs'
 
+// React router dom
+import { Link } from 'react-router-dom'
+
 const SearchResults = ({ results }) => {
-  const { mode, searchResultsRef, searchInputRef, setSearchQuery } =
-    useMovieContext()
+  const {
+    mode,
+    searchResultsRef,
+    searchInputRef,
+    setSearchQuery,
+    searchOptionState
+  } = useMovieContext()
   const [windowWidth, setWindowWidth] = useState(787)
 
   window.onresize = () => {
     setWindowWidth(window.innerWidth)
   }
+
+  const type = sessionStorage.getItem('movie')
 
   // Close search results
   useEffect(() => {
@@ -46,7 +56,8 @@ const SearchResults = ({ results }) => {
     >
       <div className='search__results__inner'>
         {results.map((result, index) => (
-          <div
+          <Link
+            to={`/${searchOptionState}/${result.id}`}
             key={index}
             className={
               'search__results__inner__card ' +
@@ -91,7 +102,7 @@ const SearchResults = ({ results }) => {
                 {result.first_air_date && result.first_air_date.substring(0, 4)}
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+// Redux
+import { useSelector } from 'react-redux'
 
 // context
 import { useMovieContext } from './context/context'
@@ -13,8 +16,43 @@ import Watchlist from './pages/Watchlist/Watchlist'
 import MovieDetail from './pages/MovieDetail/MovieDetail'
 
 const App = () => {
-  const { mode } = useMovieContext()
+  const movieResults = useSelector(state => state.movieResults.movieResults)
+  const tvResults = useSelector(state => state.tvResults.tvResults)
+
+  const { mode, searchOptionState, movieState, searchQuery, setType } =
+    useMovieContext()
+
   const type = sessionStorage.getItem('movieState')
+
+  // useEffect(() => {
+  //   type = sessionStorage.getItem('movieState')
+  // }, [movieState])
+
+  // useEffect(() => {
+  //   setType(sessionStorage.getItem('movieState'))
+
+  //   if (
+  //     searchQuery &&
+  //     searchOptionState === 'movie' &&
+  //     movieResults &&
+  //     movieResults.length > 0
+  //   ) {
+  //     setType('movie')
+  //     sessionStorage.setItem('movieState', 'movie')
+  //     console.log(1)
+  //   }
+
+  //   if (
+  //     searchQuery &&
+  //     searchOptionState === 'tv' &&
+  //     tvResults &&
+  //     tvResults.length > 0
+  //   ) {
+  //     setType('tv')
+  //     sessionStorage.setItem('movieState', 'tv')
+  //     console.log(2)
+  //   }
+  // }, [movieResults, tvResults, movieState, searchOptionState])
 
   return (
     <div className={'app ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
@@ -25,7 +63,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/watchlist' element={<Watchlist />} />
-          <Route path={`${type}/:id`} element={<MovieDetail />} />
+          <Route path={`/${type}/:id`} element={<MovieDetail />} />
         </Routes>
       </BrowserRouter>
     </div>

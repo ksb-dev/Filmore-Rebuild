@@ -117,24 +117,26 @@ const MovieInfo = ({
           <div className='info__detail__one__date-time'>
             {data.release_date && (
               <span className='date'>
-                <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} />
+                {/* <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} /> */}
                 {moment(data.release_date).format('Do MMM, YYYY')}
               </span>
             )}
 
             {data.first_air_date && (
               <span className='date'>
-                <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} />
+                {/* <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} /> */}
                 {moment(data.first_air_date).format('Do MMM, YYYY')}
               </span>
             )}
 
+            <span className='gap'>-</span>
+
             {data.runtime && (
               <span className='time'>
-                <MdOutlineAccessTime
+                {/* <MdOutlineAccessTime
                   size={'20px'}
                   style={{ marginRight: '5px' }}
-                />
+                /> */}
                 <>
                   {`${Math.floor(data.runtime / 60)}` > 0 &&
                     `${Math.floor(data.runtime / 60)}h`}
@@ -323,7 +325,7 @@ const MovieInfo = ({
           <img
             src={
               data.backdrop_path === null
-                ? url
+                ? APIs.no_image_url
                 : APIs.img_path + data.backdrop_path
             }
             alt={data.title}

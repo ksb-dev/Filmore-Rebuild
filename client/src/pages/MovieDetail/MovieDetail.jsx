@@ -40,8 +40,6 @@ const MovieDetail = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
-  console.log(data)
-
   // Cast
   const [cast, setCast] = useState([])
   const [castLoading, setCastLoading] = useState(true)
@@ -107,7 +105,7 @@ const MovieDetail = () => {
     setTimeout(() => {
       getReviews(id, setReviews, setReviewsLoading, setReviewsError)
     }, 1000)
-  }, [])
+  }, [id])
 
   return (
     <div className={'movie-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
