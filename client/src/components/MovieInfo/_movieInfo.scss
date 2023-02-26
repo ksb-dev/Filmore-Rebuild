@@ -183,6 +183,10 @@
         left: 50%;
         transform: translate(-50%, -45%);
       }
+
+      .text {
+        display: none;
+      }
     }
 
     &__inner {
@@ -353,17 +357,32 @@
         //margin-left: 4rem;
         margin-top: -1.25rem;
         border-radius: 0;
+        border-radius: var(--border-radius-1);
       }
 
       &__btn,
       &__add__btn,
       &__delete__btn {
         //position: relative;
-        height: 50px;
-        width: 50px;
+        height: unset;
+        width: unset;
         left: unset;
         right: 1rem;
         top: -2rem;
+        border-radius: var(--border-radius-1);
+        padding: 0;
+        //background: #000;
+
+        &-icon {
+          display: none;
+        }
+
+        .text {
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+          display: block;
+          border-radius: var(--border-radius-1);
+        }
       }
 
       &--image {
