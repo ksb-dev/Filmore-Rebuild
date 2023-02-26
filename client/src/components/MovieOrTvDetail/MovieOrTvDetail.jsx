@@ -15,8 +15,8 @@ import { useMovieContext } from '../../context/context'
 // hooks
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
-import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
-import { useShowHide } from '../../hooks/useShowHide'
+//import { useGetMovieInfo } from '../../hooks/useGetMovieOrTvInfo'
+//import { useShowHide } from '../../hooks/useShowHide'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -108,7 +108,9 @@ const MovieInfo = ({
       >
         <div className='info__detail__one'>
           <div className='info__detail__one__title-tgline'>
-            <span className='title'>{data.title && data.title}</span>
+            <span className='title'>
+              {(data.title && data.title) || (data.name && data.name)}
+            </span>
             <span className='tagline'>{data.tagline && data.tagline}</span>
           </div>
 
@@ -117,6 +119,13 @@ const MovieInfo = ({
               <span className='date'>
                 <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} />
                 {moment(data.release_date).format('Do MMM, YYYY')}
+              </span>
+            )}
+
+            {data.first_air_date && (
+              <span className='date'>
+                <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} />
+                {moment(data.first_air_date).format('Do MMM, YYYY')}
               </span>
             )}
 

@@ -19,7 +19,8 @@ const Review = ({ review }) => {
   return (
     <div
       className={
-        'review__container ' + (mode === true ? 'darkColor1' : 'lightColor1')
+        'review__container ' +
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <div className='avatar-name'>
@@ -36,11 +37,14 @@ const Review = ({ review }) => {
       <div className='rating-review'>
         {rating ? (
           <span className='rating'>
-            <GrStar size={'20px'} style={{ color: 'gold' }} />
+            <GrStar size={'20px'} style={{ color: 'var(--primary)' }} />
             {rating}
           </span>
         ) : (
-          <></>
+          <span className='rating'>
+            <GrStar size={'20px'} style={{ color: 'var(--primary)' }} />
+            ---
+          </span>
         )}
 
         {content ? (
@@ -54,7 +58,7 @@ const Review = ({ review }) => {
                   <span
                     style={{
                       color: 'var(--blue)',
-                      fontWeight: '500',
+                      fontWeight: '400',
                       cursor: 'pointer'
                     }}
                     onClick={() => setShow(!show)}
@@ -68,7 +72,7 @@ const Review = ({ review }) => {
                   <span
                     style={{
                       color: 'var(--blue)',
-                      fontWeight: '500',
+                      fontWeight: '400',
                       cursor: 'pointer'
                     }}
                     onClick={() => setShow(!show)}

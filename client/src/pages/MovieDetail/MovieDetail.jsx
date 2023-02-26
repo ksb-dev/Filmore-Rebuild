@@ -11,7 +11,7 @@ import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 import { useMovieContext } from '../../context/context'
 
 // Hooks
-import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetMovieOrTvInfo } from '../../hooks/useGetMovieOrTvInfo'
 
 // Components
 import Header from '../../components/Header/Header'
@@ -19,7 +19,7 @@ import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
 
-import MovieInfo from '../../components/MovieInfo/MovieInfo'
+import MovieOrTvDetail from '../../components/MovieOrTvDetail/MovieOrTvDetail'
 import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdropsVideo'
 import Reviews from '../../components/Reviews/Reviews'
 //import YouTubePlayer from '../../Components/MovieDetail/YoutubePlayer/YouTubePlayer'
@@ -31,20 +31,16 @@ const MovieDetail = () => {
   const { mode, movieState } = useMovieContext()
   const dispatch = useDispatch()
 
-  const {
-    getTrailer,
-    getMovieInfo,
-    getCast,
-    getBackdrops,
-    getVideos,
-    getReviews
-  } = useGetMovieInfo()
+  const { getTrailer, getInfo, getCast, getBackdrops, getVideos, getReviews } =
+    useGetMovieOrTvInfo()
 
   // Movie info
   const { id } = useParams()
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+
+  console.log(data)
 
   // Cast
   const [cast, setCast] = useState([])
@@ -86,8 +82,8 @@ const MovieDetail = () => {
   }, [dispatch, movieState])
 
   useEffect(() => {
-    // 1. Get movie info
-    getMovieInfo(id, setData, setLoading, setError)
+    // 1. Get info
+    getInfo(id, setData, setLoading, setError)
 
     // 2. Get Trailer
     getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
@@ -120,7 +116,7 @@ const MovieDetail = () => {
       <Menu />
       <SearchModal />
 
-      <MovieInfo
+      <MovieOrTvDetail
         id={id}
         data={data}
         loading={loading}
@@ -203,8 +199,6 @@ const MovieDetail = () => {
           <ImageViewer /> */}
         </>
       )}
-      {/* <Login />
-      <Register /> */}
     </div>
   )
 }

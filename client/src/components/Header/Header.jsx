@@ -190,7 +190,18 @@ const Header = () => {
             <Logout />
           </div>
 
-          <span onClick={() => setMode(!mode)} className='mode-icon'>
+          <span
+            onClick={() => {
+              if (mode === true) {
+                sessionStorage.setItem('mode', false)
+                setMode(false)
+              } else {
+                sessionStorage.setItem('mode', true)
+                setMode(true)
+              }
+            }}
+            className='mode-icon'
+          >
             {mode === true ? iconsData.sunIcon : iconsData.moonIcon}
           </span>
         </div>

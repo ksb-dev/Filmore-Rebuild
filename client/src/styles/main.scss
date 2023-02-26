@@ -46,7 +46,7 @@
   --darkAplha-5: rgba(34, 34, 34, 0.9);
   --darkAlpha-6: rgba(34, 34, 34, 0.9);
 
-  --border-radius-1: 0px;
+  --border-radius-1: 5px;
   --border-radius-2: 10px;
   --border-radius-2: 15px;
 
@@ -309,7 +309,7 @@ body {
 @import '../components/SearchResults/searchResults';
 @import '../components/SearchModal/searchModal';
 
-@import '../components/MovieInfo/movieInfo';
+@import '../components/MovieOrTvDetail/movieOrTvDetail';
 @import '../components/CastBackdropsVideo/castBackdropsVideo';
 @import '../components/CastBackdropsVideo/Cast/cast';
 @import '../components/CastBackdropsVideo/Cast/Actor/actor';

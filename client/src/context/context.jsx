@@ -11,7 +11,10 @@ const MovieContext = createContext()
 
 const MovieProvider = ({ children }) => {
   const [mode, setMode] = useState(
-    sessionStorage.getItem('mode') === 'true' ? true : false
+    sessionStorage.getItem('mode') === 'true' ||
+      sessionStorage.getItem('mode') === null
+      ? true
+      : false
   )
 
   // For wall images

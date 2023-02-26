@@ -49,7 +49,7 @@ const TvCard = ({ tv }) => {
   return (
     <div className='card'>
       <Link
-        to={`/movie/${id}`}
+        to={`/tv/${id}`}
         className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
         <img
