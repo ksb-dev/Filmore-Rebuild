@@ -176,7 +176,7 @@
           span {
             font-size: 0.8rem;
             margin-right: 1rem;
-            padding: 0.25rem 0.5rem;
+            padding: 0.5rem 0.5rem;
           }
         }
       }
@@ -186,14 +186,14 @@
 
         &__inner {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(155px, 2fr));
 
           p,
           a,
           span {
             margin-right: 1rem;
             font-size: 0.8rem;
-            padding: 0.25rem 0.5rem;
+            padding: 0.5rem 0.5rem;
           }
         }
       }
