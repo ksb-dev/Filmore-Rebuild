@@ -17,7 +17,8 @@ const SearchResults = ({ results }) => {
     searchResultsRef,
     searchInputRef,
     setSearchQuery,
-    searchOptionState
+    searchOptionState,
+    searchModalRef
   } = useMovieContext()
   const [windowWidth, setWindowWidth] = useState(787)
 
@@ -45,6 +46,12 @@ const SearchResults = ({ results }) => {
     }
   }, [windowWidth])
 
+  const hideModal = () => {
+    setSearchQuery("");
+    searchModalRef.current.style.zIndex = "-1";
+    searchModalRef.current.style.opacity = "0";
+  };
+
   return (
     <div
       ref={searchResultsRef}
@@ -56,6 +63,7 @@ const SearchResults = ({ results }) => {
       <div className='search__results__inner'>
         {results.map((result, index) => (
           <Link
+            onClick ={() => hideModal()}
             to={`/${searchOptionState}/${result.id}`}
             key={index}
             className={
@@ -94,7 +102,7 @@ const SearchResults = ({ results }) => {
               /> */}
             </div>
             <div className='search__results__inner__card__title-date'>
-              <span>{result.title ? result.title : result.name}</span>
+              <span className={mode === true ? 'darkColor1' : 'lightColor1'}>{result.title ? result.title : result.name}</span>
               <span>
                 {result.release_date && result.release_date.substring(0, 4)}
 
