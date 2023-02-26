@@ -13,7 +13,8 @@
 
     &__one {
       display: flex;
-      flex-direction: column;
+      //flex-direction: column;
+      justify-content: space-between;
 
       &__title-tgline {
         display: flex;
@@ -35,7 +36,7 @@
       &__date-time {
         display: flex;
         align-items: center;
-        margin-top: 1rem;
+        margin-top: 2rem;
 
         .date,
         .time {
@@ -216,6 +217,9 @@
       padding: calc(58.4px + 1rem) 0 1rem 0;
 
       &__one {
+        flex-direction: column;
+        justify-content: unset;
+
         &__title-tgline {
           padding: 0 1rem;
           margin-right: 0;
@@ -230,6 +234,7 @@
         }
 
         &__date-time {
+          margin-top: 1rem;
           margin-left: 1rem;
         }
       }
@@ -296,10 +301,22 @@
   .info {
     &__detail {
       &__one {
+        &__title-tgline {
+          .title {
+            font-size: 1.2rem;
+          }
+
+          .tagline {
+            font-size: 0.8rem;
+          }
+        }
+
         &__date-time {
+
           .date,
           .time {
             font-weight: 400;
+            font-size: 0.8rem;
           }
         }
       }
