@@ -8,7 +8,7 @@
 
 .cast {
   padding: 2rem 0rem 2rem 0;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 2rem;
@@ -26,6 +26,7 @@
     gap: 1rem;
     display: flex;
     overflow-x: scroll;
+    margin-bottom: 2rem;
   }
 }
 

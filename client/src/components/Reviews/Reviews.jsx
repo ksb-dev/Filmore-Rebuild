@@ -1,5 +1,8 @@
 import React from 'react'
 
+// data
+import { iconsData } from '../../data/icons'
+
 // context
 import { useMovieContext } from '../../context/context'
 
@@ -21,14 +24,15 @@ const Reviews = ({ reviews, reviewsLoading, reviewsError }) => {
         <p className='length'>
           <span>{reviews && reviews.length}</span>
         </p>
-        {/* <span className='icon'>{iconsData.forwardArrow}</span> */}
+        <span className='icon'>{iconsData.forwardArrow}</span>
       </div>
       <div className='reviews__container'>
         {reviews &&
           reviews.length > 0 &&
-          reviews.map((review, index) => (
-            <Review key={index} review={review} />
-          ))}
+          reviews.map(
+            (review, index) =>
+              index < 4 && <Review key={index} review={review} />
+          )}
       </div>
     </div>
   )
