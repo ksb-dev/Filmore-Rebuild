@@ -117,22 +117,6 @@ const TvInfo = ({
                 {moment(data.first_air_date).format('Do MMM, YYYY')}
               </span>
             )}
-
-            <span className='gap'>-</span>
-
-            {data.runtime && (
-              <span className='time'>
-                {/* <MdOutlineAccessTime
-                  size={'20px'}
-                  style={{ marginRight: '5px' }}
-                /> */}
-                <>
-                  {`${Math.floor(data.runtime / 60)}` > 0 &&
-                    `${Math.floor(data.runtime / 60)}h`}
-                  {` ${data.runtime % 60}`}m
-                </>
-              </span>
-            )}
           </div>
         </div>
       </div>
