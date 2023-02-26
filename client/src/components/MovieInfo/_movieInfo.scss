@@ -187,6 +187,11 @@
       .text {
         display: none;
       }
+
+      .text:hover {
+        filter: brightness(80%);
+        transition: var(--transition);
+      }
     }
 
     &__inner {
