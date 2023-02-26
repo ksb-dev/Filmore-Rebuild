@@ -29,7 +29,7 @@ const Backdrops = ({ backdrops, backdropsLoading, backdropsError }) => {
     )
   }
 
-  if (backdrops.length === 0) {
+  if (backdrops && backdrops.length === 0) {
     return (
       <div className='err'>
         <Error msg={'No backdrops found.'} />
@@ -39,16 +39,17 @@ const Backdrops = ({ backdrops, backdropsLoading, backdropsError }) => {
 
   return (
     <div className={'backdrops ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
-      {backdrops.map(
-        (backdrop, index) =>
-          index < 4 && (
-            <Backdrop
-              key={backdrop.file_path}
-              backdrop={backdrop}
-              index={index}
-            />
-          )
-      )}
+      {backdrops &&
+        backdrops.map(
+          (backdrop, index) =>
+            index < 4 && (
+              <Backdrop
+                key={backdrop.file_path}
+                backdrop={backdrop}
+                index={index}
+              />
+            )
+        )}
     </div>
   )
 }

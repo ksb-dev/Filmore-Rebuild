@@ -29,7 +29,7 @@ const Videos = ({ videos, videosLoading, videosError }) => {
     )
   }
 
-  if (videos.length === 0) {
+  if (videos && videos.length === 0) {
     return (
       <div className='err'>
         <Error msg={'No videos found.'} />
@@ -39,10 +39,11 @@ const Videos = ({ videos, videosLoading, videosError }) => {
 
   return (
     <div className={'videos ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
-      {videos.map(
-        (video, index) =>
-          index < 4 && <Video key={index} video={video} index={index} />
-      )}
+      {videos &&
+        videos.map(
+          (video, index) =>
+            index < 4 && <Video key={index} video={video} index={index} />
+        )}
     </div>
   )
 }

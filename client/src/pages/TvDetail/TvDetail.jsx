@@ -11,7 +11,7 @@ import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
 import { useMovieContext } from '../../context/context'
 
 // Hooks
-import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetTvInfo } from '../../hooks/useGetTvInfo'
 
 // Components
 import Header from '../../components/Header/Header'
@@ -19,7 +19,7 @@ import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
 
-import MovieInfo from '../../components/MovieInfo/MovieInfo'
+import TvInfo from '../../components/TvInfo/TvInfo'
 import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdropsVideo'
 import Reviews from '../../components/Reviews/Reviews'
 //import YouTubePlayer from '../../Components/MovieDetail/YoutubePlayer/YouTubePlayer'
@@ -27,12 +27,12 @@ import Reviews from '../../components/Reviews/Reviews'
 //import Reviews from '../../Components/Reviews/Reviews'
 //import ImageViewer from '../../Components/ImageViewer/ImageViewer'
 
-const MovieDetail = () => {
+const TvDetail = () => {
   const { mode, movieState } = useMovieContext()
   const dispatch = useDispatch()
 
   const { getTrailer, getInfo, getCast, getBackdrops, getVideos, getReviews } =
-    useGetMovieInfo()
+    useGetTvInfo()
 
   // Movie info
   const { id } = useParams()
@@ -80,11 +80,6 @@ const MovieDetail = () => {
   }, [dispatch, movieState])
 
   useEffect(() => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
     // 1. Get info
     getInfo(id, setData, setLoading, setError)
 
@@ -119,7 +114,7 @@ const MovieDetail = () => {
       <Menu />
       <SearchModal />
 
-      <MovieInfo
+      <TvInfo
         id={id}
         data={data}
         loading={loading}
@@ -206,4 +201,4 @@ const MovieDetail = () => {
   )
 }
 
-export default MovieDetail
+export default TvDetail

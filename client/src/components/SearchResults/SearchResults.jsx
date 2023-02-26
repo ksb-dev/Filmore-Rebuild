@@ -25,8 +25,7 @@ const SearchResults = ({ results }) => {
     setWindowWidth(window.innerWidth)
   }
 
-  const type = sessionStorage.getItem('movie')
-
+  console.log(searchOptionState)
   // Close search results
   useEffect(() => {
     if (windowWidth <= '786') {

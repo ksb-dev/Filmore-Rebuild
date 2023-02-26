@@ -29,7 +29,7 @@ const Cast = ({ cast, castLoading, castError }) => {
     )
   }
 
-  if (cast.length === 0) {
+  if (cast && cast.length === 0) {
     return (
       <div className='err'>
         <Error msg={'No cast found.'} />
@@ -39,9 +39,10 @@ const Cast = ({ cast, castLoading, castError }) => {
 
   return (
     <div className={'cast ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
-      {cast.map(
-        (actor, index) => index < 8 && <Actor key={index} actor={actor} />
-      )}
+      {cast &&
+        cast.map(
+          (actor, index) => index < 8 && <Actor key={index} actor={actor} />
+        )}
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import { useCallback } from 'react'
 
-export const useGetMovieOrTvInfo = () => {
+export const useGetTvInfo = () => {
   // Get movie info
   const getInfo = async (id, setData, setLoading, setError) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}?api_key=${
@@ -28,8 +28,8 @@ export const useGetMovieOrTvInfo = () => {
 
   // Get cast
   const getCast = async (id, setCast, setCastLoading, setCastError) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type = 'tv'
+      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${
@@ -61,8 +61,8 @@ export const useGetMovieOrTvInfo = () => {
     setBackdropsLoading,
     setBackdropsError
   ) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type ='tv'
+      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `
 https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
@@ -96,8 +96,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setPlayerLoading,
     setPlayerError
   ) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type ='tv'
+      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     if (trailerUrl && id) {
       setTrailerUrl('')
@@ -144,8 +144,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setReviewsLoading,
     setReviewsError
   ) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type ='tv'
+      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/reviews?api_key=${
       import.meta.env.VITE_KEY
@@ -171,8 +171,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
 
   // Get videos
   const getVideos = async (id, setVideos, setVideosLoading, setVideosError) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type ='tv'
+      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
       import.meta.env.VITE_KEY
@@ -226,8 +226,8 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
 
   // Get movie crew
   const getMovieCrew = async (id, setCrew, setCrewLoading, setCrewError) => {
-    const type =
-      sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+    const type ='tv'
+      //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${
       import.meta.env.VITE_KEY

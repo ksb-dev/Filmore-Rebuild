@@ -14,6 +14,7 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import Watchlist from './pages/Watchlist/Watchlist'
 import MovieDetail from './pages/MovieDetail/MovieDetail'
+import TvDetail from './pages/TvDetail/TvDetail'
 
 const App = () => {
   const movieResults = useSelector(state => state.movieResults.movieResults)
@@ -22,7 +23,7 @@ const App = () => {
   const { mode, searchOptionState, movieState, searchQuery, setType } =
     useMovieContext()
 
-  const type = sessionStorage.getItem('movieState')
+  //const type = sessionStorage.getItem('movieState')
 
   // useEffect(() => {
   //   type = sessionStorage.getItem('movieState')
@@ -63,7 +64,8 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/watchlist' element={<Watchlist />} />
-          <Route path={`/${type}/:id`} element={<MovieDetail />} />
+          <Route path='/movie/:id' element={<MovieDetail />} />
+          <Route path='/tv/:id' element={<TvDetail />} />
         </Routes>
       </BrowserRouter>
     </div>

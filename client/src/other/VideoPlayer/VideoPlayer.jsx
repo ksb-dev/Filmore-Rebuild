@@ -4,7 +4,7 @@ const VideoPlayer = ({ embedId }) => {
   return (
     <iframe
       className='frame'
-      loading='lazy'
+      //loading='lazy'
       width='100%'
       height='100%'
       src={`https://www.youtube.com/embed/${embedId}`}
