@@ -28,6 +28,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 2rem;
 
       .title {
         padding: 0.1rem 0.5rem;
@@ -69,7 +70,7 @@
     .category-title,
     .genre-title {
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 500;
       padding-left: 2rem;
       margin-bottom: 1rem;
       //color: var(--primary);
@@ -171,7 +172,7 @@
 
       &__genre {
         padding: 1rem 1rem 1rem 2rem;
-        height: calc(100vh - 370.4px);
+        height: calc(100vh - 420.4px);
         overflow-y: scroll;
 
         &__inner {
@@ -210,7 +211,7 @@
   .menu {
     &__inner {
       &__genre {
-        height: calc(100vh - 370.4px);
+        height: calc(100vh - 420.4px);
       }
     }
   }
