@@ -79,6 +79,7 @@ const Menu = () => {
     sessionStorage.setItem('page', 1)
     setActiveOption(!activeOption)
     setMenuState(false)
+    sessionStorage.removeItem('genreId')
 
     if (
       category === 'theatres' &&
