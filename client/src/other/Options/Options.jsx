@@ -72,9 +72,9 @@ const Options = () => {
     //sessionStorage.setItem('page', 1)
     //sessionStorage.setItem('term', '')
     //sessionStorage.removeItem('genreId')
-    if (window.location.pathname !== '/watchlist') {
-      sessionStorage.removeItem('option')
-    }
+    // if (window.location.pathname !== '/watchlist') {
+    //   sessionStorage.removeItem('option')
+    // }
     //setMovieState(!movieState)
   }
 

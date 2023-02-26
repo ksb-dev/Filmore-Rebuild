@@ -21,6 +21,8 @@ const Switch = () => {
   } = useMovieContext()
 
   const handleOptionState = value => {
+    sessionStorage.removeItem('option')
+
     if (value === 'movie') {
       setOptionState('movie')
       sessionStorage.setItem('movieState', 'movie')
@@ -32,9 +34,9 @@ const Switch = () => {
     sessionStorage.setItem('page', 1)
     sessionStorage.setItem('term', '')
     sessionStorage.removeItem('genreId')
-    if (window.location.pathname !== '/watchlist') {
-      sessionStorage.removeItem('option')
-    }
+    // if (window.location.pathname !== '/watchlist') {
+    //   sessionStorage.removeItem('option')
+    // }
     setMovieState(!movieState)
   }
 

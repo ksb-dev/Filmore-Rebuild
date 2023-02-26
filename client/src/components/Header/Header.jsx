@@ -129,13 +129,26 @@ const Header = () => {
         <div className='header__options__two'>
           {window.location.pathname === '/' ? (
             <span
-              onClick={() => navigate('/')}
+              onClick={() => {
+                //handleTitleClick()
+                navigate('/')
+                // sessionStorage.removeItem('option')
+                // setMovieState(!movieState)
+              }}
               className='home-icon activeRoute'
             >
               {iconsData.homeFilled}
             </span>
           ) : (
-            <span onClick={() => navigate('/')} className='home-icon'>
+            <span
+              onClick={() => {
+                //handleTitleClick()
+                navigate('/')
+                // sessionStorage.removeItem('option')
+                // setMovieState(!movieState)
+              }}
+              className='home-icon'
+            >
               {iconsData.homeOutlined}
             </span>
           )}
