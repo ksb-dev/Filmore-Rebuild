@@ -266,9 +266,10 @@ const TvInfo = ({
         >
           {playerLoading && <Loading />}
           {playerError && <Error />}
-          {!playerLoading && !playerError && (
+          {!playerLoading && !playerError && trailerUrl !== '' && (
             <VideoPlayer embedId={trailerUrl && trailerUrl} />
           )}
+          {trailerUrl === '' && <span>No video found.</span>}
         </div>
       </div>
 

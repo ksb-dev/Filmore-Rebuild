@@ -1,8 +1,14 @@
 .load,
 .err {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2rem;
+  margin-left: 0rem;
+  min-height: 100px;
+}
+
+.load {
+  margin-top: 3rem;
   margin-left: 2rem;
 }
 

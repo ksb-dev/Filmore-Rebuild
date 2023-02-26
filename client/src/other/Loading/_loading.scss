@@ -3,8 +3,8 @@
   border-radius: 50%;
   // border-top: 5px solid #555;
   // border-bottom: 5px solid #555;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
@@ -31,9 +31,11 @@
 .lightLoading {
   border-top: 5px solid #fff;
   border-bottom: 5px solid #fff;
+  border-left: 5px solid #fff;
 }
 
 .darkLoading {
   border-top: 5px solid var(--dark-2);
   border-bottom: 5px solid var(--dark-2);
+  border-left: 5px solid var(--dark-2);
 }
