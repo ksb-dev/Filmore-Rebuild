@@ -33,15 +33,20 @@ const Reviews = ({ reviews, reviewsLoading, reviewsError }) => {
 
       <div className='reviews__loading__error'>
         {reviewsLoading && (
-          <span>
+          <span className='reviews__loading__error--loading'>
             <Loading />
           </span>
         )}
-        {!reviewsLoading && reviewsError && <Error msg={'No reviews found.'} />}
-        {!reviewsLoading &&
-          !reviewsError &&
-          reviews &&
-          reviews.length === 0 && <Error msg={'No reviews found.'} />}
+        {!reviewsLoading && reviewsError && (
+          <span className='reviews__loading__error--error'>
+            <Error msg={'No reviews found.'} />
+          </span>
+        )}
+        {!reviewsLoading && !reviewsError && reviews && reviews.length === 0 && (
+          <span className='reviews__loading__error--error'>
+            <Error msg={'No reviews found.'} />
+          </span>
+        )}
       </div>
 
       <div className='reviews__container'>

@@ -40,8 +40,13 @@
     display: flex;
     align-items: flex-start;
 
-    span {
-      margin-left: 1rem;
+    &--loading {
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    &--error {
+      margin-bottom: 6rem;
     }
   }
 
@@ -55,7 +60,7 @@
 
 @media screen and (max-width: 786px) {
   .reviews {
-    padding: 0rem 1rem;
+    padding: 0rem 2rem;
   }
 }
 
