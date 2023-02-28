@@ -116,14 +116,18 @@ const Header = () => {
           </div>
         </div>
 
-        {window.location.pathname === '/login' ||
+        {/* {window.location.pathname === '/login' ||
         window.location.pathname === '/register' ? (
           <></>
         ) : (
           <div className='header__options__middle'>
             <Search />
           </div>
-        )}
+        )} */}
+
+        <div className='header__options__middle'>
+          <Search />
+        </div>
 
         {/* Two */}
         <div className='header__options__two'>

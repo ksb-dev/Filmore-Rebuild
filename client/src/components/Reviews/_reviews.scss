@@ -32,9 +32,17 @@
   }
 
   &__title:hover .icon {
-    //color: var(--primary);
     transform: translateX(40%) scale(1.25);
     transition: var(--transition);
+  }
+
+  &__loading__error {
+    display: flex;
+    align-items: flex-start;
+
+    span {
+      margin-left: 1rem;
+    }
   }
 
   &__container {
@@ -54,18 +62,5 @@
 @media screen and (max-width: 640px) {
   .reviews {
     padding: 0rem 1rem;
-
-    &__title {
-      //font-size: 1.2rem;
-
-      .length {
-        //height: 30px;
-        //width: 30px;
-
-        span {
-          //font-size: 0.7rem;
-        }
-      }
-    }
   }
 }
