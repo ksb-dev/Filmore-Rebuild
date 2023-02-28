@@ -11,6 +11,7 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 
 // components
 import Header from '../../components/Header/Header'
+import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 
 // other
@@ -43,6 +44,7 @@ const Register = () => {
       }
     >
       <Header />
+      <SmallHeader />
       <Menu />
 
       <div className='register__inner '>

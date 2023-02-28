@@ -33,16 +33,16 @@
 
   --whiteAlpha-1: rgba(255, 255, 255, 0.9);
   --whiteAlpha-2: rgba(220, 220, 220, 0.9);
-  --whiteAlpha-3: rgba(255, 255, 255, 0.7);
-  --whiteAlpha-4: rgba(220, 220, 220, 0.7);
+  --whiteAlpha-3: rgba(255, 255, 255, 0.5);
+  --whiteAlpha-4: rgba(220, 220, 220, 0.5);
   --whiteAlpha-5: rgba(255, 255, 255, 0.9);
   --whiteAlpha-6: rgba(220, 220, 220, 0.9);
 
   --darkAplha-1: rgba(51, 51, 51, 0.9);
   --darkAplha-1: rgba(34, 34, 34, 0.9);
   --darkAlpha-2: rgba(34, 34, 34, 0.9);
-  --darkAplha-3: rgba(51, 51, 51, 0.7);
-  --darkAlpha-4: rgba(34, 34, 34, 0.7);
+  --darkAplha-3: rgba(51, 51, 51, 0.5);
+  --darkAlpha-4: rgba(34, 34, 34, 0.75);
   --darkAplha-5: rgba(34, 34, 34, 0.9);
   --darkAlpha-6: rgba(34, 34, 34, 0.9);
 
@@ -145,7 +145,7 @@
 }
 
 .darkAlpha4 {
-  background: var(--darkAplha-4);
+  background: var(--darkAlpha-4);
 }
 
 .darkAlpha5 {
@@ -187,6 +187,22 @@
     to right top,
     rgb(51, 51, 51, 1) 20%,
     rgba(34, 34, 34, 0)
+  );
+}
+
+.lightCoverGradient {
+  background: linear-gradient(
+    to right top,
+    #fff 20%,
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+.darkCoverGradient {
+  background: linear-gradient(
+    to right top,
+    rgb(51, 51, 51, 1) 20%,
+    rgb(51, 51, 51, 0.75)
   );
 }
 

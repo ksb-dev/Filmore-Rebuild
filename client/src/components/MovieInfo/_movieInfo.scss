@@ -1,8 +1,7 @@
 .info {
   position: relative;
-  width: 95%;
   margin: 0 2.5%;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 
   &__detail {
     padding: calc(58.4px + 2rem) 0 2rem 0;
@@ -12,7 +11,7 @@
 
     &__one {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
 
       &__title-tgline {
         display: flex;
@@ -20,11 +19,11 @@
 
         .title {
           font-weight: 500;
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
 
         .tagline {
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          //font-family: monospace;
           font-weight: 500;
           font-size: 1rem;
         }
@@ -33,7 +32,7 @@
       &__date-time {
         display: flex;
         align-items: center;
-        margin-top: 2rem;
+        margin-top: 1rem;
 
         .date,
         .time {
@@ -178,15 +177,6 @@
         left: 50%;
         transform: translate(-50%, -45%);
       }
-
-      .text {
-        display: none;
-      }
-
-      .text:hover {
-        filter: brightness(80%);
-        transition: var(--transition);
-      }
     }
 
     &__inner {
@@ -205,7 +195,7 @@
 
       &__overview {
         margin-bottom: 1rem;
-        line-height: 1.75rem;
+        line-height: 1.5rem;
       }
     }
   }
@@ -215,7 +205,7 @@
   .info {
     width: 100%;
     margin: 0;
-    //padding-bottom: 2rem;
+    padding-bottom: 2rem;
 
     &__detail {
       padding: calc(58.4px + 1rem) 0 1rem 0;
@@ -269,6 +259,7 @@
     &__image__detail {
       padding: 0 2rem;
       display: flex;
+      margin-bottom: 4rem;
 
       &--image {
         display: flex;
@@ -299,7 +290,6 @@
 
         &__overview {
           font-size: 0.9rem;
-          line-height: 1.5rem;
         }
       }
     }
@@ -308,13 +298,16 @@
 
 @media screen and (max-width: 640px) {
   .info {
-    padding-bottom: 2rem;
-
     &__detail {
       &__one {
         &__title-tgline {
+          .title {
+            font-size: 1.5rem;
+          }
+
           .tagline {
             display: none;
+            font-size: 0.9rem;
           }
         }
 
@@ -322,73 +315,53 @@
           .date,
           .time {
             font-weight: 400;
+            font-size: 0.9rem;
           }
         }
       }
     }
 
     &__image__video {
-      margin-bottom: 2rem;
+      margin-bottom: 0rem;
 
       &__player {
+        display: none;
         height: 250px;
       }
     }
 
     &__image__detail {
-      padding: 0 1rem;
+      padding: 0;
+      margin-bottom: 0;
       flex-direction: column;
 
       &__inner {
-        margin-top: 2rem;
+        padding: 0 1rem;
 
         &__genres {
           span {
             font-size: 0.9rem;
           }
         }
-
-        &__overview {
-          span {
-            font-size: 0.9rem;
-            line-height: 1.5rem;
-          }
-        }
       }
 
       &__rating {
-        position: relative;
-        left: 0rem;
-        // right: 1rem;
-        //margin-left: 4rem;
-        margin-top: -1.25rem;
-        border-radius: 0;
-        border-radius: var(--border-radius-1);
+        left: unset;
+        right: 0.25rem;
+        height: 35px;
+        width: 35px;
+
+        span {
+          font-size: 0.8rem;
+        }
       }
 
       &__btn,
       &__add__btn,
       &__delete__btn {
-        //position: relative;
-        height: unset;
-        width: unset;
-        left: unset;
-        right: 1rem;
-        top: -2rem;
-        border-radius: var(--border-radius-1);
-        padding: 0;
-        //background: #000;
-
-        &-icon {
-          display: none;
-        }
-
-        .text {
-          font-weight: 500;
-          padding: 0.5rem 1rem;
-          display: block;
-          border-radius: var(--border-radius-1);
-        }
+        height: 50px;
+        width: 50px;
+        border-bottom-left-radius: unset;
       }
 
       &--image {
@@ -398,18 +371,17 @@
       &--image-1 {
         position: relative;
         display: block;
-        display: none;
         margin-bottom: 2rem;
         margin-right: 0;
         width: 100%;
         height: 300px;
-        border-radius: var(--border-radius-1);
+        border-radius: unset;
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          border-radius: var(--border-radius-1);
+          border-radius: unset;
         }
       }
 
@@ -418,6 +390,21 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .info {
+    &__image__detail {
+      &--image-1 {
+        height: 225px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

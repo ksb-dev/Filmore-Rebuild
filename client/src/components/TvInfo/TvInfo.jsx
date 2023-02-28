@@ -339,14 +339,14 @@ const TvInfo = ({
             <span className='info__image__detail__add__btn-icon'>
               {iconsData.star}
             </span>
-            <span
+            {/* <span
               className={
                 'text ' +
                 (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
               }
             >
               Add to Watchlist
-            </span>
+            </span> */}
           </p>
         )}
 
@@ -374,7 +374,7 @@ const TvInfo = ({
               <span className='info__image__detail__add__btn-icon'>
                 {iconsData.star}
               </span>
-              <span
+              {/* <span
                 className={
                   'text ' +
                   (mode === true
@@ -383,7 +383,7 @@ const TvInfo = ({
                 }
               >
                 Add to Watchlist
-              </span>
+              </span> */}
             </p>
           )}
 
@@ -406,9 +406,9 @@ const TvInfo = ({
                   >
                     {iconsData.star}
                   </span>
-                  <span className='text' style={{ color: '#000' }}>
+                  {/* <span className='text' style={{ color: '#000' }}>
                     Delete Watchlist
-                  </span>
+                  </span> */}
                 </p>
               )
             }
@@ -423,14 +423,14 @@ const TvInfo = ({
             <span className='info__image__detail__btn-icon'>
               {iconsData.star}
             </span>
-            <span
+            {/* <span
               className={
                 'text ' +
                 (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
               }
             >
               Login to Add
-            </span>
+            </span> */}
           </p>
         )}
 

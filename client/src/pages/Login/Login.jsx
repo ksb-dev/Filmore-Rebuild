@@ -11,6 +11,7 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 
 // components
 import Header from '../../components/Header/Header'
+import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 
 // other
@@ -42,6 +43,7 @@ const Login = () => {
       }
     >
       <Header />
+      <SmallHeader />
       <Menu />
 
       <div className='login__inner '>
