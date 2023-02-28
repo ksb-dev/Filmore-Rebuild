@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import moment from 'moment'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import 'react-lazy-load-image-component/src/effects/blur.css'
@@ -22,6 +22,9 @@ import { useMovieContext } from '../../../context/context'
 // APIs
 import { APIs } from '../../../APIs/APIs'
 
+// Circular progress bar
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
+
 const url =
   'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
 
@@ -35,6 +38,8 @@ const TvCard = ({ tv }) => {
 
   const navigate = useNavigate()
 
+  const infoRef = useRef(null)
+
   const {
     name,
     vote_average,
@@ -46,10 +51,17 @@ const TvCard = ({ tv }) => {
     overview
   } = tv
 
+  const show = () => {
+    infoRef.current.style.opacity = '1'
+  }
+
+  const hide = () => {
+    infoRef.current.style.opacity = '0'
+  }
+
   return (
     <div className='card'>
-      <Link
-        to={`/tv/${id}`}
+      <div
         className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
         <img
@@ -73,7 +85,7 @@ const TvCard = ({ tv }) => {
           }
           src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
         /> */}
-      </Link>
+      </div>
 
       {user && savedShows && savedShows.length === 0 && (
         <p
@@ -138,14 +150,51 @@ const TvCard = ({ tv }) => {
             )
           }
         })}
+
       {/* ADD-BUTTON (without user) */}
       {!user && (
         <p className='card__btn ' onClick={() => navigate('/login')}>
           <span className='card__btn--icon'>{iconsData.star}</span>
         </p>
       )}
+
+      <div className={'card__rating ' + getClassBg(vote_average)}>
+        <CircularProgressbar
+          value={vote_average * 10}
+          strokeWidth={5}
+          styles={buildStyles({
+            pathColor: '#fff'
+          })}
+        />
+        <span>{Number(String(vote_average).substring(0, 3))}</span>
+      </div>
+
+      <div
+        ref={infoRef}
+        className={
+          'card__info ' +
+          (mode === true ? 'lightAlpha1 darkColor1' : 'darkAlpha1 lightColor1')
+        }
+        onMouseOver={show}
+        onMouseLeave={hide}
+      >
+        <div className='card__info__inner'>
+          <p className='card__info__inner--title'>
+            {name && name.length <= 35 ? name : name.substring(0, 32) + '...'}
+          </p>
+
+          <Link to={`/tv/${id}`} className='card__info__inner--more'>
+            More
+          </Link>
+
+          <span className='card__info__inner--date'>
+            {first_air_date && moment(first_air_date).format('Do MMM, YYYY')}
+          </span>
+        </div>
+      </div>
+
       {/* CARD-INFO */}
-      <Link
+      {/* <Link
         to={`/tv/${id}`}
         className={
           'card__info ' +
@@ -174,7 +223,7 @@ const TvCard = ({ tv }) => {
             <span>{Number(String(vote_average).substring(0, 3))}</span>
           </p>
         </div>
-      </Link>
+      </Link> */}
     </div>
   )
 }

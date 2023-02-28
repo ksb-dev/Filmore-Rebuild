@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import moment from 'moment'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import 'react-lazy-load-image-component/src/effects/blur.css'
@@ -22,6 +22,9 @@ import { useMovieContext } from '../../../context/context'
 // APIs
 import { APIs } from '../../../APIs/APIs'
 
+// Circular progress bar
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
+
 const url =
   'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
 //const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
@@ -36,6 +39,8 @@ const MovieCard = ({ movie }) => {
 
   const navigate = useNavigate()
 
+  const infoRef = useRef(null)
+
   const {
     title,
     vote_average,
@@ -47,10 +52,17 @@ const MovieCard = ({ movie }) => {
     overview
   } = movie
 
+  const show = () => {
+    infoRef.current.style.opacity = '1'
+  }
+
+  const hide = () => {
+    infoRef.current.style.opacity = '0'
+  }
+
   return (
     <div className='card'>
-      <Link
-        to={`/movie/${id}`}
+      <div
         className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
         <img
@@ -71,7 +83,7 @@ const MovieCard = ({ movie }) => {
           }
           src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
         /> */}
-      </Link>
+      </div>
 
       {user && savedMovies && savedMovies.length === 0 && (
         <p
@@ -146,8 +158,45 @@ const MovieCard = ({ movie }) => {
         </p>
       )}
 
+      <div className={'card__rating ' + getClassBg(vote_average)}>
+        <CircularProgressbar
+          value={vote_average * 10}
+          strokeWidth={5}
+          styles={buildStyles({
+            pathColor: '#fff'
+          })}
+        />
+        <span>{Number(String(vote_average).substring(0, 3))}</span>
+      </div>
+
+      <div
+        ref={infoRef}
+        className={
+          'card__info ' +
+          (mode === true ? 'lightAlpha1 darkColor1' : 'darkAlpha1 lightColor1')
+        }
+        onMouseOver={show}
+        onMouseLeave={hide}
+      >
+        <div className='card__info__inner'>
+          <p className='card__info__inner--title'>
+            {title && title.length <= 35
+              ? title
+              : title.substring(0, 32) + '...'}
+          </p>
+
+          <Link to={`/movie/${id}`} className='card__info__inner--more'>
+            More
+          </Link>
+
+          <span className='card__info__inner--date'>
+            {release_date && moment(release_date).format('Do MMM, YYYY')}
+          </span>
+        </div>
+      </div>
+
       {/* CARD-INFO */}
-      <Link
+      {/* <Link
         to={`/movie/${id}`}
         className={
           'card__info ' +
@@ -176,7 +225,7 @@ const MovieCard = ({ movie }) => {
             <span>{Number(String(vote_average).substring(0, 3))}</span>
           </p>
         </div>
-      </Link>
+      </Link> */}
     </div>
   )
 }

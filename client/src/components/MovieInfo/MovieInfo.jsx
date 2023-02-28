@@ -101,7 +101,7 @@ const MovieInfo = ({
         (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
-      <div
+      {/* <div
         className={'info__detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}
       >
         <div className='info__detail__one'>
@@ -115,14 +115,12 @@ const MovieInfo = ({
           <div className='info__detail__one__date-time'>
             {data.release_date && (
               <span className='date'>
-                {/* <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} /> */}
                 {moment(data.release_date).format('Do MMM, YYYY')}
               </span>
             )}
 
             {data.first_air_date && (
               <span className='date'>
-                {/* <BsCalendar2Date size={'20px'} style={{ marginRight: '5px' }} /> */}
                 {moment(data.first_air_date).format('Do MMM, YYYY')}
               </span>
             )}
@@ -131,10 +129,6 @@ const MovieInfo = ({
 
             {data.runtime && (
               <span className='time'>
-                {/* <MdOutlineAccessTime
-                  size={'20px'}
-                  style={{ marginRight: '5px' }}
-                /> */}
                 <>
                   {`${Math.floor(data.runtime / 60)}` > 0 &&
                     `${Math.floor(data.runtime / 60)}h`}
@@ -145,8 +139,6 @@ const MovieInfo = ({
           </div>
         </div>
       </div>
-
-      {/* Image Video */}
 
       <div className='info__image__video'>
         <div
@@ -162,24 +154,6 @@ const MovieInfo = ({
             }
             alt={data.title}
           />
-
-          {/* <LazyLoadImage
-          //width={'100%'}
-          //height={'100%'}
-          className='info__image__video--image'
-          alt='image'
-          effect='blur'
-          placeholderSrc={
-            data.poster_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w342 + data.poster_path
-          }
-          src={
-            data.poster_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w342 + data.poster_path
-          }
-        /> */}
         </div>
 
         <div
@@ -219,7 +193,6 @@ const MovieInfo = ({
           </p>
         )}
 
-        {/* ADD-BUTTON */}
         {user &&
           savedMovies &&
           savedMovies.length > 0 &&
@@ -246,7 +219,6 @@ const MovieInfo = ({
             </p>
           )}
 
-        {/* DELETE-BUTTON */}
         {user &&
           savedMovies &&
           savedMovies.length > 0 &&
@@ -270,7 +242,6 @@ const MovieInfo = ({
             }
           })}
 
-        {/* ADD-BUTTON (without user) */}
         {!user && (
           <p
             className='info__image__video__btn '
@@ -296,7 +267,6 @@ const MovieInfo = ({
         </div>
       </div>
 
-      {/* Image Detail */}
       <div className='info__image__detail'>
         <div
           className={
@@ -312,21 +282,6 @@ const MovieInfo = ({
           />
         </div>
 
-        {/* <div
-          className={
-            'info__image__detail--image-1 ' +
-            (mode === true ? 'lightBg2' : 'darkBg1')
-          }
-        >
-          <img
-            src={
-              data.backdrop_path === null
-                ? APIs.no_image_url
-                : APIs.img_path + data.backdrop_path
-            }
-            alt={data.title}
-          />
-        </div> */}
 
         <div
           className={
@@ -374,7 +329,6 @@ const MovieInfo = ({
           </p>
         )}
 
-        {/* ADD-BUTTON */}
         {user &&
           savedMovies &&
           savedMovies.length > 0 &&
@@ -411,7 +365,7 @@ const MovieInfo = ({
             </p>
           )}
 
-        {/* DELETE-BUTTON */}
+
         {user &&
           savedMovies &&
           savedMovies.length > 0 &&
@@ -439,7 +393,6 @@ const MovieInfo = ({
             }
           })}
 
-        {/* ADD-BUTTON (without user) */}
         {!user && (
           <p
             className='info__image__detail__btn '
@@ -479,7 +432,7 @@ const MovieInfo = ({
             <span>{data.overview && data.overview}</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
