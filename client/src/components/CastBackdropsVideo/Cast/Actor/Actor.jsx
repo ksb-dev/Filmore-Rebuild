@@ -17,7 +17,7 @@ const Actor = ({ actor }) => {
 
   return (
     <Link
-      to='#'
+      to={`/actor/${id}`}
       className={
         'actor ' +
         (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')

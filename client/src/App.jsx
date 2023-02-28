@@ -15,45 +15,10 @@ import Register from './pages/Register/Register'
 import Watchlist from './pages/Watchlist/Watchlist'
 import MovieDetail from './pages/MovieDetail/MovieDetail'
 import TvDetail from './pages/TvDetail/TvDetail'
+import ActorDetail from './pages/ActorDetail/ActorDetail'
 
 const App = () => {
-  const movieResults = useSelector(state => state.movieResults.movieResults)
-  const tvResults = useSelector(state => state.tvResults.tvResults)
-
-  const { mode, searchOptionState, movieState, searchQuery, setType } =
-    useMovieContext()
-
-  //const type = sessionStorage.getItem('movieState')
-
-  // useEffect(() => {
-  //   type = sessionStorage.getItem('movieState')
-  // }, [movieState])
-
-  // useEffect(() => {
-  //   setType(sessionStorage.getItem('movieState'))
-
-  //   if (
-  //     searchQuery &&
-  //     searchOptionState === 'movie' &&
-  //     movieResults &&
-  //     movieResults.length > 0
-  //   ) {
-  //     setType('movie')
-  //     sessionStorage.setItem('movieState', 'movie')
-  //     console.log(1)
-  //   }
-
-  //   if (
-  //     searchQuery &&
-  //     searchOptionState === 'tv' &&
-  //     tvResults &&
-  //     tvResults.length > 0
-  //   ) {
-  //     setType('tv')
-  //     sessionStorage.setItem('movieState', 'tv')
-  //     console.log(2)
-  //   }
-  // }, [movieResults, tvResults, movieState, searchOptionState])
+  const { mode } = useMovieContext()
 
   return (
     <div className={'app ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
@@ -66,6 +31,7 @@ const App = () => {
           <Route path='/watchlist' element={<Watchlist />} />
           <Route path='/movie/:id' element={<MovieDetail />} />
           <Route path='/tv/:id' element={<TvDetail />} />
+          <Route path='/actor/:id' element={<ActorDetail />} />
         </Routes>
       </BrowserRouter>
     </div>

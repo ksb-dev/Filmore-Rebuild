@@ -1,0 +1,149 @@
+.actor__detail {
+  position: relative;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  &__inner {
+    padding: calc(58.4px + 4rem) 2rem calc(58.4px + 2rem) 2rem;
+
+    display: flex;
+
+    &__loading,
+    &__error {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 10rem;
+    }
+
+    &__img-name-birth-place {
+      display: flex;
+      flex-direction: column;
+
+      &--image {
+        width: 233.3px;
+        height: 350px;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+
+        img {
+          width: 233.3px;
+          height: 350px;
+          border-radius: var(--border-radius-1);
+        }
+      }
+
+      &__detail {
+        display: flex;
+        flex-direction: column;
+
+        .name,
+        .place,
+        .birth {
+          width: 233.3px;
+        }
+
+        .name {
+          font-size: 1.1rem;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+
+        .place {
+          margin-bottom: 0.25rem;
+        }
+
+        .place,
+        .birth {
+          color: rgb(156, 156, 156);
+        }
+      }
+    }
+
+    &__bio {
+      h3 {
+        margin: 0 0 1rem 0;
+      }
+
+      span {
+        line-height: 1.75rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .actor__detail {
+    &__inner {
+      &__img-name-birth-place {
+        &--image {
+          width: 170px;
+          height: 250px;
+
+          img {
+            width: 170px;
+            height: 250px;
+            border-radius: var(--border-radius-1);
+          }
+        }
+
+        &__detail {
+          .name,
+          .place,
+          .birth {
+            width: 170px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      &__bio {
+        span {
+          line-height: 1.5rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .actor__detail {
+    &__inner {
+      padding: calc(58.4px + 1rem) 1rem calc(58.4px + 1rem) 1rem;
+
+      flex-direction: column;
+
+      &__img-name-birth-place {
+        margin-bottom: 0rem;
+        flex-direction: row;
+
+        &--image {
+          margin-right: 1rem;
+        }
+
+        &__detail {
+          .name,
+          .place,
+          .birth {
+            width: 100%;
+            width: unset;
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      &__bio {
+        h3 {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        span {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
