@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import moment from 'moment'
-// import { LazyLoadImage } from 'react-lazy-load-image-component'
-// import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // data
 import { iconsData } from '../../../data/icons'
@@ -65,24 +65,17 @@ const MovieCard = ({ movie }) => {
       <div
         className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
-        <img
-          className='img'
-          loading='lazy'
-          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
-          alt={title}
-        />
-
-        {/* <LazyLoadImage
+        <LazyLoadImage
           width={'100%'}
           height={'100%'}
           className='img'
           alt='image'
           effect='blur'
           placeholderSrc={
-            poster_path === null ? url : APIs.img_path_w342 + poster_path
+            poster_path === null ? url : APIs.img_path + poster_path
           }
-          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
-        /> */}
+          src={poster_path === null ? url : APIs.img_path + poster_path}
+        />
       </div>
 
       {user && savedMovies && savedMovies.length === 0 && (

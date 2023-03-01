@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-// import { LazyLoadImage } from 'react-lazy-load-image-component'
-// import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -118,18 +118,7 @@ const MovieList = () => {
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
-            <img
-              className='list__wall--image'
-              loading='lazy'
-              src={
-                sortedMovies[index].backdrop_path === null
-                  ? APIs.no_image_url
-                  : APIs.img_path + sortedMovies[index].backdrop_path
-              }
-              alt={sortedMovies[index].title}
-            />
-
-            {/* <LazyLoadImage
+            <LazyLoadImage
               width={'100%'}
               height={'100%'}
               className='list__wall--image'
@@ -138,14 +127,14 @@ const MovieList = () => {
               placeholderSrc={
                 sortedMovies[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path_w300 + sortedMovies[index].backdrop_path
+                  : APIs.img_path + sortedMovies[index].backdrop_path
               }
               src={
                 sortedMovies[index].backdrop_path === null
                   ? APIs.no_image_url
                   : APIs.img_path + sortedMovies[index].backdrop_path
               }
-            /> */}
+            />
 
             <Link
               to={`/movie/${sortedMovies[index].id}`}
