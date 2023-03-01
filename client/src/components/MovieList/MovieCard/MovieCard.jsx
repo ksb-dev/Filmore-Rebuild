@@ -178,13 +178,13 @@ const MovieCard = ({ movie }) => {
               : title.substring(0, 32) + '...'}
           </p>
 
-          <Link to={`/movie/${id}`} className='card__info__inner--more'>
-            More
-          </Link>
-
           <span className='card__info__inner--date'>
             {release_date && moment(release_date).format('Do MMM, YYYY')}
           </span>
+
+          <Link to={`/movie/${id}`} className='card__info__inner--more'>
+            More
+          </Link>
         </div>
       </div>
 
