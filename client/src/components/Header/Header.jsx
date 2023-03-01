@@ -48,37 +48,15 @@ const Header = () => {
 
   const navigate = useNavigate()
 
-  //let prevScrollpos = window.pageYOffset
-
   //Window Scroll Function
   window.onscroll = () => {
     scrollFunction()
   }
 
   const scrollFunction = () => {
-    // To close search results
-    //`setSearchQuery('')
-
     // To close logout component
     if (logoutRef.current !== null) hideLogout(logoutRef)
     setLogoutState(false)
-
-    // var currentScrollpos = window.pageYOffset
-
-    // if (prevScrollpos === 0 || prevScrollpos > currentScrollpos) {
-    //   setTimeout(() => {
-    //     if (headerRef.current !== null) {
-    //       headerRef.current.style.top = '0rem'
-    //     }
-    //   }, 300)
-    // } else {
-    //   setTimeout(() => {
-    //     if (headerRef.current !== null) {
-    //       headerRef.current.style.top = '-100%'
-    //     }
-    //   }, 300)
-    // }
-    // prevScrollpos = currentScrollpos
   }
 
   // Title Click
@@ -116,15 +94,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* {window.location.pathname === '/login' ||
-        window.location.pathname === '/register' ? (
-          <></>
-        ) : (
-          <div className='header__options__middle'>
-            <Search />
-          </div>
-        )} */}
-
         <div className='header__options__middle'>
           <Search />
         </div>
@@ -134,10 +103,7 @@ const Header = () => {
           {window.location.pathname === '/' ? (
             <span
               onClick={() => {
-                //handleTitleClick()
                 navigate('/')
-                // sessionStorage.removeItem('option')
-                // setMovieState(!movieState)
               }}
               className='home-icon activeRoute'
             >
@@ -146,10 +112,7 @@ const Header = () => {
           ) : (
             <span
               onClick={() => {
-                //handleTitleClick()
                 navigate('/')
-                // sessionStorage.removeItem('option')
-                // setMovieState(!movieState)
               }}
               className='home-icon'
             >
@@ -182,7 +145,7 @@ const Header = () => {
           )}
 
           <div ref={userIconRef} className='user'>
-            {user1 && user2 ? (
+            {user1 || user2 ? (
               logoutState ? (
                 <div to='#' className='close-icon'>
                   {iconsData.close}

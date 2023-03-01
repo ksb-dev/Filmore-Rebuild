@@ -4,24 +4,15 @@
   width: 292px;
   border-radius: var(--border-radius-1);
 
-  img {
+  .img {
     width: 292px;
     height: 100%;
     border-radius: var(--border-radius-1);
   }
 
-  img:hover {
+  .img:hover {
     filter: brightness(80%);
     transition: var(--transition);
-  }
-}
-
-@media screen and (max-width: 920px) {
-  .backdrop {
-    img {
-      //width: 500px;
-      //object-fit: cover;
-    }
   }
 }
 

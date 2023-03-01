@@ -1,4 +1,4 @@
-.movie__info {
+.tv__info {
   position: relative;
   margin: 0 2.5%;
   padding-bottom: 5rem;
@@ -191,7 +191,7 @@
 }
 
 @media screen and (max-width: 786px) {
-  .movie__info {
+  .tv__info {
     width: 100%;
     margin: 0;
     padding-bottom: 2rem;
@@ -288,7 +288,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .movie__info {
+  .tv__info {
     &__image__video {
       margin-bottom: 0rem;
 
@@ -364,7 +364,7 @@
 }
 
 @media screen and (max-width: 376px) {
-  .movie__info {
+  .tv__info {
     &__image__detail {
       &--image-3 {
         height: 225px;

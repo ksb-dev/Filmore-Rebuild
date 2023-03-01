@@ -44,7 +44,7 @@
         margin: 0 0 1rem 0;
         padding: 0;
         font-size: var(--font-size-5);
-        font-weight: var(--font-weight-2);
+        font-weight: 500;
       }
 
       input {
@@ -73,8 +73,7 @@
         width: 97%;
         font-size: var(--font-size-1);
         font-weight: 900 !important;
-
-        //font-weight: var(--font-weight-3);
+        text-transform: uppercase;
 
         display: flex;
         align-items: center;

@@ -114,7 +114,7 @@ const TvDetail = () => {
   }, [id])
 
   return (
-    <div className={'movie-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+    <div className={'tv-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
       <Header />
       <SmallHeader />
       <Menu />
@@ -155,28 +155,6 @@ const TvDetail = () => {
           />
         </>
       )}
-
-      {/* <MovieDetail
-        data={data}
-        loading={loading}
-        error={error}
-        playerRef={playerRef}
-        playerInnerRef={playerInnerRef}
-        id={id}
-        trailerUrl={trailerUrl}
-        setTrailerUrl={setTrailerUrl}
-        setPlayerLoading={setPlayerLoading}
-        setPlayerError={setPlayerError}
-      />
-
-      <YouTubePlayer
-        playerRef={playerRef}
-        playerInnerRef={playerInnerRef}
-        trailerUrl={trailerUrl}
-        setTrailerUrl={setTrailerUrl}
-        playerLoading={playerLoading}
-        playerError={playerError}
-      /> */}
 
       {!loading && !error && (
         <>
