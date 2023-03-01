@@ -13,6 +13,7 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
+import SearchModal from '../../components/SearchModal/SearchModal'
 
 // other
 import LoadingOne from '../../other/LoadingOne/LoadingOne'
@@ -46,6 +47,7 @@ const Register = () => {
       <Header />
       <SmallHeader />
       <Menu />
+      <SearchModal />
 
       <div className='register__inner '>
         {/* <span className='back' onClick={() => navigate('/')}>
