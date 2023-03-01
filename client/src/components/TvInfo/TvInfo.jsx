@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import moment from 'moment'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // react router dom
 import { useNavigate } from 'react-router-dom'
@@ -150,7 +150,7 @@ const MovieInfo = ({
           <LazyLoadImage
             className='img'
             alt='image'
-            effect='blur'
+            effect='black-and-white'
             placeholderSrc={
               poster_path === null
                 ? APIs.no_image_url
@@ -259,7 +259,7 @@ const MovieInfo = ({
           <LazyLoadImage
             className='img'
             alt='image'
-            effect='blur'
+            effect='black-and-white'
             placeholderSrc={
               poster_path === null
                 ? APIs.no_image_url
@@ -284,7 +284,7 @@ const MovieInfo = ({
             height={'100%'}
             className='img'
             alt='image'
-            effect='blur'
+            effect='black-and-white'
             placeholderSrc={
               backdrop_path === null
                 ? APIs.no_image_url

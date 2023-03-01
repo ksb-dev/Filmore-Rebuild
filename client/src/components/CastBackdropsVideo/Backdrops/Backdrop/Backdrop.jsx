@@ -1,6 +1,6 @@
 import React from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // APIs
 import { APIs } from '../../../../APIs/APIs'
@@ -18,7 +18,7 @@ const Backdrop = ({ backdrop, index }) => {
         height={'100%'}
         className='img'
         alt='image'
-        effect='blur'
+        effect='black-and-white'
         placeholderSrc={
           backdrop.file_path === null
             ? url

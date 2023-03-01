@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -107,7 +107,7 @@ const ActorDetail = () => {
                   height={'100%'}
                   className='img'
                   alt='image'
-                  effect='blur'
+                  effect='black-and-white'
                   placeholderSrc={
                     profile_path === null
                       ? APIs.no_image_url

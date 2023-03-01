@@ -1,6 +1,6 @@
 import React from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // recat router dom
 import { Link } from 'react-router-dom'
@@ -31,7 +31,7 @@ const Actor = ({ actor }) => {
           height={'100%'}
           className='img'
           alt='image'
-          effect='blur'
+          effect='black-and-white'
           placeholderSrc={
             profile_path === null
               ? APIs.no_image_url

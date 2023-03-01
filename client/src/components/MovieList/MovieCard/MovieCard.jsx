@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import moment from 'moment'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // data
 import { iconsData } from '../../../data/icons'
@@ -70,7 +70,7 @@ const MovieCard = ({ movie }) => {
           height={'100%'}
           className='img'
           alt='image'
-          effect='blur'
+          effect='black-and-white'
           placeholderSrc={
             poster_path === null ? url : APIs.img_path_w342 + poster_path
           }
