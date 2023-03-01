@@ -53,7 +53,7 @@ const Register = () => {
         </span> */}
         <form
           className={
-            'register__inner__form ' + (mode === true ? 'lightBg2' : 'darkBg1')
+            'register__inner__form ' + (mode === true ? 'lightBg1' : 'darkBg2')
           }
           onSubmit={handleSubmit}
         >
@@ -64,7 +64,7 @@ const Register = () => {
             placeholder='Name'
             className={
               'name ' +
-              (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+              (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
             }
             value={name}
             onChange={e => setName(e.target.value)}
@@ -75,7 +75,7 @@ const Register = () => {
             placeholder='Email'
             className={
               'email ' +
-              (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+              (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
             }
             value={email}
             onChange={e => setEmail(e.target.value)}
@@ -85,7 +85,7 @@ const Register = () => {
             placeholder='Password'
             className={
               'password ' +
-              (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+              (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
             }
             value={password}
             onChange={e => setPassword(e.target.value)}

@@ -52,7 +52,7 @@ const Login = () => {
         </span> */}
         <form
           className={
-            'login__inner__form ' + (mode === true ? 'lightBg2' : 'darkBg1')
+            'login__inner__form ' + (mode === true ? 'lightBg1' : 'darkBg2')
           }
           onSubmit={handleSubmit}
         >
@@ -62,7 +62,7 @@ const Login = () => {
             placeholder='Email'
             className={
               'email ' +
-              (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+              (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
             }
             value={email}
             onChange={e => setEmail(e.target.value)}
@@ -72,7 +72,7 @@ const Login = () => {
             placeholder='Password'
             className={
               'password ' +
-              (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
+              (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
             }
             value={password}
             onChange={e => setPassword(e.target.value)}
