@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -91,13 +93,31 @@ const ActorDetail = () => {
                   (mode === true ? 'lightBg2' : 'darkBg1')
                 }
               >
-                <img
+                {/* <img
                   src={
                     profile_path !== null
                       ? APIs.img_path + profile_path
                       : APIs.no_image_url
                   }
                   alt='actor'
+                /> */}
+
+                <LazyLoadImage
+                  width={'100%'}
+                  height={'100%'}
+                  className='img'
+                  alt='image'
+                  effect='blur'
+                  placeholderSrc={
+                    profile_path === null
+                      ? APIs.no_image_url
+                      : APIs.img_path_w300 + profile_path
+                  }
+                  src={
+                    profile_path === null
+                      ? APIs.no_image_url
+                      : APIs.img_path_w300 + profile_path
+                  }
                 />
               </div>
               <div className='actor__detail__inner__img-name-birth-place__detail'>

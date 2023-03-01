@@ -71,9 +71,9 @@ const TvCard = ({ tv }) => {
           alt='image'
           effect='blur'
           placeholderSrc={
-            poster_path === null ? url : APIs.img_path + poster_path
+            poster_path === null ? url : APIs.img_path_w342 + poster_path
           }
-          src={poster_path === null ? url : APIs.img_path + poster_path}
+          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
         />
       </div>
 
