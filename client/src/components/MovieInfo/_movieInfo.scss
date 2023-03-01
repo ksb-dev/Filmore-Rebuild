@@ -129,7 +129,6 @@
     &__rating {
       display: none;
       position: absolute;
-      left: 14.5rem;
       top: 0rem;
       width: 43.6px;
       height: 43.6px;
@@ -194,15 +193,13 @@
 
 @media screen and (max-width: 786px) {
   .movie__info {
-    width: 100%;
-    margin: 0;
+    margin: 0 1rem;
     padding-bottom: 2rem;
 
     &__detail {
       padding: calc(58.4px + 1rem) 0 1rem 0;
 
       &__title-tagline {
-        padding: 0 1rem;
         margin-right: 0;
 
         .title {
@@ -216,7 +213,6 @@
 
       &__date-time {
         margin-top: 1rem;
-        margin-left: 1rem;
 
         .date,
         .time {
@@ -244,11 +240,11 @@
 
       &__player {
         height: 350px;
+        border-radius: var(--border-radius-1);
       }
     }
 
     &__image__detail {
-      padding: 0 2rem;
       display: flex;
       margin-bottom: 4rem;
 
@@ -266,6 +262,7 @@
 
       &__rating {
         display: flex;
+        left: 12.5rem;
       }
 
       &__btn,
@@ -306,8 +303,6 @@
       flex-direction: column;
 
       &__inner {
-        padding: 0 1rem;
-
         &__genres {
           span {
             font-size: 0.9rem;
@@ -318,7 +313,6 @@
       &__rating {
         left: unset;
         right: 0rem;
-        border-top-right-radius: 0;
 
         span {
           font-size: 0.8rem;
@@ -330,8 +324,6 @@
       &__delete__btn {
         height: 50px;
         width: 50px;
-        border-bottom-left-radius: unset;
-        border-top-left-radius: 0;
       }
 
       &--image-2 {
@@ -346,12 +338,14 @@
         width: 100%;
         height: 300px;
         border-radius: unset;
+        border-radius: var(--border-radius-1);
 
         .img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           border-radius: unset;
+          border-radius: var(--border-radius-1);
         }
       }
 
