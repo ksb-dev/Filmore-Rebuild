@@ -61,6 +61,19 @@
 @media screen and (max-width: 786px) {
   .reviews {
     padding: 0rem 2rem;
+
+    &__title {
+      font-size: 1rem;
+
+      .length {
+        width: 30px;
+        height: 30px;
+
+        span {
+          font-size: 0.75rem;
+        }
+      }
+    }
   }
 }
 
