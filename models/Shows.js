@@ -6,10 +6,6 @@ const ShowSchema = new mongoose.Schema(
       type: Number
     },
 
-    type: {
-      type: String
-    },
-
     name: {
       type: String
     },

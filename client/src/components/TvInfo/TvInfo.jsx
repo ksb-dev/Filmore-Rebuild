@@ -51,7 +51,7 @@ const TvInfo = ({
   const { mode } = useMovieContext()
 
   // hooks
-  const { addMovie, deleteMovie } = useWatchlistOperations()
+  const { addShow, deleteShow } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { showPlayer } = useShowHide()
   const { getTvTrailer786px } = useGetTvInfo()
@@ -111,8 +111,8 @@ const TvInfo = ({
     getTvTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
   }
 
-  const handleAddMovie = () => {
-    addMovie(
+  const handleAddTv = () => {
+    addShow(
       id,
       name,
       poster_path,
@@ -124,8 +124,8 @@ const TvInfo = ({
     )
   }
 
-  const handleDeleteMovie = () => {
-    deleteMovie(id)
+  const handleDeleteTv = () => {
+    deleteShow(id)
   }
 
   return (
@@ -201,7 +201,7 @@ const TvInfo = ({
         {user && savedShows && savedShows.length === 0 && (
           <p
             className='tv__info__image__video__add__btn'
-            onClick={() => handleAddMovie()}
+            onClick={() => handleAddTv()}
           >
             <span className='tv__info__image__video__add__btn-icon'>
               {iconsData.addBookmark1}
@@ -217,7 +217,7 @@ const TvInfo = ({
             <p
               key={id}
               className='tv__info__image__video__add__btn'
-              onClick={() => handleAddMovie()}
+              onClick={() => handleAddTv()}
             >
               <span className='tv__info__image__video__add__btn-icon'>
                 {iconsData.addBookmark1}
@@ -235,7 +235,7 @@ const TvInfo = ({
                 <p
                   key={index}
                   className='tv__info__image__video__delete__btn'
-                  onClick={() => handleDeleteMovie()}
+                  onClick={() => handleDeleteTv()}
                   style={{ background: 'gold' }}
                 >
                   <span
@@ -359,7 +359,7 @@ const TvInfo = ({
         {user && savedShows && savedShows.length === 0 && (
           <p
             className='tv__info__image__detail__add__btn'
-            onClick={() => handleAddMovie()}
+            onClick={() => handleAddTv()}
           >
             <span className='tv__info__image__detail__add__btn-icon'>
               {iconsData.addBookmark1}
@@ -375,7 +375,7 @@ const TvInfo = ({
             <p
               key={id}
               className='tv__info__image__detail__add__btn'
-              onClick={() => handleAddMovie()}
+              onClick={() => handleAddTv()}
             >
               <span className='tv__info__image__detail__add__btn-icon'>
                 {iconsData.addBookmark1}
@@ -393,7 +393,7 @@ const TvInfo = ({
                 <p
                   key={index}
                   className='tv__info__image__detail__delete__btn'
-                  onClick={() => handleDeleteMovie()}
+                  onClick={() => handleDeleteTv()}
                   style={{ background: 'gold' }}
                 >
                   <span
