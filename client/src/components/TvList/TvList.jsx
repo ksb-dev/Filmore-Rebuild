@@ -119,7 +119,18 @@ const TvList = () => {
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
-            <LazyLoadImage
+            <img
+              className='list__wall--image'
+              src={
+                sortedShows[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path + sortedShows[index].backdrop_path
+              }
+              alt={sortedShows[index].name}
+              load='lazy'
+            />
+
+            {/* <LazyLoadImage
               width={'100%'}
               height={'100%'}
               className='list__wall--image'
@@ -134,8 +145,8 @@ const TvList = () => {
                 sortedShows[index].backdrop_path === null
                   ? APIs.no_image_url
                   : APIs.img_path + sortedShows[index].backdrop_path
-              }
-            />
+              } 
+            />*/}
 
             <Link
               to={`/tv/${sortedShows[index].id}`}
@@ -190,7 +201,6 @@ const TvList = () => {
                 </p>
               </div>
             </Link>
-
             <div
               ref={btnRef}
               className='list__wall__buttons'

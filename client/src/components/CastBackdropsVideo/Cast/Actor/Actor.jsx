@@ -26,7 +26,18 @@ const Actor = ({ actor }) => {
       <div
         className={'actor__image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
-        <LazyLoadImage
+        <img
+          className='img'
+          src={
+            profile_path === null
+              ? APIs.no_image_url
+              : APIs.img_path + profile_path
+          }
+          alt={original_name}
+          load='lazy'
+        />
+
+        {/* <LazyLoadImage
           width={'100%'}
           height={'100%'}
           className='img'
@@ -42,7 +53,7 @@ const Actor = ({ actor }) => {
               ? APIs.no_image_url
               : APIs.img_path_w185 + profile_path
           }
-        />
+        /> */}
       </div>
       <div className='actor__name-character'>
         <span className='name'>{original_name && original_name}</span>

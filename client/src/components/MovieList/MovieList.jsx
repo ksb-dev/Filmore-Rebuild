@@ -137,7 +137,18 @@ const MovieList = () => {
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
-            <LazyLoadImage
+            <img
+              className='list__wall--image'
+              src={
+                sortedMovies[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path + sortedMovies[index].backdrop_path
+              }
+              alt={sortedMovies[index].title}
+              load='lazy'
+            />
+
+            {/* <LazyLoadImage
               width={'100%'}
               height={'100%'}
               className='list__wall--image'
@@ -153,7 +164,7 @@ const MovieList = () => {
                   ? APIs.no_image_url
                   : APIs.img_path + sortedMovies[index].backdrop_path
               }
-            />
+            /> */}
 
             <Link
               to={`/movie/${sortedMovies[index].id}`}

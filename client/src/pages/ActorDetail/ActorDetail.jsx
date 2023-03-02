@@ -91,16 +91,17 @@ const ActorDetail = () => {
                   (mode === true ? 'lightBg2' : 'darkBg1')
                 }
               >
-                {/* <img
+                <img
+                  className='img'
                   src={
                     profile_path !== null
                       ? APIs.img_path + profile_path
                       : APIs.no_image_url
                   }
                   alt='actor'
-                /> */}
+                />
 
-                <LazyLoadImage
+                {/* <LazyLoadImage
                   width={'100%'}
                   height={'100%'}
                   className='img'
@@ -116,7 +117,7 @@ const ActorDetail = () => {
                       ? APIs.no_image_url
                       : APIs.img_path_w300 + profile_path
                   }
-                />
+                /> */}
               </div>
               <div className='actor__detail__inner__img-name-birth-place__detail'>
                 <span className='name'>{name && name}</span>

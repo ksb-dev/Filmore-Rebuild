@@ -26,7 +26,18 @@ const Backdrop = ({ backdrop, index }) => {
       className={'backdrop ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       onClick={() => handleClick()}
     >
-      <LazyLoadImage
+      <img
+        className='img'
+        src={
+          backdrop.file_path === null
+            ? APIs.no_image_url
+            : APIs.img_path + backdrop.file_path
+        }
+        alt='backdrop'
+        load='lazy'
+      />
+
+      {/* <LazyLoadImage
         width={'100%'}
         height={'100%'}
         className='img'
@@ -42,7 +53,7 @@ const Backdrop = ({ backdrop, index }) => {
             ? APIs.no_image_url
             : APIs.img_path_original + backdrop.file_path
         }
-      />
+      /> */}
     </div>
   )
 }

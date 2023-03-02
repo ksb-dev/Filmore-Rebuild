@@ -176,7 +176,18 @@ const MovieInfo = ({
             (mode === true ? 'lightBg2' : 'darkBg1')
           }
         >
-          <LazyLoadImage
+          <img
+            className='img'
+            src={
+              poster_path === null
+                ? APIs.no_image_url
+                : APIs.img_path + poster_path
+            }
+            alt={title}
+            load='lazy'
+          />
+
+          {/* <LazyLoadImage
             className='img'
             alt='image'
             effect='black-and-white'
@@ -190,7 +201,7 @@ const MovieInfo = ({
                 ? APIs.no_image_url
                 : APIs.img_path_w342 + poster_path
             }
-          />
+          /> */}
         </div>
 
         <div
@@ -286,7 +297,18 @@ const MovieInfo = ({
             (mode === true ? 'lightBg2' : 'darkBg1')
           }
         >
-          <LazyLoadImage
+          <img
+            className='img'
+            src={
+              poster_path === null
+                ? APIs.no_image_url
+                : APIs.img_path + poster_path
+            }
+            alt={title}
+            load='lazy'
+          />
+
+          {/* <LazyLoadImage
             className='img'
             alt='image'
             effect='black-and-white'
@@ -300,7 +322,7 @@ const MovieInfo = ({
                 ? APIs.no_image_url
                 : APIs.img_path_w342 + poster_path
             }
-          />
+          /> */}
         </div>
 
         <div
@@ -309,7 +331,17 @@ const MovieInfo = ({
             (mode === true ? 'lightBg2' : 'darkBg1')
           }
         >
-          <LazyLoadImage
+          <img
+            className='img'
+            src={
+              poster_path === null
+                ? APIs.no_image_url
+                : APIs.img_path + backdrop_path
+            }
+            alt={title}
+            load='lazy'
+          />
+          {/* <LazyLoadImage
             width={'100%'}
             height={'100%'}
             className='img'
@@ -325,7 +357,7 @@ const MovieInfo = ({
                 ? APIs.no_image_url
                 : APIs.img_path + backdrop_path
             }
-          />
+          /> */}
         </div>
 
         <div
