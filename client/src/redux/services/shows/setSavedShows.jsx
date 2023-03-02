@@ -17,6 +17,7 @@ const initialState = {
 export const setSavedShows = createAsyncThunk(
   'savedShows/setSavedShows',
   async () => {
+    //console.log('savedShows')
     const savedToken = sessionStorage.getItem('token')
     let response = ''
 
@@ -34,7 +35,11 @@ export const setSavedShows = createAsyncThunk(
 export const showSlice = createSlice({
   name: 'savedShows',
   initialState,
-  reducers: {},
+  reducers: {
+    setTvUserNull: (action, paylod) => {
+      state.user = ''
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(setSavedShows.pending, state => {
@@ -61,4 +66,5 @@ export const showSlice = createSlice({
   }
 })
 
+export const { setTvUserNull } = showSlice.actions
 export default showSlice.reducer

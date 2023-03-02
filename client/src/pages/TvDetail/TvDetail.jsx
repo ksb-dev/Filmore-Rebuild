@@ -5,7 +5,14 @@ import { useParams } from 'react-router-dom'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import { setSavedMovies } from '../../redux/services/movies/setSavedMovies'
+import {
+  setSavedMovies,
+  setMovieUserNull
+} from '../../redux/services/movies/setSavedMovies'
+import {
+  setSavedShows,
+  setTvUserNull
+} from '../../redux/services/shows/setSavedShows'
 
 // Context
 import { useMovieContext } from '../../context/context'
@@ -93,6 +100,10 @@ const TvDetail = () => {
 
     if (savedToken !== '' || savedToken !== undefined || savedToken !== null) {
       dispatch(setSavedMovies())
+      dispatch(setSavedShows())
+    } else {
+      dispatch(setMovieUserNull())
+      dispatch(setTvUserNull())
     }
   }, [dispatch, movieState])
 

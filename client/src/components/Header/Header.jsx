@@ -48,6 +48,8 @@ const Header = () => {
 
   const navigate = useNavigate()
 
+  //console.log(user1, user2)
+
   //Window Scroll Function
   window.onscroll = () => {
     scrollFunction()
@@ -145,7 +147,7 @@ const Header = () => {
           )}
 
           <div ref={userIconRef} className='user'>
-            {user1 || user2 ? (
+            {user1 && user2 ? (
               logoutState ? (
                 <div to='#' className='close-icon'>
                   {iconsData.close}

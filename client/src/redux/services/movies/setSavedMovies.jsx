@@ -17,6 +17,7 @@ const initialState = {
 export const setSavedMovies = createAsyncThunk(
   'savedMovies/setSavedMovies',
   async () => {
+    //console.log('savedMovies')
     const savedToken = sessionStorage.getItem('token')
     let response = ''
 
@@ -34,7 +35,11 @@ export const setSavedMovies = createAsyncThunk(
 export const movieSlice = createSlice({
   name: 'savedMovies',
   initialState,
-  reducers: {},
+  reducers: {
+    setMovieUserNull: () => {
+      state.user = ''
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(setSavedMovies.pending, state => {
@@ -61,4 +66,5 @@ export const movieSlice = createSlice({
   }
 })
 
+export const { setMovieUserNull } = movieSlice.actions
 export default movieSlice.reducer
