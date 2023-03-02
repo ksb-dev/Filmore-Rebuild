@@ -16,6 +16,7 @@ import { useMovieContext } from '../../context/context'
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
 import { useShowHide } from '../../hooks/useShowHide'
+//import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -53,6 +54,7 @@ const MovieInfo = ({
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { showPlayer } = useShowHide()
+  //const { getTrailer } = useGetMovieInfo()
 
   // states
   const [genres, setGenres] = useState(new Set())
@@ -108,7 +110,7 @@ const MovieInfo = ({
 
   const playTrailer = () => {
     showPlayer(playerRef, playerInnerRef)
-    getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+    //getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
   }
 
   const handleAddMovie = () => {

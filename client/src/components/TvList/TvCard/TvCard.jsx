@@ -173,47 +173,15 @@ const TvCard = ({ tv }) => {
             {name && name.length <= 35 ? name : name.substring(0, 32) + '...'}
           </p>
 
-          <Link to={`/tv/${id}`} className='card__info__inner--more'>
-            More
-          </Link>
-
           <span className='card__info__inner--date'>
             {first_air_date && moment(first_air_date).format('Do MMM, YYYY')}
           </span>
+
+          <Link to={`/tv/${id}`} className='card__info__inner--more'>
+            More
+          </Link>
         </div>
       </div>
-
-      {/* CARD-INFO */}
-      {/* <Link
-        to={`/tv/${id}`}
-        className={
-          'card__info ' +
-          (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
-        }
-      >
-        <p className='card__info--title'>
-          {name && name.length <= 35 ? name : name.substring(0, 32) + '...'}
-        </p>
-
-        <div
-          className={
-            'card__info__date-rating ' +
-            (mode === true ? 'lightBg1' : 'darkBg2')
-          }
-        >
-          <span className='card__info__date-rating--date'>
-            {first_air_date && moment(first_air_date).format('Do MMM, YYYY')}
-          </span>
-          <p
-            className={
-              'card__info__date-rating--rating ' +
-              getClassBg(Number(String(vote_average).substring(0, 3)))
-            }
-          >
-            <span>{Number(String(vote_average).substring(0, 3))}</span>
-          </p>
-        </div>
-      </Link> */}
     </div>
   )
 }
