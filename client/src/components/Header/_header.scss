@@ -88,8 +88,8 @@
       }
 
       .watchlist:hover {
-        //color: var(--primary);
-        filter: brightness(80%);
+        color: var(--primary);
+        //filter: brightness(80%);
         transition: var(--transition);
       }
 
@@ -146,8 +146,8 @@
       .login-icon:hover,
       .home-icon:hover,
       .mode-icon:hover {
-        //color: var(--primary);
-        filter: brightness(80%);
+        color: var(--primary);
+        //filter: brightness(80%);
         transition: var(--transition);
       }
 

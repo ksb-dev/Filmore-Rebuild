@@ -197,13 +197,14 @@ const TvInfo = ({
           <CircularProgressBar vote_average={vote_average} />
         </div>
 
+        {/* ADD-BUTTON */}
         {user && savedShows && savedShows.length === 0 && (
           <p
             className='tv__info__image__video__add__btn'
             onClick={() => handleAddMovie()}
           >
             <span className='tv__info__image__video__add__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}
@@ -219,7 +220,7 @@ const TvInfo = ({
               onClick={() => handleAddMovie()}
             >
               <span className='tv__info__image__video__add__btn-icon'>
-                {iconsData.star}
+                {iconsData.addBookmark1}
               </span>
             </p>
           )}
@@ -241,7 +242,7 @@ const TvInfo = ({
                     className='tv__info__image__video__delete__btn-icon'
                     style={{ color: '#000' }}
                   >
-                    {iconsData.star}
+                    {iconsData.addedBookmark1}
                   </span>
                 </p>
               )
@@ -255,7 +256,7 @@ const TvInfo = ({
             onClick={() => navigate('/login')}
           >
             <span className='tv__info__image__video__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}
@@ -266,8 +267,11 @@ const TvInfo = ({
           }
         >
           {trailerLoading && <Loading />}
-          {trailerError && <Error />}
-          {!trailerLoading && !trailerError && (
+          {trailerError && <Error msg={'No trailer found'} />}
+          {!trailerLoading && !trailerError && trailerUrl === '' && (
+            <Error msg={'No trailer found'} />
+          )}
+          {!trailerLoading && !trailerError && trailerUrl !== '' && (
             <VideoPlayer embedId={trailerUrl && trailerUrl} />
           )}
         </div>
@@ -351,13 +355,14 @@ const TvInfo = ({
           <CircularProgressBar vote_average={vote_average} />
         </div>
 
+        {/* ADD-BUTTON */}
         {user && savedShows && savedShows.length === 0 && (
           <p
             className='tv__info__image__detail__add__btn'
             onClick={() => handleAddMovie()}
           >
             <span className='tv__info__image__detail__add__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}
@@ -373,7 +378,7 @@ const TvInfo = ({
               onClick={() => handleAddMovie()}
             >
               <span className='tv__info__image__detail__add__btn-icon'>
-                {iconsData.star}
+                {iconsData.addBookmark1}
               </span>
             </p>
           )}
@@ -395,7 +400,7 @@ const TvInfo = ({
                     className='tv__info__image__detail__delete__btn-icon'
                     style={{ color: '#000' }}
                   >
-                    {iconsData.star}
+                    {iconsData.addedBookmark1}
                   </span>
                 </p>
               )
@@ -409,7 +414,7 @@ const TvInfo = ({
             onClick={() => navigate('/login')}
           >
             <span className='tv__info__image__detail__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}

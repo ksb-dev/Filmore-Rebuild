@@ -100,7 +100,7 @@ const TvCard = ({ tv }) => {
             )
           }
         >
-          <span className='card__btn--icon'>{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
       {/* ADD-BUTTON */}
@@ -124,7 +124,7 @@ const TvCard = ({ tv }) => {
               )
             }
           >
-            <span className='card__btn--icon'>{iconsData.star}</span>
+            <span className='card__btn--icon'>{iconsData.addBookmark}</span>
           </p>
         )}
       {/* DELETE-BUTTON */}
@@ -141,7 +141,7 @@ const TvCard = ({ tv }) => {
                 style={{ background: 'gold' }}
               >
                 <span className='card__btn--icon' style={{ color: '#000' }}>
-                  {iconsData.star}
+                  {iconsData.addedBookmark}
                 </span>
               </p>
             )
@@ -151,7 +151,7 @@ const TvCard = ({ tv }) => {
       {/* ADD-BUTTON (without user) */}
       {!user && (
         <p className='card__btn ' onClick={() => navigate('/login')}>
-          <span className='card__btn--icon'>{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
 

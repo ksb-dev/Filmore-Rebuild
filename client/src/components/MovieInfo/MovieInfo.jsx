@@ -212,13 +212,14 @@ const MovieInfo = ({
           <CircularProgressBar vote_average={vote_average} />
         </div>
 
+        {/* ADD-BUTTON */}
         {user && savedMovies && savedMovies.length === 0 && (
           <p
             className='movie__info__image__video__add__btn'
             onClick={() => handleAddMovie()}
           >
             <span className='movie__info__image__video__add__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}
@@ -234,7 +235,7 @@ const MovieInfo = ({
               onClick={() => handleAddMovie()}
             >
               <span className='movie__info__image__video__add__btn-icon'>
-                {iconsData.star}
+                {iconsData.addBookmark1}
               </span>
             </p>
           )}
@@ -256,7 +257,7 @@ const MovieInfo = ({
                     className='movie__info__image__video__delete__btn-icon'
                     style={{ color: '#000' }}
                   >
-                    {iconsData.star}
+                    {iconsData.addedBookmark1}
                   </span>
                 </p>
               )
@@ -270,7 +271,7 @@ const MovieInfo = ({
             onClick={() => navigate('/login')}
           >
             <span className='movie__info__image__video__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}
@@ -282,8 +283,11 @@ const MovieInfo = ({
           }
         >
           {trailerLoading && <Loading />}
-          {trailerError && <Error />}
-          {!trailerLoading && !trailerError && (
+          {trailerError && <Error msg={'No trailer found'} />}
+          {!trailerLoading && !trailerError && trailerUrl === '' && (
+            <Error msg={'No trailer found'} />
+          )}
+          {!trailerLoading && !trailerError && trailerUrl !== '' && (
             <VideoPlayer embedId={trailerUrl && trailerUrl} />
           )}
         </div>
@@ -368,13 +372,14 @@ const MovieInfo = ({
           <CircularProgressBar vote_average={vote_average} />
         </div>
 
+        {/* ADD-BUTTON */}
         {user && savedMovies && savedMovies.length === 0 && (
           <p
             className='movie__info__image__detail__add__btn'
             onClick={() => handleAddMovie()}
           >
             <span className='movie__info__image__detail__add__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark}
             </span>
           </p>
         )}
@@ -390,7 +395,7 @@ const MovieInfo = ({
               onClick={() => handleAddMovie()}
             >
               <span className='movie__info__image__detail__add__btn-icon'>
-                {iconsData.star}
+                {iconsData.addBookmark1}
               </span>
             </p>
           )}
@@ -412,7 +417,7 @@ const MovieInfo = ({
                     className='movie__info__image__detail__delete__btn-icon'
                     style={{ color: '#000' }}
                   >
-                    {iconsData.star}
+                    {iconsData.addedBookmark1}
                   </span>
                 </p>
               )
@@ -426,7 +431,7 @@ const MovieInfo = ({
             onClick={() => navigate('/login')}
           >
             <span className='movie__info__image__detail__btn-icon'>
-              {iconsData.star}
+              {iconsData.addBookmark1}
             </span>
           </p>
         )}

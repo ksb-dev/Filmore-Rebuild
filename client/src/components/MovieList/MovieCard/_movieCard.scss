@@ -42,6 +42,14 @@
     }
   }
 
+  &__btn:hover,
+  &__add__btn:hover,
+  &__delete__btn:hover {
+    transform: scale(1.2);
+    border-radius: var(--border-radius-1);
+    transition: var(--transition);
+  }
+
   &__rating {
     position: absolute;
     right: 0;
@@ -115,10 +123,10 @@
   }
 }
 
-.card:hover .card--image .img {
-  transform: scale(1.2);
-  transition: var(--transition);
-}
+// .card:hover .card--image .img {
+//   transform: scale(1.2);
+//   transition: var(--transition);
+// }
 
 @media screen and (max-width: 640px) {
   .card {

@@ -15,7 +15,9 @@ import {
   BsEye,
   BsEyeSlash,
   BsCheckCircle,
-  BsPlayCircle
+  BsPlayCircle,
+  BsCheck2,
+  BsPlusCircleFill
 } from 'react-icons/bs'
 import {
   BiSearch,
@@ -37,10 +39,12 @@ import {
   RiStarFill,
   RiLoginCircleFill,
   RiLoginCircleLine,
-  RiStarLine
+  RiStarLine,
+  RiBookmark3Line
 } from 'react-icons/ri'
 import { FaWindowClose } from 'react-icons/fa'
 import { IoChevronForwardOutline } from 'react-icons/io5'
+import { FiCheck, FiCheckCircle } from 'react-icons/fi'
 
 export const iconsData = {
   sunIcon: <BsSun size={'20px'} />,
@@ -72,7 +76,11 @@ export const iconsData = {
   loginOutlined: <RiLoginCircleLine size={'20px'} />,
   loginFilled: <RiLoginCircleFill size={'20px'} />,
 
-  star: <RiStarFill size={'20px'} />,
+  addBookmark: <AiOutlinePlus size={'20px'} />,
+  addedBookmark: <FiCheck size={'20px'} />,
+  addBookmark1: <AiOutlinePlus size={'25px'} />,
+  addedBookmark1: <FiCheck size={'25px'} />,
+  filledBookmark: <BsPlusCircleFill size={'20px'} />,
   star1: <RiStarFill size={'20px'} style={{ marginRight: '0.5rem' }} />,
   star2: <AiOutlineStar size={'20px'} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,
@@ -82,8 +90,6 @@ export const iconsData = {
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
   watchlist: <BsCheckCircle size={'20px'} />,
-  addBookmark: <AiOutlinePlus size={'20px'} />,
-  deleteBookmark: <AiOutlineCheck size={'20px'} />,
   forwardArrow: (
     <IoChevronForwardOutline size={'30px'} style={{ margin: '0.5rem 0 0 0' }} />
   ),

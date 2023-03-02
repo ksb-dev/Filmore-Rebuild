@@ -101,7 +101,7 @@ const MovieCard = ({ movie }) => {
             )
           }
         >
-          <span className='card__btn--icon'>{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
 
@@ -126,7 +126,7 @@ const MovieCard = ({ movie }) => {
               )
             }
           >
-            <span className='card__btn--icon'>{iconsData.star}</span>
+            <span className='card__btn--icon'>{iconsData.addBookmark}</span>
           </p>
         )}
 
@@ -144,7 +144,7 @@ const MovieCard = ({ movie }) => {
                 style={{ background: 'gold' }}
               >
                 <span className='card__btn--icon' style={{ color: '#000' }}>
-                  {iconsData.star}
+                  {iconsData.addedBookmark}
                 </span>
               </p>
             )
@@ -154,7 +154,7 @@ const MovieCard = ({ movie }) => {
       {/* ADD-BUTTON (without user) */}
       {!user && (
         <p className='card__btn ' onClick={() => navigate('/login')}>
-          <span className='card__btn--icon'>{iconsData.star}</span>
+          <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
 
