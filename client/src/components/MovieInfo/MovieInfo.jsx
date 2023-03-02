@@ -15,6 +15,7 @@ import { useMovieContext } from '../../context/context'
 // hooks
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
+import { useShowHide } from '../../hooks/useShowHide'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -34,9 +35,14 @@ const MovieInfo = ({
   data,
   loading,
   error,
+  playerRef,
+  playerInnerRef,
   trailerUrl,
+  setTrailerUrl,
   playerLoading,
-  playerError
+  setPlayerLoading,
+  playerError,
+  setPlayerError
 }) => {
   const navigate = useNavigate()
 
@@ -46,6 +52,7 @@ const MovieInfo = ({
   // hooks
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
+  const { showPlayer } = useShowHide()
 
   // states
   const [genres, setGenres] = useState(new Set())
@@ -98,6 +105,11 @@ const MovieInfo = ({
     runtime,
     overview
   } = data
+
+  const playTrailer = () => {
+    showPlayer(playerRef, playerInnerRef)
+    getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+  }
 
   const handleAddMovie = () => {
     addMovie(
@@ -405,6 +417,14 @@ const MovieInfo = ({
           <div className='movie__info__image__detail__inner__overview'>
             <span>{overview && overview}</span>
           </div>
+
+          <span
+            className='movie__info__image__detail__inner__playBtn'
+            onClick={() => playTrailer()}
+          >
+            {iconsData.play}
+            Play Trailer
+          </span>
         </div>
       </div>
     </div>

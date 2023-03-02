@@ -14,7 +14,8 @@ import {
   BsMoonStars,
   BsEye,
   BsEyeSlash,
-  BsCheckCircle
+  BsCheckCircle,
+  BsPlayCircle
 } from 'react-icons/bs'
 import {
   BiSearch,
@@ -85,5 +86,6 @@ export const iconsData = {
   deleteBookmark: <AiOutlineCheck size={'20px'} />,
   forwardArrow: (
     <IoChevronForwardOutline size={'30px'} style={{ margin: '0.5rem 0 0 0' }} />
-  )
+  ),
+  play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.5rem' }} />
 }

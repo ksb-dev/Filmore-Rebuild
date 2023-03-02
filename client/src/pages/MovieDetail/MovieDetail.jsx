@@ -22,13 +22,21 @@ import SearchModal from '../../components/SearchModal/SearchModal'
 import MovieInfo from '../../components/MovieInfo/MovieInfo'
 import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdropsVideo'
 import Reviews from '../../components/Reviews/Reviews'
-//import YouTubePlayer from '../../Components/MovieDetail/YoutubePlayer/YouTubePlayer'
-//import CastBackdropVideo from '../../Components/CastBackdropVideo/CastBackdropVideo'
-//import Reviews from '../../Components/Reviews/Reviews'
-//import ImageViewer from '../../Components/ImageViewer/ImageViewer'
+import Player from '../../components/Player/Player'
+import ImageViewer from '../../components/ImageViewer/ImageViewer'
 
 const MovieDetail = () => {
-  const { mode, movieState, movieIdState } = useMovieContext()
+  const {
+    mode,
+    movieState,
+    movieIdState,
+    backdrops,
+    setBackdrops,
+    backdropsLoading,
+    setBackdropsLoading,
+    backdropsError,
+    setBackdropsError
+  } = useMovieContext()
   const dispatch = useDispatch()
 
   const { getTrailer, getInfo, getCast, getBackdrops, getVideos, getReviews } =
@@ -45,11 +53,6 @@ const MovieDetail = () => {
   const [castLoading, setCastLoading] = useState(true)
   const [castError, setCastError] = useState('')
 
-  // Backdrop
-  const [backdrops, setBackdrops] = useState([])
-  const [backdropsLoading, setBackdropsLoading] = useState(true)
-  const [backdropsError, setBackdropsError] = useState('')
-
   // Videos
   const [videos, setVideos] = useState([])
   const [videosLoading, setVideosLoading] = useState(true)
@@ -64,6 +67,8 @@ const MovieDetail = () => {
   const [trailerUrl, setTrailerUrl] = useState('')
   const [playerLoading, setPlayerLoading] = useState(true)
   const [playerError, setPlayerError] = useState('')
+  const playerRef = useRef(null)
+  const playerInnerRef = useRef(null)
 
   useEffect(() => {
     window.scroll({
@@ -126,7 +131,21 @@ const MovieDetail = () => {
         data={data}
         loading={loading}
         error={error}
+        playerRef={playerRef}
+        playerInnerRef={playerInnerRef}
         trailerUrl={trailerUrl}
+        setTrailerUrl={setTrailerUrl}
+        playerLoading={playerLoading}
+        setPlayerLoading={setPlayerLoading}
+        playerError={playerError}
+        setPlayerError={setPlayerError}
+      />
+
+      <Player
+        playerRef={playerRef}
+        playerInnerRef={playerInnerRef}
+        trailerUrl={trailerUrl}
+        setTrailerUrl={setTrailerUrl}
         playerLoading={playerLoading}
         playerError={playerError}
       />
@@ -154,54 +173,8 @@ const MovieDetail = () => {
             reviewsLoading={reviewsLoading}
             reviewsError={reviewsError}
           />
-        </>
-      )}
 
-      {/* <MovieDetail
-        data={data}
-        loading={loading}
-        error={error}
-        playerRef={playerRef}
-        playerInnerRef={playerInnerRef}
-        id={id}
-        trailerUrl={trailerUrl}
-        setTrailerUrl={setTrailerUrl}
-        setPlayerLoading={setPlayerLoading}
-        setPlayerError={setPlayerError}
-      />
-
-      <YouTubePlayer
-        playerRef={playerRef}
-        playerInnerRef={playerInnerRef}
-        trailerUrl={trailerUrl}
-        setTrailerUrl={setTrailerUrl}
-        playerLoading={playerLoading}
-        playerError={playerError}
-      /> */}
-
-      {!loading && !error && (
-        <>
-          {/* <CastBackdropVideo
-            id={id}
-            cast={cast}
-            castError={castError}
-            castLoading={castLoading}
-            setCast={setCast}
-            setCastLoading={setCastLoading}
-            setCastError={setCastError}
-            reviews={reviews}
-            reviewsError={reviewsError}
-            reviewsLoading={reviewsLoading}
-          />
-
-          <Reviews
-            id={id}
-            reviews={reviews}
-            reviewsError={reviewsError}
-            reviewsLoading={reviewsLoading}
-          />
-
-          <ImageViewer /> */}
+          <ImageViewer />
         </>
       )}
     </div>

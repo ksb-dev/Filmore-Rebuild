@@ -37,6 +37,8 @@ const MovieProvider = ({ children }) => {
   const menuIconRef = useRef(null)
   const menuRef = useRef(null)
   const menuInnerRef = useRef(null)
+  const viewerRef = useRef(null)
+  const innerViewerRef = useRef(null)
 
   // action, popular, war ...
   const [activeOption, setActiveOption] = useState(false)
@@ -62,6 +64,9 @@ const MovieProvider = ({ children }) => {
   const searchModalRef = useRef(null)
   const clearMovieInputRef = useRef(null)
   const clearTvInputRef = useRef(null)
+
+  // Backdrop Index
+  const [backdropIndex, setBackdropIndex] = useState(0)
 
   // Backdrops states
   const [backdrops, setBackdrops] = useState([])
@@ -121,18 +126,23 @@ const MovieProvider = ({ children }) => {
         clearMovieInputRef,
         clearTvInputRef,
 
-        backdrops,
-        setBackdrops,
-        backdropsLoading,
-        setBackdropsLoading,
-        backdropsError,
-        setBackdropsError,
-
         type,
         setType,
 
         movieIdState,
-        setMovieIdState
+        setMovieIdState,
+
+        viewerRef,
+        innerViewerRef,
+
+        backdropIndex,
+        setBackdropIndex,
+        backdrops,
+        setBackdrops,
+        backdropsError,
+        setBackdropsError,
+        backdropsLoading,
+        setBackdropsLoading
       }}
     >
       {children}

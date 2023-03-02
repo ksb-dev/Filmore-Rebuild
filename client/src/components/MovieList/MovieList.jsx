@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
@@ -43,6 +43,25 @@ const MovieList = () => {
   const user = useSelector(state => state.savedMovies.user)
 
   const buttonsRef = useRef(null)
+
+  const [stop, setStop] = useState(0)
+  const timeoutRef = useRef(null)
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIndex(prevIndex =>
+  //       prevIndex === sortedMovies.length - 1 ? 0 : prevIndex + 1
+  //     )
+  //   }, 2000)
+
+  //   if (stop === 1) {
+  //     clearTimeout(timer)
+  //   }
+
+  //   return () => {
+  //     clearTimeout(timer)
+  //   }
+  // }, [index, stop])
 
   if (loading) {
     return (
@@ -144,6 +163,15 @@ const MovieList = () => {
                   ? 'lightGradient1 darkColor2'
                   : 'darkGradient1 lightColor1')
               }
+              onMouseOver={() => {
+                //clearTimeout(timeoutRef.current)
+                //setStop(1)
+                buttonsRef.current.style.zIndex = '1'
+              }}
+              onMouseLeave={() => {
+                //setStop(0)
+                buttonsRef.current.style.zIndex = '-1'
+              }}
             >
               <p className={'list__wall__cover--number '}>
                 {index + 1 + ' / ' + sortedMovies.length}
@@ -167,6 +195,7 @@ const MovieList = () => {
                     </>
                   )}
                 </div>
+
                 <p className='list__wall__cover__info--overview'>
                   {sortedMovies[index].overview ? (
                     sortedMovies[index].overview.length > 245 ? (
@@ -184,30 +213,34 @@ const MovieList = () => {
             <div ref={buttonsRef} className='list__wall__buttons'>
               {sortedMovies.length > 1 ? (
                 <>
-                  <MdOutlineArrowBackIosNew
-                    cursor={'pointer'}
-                    size={'20px'}
-                    style={{
-                      marginLeft: '1rem',
-                      color: '#fff',
-                      background: 'rgba(0, 0, 0, 0.8)',
-                      padding: '0.5rem',
-                      borderRadius: '50%'
-                    }}
-                    onClick={() => previousImage(-1)}
-                  />
-                  <MdOutlineArrowForwardIos
-                    cursor={'pointer'}
-                    size={'20px'}
-                    style={{
-                      marginRight: '1rem',
-                      color: '#fff',
-                      background: 'rgba(0, 0, 0, 0.8)',
-                      padding: '0.5rem',
-                      borderRadius: '50%'
-                    }}
-                    onClick={() => nextImage(1)}
-                  />
+                  <span>
+                    <MdOutlineArrowBackIosNew
+                      cursor={'pointer'}
+                      size={'20px'}
+                      style={{
+                        marginLeft: '1rem',
+                        color: '#fff',
+                        background: 'rgba(0, 0, 0, 0.8)',
+                        padding: '0.5rem',
+                        borderRadius: '50%'
+                      }}
+                      onClick={() => previousImage(-1)}
+                    />
+                  </span>
+                  <span>
+                    <MdOutlineArrowForwardIos
+                      cursor={'pointer'}
+                      size={'20px'}
+                      style={{
+                        marginRight: '1rem',
+                        color: '#fff',
+                        background: 'rgba(0, 0, 0, 0.8)',
+                        padding: '0.5rem',
+                        borderRadius: '50%'
+                      }}
+                      onClick={() => nextImage(1)}
+                    />
+                  </span>
                 </>
               ) : (
                 <></>

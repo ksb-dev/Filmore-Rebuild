@@ -118,15 +118,6 @@ const TvList = () => {
         <>
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
-            onMouseOver={() => {
-              //clearTimeout(timeoutRef.current)
-              //setStop(1)
-              //btnRef.current.style.zIndex = '1'
-            }}
-            onMouseLeave={() => {
-              //setStop(0)
-              //btnRef.current.style.zIndex = '-1'
-            }}
           >
             <LazyLoadImage
               width={'100%'}
@@ -154,15 +145,15 @@ const TvList = () => {
                   ? 'lightGradient1 darkColor2'
                   : 'darkGradient1 lightColor1')
               }
-              // onMouseOver={() => {
-              //   //clearTimeout(timeoutRef.current)
-              //   //setStop(1)
-              //   btnRef.current.style.zIndex = '1'
-              // }}
-              // onMouseLeave={() => {
-              //   //setStop(0)
-              //   btnRef.current.style.zIndex = '-1'
-              // }}
+              onMouseOver={() => {
+                //clearTimeout(timeoutRef.current)
+                //setStop(1)
+                btnRef.current.style.zIndex = '1'
+              }}
+              onMouseLeave={() => {
+                //setStop(0)
+                btnRef.current.style.zIndex = '-1'
+              }}
             >
               <p className={'list__wall__cover--number '}>
                 {index + 1 + ' / ' + sortedShows.length}
@@ -200,34 +191,45 @@ const TvList = () => {
               </div>
             </Link>
 
-            <div ref={btnRef} className='list__wall__buttons'>
+            <div
+              ref={btnRef}
+              className='list__wall__buttons'
+              onMouseOver={() => {
+                buttonsRef.current.style.zIndex = '1'
+              }}
+            >
               {/* ref={btnRef} */}
               {sortedShows.length > 1 ? (
                 <>
-                  <MdOutlineArrowBackIosNew
-                    cursor={'pointer'}
-                    size={'20px'}
-                    style={{
-                      marginLeft: '1rem',
-                      color: '#fff',
-                      background: 'rgba(0, 0, 0, 0.8)',
-                      padding: '0.5rem',
-                      borderRadius: '50%'
-                    }}
-                    onClick={previousImage}
-                  />
-                  <MdOutlineArrowForwardIos
-                    cursor={'pointer'}
-                    size={'20px'}
-                    style={{
-                      marginRight: '1rem',
-                      color: '#fff',
-                      background: 'rgba(0, 0, 0, 0.8)',
-                      padding: '0.5rem',
-                      borderRadius: '50%'
-                    }}
-                    onClick={nextImage}
-                  />
+                  <span>
+                    <MdOutlineArrowBackIosNew
+                      cursor={'pointer'}
+                      size={'20px'}
+                      style={{
+                        marginLeft: '1rem',
+                        color: '#fff',
+                        background: 'rgba(0, 0, 0, 0.8)',
+                        padding: '0.5rem',
+                        borderRadius: '50%'
+                      }}
+                      onClick={previousImage}
+                    />
+                  </span>
+
+                  <span>
+                    <MdOutlineArrowForwardIos
+                      cursor={'pointer'}
+                      size={'20px'}
+                      style={{
+                        marginRight: '1rem',
+                        color: '#fff',
+                        background: 'rgba(0, 0, 0, 0.8)',
+                        padding: '0.5rem',
+                        borderRadius: '50%'
+                      }}
+                      onClick={nextImage}
+                    />
+                  </span>
                 </>
               ) : (
                 <></>

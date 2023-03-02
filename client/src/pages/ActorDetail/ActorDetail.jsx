@@ -33,8 +33,6 @@ const ActorDetail = () => {
   const [actorDetailLoading, setActorDetailLoading] = useState(true)
   const [actorDetailError, setActorDetailError] = useState('')
 
-  console.log(actorDetail)
-
   const { imdb_id, name, birthday, place_of_birth, profile_path, biography } =
     actorDetail
 

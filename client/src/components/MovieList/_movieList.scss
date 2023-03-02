@@ -17,7 +17,7 @@
 
     position: relative;
     user-select: none;
-    margin-bottom: calc(2rem + 0x);
+    margin-bottom: calc(2rem + 0px);
     border-bottom-left-radius: var(--border-radius-1);
     border-bottom-right-radius: var(--border-radius-1);
 
@@ -103,15 +103,21 @@
     }
 
     &__buttons {
+      z-index: -1;
+      justify-content: flex-end;
       width: 100%;
       position: absolute;
       bottom: 47%;
       display: flex;
-      justify-content: space-between;
       padding: 0.5rem 0;
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
       border-radius: var(--border-radius);
+      transition: var(--transition);
+
+      span:first-child {
+        margin-right: 2rem;
+      }
     }
   }
 

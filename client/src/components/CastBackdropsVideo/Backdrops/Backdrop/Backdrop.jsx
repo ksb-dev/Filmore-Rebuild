@@ -8,11 +8,24 @@ import { APIs } from '../../../../APIs/APIs'
 // context
 import { useMovieContext } from '../../../../context/context'
 
+// hooks
+import { useShowHide } from '../../../../hooks/useShowHide'
+
 const Backdrop = ({ backdrop, index }) => {
-  const { mode } = useMovieContext()
+  const { mode, setBackdropIndex, viewerRef, innerViewerRef } =
+    useMovieContext()
+  const { showViewer } = useShowHide()
+
+  const handleClick = () => {
+    setBackdropIndex(index)
+    showViewer(viewerRef, innerViewerRef)
+  }
 
   return (
-    <div className={'backdrop ' + (mode === true ? 'lightBg2' : 'darkBg1')}>
+    <div
+      className={'backdrop ' + (mode === true ? 'lightBg2' : 'darkBg1')}
+      onClick={() => handleClick()}
+    >
       <LazyLoadImage
         width={'100%'}
         height={'100%'}
@@ -21,12 +34,12 @@ const Backdrop = ({ backdrop, index }) => {
         effect='black-and-white'
         placeholderSrc={
           backdrop.file_path === null
-            ? url
+            ? APIs.no_image_url
             : APIs.img_path_original + backdrop.file_path
         }
         src={
           backdrop.file_path === null
-            ? url
+            ? APIs.no_image_url
             : APIs.img_path_original + backdrop.file_path
         }
       />
