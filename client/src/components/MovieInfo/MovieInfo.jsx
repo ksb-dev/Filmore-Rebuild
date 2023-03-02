@@ -16,7 +16,7 @@ import { useMovieContext } from '../../context/context'
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
 import { useShowHide } from '../../hooks/useShowHide'
-//import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -36,13 +36,13 @@ const MovieInfo = ({
   data,
   loading,
   error,
+  trailerUrl,
+  trailerLoading,
+  trailerError,
   playerRef,
   playerInnerRef,
-  trailerUrl,
-  setTrailerUrl,
-  playerLoading,
+  setPlayerUrl,
   setPlayerLoading,
-  playerError,
   setPlayerError
 }) => {
   const navigate = useNavigate()
@@ -54,7 +54,7 @@ const MovieInfo = ({
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { showPlayer } = useShowHide()
-  //const { getTrailer } = useGetMovieInfo()
+  const { getMovieTrailer786px } = useGetMovieInfo()
 
   // states
   const [genres, setGenres] = useState(new Set())
@@ -110,7 +110,7 @@ const MovieInfo = ({
 
   const playTrailer = () => {
     showPlayer(playerRef, playerInnerRef)
-    //getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+    getMovieTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
   }
 
   const handleAddMovie = () => {
@@ -270,9 +270,9 @@ const MovieInfo = ({
             (mode === true ? 'lightBg2' : 'darkBg1')
           }
         >
-          {playerLoading && <Loading />}
-          {playerError && <Error />}
-          {!playerLoading && !playerError && (
+          {trailerLoading && <Loading />}
+          {trailerError && <Error />}
+          {!trailerLoading && !trailerError && (
             <VideoPlayer embedId={trailerUrl && trailerUrl} />
           )}
         </div>
@@ -425,7 +425,7 @@ const MovieInfo = ({
             onClick={() => playTrailer()}
           >
             {iconsData.play}
-            Play Trailer
+            Watch Trailer
           </span>
         </div>
       </div>

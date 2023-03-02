@@ -16,7 +16,7 @@ import { useMovieContext } from '../../context/context'
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
 import { useShowHide } from '../../hooks/useShowHide'
-//import { useGetTvInfo } from '../../hooks/useGetTvInfo'
+import { useGetTvInfo } from '../../hooks/useGetTvInfo'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -31,18 +31,18 @@ import Error from '../../other/Error/Error'
 import VideoPlayer from '../../other/VideoPlayer/VideoPlayer'
 import CircularProgressBar from '../../other/CircularProgressBar/CircularProgressBar'
 
-const MovieInfo = ({
+const TvInfo = ({
   id,
   data,
   loading,
   error,
+  trailerUrl,
+  trailerLoading,
+  trailerError,
   playerRef,
   playerInnerRef,
-  trailerUrl,
-  setTrailerUrl,
-  playerLoading,
+  setPlayerUrl,
   setPlayerLoading,
-  playerError,
   setPlayerError
 }) => {
   const navigate = useNavigate()
@@ -54,7 +54,7 @@ const MovieInfo = ({
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { showPlayer } = useShowHide()
-  //const { getTrailer } = useGetTvInfo()
+  const { getTvTrailer786px } = useGetTvInfo()
 
   // states
   const [genres, setGenres] = useState(new Set())
@@ -108,7 +108,7 @@ const MovieInfo = ({
 
   const playTrailer = () => {
     showPlayer(playerRef, playerInnerRef)
-    //getTrailer(id, trailerUrl, setTrailerUrl, setPlayerLoading, setPlayerError)
+    getTvTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
   }
 
   const handleAddMovie = () => {
@@ -254,9 +254,9 @@ const MovieInfo = ({
             (mode === true ? 'lightBg2' : 'darkBg1')
           }
         >
-          {playerLoading && <Loading />}
-          {playerError && <Error />}
-          {!playerLoading && !playerError && (
+          {trailerLoading && <Loading />}
+          {trailerError && <Error />}
+          {!trailerLoading && !trailerError && (
             <VideoPlayer embedId={trailerUrl && trailerUrl} />
           )}
         </div>
@@ -409,7 +409,7 @@ const MovieInfo = ({
             onClick={() => playTrailer()}
           >
             {iconsData.play}
-            Play Trailer
+            Watch Trailer
           </span>
         </div>
       </div>
@@ -417,4 +417,4 @@ const MovieInfo = ({
   )
 }
 
-export default MovieInfo
+export default TvInfo

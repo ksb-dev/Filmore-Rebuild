@@ -22,7 +22,7 @@ import SearchModal from '../../components/SearchModal/SearchModal'
 import TvInfo from '../../components/TvInfo/TvInfo'
 import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdropsVideo'
 import Reviews from '../../components/Reviews/Reviews'
-import Player from '../../components/Player/Player'
+import PlayerOne from '../../components/PlayerOne/PlayerOne'
 import ImageViewer from '../../components/ImageViewer/ImageViewer'
 
 const TvDetail = () => {
@@ -39,8 +39,14 @@ const TvDetail = () => {
   } = useMovieContext()
   const dispatch = useDispatch()
 
-  const { getTrailer, getInfo, getCast, getBackdrops, getVideos, getReviews } =
-    useGetTvInfo()
+  const {
+    getTvTrailer,
+    getTvInfo,
+    getTvCast,
+    getTvBackdrops,
+    getTvVideos,
+    getTvReviews
+  } = useGetTvInfo()
 
   // Movie info
   const { id } = useParams()
@@ -65,10 +71,14 @@ const TvDetail = () => {
 
   // Youtube
   const [trailerUrl, setTrailerUrl] = useState('')
+  const [trailerLoading, setTrailerLoading] = useState(true)
+  const [trailerError, setTrailerError] = useState('')
+
+  const [playerUrl, setPlayerUrl] = useState('')
   const [playerLoading, setPlayerLoading] = useState(true)
   const [playerError, setPlayerError] = useState('')
-  const playerRef = useRef(null)
-  const playerInnerRef = useRef(null)
+  const playerTwoRef = useRef(null)
+  const playerTwoInnerRef = useRef(null)
 
   useEffect(() => {
     window.scroll({
@@ -92,29 +102,29 @@ const TvDetail = () => {
     })
 
     // 1. Get Trailer
-    getTrailer(id, setTrailerUrl, setPlayerLoading, setPlayerError)
+    getTvTrailer(id, setTrailerUrl, setTrailerLoading, setTrailerError)
 
     // 2. Get info
-    getInfo(id, setData, setLoading, setError)
+    getTvInfo(id, setData, setLoading, setError)
 
     //3. Get cast
     setTimeout(() => {
-      getCast(id, setCast, setCastLoading, setCastError)
+      getTvCast(id, setCast, setCastLoading, setCastError)
     }, 250)
 
     //4. Get backdrops
     setTimeout(() => {
-      getBackdrops(id, setBackdrops, setBackdropsLoading, setBackdropsError)
+      getTvBackdrops(id, setBackdrops, setBackdropsLoading, setBackdropsError)
     }, 500)
 
     //5. Get videos
     setTimeout(() => {
-      getVideos(id, setVideos, setVideosLoading, setVideosError)
+      getTvVideos(id, setVideos, setVideosLoading, setVideosError)
     }, 750)
 
     //6. Get reviews
     setTimeout(() => {
-      getReviews(id, setReviews, setReviewsLoading, setReviewsError)
+      getTvReviews(id, setReviews, setReviewsLoading, setReviewsError)
     }, 1000)
   }, [movieIdState])
 
@@ -130,23 +140,22 @@ const TvDetail = () => {
         data={data}
         loading={loading}
         error={error}
-        playerRef={playerRef}
-        playerInnerRef={playerInnerRef}
         trailerUrl={trailerUrl}
-        setTrailerUrl={setTrailerUrl}
-        playerLoading={playerLoading}
+        trailerLoading={trailerLoading}
+        trailerError={trailerError}
+        playerRef={playerTwoRef}
+        playerInnerRef={playerTwoInnerRef}
+        setPlayerUrl={setPlayerUrl}
         setPlayerLoading={setPlayerLoading}
-        playerError={playerError}
         setPlayerError={setPlayerError}
       />
 
-      <Player
-        playerRef={playerRef}
-        playerInnerRef={playerInnerRef}
-        trailerUrl={trailerUrl}
-        setTrailerUrl={setTrailerUrl}
+      <PlayerOne
+        playerRef={playerTwoRef}
+        playerInnerRef={playerTwoInnerRef}
+        playerUrl={playerUrl}
         playerLoading={playerLoading}
-        playerError={playerError}
+        setPlayerUrl={setPlayerUrl}
       />
 
       {!loading && !error && (

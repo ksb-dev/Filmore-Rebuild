@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 
 export const useGetMovieInfo = () => {
   // Get movie info
-  const getInfo = async (id, setData, setLoading, setError) => {
+  const getMovieInfo = async (id, setData, setLoading, setError) => {
     const type = 'movie'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -27,7 +27,7 @@ export const useGetMovieInfo = () => {
   }
 
   // Get cast
-  const getCast = async (id, setCast, setCastLoading, setCastError) => {
+  const getMovieCast = async (id, setCast, setCastLoading, setCastError) => {
     const type = 'movie'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -55,7 +55,7 @@ export const useGetMovieInfo = () => {
   }
 
   // Get backdrops
-  const getBackdrops = async (
+  const getMovieBackdrops = async (
     id,
     setBackdrops,
     setBackdropsLoading,
@@ -89,17 +89,17 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   // Get trailer
-  const getTrailer = async (
+  const getMovieTrailer = async (
     id,
     setTrailerUrl,
-    setPlayerLoading,
-    setPlayerError
+    setTrailerLoading,
+    setTrailerError
   ) => {
     const type = 'movie'
 
     try {
-      setPlayerLoading(true)
-      setPlayerError('')
+      setTrailerLoading(true)
+      setTrailerError('')
 
       let response = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
@@ -120,16 +120,56 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
         setTrailerUrl(trailerUrl.results[0].key)
       }
 
-      setPlayerLoading(false)
-      setPlayerError('')
+      setTrailerLoading(false)
+      setTrailerError('')
     } catch (error) {
-      setPlayerLoading(false)
-      setPlayerError('Failed to play video')
+      setTrailerLoading(false)
+      setTrailerError('Failed to play video')
+    }
+  }
+
+  // Get Trailer (0 - 786px)
+  const getMovieTrailer786px = async (
+    id,
+    setPlayerOneUrl,
+    setPlayerOneLoading,
+    setPlayerOneError
+  ) => {
+    const type = 'movie'
+
+    try {
+      setPlayerOneLoading(true)
+      setPlayerOneError('')
+
+      let response = await fetch(
+        `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
+          import.meta.env.VITE_KEY
+        }&language=en-US`
+      )
+      let trailerUrl = await response.json()
+      let value = ''
+
+      trailerUrl.results.map(result => {
+        if (result.official === true) {
+          value = result.key
+          setPlayerOneUrl(result.key)
+        }
+      })
+
+      if (value === '') {
+        setPlayerOneUrl(trailerUrl.results[0].key)
+      }
+
+      setPlayerOneLoading(false)
+      setPlayerOneError('')
+    } catch (error) {
+      setPlayerOneLoading(false)
+      setPlayerOneError('Failed to play video')
     }
   }
 
   // Get reviews
-  const getReviews = async (
+  const getMovieReviews = async (
     id,
     setReviews,
     setReviewsLoading,
@@ -161,7 +201,12 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   // Get videos
-  const getVideos = async (id, setVideos, setVideosLoading, setVideosError) => {
+  const getMovieVideos = async (
+    id,
+    setVideos,
+    setVideosLoading,
+    setVideosError
+  ) => {
     const type = 'movie'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -242,12 +287,13 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   return {
-    getInfo,
-    getCast,
-    getBackdrops,
-    getTrailer,
-    getReviews,
-    getVideos,
+    getMovieInfo,
+    getMovieCast,
+    getMovieBackdrops,
+    getMovieTrailer,
+    getMovieTrailer786px,
+    getMovieReviews,
+    getMovieVideos,
     getActorDetail,
     getMovieCrew
   }

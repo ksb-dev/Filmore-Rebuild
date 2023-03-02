@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 
 export const useGetTvInfo = () => {
   // Get movie info
-  const getInfo = async (id, setData, setLoading, setError) => {
+  const getTvInfo = async (id, setData, setLoading, setError) => {
     const type = 'tv'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -27,7 +27,7 @@ export const useGetTvInfo = () => {
   }
 
   // Get cast
-  const getCast = async (id, setCast, setCastLoading, setCastError) => {
+  const getTvCast = async (id, setCast, setCastLoading, setCastError) => {
     const type = 'tv'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -55,7 +55,7 @@ export const useGetTvInfo = () => {
   }
 
   // Get backdrops
-  const getBackdrops = async (
+  const getTvBackdrops = async (
     id,
     setBackdrops,
     setBackdropsLoading,
@@ -89,18 +89,17 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   // Get trailer
-  const getTrailer = async (
+  const getTvTrailer = async (
     id,
     setTrailerUrl,
-    setPlayerLoading,
-    setPlayerError
+    setTrailerLoading,
+    setTrailerError
   ) => {
     const type = 'tv'
-    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
     try {
-      setPlayerLoading(true)
-      setPlayerError('')
+      setTrailerLoading(true)
+      setTrailerError('')
 
       let response = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
@@ -121,16 +120,56 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
         setTrailerUrl(trailerUrl.results[0].key)
       }
 
-      setPlayerLoading(false)
-      setPlayerError('')
+      setTrailerLoading(false)
+      setTrailerError('')
     } catch (error) {
-      setPlayerLoading(false)
-      setPlayerError('Failed to play video')
+      setTrailerLoading(false)
+      setTrailerError('Failed to play video')
+    }
+  }
+
+  // Get Trailer (0 - 786px)
+  const getTvTrailer786px = async (
+    id,
+    setPlayerOneUrl,
+    setPlayerOneLoading,
+    setPlayerOneError
+  ) => {
+    const type = 'tv'
+
+    try {
+      setPlayerOneLoading(true)
+      setPlayerOneError('')
+
+      let response = await fetch(
+        `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
+          import.meta.env.VITE_KEY
+        }&language=en-US`
+      )
+      let trailerUrl = await response.json()
+      let value = ''
+
+      trailerUrl.results.map(result => {
+        if (result.official === true) {
+          value = result.key
+          setPlayerOneUrl(result.key)
+        }
+      })
+
+      if (value === '') {
+        setPlayerOneUrl(trailerUrl.results[0].key)
+      }
+
+      setPlayerOneLoading(false)
+      setPlayerOneError('')
+    } catch (error) {
+      setPlayerOneLoading(false)
+      setPlayerOneError('Failed to play video')
     }
   }
 
   // Get reviews
-  const getReviews = async (
+  const getTvReviews = async (
     id,
     setReviews,
     setReviewsLoading,
@@ -162,7 +201,12 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   // Get videos
-  const getVideos = async (id, setVideos, setVideosLoading, setVideosError) => {
+  const getTvVideos = async (
+    id,
+    setVideos,
+    setVideosLoading,
+    setVideosError
+  ) => {
     const type = 'tv'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -217,7 +261,7 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   // Get movie crew
-  const getMovieCrew = async (id, setCrew, setCrewLoading, setCrewError) => {
+  const getTvMovieCrew = async (id, setCrew, setCrewLoading, setCrewError) => {
     const type = 'tv'
     //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
 
@@ -243,13 +287,14 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   }
 
   return {
-    getInfo,
-    getCast,
-    getBackdrops,
-    getTrailer,
-    getReviews,
-    getVideos,
+    getTvInfo,
+    getTvCast,
+    getTvBackdrops,
+    getTvTrailer,
+    getTvTrailer786px,
+    getTvReviews,
+    getTvVideos,
     getActorDetail,
-    getMovieCrew
+    getTvMovieCrew
   }
 }

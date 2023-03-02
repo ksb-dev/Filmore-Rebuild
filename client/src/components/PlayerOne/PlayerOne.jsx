@@ -8,15 +8,14 @@ import { useShowHide } from '../../hooks/useShowHide'
 
 // Components
 import Loading from '../../other/Loading/Loading'
-import VideoPlayer from '../../other/VideoPlayer/VideoPlayer'
+import Iframe from '../../other/Iframe/Iframe'
 
-const YouTubePlayer = ({
+const PlayerOne = ({
   playerRef,
   playerInnerRef,
-  trailerUrl,
-  setTrailerUrl,
+  playerUrl,
   playerLoading,
-  playerError
+  setPlayerUrl
 }) => {
   const { mode } = useMovieContext()
   const { hidePlayer } = useShowHide()
@@ -30,7 +29,7 @@ const YouTubePlayer = ({
         !playerInnerRef.current.contains(e.target)
       ) {
         hidePlayer(playerInnerRef, playerRef)
-        //setTrailerUrl('')
+        setPlayerUrl('')
       }
     }
 
@@ -54,12 +53,12 @@ const YouTubePlayer = ({
           </div>
         )}
 
-        {!playerLoading && trailerUrl && <VideoPlayer embedId={trailerUrl} />}
+        {!playerLoading && playerUrl && <Iframe embedId={playerUrl} />}
 
-        {!playerLoading && !trailerUrl && <h1>Trailer not found.</h1>}
+        {!playerLoading && !playerUrl && <h1>Trailer not found.</h1>}
       </div>
     </div>
   )
 }
 
-export default YouTubePlayer
+export default PlayerOne

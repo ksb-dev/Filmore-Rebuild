@@ -341,7 +341,7 @@ body {
 
 @import '../components/ImageViewer/imageViewer';
 
-@import '../components/Player/player';
+@import '../components/PlayerOne/playerOne';
 
 // pages
 @import '../pages/Home/home';
@@ -362,6 +362,7 @@ body {
 @import '../other/Options/options';
 @import '../other/Switch/switch';
 @import '../other/VideoPlayer/videoPlayer';
+@import '../other/Iframe/iframe';
 
 body::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */
