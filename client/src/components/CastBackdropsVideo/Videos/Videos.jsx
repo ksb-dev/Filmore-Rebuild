@@ -10,7 +10,16 @@ import Video from '../Videos/Video/Video'
 import Loading from '../../../other/Loading/Loading'
 import Error from '../../../other/Error/Error'
 
-const Videos = ({ videos, videosLoading, videosError }) => {
+const Videos = ({
+  videos,
+  videosLoading,
+  videosError,
+  setPlayerUrl,
+  setPlayerLoading,
+  setPlayerError,
+  playerRef,
+  playerInnerRef
+}) => {
   const { mode } = useMovieContext()
 
   if (videosLoading) {
@@ -42,7 +51,18 @@ const Videos = ({ videos, videosLoading, videosError }) => {
       {videos &&
         videos.map(
           (video, index) =>
-            index < 4 && <Video key={index} video={video} index={index} />
+            index < 4 && (
+              <Video
+                key={index}
+                video={video}
+                index={index}
+                setPlayerUrl={setPlayerUrl}
+                setPlayerLoading={setPlayerLoading}
+                setPlayerError={setPlayerError}
+                playerRef={playerRef}
+                playerInnerRef={playerInnerRef}
+              />
+            )
         )}
     </div>
   )

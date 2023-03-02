@@ -133,7 +133,7 @@ const Header = () => {
             </Link>
           ) : (
             <Link to='/watchlist' className='watchlist'>
-              {iconsData.addBookmark}
+              {iconsData.outlineBookmark}
               <p>
                 <span>
                   {optionState === 'movie'

@@ -3,8 +3,28 @@ import React from 'react'
 // context
 import { useMovieContext } from '../../../../context/context'
 
-const Video = ({ video }) => {
+// hooks
+import { useShowHide } from '../../../../hooks/useShowHide'
+import { useGetMovieInfo } from '../../../../hooks/useGetMovieInfo'
+import { useGetTvInfo } from '../../../../hooks/useGetTvInfo'
+
+const Video = ({
+  video,
+  setPlayerUrl,
+  setPlayerLoading,
+  playerRef,
+  playerInnerRef
+}) => {
   const { mode } = useMovieContext()
+  const { showPlayer } = useShowHide()
+  const { getMovieTrailer786px } = useGetMovieInfo()
+  const { getTvTrailer786px } = useGetTvInfo()
+
+  const playTrailer = () => {
+    setPlayerUrl(video.key)
+    setPlayerLoading(false)
+    showPlayer(playerRef, playerInnerRef)
+  }
 
   return (
     <div className={'video ' + (mode === true ? 'lightBg2' : 'darkBg1')}>
@@ -16,7 +36,7 @@ const Video = ({ video }) => {
         allowFullScreen
         title='Embedded youtube'
       />
-      <div className='cover'></div>
+      <div className='cover' onClick={() => playTrailer()}></div>
     </div>
   )
 }

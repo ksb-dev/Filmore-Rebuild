@@ -80,6 +80,8 @@ const MovieDetail = () => {
   const playerOneRef = useRef(null)
   const playerOneInnerRef = useRef(null)
 
+  const [type, setType] = useState('movie')
+
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -166,7 +168,6 @@ const MovieDetail = () => {
       {!loading && !error && (
         <>
           <CastBackdropsVideo
-            id={id}
             cast={cast}
             castError={castError}
             castLoading={castLoading}
@@ -179,6 +180,11 @@ const MovieDetail = () => {
             reviews={reviews}
             reviewsError={reviewsError}
             reviewsLoading={reviewsLoading}
+            setPlayerUrl={setPlayerUrl}
+            setPlayerLoading={setPlayerLoading}
+            setPlayerError={setPlayerError}
+            playerRef={playerOneRef}
+            playerInnerRef={playerOneInnerRef}
           />
 
           <Reviews

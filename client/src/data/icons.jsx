@@ -7,7 +7,8 @@ import {
   AiOutlineHome,
   AiOutlineStar,
   AiTwotoneHome,
-  AiFillHome
+  AiFillHome,
+  AiOutlinePlusCircle
 } from 'react-icons/ai'
 import {
   BsSun,
@@ -80,6 +81,7 @@ export const iconsData = {
   addedBookmark: <FiCheck size={'20px'} />,
   addBookmark1: <AiOutlinePlus size={'25px'} />,
   addedBookmark1: <FiCheck size={'25px'} />,
+  outlineBookmark: <AiOutlinePlusCircle size={'20px'} />,
   filledBookmark: <BsPlusCircleFill size={'20px'} />,
   star1: <RiStarFill size={'20px'} style={{ marginRight: '0.5rem' }} />,
   star2: <AiOutlineStar size={'20px'} />,

@@ -20,6 +20,8 @@ const PlayerOne = ({
   const { mode } = useMovieContext()
   const { hidePlayer } = useShowHide()
 
+  useEffect(() => {}, [playerUrl])
+
   // Detect outside click of Side Menu
   useEffect(() => {
     const handleOutsideClick = e => {

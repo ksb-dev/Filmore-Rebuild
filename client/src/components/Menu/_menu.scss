@@ -158,23 +158,27 @@
     transform: translateX(-120%);
 
     &__inner {
-      width: 60%;
-      min-height: 100vh;
+      //width: 60%;
+      //min-height: 100vh;
 
       .title-close {
-        margin-bottom: 0rem;
+        margin-bottom: 1rem;
       }
 
       .category-title,
       .title-close {
-        padding: 1rem;
+        padding: 1rem 1rem 0 1rem;
+        font-size: 1rem;
       }
 
       .genre-title {
         padding-left: 1rem;
+        margin-bottom: 0;
+        font-size: 1rem;
       }
 
       &__genre {
+        margin-bottom: 2rem;
         padding: 1rem 1rem 1rem 1rem;
         height: calc(100vh - 420.4px);
         overflow-y: scroll;
@@ -187,7 +191,8 @@
           a,
           span {
             font-size: 0.8rem;
-            margin-right: 1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
             padding: 0.5rem 0.5rem;
           }
         }
@@ -204,7 +209,8 @@
           p,
           a,
           span {
-            margin-right: 1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
             font-size: 0.8rem;
             padding: 0.5rem 0.5rem;
           }

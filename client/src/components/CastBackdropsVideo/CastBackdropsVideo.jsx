@@ -12,7 +12,6 @@ import Backdrops from './Backdrops/Backdrops'
 import Videos from './Videos/Videos'
 
 const CastBackdropsVideo = ({
-  id,
   cast,
   castLoading,
   castError,
@@ -21,7 +20,12 @@ const CastBackdropsVideo = ({
   backdropsError,
   videos,
   videosLoading,
-  videosError
+  videosError,
+  setPlayerUrl,
+  setPlayerLoading,
+  setPlayerError,
+  playerRef,
+  playerInnerRef
 }) => {
   const { mode } = useMovieContext()
 
@@ -70,6 +74,11 @@ const CastBackdropsVideo = ({
           videos={videos}
           videosLoading={videosLoading}
           videosError={videosError}
+          setPlayerUrl={setPlayerUrl}
+          setPlayerLoading={setPlayerLoading}
+          setPlayerError={setPlayerError}
+          playerRef={playerRef}
+          playerInnerRef={playerInnerRef}
         />
       </div>
     </div>
