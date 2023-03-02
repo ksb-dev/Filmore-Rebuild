@@ -45,7 +45,7 @@ const PlayerOne = ({
     >
       <div
         ref={playerInnerRef}
-        className={'player__inner ' + (mode === true ? 'lightBg1' : 'darkBg1')}
+        className={'player__inner ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
         {playerLoading && (
           <div className='player__inner__loading'>
