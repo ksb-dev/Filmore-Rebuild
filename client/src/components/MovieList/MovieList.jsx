@@ -221,7 +221,13 @@ const MovieList = () => {
               </div>
             </Link>
 
-            <div ref={buttonsRef} className='list__wall__buttons'>
+            <div
+              ref={buttonsRef}
+              className='list__wall__buttons'
+              onMouseOver={() => {
+                buttonsRef.current.style.zIndex = '1'
+              }}
+            >
               {sortedMovies.length > 1 ? (
                 <>
                   <span>

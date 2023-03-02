@@ -43,7 +43,7 @@ const TvList = () => {
 
   // const [stop, setStop] = useState(0)
   // const timeoutRef = useRef(null)
-  const btnRef = useRef(null)
+  const buttonsRef = useRef(null)
 
   const previousImage = () => {
     index < 1
@@ -159,11 +159,11 @@ const TvList = () => {
               onMouseOver={() => {
                 //clearTimeout(timeoutRef.current)
                 //setStop(1)
-                btnRef.current.style.zIndex = '1'
+                buttonsRef.current.style.zIndex = '1'
               }}
               onMouseLeave={() => {
                 //setStop(0)
-                btnRef.current.style.zIndex = '-1'
+                buttonsRef.current.style.zIndex = '-1'
               }}
             >
               <p className={'list__wall__cover--number '}>
@@ -201,14 +201,14 @@ const TvList = () => {
                 </p>
               </div>
             </Link>
+
             <div
-              ref={btnRef}
+              ref={buttonsRef}
               className='list__wall__buttons'
               onMouseOver={() => {
                 buttonsRef.current.style.zIndex = '1'
               }}
             >
-              {/* ref={btnRef} */}
               {sortedShows.length > 1 ? (
                 <>
                   <span>
