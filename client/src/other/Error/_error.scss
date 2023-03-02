@@ -3,3 +3,9 @@
   text-align: center;
   font-size: 1.25rem;
 }
+
+@media screen and (max-width: 786px) {
+  .err-msg {
+    font-size: 1rem;
+  }
+}
