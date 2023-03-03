@@ -12,10 +12,11 @@
     &__loading,
     &__error {
       width: 100%;
+      height: 63vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 2rem;
+      //padding-top: 35vh;
     }
 
     &__img-name-birth-place {
@@ -123,6 +124,12 @@
       padding: calc(58.4px + 1rem) 1rem calc(58.4px + 1rem) 1rem;
 
       flex-direction: column;
+
+      &__loading,
+      &__error {
+        width: 100%;
+        height: 75vh;
+      }
 
       &__img-name-birth-place {
         margin-bottom: 0rem;
