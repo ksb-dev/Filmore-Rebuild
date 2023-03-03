@@ -164,7 +164,7 @@ const MovieList = () => {
               src={
                 sortedMovies[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path_w300 + sortedMovies[index].backdrop_path
+                  : APIs.img_path_w780 + sortedMovies[index].backdrop_path
               }
               alt={sortedMovies[index].title}
               load='lazy'

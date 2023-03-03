@@ -376,7 +376,7 @@ const MovieInfo = ({
             src={
               poster_path === null
                 ? APIs.no_image_url
-                : APIs.img_path_w300 + backdrop_path
+                : APIs.img_path_w780 + backdrop_path
             }
             alt={title}
             load='lazy'

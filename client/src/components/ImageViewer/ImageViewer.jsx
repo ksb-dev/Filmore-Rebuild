@@ -94,7 +94,7 @@ const ImageViewer = () => {
               className='img-3'
               src={
                 backdrops[backdropIndex].file_path !== null
-                  ? APIs.img_path_w300 + backdrops[backdropIndex].file_path
+                  ? APIs.img_path_w780 + backdrops[backdropIndex].file_path
                   : APIs.no_image_url
               }
               alt='image'

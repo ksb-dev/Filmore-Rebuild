@@ -146,7 +146,7 @@ const TvList = () => {
               src={
                 sortedShows[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path_w300 + sortedShows[index].backdrop_path
+                  : APIs.img_path_w780 + sortedShows[index].backdrop_path
               }
               alt={sortedShows[index].name}
               load='lazy'

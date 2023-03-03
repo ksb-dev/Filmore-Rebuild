@@ -31,7 +31,7 @@ const Backdrop = ({ backdrop, index }) => {
         src={
           backdrop.file_path === null
             ? APIs.no_image_url
-            : APIs.img_path_w300 + backdrop.file_path
+            : APIs.img_path_w780 + backdrop.file_path
         }
         alt='backdrop'
         load='lazy'
