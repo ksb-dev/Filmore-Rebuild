@@ -40,6 +40,7 @@ const MovieCard = ({ movie }) => {
   const navigate = useNavigate()
 
   const infoRef = useRef(null)
+  const infoInnerRef = useRef(null)
 
   const {
     title,
@@ -54,10 +55,16 @@ const MovieCard = ({ movie }) => {
 
   const show = () => {
     infoRef.current.style.opacity = '1'
+    setTimeout(() => {
+      infoInnerRef.current.style.transform = 'scale(1)'
+    }, 100)
   }
 
   const hide = () => {
     infoRef.current.style.opacity = '0'
+    setTimeout(() => {
+      infoInnerRef.current.style.transform = 'scale(0)'
+    }, 100)
   }
 
   return (
@@ -178,7 +185,7 @@ const MovieCard = ({ movie }) => {
         onMouseOver={show}
         onMouseLeave={hide}
       >
-        <div className='card__info__inner'>
+        <div ref={infoInnerRef} className='card__info__inner'>
           <p className='card__info__inner--title'>
             {title && title.length <= 35
               ? title

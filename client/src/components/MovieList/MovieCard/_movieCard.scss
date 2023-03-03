@@ -75,7 +75,7 @@
     border-radius: var(--border-radius-1);
     position: absolute;
     width: 100%;
-    height: 98.5%;
+    height: 99%;
     z-index: 1;
     top: 0;
     left: 0;
@@ -91,6 +91,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      transform: scale(0);
+      backface-visibility: hidden;
+      transition: var(--transition);
 
       &--title {
         margin: 0;

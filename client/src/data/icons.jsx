@@ -51,5 +51,12 @@ export const iconsData = {
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
 
-  play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.5rem' }} />
+  play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.5rem' }} />,
+
+  forwardArrow: (
+    <MdOutlineArrowForwardIos
+      size={'20px'}
+      style={{ marginBottom: '-0.1rem' }}
+    />
+  )
 }

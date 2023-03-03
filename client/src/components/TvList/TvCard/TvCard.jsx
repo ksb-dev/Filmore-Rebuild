@@ -39,6 +39,7 @@ const TvCard = ({ tv }) => {
   const navigate = useNavigate()
 
   const infoRef = useRef(null)
+  const infoInnerRef = useRef(null)
 
   const {
     name,
@@ -53,10 +54,16 @@ const TvCard = ({ tv }) => {
 
   const show = () => {
     infoRef.current.style.opacity = '1'
+    setTimeout(() => {
+      infoInnerRef.current.style.transform = 'scale(1)'
+    }, 100)
   }
 
   const hide = () => {
     infoRef.current.style.opacity = '0'
+    setTimeout(() => {
+      infoInnerRef.current.style.transform = 'scale(0)'
+    }, 100)
   }
 
   return (
@@ -175,7 +182,7 @@ const TvCard = ({ tv }) => {
         onMouseOver={show}
         onMouseLeave={hide}
       >
-        <div className='card__info__inner'>
+        <div ref={infoInnerRef} className='card__info__inner'>
           <p className='card__info__inner--title'>
             {name && name.length <= 35 ? name : name.substring(0, 32) + '...'}
           </p>
