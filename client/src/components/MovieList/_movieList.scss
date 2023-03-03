@@ -146,6 +146,23 @@
 @media screen and (max-width: 1280px) {
   .list {
     padding-top: 58.6px;
+
+    &__wall {
+      border-radius: 0;
+
+      &--image {
+        border-radius: 0;
+      }
+
+      &__cover {
+        border-radius: 0;
+
+        &--number {
+          border-radius: 0;
+          border-top-left-radius: var(--border-radius-1);
+        }
+      }
+    }
   }
 }
 
@@ -190,6 +207,7 @@
           bottom: -0.75rem;
           font-size: 0.75rem;
           padding: 0.25rem 0.5rem;
+          border-radius: 0;
         }
 
         &__info {

@@ -194,38 +194,6 @@ const MovieCard = ({ movie }) => {
           </Link>
         </div>
       </div>
-
-      {/* CARD-INFO */}
-      {/* <Link
-        to={`/movie/${id}`}
-        className={
-          'card__info ' +
-          (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
-        }
-      >
-        <p className='card__info--title'>
-          {title && title.length <= 35 ? title : title.substring(0, 32) + '...'}
-        </p>
-
-        <div
-          className={
-            'card__info__date-rating ' +
-            (mode === true ? 'lightBg1' : 'darkBg2')
-          }
-        >
-          <span className='card__info__date-rating--date'>
-            {release_date && moment(release_date).format('Do MMM, YYYY')}
-          </span>
-          <p
-            className={
-              'card__info__date-rating--rating ' +
-              getClassBg(Number(String(vote_average).substring(0, 3)))
-            }
-          >
-            <span>{Number(String(vote_average).substring(0, 3))}</span>
-          </p>
-        </div>
-      </Link> */}
     </div>
   )
 }
