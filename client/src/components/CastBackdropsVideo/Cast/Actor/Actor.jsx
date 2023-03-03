@@ -31,7 +31,7 @@ const Actor = ({ actor }) => {
           src={
             profile_path === null
               ? APIs.no_image_url
-              : APIs.img_path + profile_path
+              : APIs.img_path_w185 + profile_path
           }
           alt={original_name}
           load='lazy'

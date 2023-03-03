@@ -69,32 +69,55 @@ const ImageViewer = () => {
         )}
 
         {backdrops && backdrops[backdropIndex] && (
-          // <img
-          //   src={
-          //     backdrops[backdropIndex].file_path !== null
-          //       ? APIs.img_path + backdrops[backdropIndex].file_path
-          //       : APIs.no_image_url
-          //   }
-          //   alt='image'
-          // />
+          <>
+            <img
+              className='img-1'
+              src={
+                backdrops[backdropIndex].file_path !== null
+                  ? APIs.img_path + backdrops[backdropIndex].file_path
+                  : APIs.no_image_url
+              }
+              alt='image'
+            />
 
-          <LazyLoadImage
-            width={'100%'}
-            height={'100%'}
-            className='img'
-            alt='image'
-            effect='black-and-white'
-            placeholderSrc={
-              backdrops[backdropIndex].file_path.file_path === null
-                ? APIs.no_image_url
-                : APIs.img_path_original + backdrops[backdropIndex].file_path
-            }
-            src={
-              backdrops[backdropIndex].file_path === null
-                ? APIs.no_image_url
-                : APIs.img_path_original + backdrops[backdropIndex].file_path
-            }
-          />
+            <img
+              className='img-2'
+              src={
+                backdrops[backdropIndex].file_path !== null
+                  ? APIs.img_path_w780 + backdrops[backdropIndex].file_path
+                  : APIs.no_image_url
+              }
+              alt='image'
+            />
+
+            <img
+              className='img-3'
+              src={
+                backdrops[backdropIndex].file_path !== null
+                  ? APIs.img_path_w300 + backdrops[backdropIndex].file_path
+                  : APIs.no_image_url
+              }
+              alt='image'
+            />
+          </>
+
+          // <LazyLoadImage
+          //   width={'100%'}
+          //   height={'100%'}
+          //   className='img'
+          //   alt='image'
+          //   effect='black-and-white'
+          //   placeholderSrc={
+          //     backdrops[backdropIndex].file_path.file_path === null
+          //       ? APIs.no_image_url
+          //       : APIs.img_path_original + backdrops[backdropIndex].file_path
+          //   }
+          //   src={
+          //     backdrops[backdropIndex].file_path === null
+          //       ? APIs.no_image_url
+          //       : APIs.img_path_original + backdrops[backdropIndex].file_path
+          //   }
+          // />
         )}
 
         {backdrops && backdrops.length > 1 ? (

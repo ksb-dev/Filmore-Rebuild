@@ -21,7 +21,9 @@
     border-bottom-left-radius: var(--border-radius-1);
     border-bottom-right-radius: var(--border-radius-1);
 
-    &--image {
+    &--image-1,
+    &--image-2,
+    &--image-3 {
       width: 100%;
       height: 480px;
       object-fit: cover;
@@ -29,6 +31,11 @@
       border-bottom-left-radius: var(--border-radius-1);
       border-bottom-right-radius: var(--border-radius-1);
       transition: var(--transition);
+    }
+
+    &--image-2,
+    &--image-3 {
+      display: none;
     }
 
     &__cover {
@@ -168,6 +175,16 @@
 
 @media screen and (max-width: 786px) {
   .list {
+    &__wall {
+      &--image-1 {
+        display: none;
+      }
+
+      &--image-2 {
+        display: flex;
+      }
+    }
+
     &__sort-activeOption {
       margin: 0 3rem 0rem 1rem;
       flex-direction: row-reverse;
@@ -189,10 +206,9 @@
     padding-top: calc(58.6px + 0rem);
 
     &__wall {
-      //display: none;
       height: 300px;
 
-      &--image {
+      &--image-2 {
         height: 300px;
       }
 
@@ -262,7 +278,12 @@
     &__wall {
       height: 225px;
 
-      &--image {
+      &--image-2 {
+        display: none;
+      }
+
+      &--image-3 {
+        display: flex;
         height: 225px;
       }
 

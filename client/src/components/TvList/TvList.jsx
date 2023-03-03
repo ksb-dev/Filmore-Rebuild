@@ -120,11 +120,33 @@ const TvList = () => {
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
             <img
-              className='list__wall--image'
+              className='list__wall--image-1'
               src={
                 sortedShows[index].backdrop_path === null
                   ? APIs.no_image_url
                   : APIs.img_path + sortedShows[index].backdrop_path
+              }
+              alt={sortedShows[index].name}
+              load='lazy'
+            />
+
+            <img
+              className='list__wall--image-2'
+              src={
+                sortedShows[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path_w780 + sortedShows[index].backdrop_path
+              }
+              alt={sortedShows[index].name}
+              load='lazy'
+            />
+
+            <img
+              className='list__wall--image-3'
+              src={
+                sortedShows[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path_w300 + sortedShows[index].backdrop_path
               }
               alt={sortedShows[index].name}
               load='lazy'

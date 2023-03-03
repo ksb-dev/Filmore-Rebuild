@@ -41,14 +41,24 @@ export const APIs = {
     'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png',
 
   img_path: 'https://image.tmdb.org/t/p/w1280',
-  img_path_w45: 'https://image.tmdb.org/t/p/w45',
+  img_path_original: 'https://image.tmdb.org/t/p/original',
+
+  // Backdrops
+  img_path_w300: 'https://image.tmdb.org/t/p/w300',
+  img_path_w780: 'https://image.tmdb.org/t/p/w780',
+
+  // Posters
   img_path_w92: 'https://image.tmdb.org/t/p/w92',
   img_path_w154: 'https://image.tmdb.org/t/p/w154',
-  img_path_w185: 'https://image.tmdb.org/t/p/w185',
-  img_path_w300: 'https://image.tmdb.org/t/p/w300',
   img_path_w342: 'https://image.tmdb.org/t/p/w342',
+  img_path_w500: 'https://image.tmdb.org/t/p/w500',
+
+  // Profile
+  img_path_w45: 'https://image.tmdb.org/t/p/w45',
   img_path_h632: 'https://image.tmdb.org/t/p/h632',
-  img_path_original: 'https://image.tmdb.org/t/p/original',
+
+  // Posters & profiles
+  img_path_w185: 'https://image.tmdb.org/t/p/w185',
 
   imdb_url: `https://www/imdb.com/title/`,
 

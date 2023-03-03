@@ -138,11 +138,33 @@ const MovieList = () => {
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
             <img
-              className='list__wall--image'
+              className='list__wall--image-1'
               src={
                 sortedMovies[index].backdrop_path === null
                   ? APIs.no_image_url
                   : APIs.img_path + sortedMovies[index].backdrop_path
+              }
+              alt={sortedMovies[index].title}
+              load='lazy'
+            />
+
+            <img
+              className='list__wall--image-2'
+              src={
+                sortedMovies[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path_w780 + sortedMovies[index].backdrop_path
+              }
+              alt={sortedMovies[index].title}
+              load='lazy'
+            />
+
+            <img
+              className='list__wall--image-3'
+              src={
+                sortedMovies[index].backdrop_path === null
+                  ? APIs.no_image_url
+                  : APIs.img_path_w300 + sortedMovies[index].backdrop_path
               }
               alt={sortedMovies[index].title}
               load='lazy'

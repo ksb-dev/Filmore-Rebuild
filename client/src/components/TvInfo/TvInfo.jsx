@@ -349,6 +349,42 @@ const TvInfo = ({
 
         <div
           className={
+            'movie__info__image__detail--image-4 ' +
+            (mode === true ? 'lightBg2' : 'darkBg1')
+          }
+        >
+          <img
+            className='img'
+            src={
+              poster_path === null
+                ? APIs.no_image_url
+                : APIs.img_path_w300 + backdrop_path
+            }
+            alt={name}
+            load='lazy'
+          />
+
+          {/* <LazyLoadImage
+            width={'100%'}
+            height={'100%'}
+            className='img'
+            alt='image'
+            effect='black-and-white'
+            placeholderSrc={
+              backdrop_path === null
+                ? APIs.no_image_url
+                : APIs.img_path + backdrop_path
+            }
+            src={
+              backdrop_path === null
+                ? APIs.no_image_url
+                : APIs.img_path + backdrop_path
+            }
+          /> */}
+        </div>
+
+        <div
+          className={
             'tv__info__image__detail__rating ' + getClassBg(vote_average)
           }
         >
