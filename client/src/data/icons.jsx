@@ -3,12 +3,9 @@ import React from 'react'
 // Recat Icons
 import {
   AiOutlinePlus,
-  AiOutlineCheck,
-  AiOutlineHome,
   AiOutlineStar,
-  AiTwotoneHome,
-  AiFillHome,
-  AiOutlinePlusCircle
+  AiOutlineHome,
+  AiFillHome
 } from 'react-icons/ai'
 import {
   BsSun,
@@ -17,12 +14,11 @@ import {
   BsEyeSlash,
   BsCheckCircle,
   BsPlayCircle,
-  BsCheck2,
+  BsPlusCircle,
   BsPlusCircleFill
 } from 'react-icons/bs'
 import {
   BiSearch,
-  BiLogInCircle,
   BiLogOutCircle,
   BiUserCircle,
   BiArrowBack
@@ -41,17 +37,17 @@ import {
   RiLoginCircleFill,
   RiLoginCircleLine,
   RiStarLine,
-  RiBookmark3Line
+  RiLoginBoxFill
 } from 'react-icons/ri'
 import { FaWindowClose } from 'react-icons/fa'
 import { IoChevronForwardOutline } from 'react-icons/io5'
-import { FiCheck, FiCheckCircle } from 'react-icons/fi'
+import { FiCheck } from 'react-icons/fi'
 
 export const iconsData = {
   sunIcon: <BsSun size={'20px'} />,
   moonIcon: <BsMoonStars size={'20px'} />,
   searchIcon: <BiSearch size={'20px'} />,
-  login: <BiLogInCircle size={'20px'} />,
+  login: <RiLoginBoxFill size={'20px'} />,
   logout: <BiLogOutCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
   user: <BiUserCircle size={'20px'} />,
   user1: <BiUserCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
@@ -81,8 +77,8 @@ export const iconsData = {
   addedBookmark: <FiCheck size={'20px'} />,
   addBookmark1: <AiOutlinePlus size={'25px'} />,
   addedBookmark1: <FiCheck size={'25px'} />,
-  outlineBookmark: <AiOutlinePlusCircle size={'20px'} />,
-  filledBookmark: <BsPlusCircleFill size={'20px'} />,
+  outlineBookmark: <BsPlusCircle size={'19px'} />,
+  filledBookmark: <BsPlusCircleFill size={'19px'} />,
   star1: <RiStarFill size={'20px'} style={{ marginRight: '0.5rem' }} />,
   star2: <AiOutlineStar size={'20px'} />,
   next: <MdOutlineArrowForwardIos size={'20px'} />,

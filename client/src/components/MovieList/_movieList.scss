@@ -131,10 +131,6 @@
     .activeOption {
       font-size: 1.1rem;
     }
-
-    .switch {
-      //display: none;
-    }
   }
 
   &__movies {
@@ -173,10 +169,48 @@
 
 @media screen and (max-width: 640px) {
   .list {
-    padding-top: calc(58.6px + 2rem);
+    padding-top: calc(58.6px + 0rem);
 
     &__wall {
-      display: none;
+      height: 300px;
+
+      &--image {
+        height: 300px;
+      }
+
+      &__cover {
+        height: 300px;
+
+        &--number {
+          bottom: -0.75rem;
+          font-size: 0.75rem;
+        }
+
+        &__info {
+          //bottom: unset;
+          //top: 0;
+
+          &__rating-title {
+            .title {
+              width: 250px;
+              font-size: 0.9rem;
+            }
+          }
+
+          &--overview {
+            display: none;
+          }
+        }
+      }
+
+      &__buttons {
+        z-index: 1 !important;
+        justify-content: space-between;
+
+        span:first-child {
+          margin-right: 1rem;
+        }
+      }
     }
 
     &__sort-activeOption {
@@ -194,6 +228,27 @@
       gap: 2rem 1rem;
 
       margin-top: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .list {
+    &__wall {
+      height: 225px;
+
+      &--image {
+        height: 225px;
+      }
+
+      &__cover {
+        height: 225px;
+
+        &--number {
+          bottom: -0.75rem;
+          font-size: 0.75rem;
+        }
+      }
     }
   }
 }

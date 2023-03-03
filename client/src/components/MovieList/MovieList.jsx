@@ -233,7 +233,7 @@ const MovieList = () => {
                   <span>
                     <MdOutlineArrowBackIosNew
                       cursor={'pointer'}
-                      size={'20px'}
+                      //size={'20px'}
                       style={{
                         marginLeft: '1rem',
                         color: '#fff',
@@ -247,7 +247,7 @@ const MovieList = () => {
                   <span>
                     <MdOutlineArrowForwardIos
                       cursor={'pointer'}
-                      size={'20px'}
+                      //size={'20px'}
                       style={{
                         marginRight: '1rem',
                         color: '#fff',
