@@ -5,7 +5,7 @@
   max-height: 80vh;
   overflow-y: scroll;
   border-radius: var(--border-radius-1);
-  box-shadow: 0 3px 10px #000;
+  box-shadow: 0 3px 5px #000;
   text-decoration: none;
 
   &__inner {
@@ -18,8 +18,9 @@
       cursor: pointer;
       padding: 0.5rem;
       display: flex;
-      border-radius: var(--border-radius-1);
-      box-shadow: 0px 12px 10px -15px #000;
+      //border-radius: var(--border-radius-1);
+      //box-shadow: 0px 12px 10px -15px #000;
+      border-bottom: 1px solid rgb(156, 156, 156);
       margin-bottom: 0.5rem;
       text-decoration: none;
 
@@ -27,6 +28,7 @@
         height: 75px;
         margin-right: 1rem;
         border-radius: var(--border-radius-1);
+        overflow: hidden;
 
         .img {
           height: 75px;
@@ -59,8 +61,9 @@
       border-bottom: none;
     }
 
-    &__card:hover {
-      filter: brightness(80%);
+    &__card:hover &__card__image .img {
+      //filter: brightness(80%);
+      transform: scale(1.5);
       transition: var(--transition);
     }
   }

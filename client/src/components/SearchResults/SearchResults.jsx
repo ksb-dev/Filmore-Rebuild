@@ -59,7 +59,7 @@ const SearchResults = ({ results }) => {
       ref={searchResultsRef}
       className={
         'search__results scroll-1 ' +
-        (mode === true ? 'lightBg2 darkColor1' : 'darkBg1 lightColor1')
+        (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <div className='search__results__inner'>
@@ -70,7 +70,7 @@ const SearchResults = ({ results }) => {
             key={index}
             className={
               'search__results__inner__card ' +
-              (mode === true ? 'lightBg2' : 'darkBg1')
+              (mode === true ? 'lightBg1' : 'darkBg2')
             }
           >
             <div className='search__results__inner__card__image'>
