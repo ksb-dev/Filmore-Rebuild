@@ -172,6 +172,7 @@
     padding-top: calc(58.6px + 0rem);
 
     &__wall {
+      //display: none;
       height: 300px;
 
       &--image {
@@ -182,17 +183,23 @@
         height: 300px;
 
         &--number {
+          background: #000;
+          color: #fff;
+          width: 100%;
+          text-align: center;
           bottom: -0.75rem;
           font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
         }
 
         &__info {
-          //bottom: unset;
-          //top: 0;
+          bottom: 2rem;
+          left: 0.5rem;
+          width: 90%;
+          padding: 0;
 
           &__rating-title {
             .title {
-              width: 250px;
               font-size: 0.9rem;
             }
           }
