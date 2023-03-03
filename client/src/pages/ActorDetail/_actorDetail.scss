@@ -52,13 +52,20 @@
           margin-bottom: 0.5rem;
         }
 
-        .place {
-          margin-bottom: 0.25rem;
+        .birth {
+          margin-bottom: 0.5rem;
         }
 
         .place,
         .birth {
           color: rgb(156, 156, 156);
+          font-size: 0.9rem;
+        }
+
+        .tag {
+          margin-bottom: 0.25rem;
+          font-size: 0.9rem;
+          font-weight: 500;
         }
       }
     }
@@ -95,7 +102,7 @@
           .place,
           .birth {
             width: 170px;
-            font-size: 0.9rem;
+            //font-size: 0.9rem;
           }
         }
       }
@@ -131,7 +138,7 @@
           .birth {
             width: 100%;
             width: unset;
-            font-size: 0.9rem;
+            //font-size: 0.9rem;
           }
         }
       }
