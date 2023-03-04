@@ -45,6 +45,12 @@ const MovieCast = () => {
   console.log(data)
 
   useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     getMovieInfo(id, setData, setLoading, setError)
 
     getMovieCast(id, setCast, setCastLoading, setCastError)
@@ -91,7 +97,7 @@ const MovieCast = () => {
                 src={
                   data.backdrop_path === null
                     ? APIs.no_image_url
-                    : APIs.img_path_w780 + data.backdrop_path
+                    : APIs.img_path + data.backdrop_path
                 }
                 alt={data.title}
                 load='lazy'
