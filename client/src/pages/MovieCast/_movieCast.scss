@@ -19,7 +19,6 @@
         width: 100%;
         height: 200px;
         border-radius: var(--border-radius-1);
-        margin-right: 1rem;
 
         .img {
           height: 200px;
@@ -36,7 +35,6 @@
         align-items: flex-start;
         font-size: 2rem;
         font-weight: 500;
-        margin-left: -0.5rem;
       }
 
       &--tagline {
@@ -47,7 +45,6 @@
 
     &__full {
       &--title {
-        margin-left: -0.5rem;
         font-size: 1.4rem;
         font-weight: 500;
         display: flex;
@@ -81,6 +78,83 @@
       .cast-loading {
         display: inline-block;
         margin: 2rem 0 0 1rem;
+      }
+
+      &__cast {
+        padding: 2rem 0rem 2rem 0;
+        margin-bottom: 4rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem;
+        min-height: 100px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .movie__cast {
+    &__inner {
+      &__full {
+        &__cast {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .movie__cast {
+    &__inner {
+      padding: calc(58.4px + 1rem) 0 2rem 0;
+      margin: 0 1rem;
+
+      &__detail {
+        &--title,
+        &--tagline {
+          font-size: 1.5rem;
+        }
+
+        &--tagline {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &__full {
+        &__cast {
+          gap: 1rem;
+          //display: flex;
+          overflow-x: scroll;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .movie__cast {
+    &__inner {
+      &__full {
+        &--title {
+          font-size: 1rem;
+
+          .length {
+            height: 30px;
+            width: 30px;
+
+            span {
+              font-size: 0.75rem;
+            }
+          }
+        }
+
+        &__cast {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+          gap: 0rem;
+        }
       }
     }
   }

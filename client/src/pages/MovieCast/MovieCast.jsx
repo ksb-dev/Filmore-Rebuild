@@ -17,6 +17,7 @@ import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
+import Actor from '../../components/CastBackdropsVideo/Cast/Actor/Actor'
 
 // other
 import Loading from '../../other/Loading/Loading'
@@ -117,6 +118,11 @@ const MovieCast = () => {
                 <Error msg={'No cast found.'} />
               </span>
             )}
+
+            <div className='movie__cast__inner__full__cast'>
+              {cast &&
+                cast.map((actor, index) => <Actor key={index} actor={actor} />)}
+            </div>
           </div>
         </div>
       )}
