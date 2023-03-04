@@ -65,6 +65,20 @@ const MovieProvider = ({ children }) => {
   const clearMovieInputRef = useRef(null)
   const clearTvInputRef = useRef(null)
 
+  const [type, setType] = useState(sessionStorage.getItem('movieState'))
+
+  const [movieIdState, setMovieIdState] = useState(false)
+
+  //  Info
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+
+  // Cast
+  const [cast, setCast] = useState([])
+  const [castLoading, setCastLoading] = useState(true)
+  const [castError, setCastError] = useState('')
+
   // Backdrop Index
   const [backdropIndex, setBackdropIndex] = useState(0)
 
@@ -72,10 +86,6 @@ const MovieProvider = ({ children }) => {
   const [backdrops, setBackdrops] = useState([])
   const [backdropsLoading, setBackdropsLoading] = useState(false)
   const [backdropsError, setBackdropsError] = useState('')
-
-  const [type, setType] = useState(sessionStorage.getItem('movieState'))
-
-  const [movieIdState, setMovieIdState] = useState(false)
 
   return (
     <MovieContext.Provider
@@ -134,6 +144,20 @@ const MovieProvider = ({ children }) => {
 
         viewerRef,
         innerViewerRef,
+
+        data,
+        setData,
+        loading,
+        setLoading,
+        error,
+        setError,
+
+        cast,
+        setCast,
+        castLoading,
+        setCastLoading,
+        castError,
+        setCastError,
 
         backdropIndex,
         setBackdropIndex,

@@ -10,6 +10,9 @@ import Actor from './Actor/Actor'
 import Loading from '../../../other/Loading/Loading'
 import Error from '../../../other/Error/Error'
 
+// data
+import { iconsData } from '../../../data/icons'
+
 const Cast = ({ cast, castLoading, castError }) => {
   const { mode } = useMovieContext()
 

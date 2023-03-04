@@ -37,6 +37,18 @@ const TvDetail = () => {
     mode,
     movieState,
     movieIdState,
+    data,
+    setData,
+    loading,
+    setLoading,
+    error,
+    setError,
+    cast,
+    setCast,
+    castLoading,
+    setCastLoading,
+    castError,
+    setCastError,
     backdrops,
     setBackdrops,
     backdropsLoading,
@@ -57,14 +69,6 @@ const TvDetail = () => {
 
   // Movie info
   const { id } = useParams()
-  const [data, setData] = useState({})
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-
-  // Cast
-  const [cast, setCast] = useState([])
-  const [castLoading, setCastLoading] = useState(true)
-  const [castError, setCastError] = useState('')
 
   // Videos
   const [videos, setVideos] = useState([])
@@ -174,6 +178,8 @@ const TvDetail = () => {
       {!loading && !error && (
         <>
           <CastBackdropsVideo
+            id={id}
+            type={type}
             cast={cast}
             castError={castError}
             castLoading={castLoading}

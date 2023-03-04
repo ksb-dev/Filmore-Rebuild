@@ -1,5 +1,8 @@
 import React from 'react'
 
+// react router dom
+import { Link } from 'react-router-dom'
+
 // data
 import { iconsData } from '../../data/icons'
 
@@ -12,6 +15,8 @@ import Backdrops from './Backdrops/Backdrops'
 import Videos from './Videos/Videos'
 
 const CastBackdropsVideo = ({
+  id,
+  type,
   cast,
   castLoading,
   castError,
@@ -29,6 +34,8 @@ const CastBackdropsVideo = ({
 }) => {
   const { mode } = useMovieContext()
 
+  let path = type === 'movie' ? `/movie/cast/${id}` : `/tv/cast/${id}`
+
   return (
     <div
       className={
@@ -37,13 +44,19 @@ const CastBackdropsVideo = ({
       }
     >
       <div className='castBackdropVideo__cast'>
-        <div className='castBackdropVideo__cast__title'>
+        <Link
+          to={path}
+          className={
+            'castBackdropVideo__cast__title ' +
+            (mode === true ? 'darkColor1' : 'lightColor1')
+          }
+        >
           Top Cast
           <p className='length'>
             <span>{cast && cast.length}</span>
           </p>
           <span className='icon'>{iconsData.forwardArrow}</span>
-        </div>
+        </Link>
         <Cast cast={cast} castLoading={castLoading} castError={castError} />
       </div>
 

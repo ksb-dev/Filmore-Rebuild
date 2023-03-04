@@ -16,6 +16,8 @@ import Watchlist from './pages/Watchlist/Watchlist'
 import MovieDetail from './pages/MovieDetail/MovieDetail'
 import TvDetail from './pages/TvDetail/TvDetail'
 import ActorDetail from './pages/ActorDetail/ActorDetail'
+import MovieCast from './pages/MovieCast/MovieCast'
+import TvCast from './pages/TvCast/TvCast'
 
 const App = () => {
   const { mode } = useMovieContext()
@@ -32,6 +34,8 @@ const App = () => {
           <Route path='/movie/:id' element={<MovieDetail />} />
           <Route path='/tv/:id' element={<TvDetail />} />
           <Route path='/actor/:id' element={<ActorDetail />} />
+          <Route path='/movie/cast/:id' element={<MovieCast />} />
+          <Route path='/tv/cast/:id' element={<TvCast />} />
         </Routes>
       </BrowserRouter>
     </div>

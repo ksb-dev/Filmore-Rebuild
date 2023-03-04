@@ -1,7 +1,12 @@
 import React from 'react'
 
 // Recat Icons
-import { AiOutlinePlus, AiOutlineHome, AiFillHome } from 'react-icons/ai'
+import {
+  AiOutlinePlus,
+  AiOutlineHome,
+  AiFillHome,
+  AiFillCaretDown
+} from 'react-icons/ai'
 import {
   BsSun,
   BsMoonStars,
@@ -9,7 +14,8 @@ import {
   BsEyeSlash,
   BsPlayCircle,
   BsPlusCircle,
-  BsPlusCircleFill
+  BsPlusCircleFill,
+  BsArrowRightCircle
 } from 'react-icons/bs'
 import { BiSearch, BiUserCircle } from 'react-icons/bi'
 
@@ -58,5 +64,10 @@ export const iconsData = {
       size={'20px'}
       style={{ marginBottom: '-0.1rem' }}
     />
+  ),
+
+  down: <AiFillCaretDown size={'20px'} style={{ marginTop: '0.25rem' }} />,
+  rightCircle: (
+    <BsArrowRightCircle size={'20px'} style={{ marginLeft: '0.25rem' }} />
   )
 }
