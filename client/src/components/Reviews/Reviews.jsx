@@ -24,7 +24,7 @@ const Reviews = ({ reviews, reviewsLoading, reviewsError }) => {
       }
     >
       <div className='reviews__title'>
-        Reviews
+        <span className='title'>Reviews</span>
         <p className='length'>
           <span>{reviews && reviews.length}</span>
         </p>

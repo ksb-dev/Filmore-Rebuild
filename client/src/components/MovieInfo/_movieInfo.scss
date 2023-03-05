@@ -230,8 +230,6 @@
       }
 
       &__date-time {
-        //margin-top: 1rem;
-
         .date,
         .time {
           font-size: 0.9rem;
@@ -268,7 +266,7 @@
 
       &--image-2 {
         display: flex;
-        margin-right: 2rem;
+        margin-right: 1rem;
         border-radius: var(--border-radius-1);
         width: 250px;
 
