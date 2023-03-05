@@ -64,7 +64,7 @@ export const iconsData = {
   forwardArrow: (
     <MdOutlineArrowForwardIos
       size={'20px'}
-      style={{ marginBottom: '-0.1rem' }}
+      style={{ marginBottom: '-0.15rem' }}
     />
   ),
 
