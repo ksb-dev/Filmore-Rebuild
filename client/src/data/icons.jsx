@@ -28,7 +28,7 @@ import { TfiMenu } from 'react-icons/tfi'
 import { RiLoginCircleFill, RiLoginCircleLine } from 'react-icons/ri'
 import { FiCheck } from 'react-icons/fi'
 import { IoPersonCircle } from 'react-icons/io5'
-import { HiOutlineUserCircle } from 'react-icons/hi'
+import { IoIosArrowRoundForward } from 'react-icons/io'
 
 export const iconsData = {
   // Header Icons
@@ -73,5 +73,9 @@ export const iconsData = {
     <BsArrowRightCircle size={'20px'} style={{ marginLeft: '0.25rem' }} />
   ),
 
-  person: <IoPersonCircle size={'50px'} />
+  person: <IoPersonCircle size={'50px'} />,
+
+  forward: (
+    <IoIosArrowRoundForward size={'25px'} style={{ marginTop: '0.2rem' }} />
+  )
 }

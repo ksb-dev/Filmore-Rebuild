@@ -118,6 +118,8 @@ const MovieDetail = () => {
       behavior: 'smooth'
     })
 
+    console.log(true)
+
     // 1. Get Trailer
     getMovieTrailer(id, setTrailerUrl, setTrailerLoading, setTrailerError)
 
@@ -148,7 +150,7 @@ const MovieDetail = () => {
     setTimeout(() => {
       getMovieReviews(id, setReviews, setReviewsLoading, setReviewsError)
     }, 1000)
-  }, [movieIdState])
+  }, [id])
 
   return (
     <div className={'movie-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>

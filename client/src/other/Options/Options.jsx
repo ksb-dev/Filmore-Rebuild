@@ -29,15 +29,10 @@ const Options = () => {
   const { showSort, hideSort } = useShowHide()
 
   useEffect(() => {
-    // window.scroll({
-    //   top: 0,
-    //   left: 0,
-    //   behavior: 'smooth'
-    // })
-
     const toggleSort = e => {
-      setOpen(false)
-      if (!optionRef.current.contains(e.target)) {
+      //setOpen(false)
+
+      if (optionRef.current && !optionRef.current.contains(e.target)) {
         setOpen(false)
       } else {
         setOpen(!open)
@@ -61,21 +56,9 @@ const Options = () => {
     setSearchQuery('')
     if (searchOptionState === 'movie') {
       setSearchOptionState('tv')
-      //setOptionState('tv')
-      //sessionStorage.setItem('movieState', 'tv')
     } else {
       setSearchOptionState('movie')
-      //setOptionState('movie')
-      //sessionStorage.setItem('movieState', 'movie')
     }
-    //setIndex(0)
-    //sessionStorage.setItem('page', 1)
-    //sessionStorage.setItem('term', '')
-    //sessionStorage.removeItem('genreId')
-    // if (window.location.pathname !== '/watchlist') {
-    //   sessionStorage.removeItem('option')
-    // }
-    //setMovieState(!movieState)
   }
 
   return (

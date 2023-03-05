@@ -12,9 +12,6 @@ import { useMovieContext } from '../../../context/context'
 // react router dom
 import { Link } from 'react-router-dom'
 
-// redux
-import { useDispatch } from 'react-redux'
-
 const SmallHeader = () => {
   const {
     setIndex,
@@ -43,6 +40,7 @@ const SmallHeader = () => {
   }
 
   const showModal = () => {
+    setSearchQuery('')
     searchModalRef.current.style.zIndex = '10'
     searchModalRef.current.style.opacity = '1'
   }
@@ -61,8 +59,6 @@ const SmallHeader = () => {
             <span>TMDb</span>
           </Link>
         </div>
-
-        {/* <Search /> */}
 
         <span
           ref={searchIconRef}

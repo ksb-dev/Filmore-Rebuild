@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
 
 // react router dom
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // redux
 import { useDispatch, useSelector } from 'react-redux'
-import { getMovies } from '../../redux/services/movies/getMovies'
-import { getTvShows } from '../../redux/services/shows/getTvShows'
 
 // contetx
 import { useMovieContext } from '../../context/context'
 
 // data
-import { iconsData } from '../../data/icons'
 import { genreArray } from '../../data/genreData'
 import { tvGenreArray } from '../../data/tvGenreData'
 import { categoryArray } from '../../data/categoryData'
@@ -23,7 +20,6 @@ import { useShowHide } from '../../hooks/useShowHide'
 const Menu = () => {
   const {
     mode,
-    movieState,
     menuIconRef,
     menuRef,
     menuInnerRef,
@@ -34,7 +30,6 @@ const Menu = () => {
     setIndex
   } = useMovieContext()
   const { showMenu, hideMenu } = useShowHide()
-  const dispatch = useDispatch()
   const savedMovies = useSelector(state => state.savedMovies.savedMovies)
   const savedShows = useSelector(state => state.savedShows.savedShows)
 

@@ -143,7 +143,7 @@ const TvDetail = () => {
     setTimeout(() => {
       getTvReviews(id, setReviews, setReviewsLoading, setReviewsError)
     }, 1000)
-  }, [movieIdState])
+  }, [id])
 
   return (
     <div className={'tv-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>

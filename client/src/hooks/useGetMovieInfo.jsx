@@ -4,7 +4,10 @@ export const useGetMovieInfo = () => {
   // Get movie info
   const getMovieInfo = async (id, setData, setLoading, setError) => {
     const type = 'movie'
-    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+
+    setData({})
+    setLoading(true)
+    setError('')
 
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}?api_key=${
@@ -29,7 +32,10 @@ export const useGetMovieInfo = () => {
   // Get cast
   const getMovieCast = async (id, setCast, setCastLoading, setCastError) => {
     const type = 'movie'
-    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+
+    setCast([])
+    setCastLoading(true)
+    setCastError('')
 
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${
@@ -62,15 +68,15 @@ export const useGetMovieInfo = () => {
     setBackdropsError
   ) => {
     const type = 'movie'
-    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+
+    setBackdrops([])
+    setBackdropsLoading(true)
+    setBackdropsError('')
 
     const url = `
 https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
       import.meta.env.VITE_KEY
     }`
-
-    setBackdropsLoading(true)
-    setBackdropsError('')
 
     try {
       const response = await fetch(url)
@@ -97,15 +103,17 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   ) => {
     const type = 'movie'
 
-    try {
-      setTrailerLoading(true)
-      setTrailerError('')
+    setTrailerUrl('')
+    setTrailerLoading(true)
+    setTrailerError('')
 
+    try {
       let response = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
           import.meta.env.VITE_KEY
         }&language=en-US`
       )
+
       let trailerUrl = await response.json()
       let value = ''
 
@@ -137,10 +145,11 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   ) => {
     const type = 'movie'
 
-    try {
-      setPlayerOneLoading(true)
-      setPlayerOneError('')
+    setPlayerOneUrl('')
+    setPlayerOneLoading(true)
+    setPlayerOneError('')
 
+    try {
       let response = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
           import.meta.env.VITE_KEY
@@ -176,14 +185,14 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setReviewsError
   ) => {
     const type = 'movie'
-    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+
+    setReviews([])
+    setReviewsLoading(true)
+    setReviewsError('')
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/reviews?api_key=${
       import.meta.env.VITE_KEY
     }&language=en-US&page=1`
-
-    setReviewsLoading(true)
-    setReviewsError(true)
 
     try {
       const response = await fetch(url)
@@ -208,14 +217,14 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setVideosError
   ) => {
     const type = 'movie'
-    //sessionStorage.getItem('movieState') === 'movie' ? 'movie' : 'tv'
+
+    setVideos([])
+    setVideosLoading(true)
+    setVideosError('')
 
     const url = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
       import.meta.env.VITE_KEY
     }&language=en-US`
-
-    setVideosLoading(true)
-    setVideosError(true)
 
     try {
       const response = await fetch(url)
@@ -239,11 +248,13 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setActorDetailLoading,
     setActorDetailError
   ) => {
+    setActorDetail('')
+    setActorDetailLoading(true)
+    setActorDetailError('')
+
     const url = `https://api.themoviedb.org/3/person/${id}?api_key=${
       import.meta.env.VITE_KEY
     }&language=en-US`
-    setActorDetailLoading(true)
-    setActorDetailError(true)
 
     try {
       const response = await fetch(url)

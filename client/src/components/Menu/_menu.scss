@@ -154,13 +154,7 @@
   .menu {
     align-items: flex-start;
 
-    // transform: translateY(unset);
-    // transform: translateX(-120%);
-
     &__inner {
-      //width: 60%;
-      //min-height: 100vh;
-
       .title-close {
         margin-bottom: 1rem;
       }
@@ -204,7 +198,6 @@
         &__inner {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(155px, 2fr));
-          //grid-template-columns: repeat(1, 1fr);
 
           p,
           a,
@@ -234,7 +227,6 @@
   background: var(--primary) !important;
   color: #000 !important;
   font-weight: 500 !important;
-  //border-radius: 50px !important;
 }
 
 .scroll {
@@ -255,4 +247,8 @@
 .scroll::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   //border-radius: 20px;
+}
+
+.transparent {
+  background: transparent;
 }

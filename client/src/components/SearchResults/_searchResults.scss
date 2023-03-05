@@ -62,7 +62,6 @@
     }
 
     &__card:hover &__card__image .img {
-      //filter: brightness(80%);
       transform: scale(1.5);
       transition: var(--transition);
     }
@@ -71,28 +70,12 @@
 
 @media screen and (max-width: 786px) {
   .search__results {
-    //background: #fff !important;
-
-    &__inner {
-      //background: #fff !important;
-
-      &__card {
-        //background: #fff !important;
-
-        &__title-date {
-          span {
-            //color: #000 !important;
-          }
-        }
-      }
-    }
+    height: 60vh;
   }
 }
 
 @media screen and (max-width: 640px) {
   .search__results {
-    height: 60vh;
-
     &__inner {
       &__card {
         &__title-date {

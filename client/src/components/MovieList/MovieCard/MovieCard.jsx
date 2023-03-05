@@ -56,14 +56,14 @@ const MovieCard = ({ movie }) => {
   const show = () => {
     infoRef.current.style.opacity = '1'
     setTimeout(() => {
-      infoInnerRef.current.style.transform = 'scale(1)'
+      infoInnerRef.current.style.opacity = '1'
     }, 100)
   }
 
   const hide = () => {
     infoRef.current.style.opacity = '0'
     setTimeout(() => {
-      infoInnerRef.current.style.transform = 'scale(0)'
+      infoInnerRef.current.style.opacity = '0'
     }, 100)
   }
 
@@ -187,7 +187,7 @@ const MovieCard = ({ movie }) => {
         ref={infoRef}
         className={
           'card__info ' +
-          (mode === true ? 'lightAlpha1 darkColor1' : 'darkAlpha1 lightColor1')
+          (mode === true ? 'lightAlpha5 darkColor1' : 'darkAlpha5 lightColor1')
         }
         onMouseOver={show}
         onMouseLeave={hide}
@@ -204,7 +204,7 @@ const MovieCard = ({ movie }) => {
           </span>
 
           <Link to={`/movie/${id}`} className='card__info__inner--more'>
-            More
+            <span>{iconsData.forward}</span>
           </Link>
         </div>
       </div>

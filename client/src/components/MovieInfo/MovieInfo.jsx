@@ -66,6 +66,8 @@ const MovieInfo = ({
 
   // Get & store genre__ids
   useEffect(() => {
+    setGenres(new Set())
+
     if (data && data.genres) {
       for (let i = 0; i < data.genres.length; i++) {
         setGenre_ids(prevId => new Set([...prevId, data.genres[i].id]))

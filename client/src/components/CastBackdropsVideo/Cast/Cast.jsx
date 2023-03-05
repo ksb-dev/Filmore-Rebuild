@@ -44,7 +44,7 @@ const Cast = ({ cast, castLoading, castError }) => {
     <div className={'cast ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
       {cast &&
         cast.map(
-          (actor, index) => index < 9 && <Actor key={index} actor={actor} />
+          (actor, index) => index < 6 && <Actor key={index} actor={actor} />
         )}
     </div>
   )
