@@ -38,21 +38,13 @@ const Review = ({ review }) => {
           )}
         </div>
 
-        {rating ? (
+        {rating && (
           <span className='rating'>
             <GrStar
               size={'25px'}
               style={{ color: 'var(--primary)', marginRight: '0.25rem' }}
             />
             {rating}
-          </span>
-        ) : (
-          <span className='rating'>
-            <GrStar
-              size={'25px'}
-              style={{ color: 'var(--primary)', marginRight: '0.25rem' }}
-            />
-            ---
           </span>
         )}
       </div>
