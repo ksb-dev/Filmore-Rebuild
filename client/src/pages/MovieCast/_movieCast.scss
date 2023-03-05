@@ -125,7 +125,7 @@
       &__full {
         &__cast {
           gap: 1rem;
-          overflow-x: scroll;
+          overflow-x: auto;
           margin-bottom: 2rem;
         }
       }
@@ -153,6 +153,7 @@
         &__cast {
           grid-template-columns: 1fr 1fr;
           gap: 0rem;
+          align-items: flex-start;
           justify-items: center;
         }
       }

@@ -7,15 +7,19 @@
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 350px;
+    height: 200px;
     overflow: hidden;
     border-radius: var(--border-radius-1);
 
-    .img {
+    .img-1 {
       width: 100%;
-      height: 350px;
+      height: 200px;
       object-fit: cover;
       border-radius: var(--border-radius-1);
+    }
+
+    .img-2 {
+      display: none;
     }
   }
 
@@ -75,7 +79,7 @@
     border-radius: var(--border-radius-1);
     position: absolute;
     width: 100%;
-    height: 99%;
+    height: 98%;
     z-index: 1;
     top: 0;
     left: 0;
@@ -96,7 +100,7 @@
       transition: var(--transition);
 
       &--title {
-        margin: 0;
+        margin: 2rem 2rem 0 2rem;
         font-weight: 500;
         text-align: center;
         margin: 0rem 1rem 1rem 1rem;
@@ -104,7 +108,7 @@
 
       &--more {
         text-decoration: none;
-        margin: 1rem 0 0 0;
+        margin: 0rem 0 0 0;
         background: var(--primary);
         color: #000;
         border-radius: 50px;
@@ -126,15 +130,25 @@
   }
 }
 
-// .card:hover .card--image .img {
-//   transform: scale(1.2);
-//   transition: var(--transition);
-// }
+.card:hover .card--image .img-1 {
+  transform: scale(1.5);
+  transition: var(--transition);
+}
 
 @media screen and (max-width: 640px) {
   .card {
     &--image {
       height: 250px;
+
+      .img-1 {
+        display: none;
+      }
+
+      .img-2 {
+        display: flex;
+        height: 250px;
+        width: 100%;
+      }
     }
 
     &__info {
@@ -153,6 +167,11 @@
       }
     }
   }
+}
+
+.card:hover .card--image .img-2 {
+  transform: scale(1.5);
+  transition: var(--transition);
 }
 
 .lightBookmarkBorder {
