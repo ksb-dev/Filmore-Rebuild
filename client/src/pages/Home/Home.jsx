@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // redux
 import { useDispatch } from 'react-redux'
@@ -115,9 +115,9 @@ const Home = () => {
 
       {sessionStorage.getItem('movieState') === 'movie' ||
       sessionStorage.getItem('movieState') === null ? (
-        <MovieList state={'movie'} />
+        <MovieList />
       ) : (
-        <TvList state={'tv'} />
+        <TvList />
       )}
     </div>
   )

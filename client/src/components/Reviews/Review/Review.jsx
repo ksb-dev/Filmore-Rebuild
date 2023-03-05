@@ -23,29 +23,42 @@ const Review = ({ review }) => {
         (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
-      <div className='avatar-name'>
-        {avatar_path !== null && !avatar_path.startsWith('/https') ? (
-          <img src={APIs.img_path + avatar_path} alt='User' />
-        ) : (
-          <span className='user'>
-            <HiOutlineUserCircle style={{ height: '100%', width: '100%' }} />
-          </span>
-        )}
-        <span className='name'>{name ? name : 'Anonymous'}</span>
-      </div>
+      <div className='avatar__rating'>
+        <div
+          className={
+            'avatar__rating__image ' + (mode === true ? 'lightBg2' : 'darkBg1')
+          }
+        >
+          {avatar_path !== null && !avatar_path.startsWith('/https') ? (
+            <img src={APIs.img_path + avatar_path} alt='User' />
+          ) : (
+            <span className='user'>
+              <HiOutlineUserCircle style={{ height: '100%', width: '100%' }} />
+            </span>
+          )}
+        </div>
 
-      <div className='rating-review'>
         {rating ? (
           <span className='rating'>
-            <GrStar size={'20px'} style={{ color: 'var(--primary)' }} />
+            <GrStar
+              size={'25px'}
+              style={{ color: 'var(--primary)', marginRight: '0.25rem' }}
+            />
             {rating}
           </span>
         ) : (
           <span className='rating'>
-            <GrStar size={'20px'} style={{ color: 'var(--primary)' }} />
+            <GrStar
+              size={'25px'}
+              style={{ color: 'var(--primary)', marginRight: '0.25rem' }}
+            />
             ---
           </span>
         )}
+      </div>
+
+      <div className='name__review'>
+        <span className='name'>{name ? name : 'Anonymous'}</span>
 
         {content ? (
           content.length > 95 ? (

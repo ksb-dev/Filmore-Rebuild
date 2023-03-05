@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/black-and-white.css'
+import React, { useState, useRef } from 'react'
 
 // Hooks
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
@@ -170,24 +168,6 @@ const MovieList = () => {
               load='lazy'
             />
 
-            {/* <LazyLoadImage
-              width={'100%'}
-              height={'100%'}
-              className='list__wall--image'
-              alt={sortedMovies[index].title}
-              effect='black-and-white'
-              placeholderSrc={
-                sortedMovies[index].backdrop_path === null
-                  ? APIs.no_image_url
-                  : APIs.img_path + sortedMovies[index].backdrop_path
-              }
-              src={
-                sortedMovies[index].backdrop_path === null
-                  ? APIs.no_image_url
-                  : APIs.img_path + sortedMovies[index].backdrop_path
-              }
-            /> */}
-
             <Link
               to={`/movie/${sortedMovies[index].id}`}
               className={
@@ -255,7 +235,6 @@ const MovieList = () => {
                   <span>
                     <MdOutlineArrowBackIosNew
                       cursor={'pointer'}
-                      //size={'20px'}
                       style={{
                         marginLeft: '1rem',
                         color: '#fff',
@@ -269,7 +248,6 @@ const MovieList = () => {
                   <span>
                     <MdOutlineArrowForwardIos
                       cursor={'pointer'}
-                      //size={'20px'}
                       style={{
                         marginRight: '1rem',
                         color: '#fff',
@@ -295,25 +273,6 @@ const MovieList = () => {
         <div className='switch'>
           {sortedMovies && sortedMovies.length > 0 && <Switch />}
         </div>
-
-        {/* <span className='activeOption'>
-          {window.location.pathname === '/watchlist' && (
-            <span className='activeOption'>Watchlist (Movies)</span>
-          )}
-
-          {window.location.pathname !== '/watchlist' &&
-            window.location.pathname !== '/search' && (
-              <span className='activeOption'>
-                {sessionStorage.getItem('option') + ' movies'}
-              </span>
-            )}
-
-          {window.location.pathname === '/search' && (
-            <span className='activeOption'>
-              {searchQuery + ' (search results)'}
-            </span>
-          )}
-        </span> */}
       </div>
 
       <div className='list__movies'>

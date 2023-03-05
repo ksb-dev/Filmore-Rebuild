@@ -1,79 +1,71 @@
 .review__container {
   overflow-x: hidden;
+
   display: flex;
-  margin-bottom: 2rem;
-  width: 100%;
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius-1);
+  padding: 1rem;
+  padding-left: 0;
+  cursor: pointer;
+  text-decoration: none;
 
-  box-shadow: 0px 15px 10px -15px #000;
+  border-bottom: 1px solid rgb(156, 156, 156);
 
-  .avatar-name,
-  .rating-review {
+  .avatar__rating,
+  .name__review {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .avatar-name {
-    width: 100px;
-
-    img,
-    .user {
+  .avatar__rating {
+    &__image {
+      border-radius: 50%;
       width: 100px;
       height: 100px;
-      border-radius: 50%;
-      box-shadow: 0 0 3px #000;
-    }
+      margin-bottom: 0.5rem;
 
-    .user {
-      box-shadow: unset;
-    }
-
-    .name {
-      font-weight: 400;
-    }
-  }
-
-  .rating-review {
-    margin-left: 2rem;
-    align-items: flex-start;
-
-    p {
-      margin: 0;
-    }
-
-    span {
-      display: flex;
-      align-items: center;
+      img,
+      .user {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
     }
 
     .rating {
-      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
       font-weight: 500;
+    }
+  }
+
+  .name__review {
+    align-items: flex-start;
+    padding-left: 1rem;
+
+    .name {
       margin-bottom: 0.5rem;
+      font-weight: 500;
     }
   }
 }
 
 @media screen and (max-width: 786px) {
   .review__container {
-    width: 90%;
-    flex-direction: column;
+    margin: 0 0 1rem 0;
 
-    .avatar-name {
-      width: unset;
-      flex-direction: row;
-
-      img,
-      .user {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 0.5rem;
-      }
+    .name__review {
+      margin-left: 1rem;
 
       .name {
-        margin-left: 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .content,
+      span {
+        line-height: 1.5rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -81,23 +73,25 @@
 
 @media screen and (max-width: 640px) {
   .review__container {
-    .avatar-name {
-      flex-direction: row;
-
-      .name {
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      img,
-      .user {
+    .avatar__rating {
+      &__image {
         width: 50px;
         height: 50px;
+
+        img,
+        .user {
+          width: 50px;
+          height: 50px;
+        }
       }
     }
 
-    .rating-review {
-      margin-left: 0rem;
+    .name__review {
+      margin-left: 1rem;
+
+      .name {
+        font-size: 0.9rem;
+      }
 
       .content,
       span {

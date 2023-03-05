@@ -3,11 +3,11 @@ import React, { useEffect } from 'react'
 // react router dom
 import { useParams } from 'react-router-dom'
 
-// APIs
-import { APIs } from '../../APIs/APIs'
-
 // hooks
 import { useGetTvInfo } from '../../hooks/useGetTvInfo'
+
+// APIs
+import { APIs } from '../../APIs/APIs'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -17,6 +17,7 @@ import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
+import ActorCard from '../../components/ActorCard/ActorCard'
 
 // other
 import Loading from '../../other/Loading/Loading'
@@ -41,9 +42,13 @@ const TvCast = () => {
   } = useMovieContext()
   const { getTvInfo, getTvCast } = useGetTvInfo()
 
-  console.log(cast)
-
   useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     getTvInfo(id, setData, setLoading, setError)
 
     getTvCast(id, setCast, setCastLoading, setCastError)
@@ -84,7 +89,7 @@ const TvCast = () => {
                 src={
                   data.backdrop_path === null
                     ? APIs.no_image_url
-                    : APIs.img_path_w780 + data.backdrop_path
+                    : APIs.img_path + data.backdrop_path
                 }
                 alt={data.name}
                 load='lazy'
@@ -94,7 +99,7 @@ const TvCast = () => {
 
           <div className='tv__cast__inner__full'>
             <div className='tv__cast__inner__full--title'>
-              Full Cast
+              <span className='title'>Full Cast</span>
               <p className='length'>
                 <span>{cast && cast.length}</span>
               </p>
@@ -111,6 +116,13 @@ const TvCast = () => {
                 <Error msg={'No cast found.'} />
               </span>
             )}
+
+            <div className='tv__cast__inner__full__cast'>
+              {cast &&
+                cast.map((actor, index) => (
+                  <ActorCard key={index} actor={actor} />
+                ))}
+            </div>
           </div>
         </div>
       )}

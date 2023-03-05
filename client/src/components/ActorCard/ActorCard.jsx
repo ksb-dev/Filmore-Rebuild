@@ -6,15 +6,15 @@ import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 import { Link } from 'react-router-dom'
 
 // context
-import { useMovieContext } from '../../../../context/context'
+import { useMovieContext } from '../../context/context'
 
 // APIs
-import { APIs } from '../../../../APIs/APIs'
+import { APIs } from '../../APIs/APIs'
 
 // data
-import { iconsData } from '../../../../data/icons'
+import { iconsData } from '../../data/icons'
 
-const Actor = ({ actor }) => {
+const ActorCard = ({ actor }) => {
   const { mode } = useMovieContext()
   const { original_name, character, profile_path, id } = actor
 
@@ -22,12 +22,14 @@ const Actor = ({ actor }) => {
     <Link
       to={`/actor/${id}`}
       className={
-        'actor ' +
+        'actorCard ' +
         (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
       <div
-        className={'actor__image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
+        className={
+          'actorCard__image ' + (mode === true ? 'lightBg2' : 'darkBg1')
+        }
       >
         {profile_path !== null && (
           <img
@@ -62,7 +64,7 @@ const Actor = ({ actor }) => {
           }
         /> */}
       </div>
-      <div className='actor__name-character'>
+      <div className='actorCard__name-character'>
         <span className='name'>{original_name && original_name}</span>
         <span className='character'>{character && character}</span>
       </div>
@@ -70,4 +72,4 @@ const Actor = ({ actor }) => {
   )
 }
 
-export default Actor
+export default ActorCard

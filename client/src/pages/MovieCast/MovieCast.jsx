@@ -17,7 +17,7 @@ import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
-import Actor from '../../components/CastBackdropsVideo/Cast/Actor/Actor'
+import ActorCard from '../../components/ActorCard/ActorCard'
 
 // other
 import Loading from '../../other/Loading/Loading'
@@ -41,8 +41,6 @@ const MovieCast = () => {
     setCastError
   } = useMovieContext()
   const { getMovieInfo, getMovieCast } = useGetMovieInfo()
-
-  console.log(data)
 
   useEffect(() => {
     window.scroll({
@@ -127,7 +125,9 @@ const MovieCast = () => {
 
             <div className='movie__cast__inner__full__cast'>
               {cast &&
-                cast.map((actor, index) => <Actor key={index} actor={actor} />)}
+                cast.map((actor, index) => (
+                  <ActorCard key={index} actor={actor} />
+                ))}
             </div>
           </div>
         </div>
