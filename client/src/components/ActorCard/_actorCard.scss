@@ -115,20 +115,20 @@
 @media screen and (max-width: 376px) {
   .actorCard {
     &__image {
-      width: 150px;
-      height: 150px;
+      width: 125px;
+      height: 125px;
       border-radius: 50%;
 
       .img {
-        width: 150px;
-        height: 150px;
+        width: 125px;
+        height: 125px;
         border-radius: 50%;
         object-fit: cover;
       }
     }
 
     &__name-character {
-      width: 150px;
+      width: 125px;
     }
   }
 }

@@ -136,11 +136,9 @@
 @media screen and (max-width: 640px) {
   .movie__cast {
     &__inner {
-      margin: 0;
       &__full {
         &--title {
           font-size: 1rem;
-          margin-left: 1rem;
 
           .length {
             height: 30px;
@@ -154,7 +152,7 @@
 
         &__cast {
           grid-template-columns: 1fr 1fr;
-          gap: 1rem;
+          gap: 0rem;
           justify-items: center;
         }
       }

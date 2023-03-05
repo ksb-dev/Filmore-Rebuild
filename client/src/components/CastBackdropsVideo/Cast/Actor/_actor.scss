@@ -71,7 +71,7 @@
     }
 
     &__name-character {
-      width: unset;
+      width: 150px;
       display: flex;
       flex-direction: column;
 
@@ -106,6 +106,8 @@
     }
 
     &__name-character {
+      width: 150px;
+
       .name {
         font-weight: 500;
         font-size: 0.9rem;
@@ -114,6 +116,24 @@
       .character {
         font-size: 0.8rem;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .actor {
+    &__image {
+      width: 125px;
+      height: 125px;
+
+      .img {
+        width: 125px;
+        height: 125px;
+      }
+    }
+
+    &__name-character {
+      width: 125px;
     }
   }
 }
