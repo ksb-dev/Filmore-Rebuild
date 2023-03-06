@@ -56,14 +56,14 @@ const TvCard = ({ tv }) => {
     infoRef.current.style.opacity = '1'
     setTimeout(() => {
       infoInnerRef.current.style.opacity = '1'
-    }, 100)
+    }, 200)
   }
 
   const hide = () => {
     infoRef.current.style.opacity = '0'
     setTimeout(() => {
       infoInnerRef.current.style.opacity = '0'
-    }, 100)
+    }, 200)
   }
 
   return (

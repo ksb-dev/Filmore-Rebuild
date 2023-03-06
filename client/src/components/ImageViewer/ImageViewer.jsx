@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
@@ -88,6 +88,7 @@ const ImageViewer = () => {
                   : APIs.no_image_url
               }
               alt='image'
+              loading='lazy'
             />
 
             <img

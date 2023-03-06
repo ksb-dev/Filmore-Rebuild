@@ -5,14 +5,14 @@ export const useGetMovieInfo = () => {
   const getMovieInfo = async (id, setData, setLoading, setError) => {
     const type = 'movie'
 
-    setData({})
-    setLoading(true)
-    setError('')
-
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}?api_key=${
         import.meta.env.VITE_KEY
       }&language=en-US`
+
+      setData({})
+      setLoading(true)
+      setError('')
 
       const res = await fetch(url)
       const data = await res.json()
@@ -33,15 +33,12 @@ export const useGetMovieInfo = () => {
   const getMovieCast = async (id, setCast, setCastLoading, setCastError) => {
     const type = 'movie'
 
-    setCast([])
-    setCastLoading(true)
-    setCastError('')
-
     try {
       const url = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${
         import.meta.env.VITE_KEY
       }&language=en-US`
 
+      setCast([])
       setCastLoading(true)
       setCastError('')
 
@@ -69,16 +66,16 @@ export const useGetMovieInfo = () => {
   ) => {
     const type = 'movie'
 
-    setBackdrops([])
-    setBackdropsLoading(true)
-    setBackdropsError('')
-
     const url = `
 https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
       import.meta.env.VITE_KEY
     }`
 
     try {
+      setBackdrops([])
+      setBackdropsLoading(true)
+      setBackdropsError('')
+
       const response = await fetch(url)
       const data = await response.json()
 
@@ -103,16 +100,16 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   ) => {
     const type = 'movie'
 
-    setTrailerUrl('')
-    setTrailerLoading(true)
-    setTrailerError('')
-
     try {
       let response = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
           import.meta.env.VITE_KEY
         }&language=en-US`
       )
+
+      setTrailerUrl('')
+      setTrailerLoading(true)
+      setTrailerError('')
 
       let trailerUrl = await response.json()
       let value = ''
@@ -145,16 +142,16 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   ) => {
     const type = 'movie'
 
-    setPlayerOneUrl('')
-    setPlayerOneLoading(true)
-    setPlayerOneError('')
-
     try {
       let response = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
           import.meta.env.VITE_KEY
         }&language=en-US`
       )
+      setPlayerOneUrl('')
+      setPlayerOneLoading(true)
+      setPlayerOneError('')
+
       let trailerUrl = await response.json()
       let value = ''
 
@@ -186,15 +183,15 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   ) => {
     const type = 'movie'
 
-    setReviews([])
-    setReviewsLoading(true)
-    setReviewsError('')
-
     const url = `https://api.themoviedb.org/3/${type}/${id}/reviews?api_key=${
       import.meta.env.VITE_KEY
     }&language=en-US&page=1`
 
     try {
+      setReviews([])
+      setReviewsLoading(true)
+      setReviewsError('')
+
       const response = await fetch(url)
       const data = await response.json()
 
@@ -218,15 +215,15 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
   ) => {
     const type = 'movie'
 
-    setVideos([])
-    setVideosLoading(true)
-    setVideosError('')
-
     const url = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${
       import.meta.env.VITE_KEY
     }&language=en-US`
 
     try {
+      setVideos([])
+      setVideosLoading(true)
+      setVideosError('')
+
       const response = await fetch(url)
       const data = await response.json()
 
@@ -248,15 +245,15 @@ https://api.themoviedb.org/3/${type}/${id}/images?api_key=${
     setActorDetailLoading,
     setActorDetailError
   ) => {
-    setActorDetail('')
-    setActorDetailLoading(true)
-    setActorDetailError('')
-
     const url = `https://api.themoviedb.org/3/person/${id}?api_key=${
       import.meta.env.VITE_KEY
     }&language=en-US`
 
     try {
+      setActorDetail('')
+      setActorDetailLoading(true)
+      setActorDetailError('')
+
       const response = await fetch(url)
       const data = await response.json()
 

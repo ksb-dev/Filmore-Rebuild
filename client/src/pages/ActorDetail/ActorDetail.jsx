@@ -121,12 +121,18 @@ const ActorDetail = () => {
               </div>
               <div className='actor__detail__inner__img-name-birth-place__detail'>
                 <span className='name'>{name && name}</span>
-                <span className='tag'>Born</span>
-                <span className='birth'>{birthday && humanReadableDate}</span>
-                <span className='tag'>Birth-Place</span>
-                <span className='place'>
-                  {place_of_birth && place_of_birth}
-                </span>
+                {birthday && (
+                  <>
+                    <span className='tag'>Born</span>
+                    <span className='birth'>{humanReadableDate}</span>
+                  </>
+                )}
+                {place_of_birth && (
+                  <>
+                    <span className='tag'>Birth-Place</span>
+                    <span className='place'>{place_of_birth}</span>
+                  </>
+                )}
               </div>
             </div>
 
