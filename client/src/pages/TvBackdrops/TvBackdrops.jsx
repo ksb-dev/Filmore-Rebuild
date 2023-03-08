@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 // hooks
-import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetTvInfo } from '../../hooks/useGetTvInfo'
 
 // APIs
 import { APIs } from '../../APIs/APIs'
@@ -17,13 +17,14 @@ import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
-import ActorCard from '../../components/ActorCard/ActorCard'
+import BackdropCard from '../../components/BackdropCard/BackdropCard'
+import ImageViewer from '../../components/ImageViewer/ImageViewer'
 
 // other
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
-const MovieCast = () => {
+const TvBackdrops = () => {
   const { id } = useParams()
   const {
     mode,
@@ -33,14 +34,16 @@ const MovieCast = () => {
     setLoading,
     error,
     setError,
-    cast,
-    setCast,
-    castLoading,
-    setCastLoading,
-    castError,
-    setCastError
+    backdropIndex,
+    setBackdropIndex,
+    backdrops,
+    setBackdrops,
+    backdropsError,
+    setBackdropsError,
+    backdropsLoading,
+    setBackdropsLoading
   } = useMovieContext()
-  const { getMovieInfo, getMovieCast } = useGetMovieInfo()
+  const { getTvInfo, getTvBackdrops } = useGetTvInfo()
 
   useEffect(() => {
     window.scroll({
@@ -49,15 +52,15 @@ const MovieCast = () => {
       behavior: 'smooth'
     })
 
-    getMovieInfo(id, setData, setLoading, setError)
+    getTvInfo(id, setData, setLoading, setError)
 
-    getMovieCast(id, setCast, setCastLoading, setCastError)
+    getTvBackdrops(id, setBackdrops, setBackdropsLoading, setBackdropsError)
   }, [])
 
   return (
     <div
       className={
-        'movie__cast ' +
+        'tv__backdrops ' +
         (mode === true ? 'lightBg1 darColor1' : 'darkBg2 lightColor1')
       }
     >
@@ -65,6 +68,7 @@ const MovieCast = () => {
       <SmallHeader />
       <Menu />
       <SearchModal />
+      <ImageViewer />
 
       {loading && (
         <div className='loading'>
@@ -74,22 +78,22 @@ const MovieCast = () => {
 
       {error && (
         <div className='error'>
-          <Error msg={'Failed to fetch cast'} />
+          <Error msg={'Failed to fetch backdrops'} />
         </div>
       )}
 
       {!loading && !error && (
-        <div className='movie__cast__inner'>
-          <div className='movie__cast__inner__detail'>
-            <span className='movie__cast__inner__detail--title'>
-              {data.original_title}
+        <div className='tv__backdrops__inner'>
+          <div className='tv__backdrops__inner__detail'>
+            <span className='tv__backdrops__inner__detail--title'>
+              {data.name}
             </span>
 
-            <span className='movie__cast__inner__detail--tagline'>
+            <span className='tv__backdrops__inner__detail--tagline'>
               {data.tagline}
             </span>
 
-            <div className='movie__cast__inner__detail--image'>
+            <div className='tv__backdrops__inner__detail--image'>
               <img
                 className='img'
                 src={
@@ -97,9 +101,10 @@ const MovieCast = () => {
                     ? APIs.no_image_url
                     : APIs.img_path + data.backdrop_path
                 }
-                alt={data.title}
+                alt={data.name}
                 load='lazy'
               />
+
               <div
                 className={
                   'cover ' +
@@ -109,30 +114,30 @@ const MovieCast = () => {
             </div>
           </div>
 
-          <div className='movie__cast__inner__full'>
-            <div className='movie__cast__inner__full--title'>
-              <span className='title'>Full Cast</span>
+          <div className='tv__backdrops__inner__full'>
+            <div className='tv__backdrops__inner__full--title'>
+              <span className='title'>All Backdrops</span>
               <p className='length'>
-                <span>{cast && cast.length}</span>
+                <span>{backdrops && backdrops.length}</span>
               </p>
             </div>
 
-            {castLoading && (
-              <span className='cast-loading'>
+            {backdropsLoading && (
+              <span className='backdrops-loading'>
                 <Loading />
               </span>
             )}
 
-            {castError && (
-              <span className='cast-loading'>
-                <Error msg={'No cast found.'} />
+            {backdropsError && (
+              <span className='backdrops-loading'>
+                <Error msg={'No backdrops found.'} />
               </span>
             )}
 
-            <div className='movie__cast__inner__full__cast'>
-              {cast &&
-                cast.map((actor, index) => (
-                  <ActorCard key={index} actor={actor} />
+            <div className='tv__backdrops__inner__full__backdrops'>
+              {backdrops &&
+                backdrops.map((backdrop, index) => (
+                  <BackdropCard key={index} backdrop={backdrop} index={index} />
                 ))}
             </div>
           </div>
@@ -142,4 +147,4 @@ const MovieCast = () => {
   )
 }
 
-export default MovieCast
+export default TvBackdrops

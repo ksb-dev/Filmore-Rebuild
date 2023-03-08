@@ -104,6 +104,13 @@ const MovieBackdrops = () => {
                 alt={data.title}
                 load='lazy'
               />
+
+              <div
+                className={
+                  'cover ' +
+                  (mode === true ? 'lightGradient2' : 'darkGradient2')
+                }
+              ></div>
             </div>
           </div>
 
@@ -130,7 +137,7 @@ const MovieBackdrops = () => {
             <div className='movie__backdrops__inner__full__backdrops'>
               {backdrops &&
                 backdrops.map((backdrop, index) => (
-                  <BackdropCard key={index} backdrop={backdrop} index={index}/>
+                  <BackdropCard key={index} backdrop={backdrop} index={index} />
                 ))}
             </div>
           </div>

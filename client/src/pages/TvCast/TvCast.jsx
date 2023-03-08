@@ -94,6 +94,12 @@ const TvCast = () => {
                 alt={data.name}
                 load='lazy'
               />
+              <div
+                className={
+                  'cover ' +
+                  (mode === true ? 'lightGradient2' : 'darkGradient2')
+                }
+              ></div>
             </div>
           </div>
 
