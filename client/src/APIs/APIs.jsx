@@ -13,7 +13,7 @@ export const APIs = {
 
   genre_movies_url: `https://api.themoviedb.org/3/discover/movie?api_key=${
     import.meta.env.VITE_KEY
-  }`,
+  }&sort_by=vote_count.desc`,
 
   //https://api.themoviedb.org/3/discover/movie?with_genres=28&page=2&api_key=732dfe94c237f44327af913ebba97825
 
@@ -35,7 +35,7 @@ export const APIs = {
 
   genre_tv_url: `https://api.themoviedb.org/3/discover/tv?api_key=${
     import.meta.env.VITE_KEY
-  }`,
+  }&sort_by=vote_count.desc`,
 
   no_image_url:
     'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png',
