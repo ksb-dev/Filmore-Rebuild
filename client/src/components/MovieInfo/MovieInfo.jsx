@@ -302,8 +302,7 @@ const MovieInfo = ({
             </div>
 
             <span className='play-btn' onClick={() => playTrailer()}>
-              {iconsData.play}
-              Watch Trailer
+              {iconsData.play} Watch Trailer
             </span>
           </div>
         </div>

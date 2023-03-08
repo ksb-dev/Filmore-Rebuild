@@ -22,6 +22,9 @@ import MenuIcon from '../../other/MenuIcon/MenuIcon'
 // hooks
 import { useShowHide } from '../../hooks/useShowHide'
 
+// React Icons
+import { GiFilmSpool } from 'react-icons/gi'
+
 const Header = () => {
   const {
     mode,
@@ -47,8 +50,6 @@ const Header = () => {
   const savedShows = useSelector(state => state.savedShows.savedShows)
 
   const navigate = useNavigate()
-
-  //console.log(user1, user2)
 
   //Window Scroll Function
   window.onscroll = () => {
@@ -81,7 +82,7 @@ const Header = () => {
       <div className='header__options'>
         {/* One */}
         <div className='header__options__one'>
-          <span
+          <p
             //to='#'
             className='title '
             onClick={() => {
@@ -89,7 +90,7 @@ const Header = () => {
             }}
           >
             TMDb
-          </span>
+          </p>
 
           <div className='header-menu-icon'>
             <MenuIcon menuIconRef={menuIconRef} />

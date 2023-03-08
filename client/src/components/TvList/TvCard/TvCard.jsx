@@ -73,29 +73,25 @@ const TvCard = ({ tv }) => {
       >
         <img
           className='img-1'
-          src={poster_path === null ? url : APIs.img_path_w780 + backdrop_path}
+          src={
+            poster_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w780 + backdrop_path
+          }
           alt={name}
           load='lazy'
         />
 
         <img
           className='img-2'
-          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
+          src={
+            poster_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w342 + poster_path
+          }
           alt={name}
           load='lazy'
         />
-
-        {/* <LazyLoadImage
-          width={'100%'}
-          height={'100%'}
-          className='img'
-          alt='image'
-          effect='black-and-white'
-          placeholderSrc={
-            poster_path === null ? url : APIs.img_path_w342 + poster_path
-          }
-          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
-        /> */}
       </div>
 
       {user && savedShows && savedShows.length === 0 && (

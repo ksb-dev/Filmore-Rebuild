@@ -118,8 +118,6 @@ const MovieDetail = () => {
       behavior: 'smooth'
     })
 
-    console.log(true)
-
     // 1. Get Trailer
     getMovieTrailer(id, setTrailerUrl, setTrailerLoading, setTrailerError)
 

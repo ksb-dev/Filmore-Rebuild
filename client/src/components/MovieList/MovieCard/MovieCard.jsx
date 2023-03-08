@@ -74,14 +74,22 @@ const MovieCard = ({ movie }) => {
       >
         <img
           className='img-1'
-          src={poster_path === null ? url : APIs.img_path_w780 + backdrop_path}
+          src={
+            poster_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w780 + backdrop_path
+          }
           alt={title}
           load='lazy'
         />
 
         <img
           className='img-2'
-          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
+          src={
+            poster_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w342 + poster_path
+          }
           alt={title}
           load='lazy'
         />

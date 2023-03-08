@@ -34,7 +34,9 @@ const CastBackdropsVideo = ({
 }) => {
   const { mode } = useMovieContext()
 
-  let path = type === 'movie' ? `/movie/cast/${id}` : `/tv/cast/${id}`
+  let castPath = type === 'movie' ? `/movie/cast/${id}` : `/tv/cast/${id}`
+  let backdropPath =
+    type === 'movie' ? `/movie/backdrops/${id}` : `/tv/backdrops/${id}`
 
   return (
     <div
@@ -45,7 +47,7 @@ const CastBackdropsVideo = ({
     >
       <div className='castBackdropVideo__cast'>
         <Link
-          to={path}
+          to={castPath}
           className={
             'castBackdropVideo__cast__title ' +
             (mode === true ? 'darkColor1' : 'lightColor1')
@@ -61,13 +63,19 @@ const CastBackdropsVideo = ({
       </div>
 
       <div className='castBackdropVideo__backdrops'>
-        <div className='castBackdropVideo__backdrops__title'>
+        <Link
+          to={backdropPath}
+          className={
+            'castBackdropVideo__backdrops__title ' +
+            (mode === true ? 'darkColor1' : 'lightColor1')
+          }
+        >
           Backdrops
           <p className='length'>
             <span>{backdrops && backdrops.length}</span>
           </p>
           <span className='icon'>{iconsData.forwardArrow}</span>
-        </div>
+        </Link>
         <Backdrops
           backdrops={backdrops}
           backdropsLoading={backdropsLoading}

@@ -45,7 +45,7 @@
   --darkAplha-5: rgba(51, 51, 51, 0.9);
   --darkAplha-6: rgba(34, 34, 34, 0.9);
 
-  --border-radius-1: 3px;
+  --border-radius-1: 5px;
   --border-radius-2: 10px;
   --border-radius-2: 15px;
 
@@ -61,7 +61,7 @@
   --font-weight-4: 700;
   --font-weight-5: 900;
 
-  --transition: all 0.3s ease;
+  --transition: all 0.5s ease;
 }
 
 .primaryBg {
@@ -344,6 +344,9 @@ body {
 
 @import '../components/ActorCard/actorCard';
 
+@import '../components/BackdropCard/backdropCard';
+
+
 // pages
 @import '../pages/Home/home';
 @import '../pages/Search/search';
@@ -355,6 +358,8 @@ body {
 @import '../pages/ActorDetail/actorDetail';
 @import '../Pages/MovieCast/movieCast';
 @import '../Pages/TvCast/tvCast';
+@import '../pages/MovieBackdrops/movieBackdrops';
+
 
 // other
 @import '../other/Loading/loading';
