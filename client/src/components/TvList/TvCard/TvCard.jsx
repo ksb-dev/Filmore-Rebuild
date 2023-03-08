@@ -74,7 +74,7 @@ const TvCard = ({ tv }) => {
         <img
           className='img-1'
           src={
-            poster_path === null
+            backdrop_path === null
               ? APIs.no_image_url
               : APIs.img_path_w780 + backdrop_path
           }

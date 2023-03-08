@@ -2,7 +2,6 @@
   position: relative;
   user-select: none;
   border-radius: var(--border-radius-1);
-  box-shadow: 0 0 1px #000;
   height: 200px;
 
   &--image {
@@ -148,6 +147,8 @@
 
 @media screen and (max-width: 640px) {
   .card {
+    height: 250px;
+
     &--image {
       height: 250px;
 
