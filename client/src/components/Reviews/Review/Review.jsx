@@ -10,6 +10,9 @@ import { APIs } from '../../../APIs/APIs'
 import { GrStar } from 'react-icons/gr'
 import { HiOutlineUserCircle } from 'react-icons/hi'
 
+// data
+import { iconsData } from '../../../data/icons'
+
 const Review = ({ review }) => {
   const [show, setShow] = useState(false)
   const { mode } = useMovieContext()
@@ -32,9 +35,9 @@ const Review = ({ review }) => {
           {avatar_path !== null && !avatar_path.startsWith('/https') ? (
             <img src={APIs.img_path + avatar_path} alt='User' />
           ) : (
-            <span className='user'>
-              <HiOutlineUserCircle style={{ height: '100%', width: '100%' }} />
-            </span>
+            <p className='user'>
+              <span>{iconsData.person}</span>
+            </p>
           )}
         </div>
 

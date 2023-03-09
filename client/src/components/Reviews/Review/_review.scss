@@ -29,6 +29,17 @@
         height: 100px;
         border-radius: 50%;
       }
+
+      .user {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -75%);
+        }
+      }
     }
 
     .rating {

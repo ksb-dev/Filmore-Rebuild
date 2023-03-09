@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import { LazyLoadImage } from 'react-lazy-load-image-component'
-// import 'react-lazy-load-image-component/src/effects/blur.css'
 
 // context
 import { useMovieContext } from '../../context/context'
@@ -84,24 +82,6 @@ const SearchResults = ({ results }) => {
                 }
                 alt='image'
               />
-
-              {/* <LazyLoadImage
-                width={'100%'}
-                height={'100%'}
-                className='img'
-                alt='image'
-                effect='blur'
-                placeholderSrc={
-                  result.poster_path === null
-                    ? APIs.no_image_url
-                    : APIs.img_path_w185 + result.poster_path
-                }
-                src={
-                  result.poster_path === null
-                    ? APIs.no_image_url
-                    : APIs.img_path_w185 + result.poster_path
-                }
-              /> */}
             </div>
             <div className='search__results__inner__card__title-date'>
               <span className={mode === true ? 'darkColor1' : 'lightColor1'}>

@@ -1,7 +1,5 @@
 import React, { useRef } from 'react'
 import moment from 'moment'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // data
 import { iconsData } from '../../../data/icons'

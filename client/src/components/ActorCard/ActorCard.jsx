@@ -1,6 +1,4 @@
 import React from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // recat router dom
 import { Link } from 'react-router-dom'
@@ -45,24 +43,6 @@ const ActorCard = ({ actor }) => {
         )}
 
         {profile_path === null && <span>{iconsData.person}</span>}
-
-        {/* <LazyLoadImage
-          width={'100%'}
-          height={'100%'}
-          className='img'
-          alt='image'
-          effect='black-and-white'
-          placeholderSrc={
-            profile_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w185 + profile_path
-          }
-          src={
-            profile_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w185 + profile_path
-          }
-        /> */}
       </div>
       <div className='actorCard__name-character'>
         <span className='name'>{original_name && original_name}</span>

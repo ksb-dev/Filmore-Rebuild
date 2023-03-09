@@ -5,8 +5,6 @@ import { useMovieContext } from '../../../../context/context'
 
 // hooks
 import { useShowHide } from '../../../../hooks/useShowHide'
-import { useGetMovieInfo } from '../../../../hooks/useGetMovieInfo'
-import { useGetTvInfo } from '../../../../hooks/useGetTvInfo'
 
 const Video = ({
   video,
@@ -17,8 +15,6 @@ const Video = ({
 }) => {
   const { mode } = useMovieContext()
   const { showPlayer } = useShowHide()
-  const { getMovieTrailer786px } = useGetMovieInfo()
-  const { getTvTrailer786px } = useGetTvInfo()
 
   const playTrailer = () => {
     setPlayerUrl(video.key)

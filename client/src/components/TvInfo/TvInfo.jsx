@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // react router dom
 import { useNavigate } from 'react-router-dom'
@@ -35,9 +33,6 @@ const TvInfo = ({
   data,
   loading,
   error,
-  trailerUrl,
-  trailerLoading,
-  trailerError,
   playerRef,
   playerInnerRef,
   setPlayerUrl,

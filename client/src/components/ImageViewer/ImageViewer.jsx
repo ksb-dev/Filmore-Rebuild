@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/black-and-white.css'
+import React, { useEffect } from 'react'
 
 // APIs
 import { APIs } from '../../APIs/APIs'
@@ -101,24 +99,6 @@ const ImageViewer = () => {
               alt='image'
             />
           </>
-
-          // <LazyLoadImage
-          //   width={'100%'}
-          //   height={'100%'}
-          //   className='img'
-          //   alt='image'
-          //   effect='black-and-white'
-          //   placeholderSrc={
-          //     backdrops[backdropIndex].file_path.file_path === null
-          //       ? APIs.no_image_url
-          //       : APIs.img_path_original + backdrops[backdropIndex].file_path
-          //   }
-          //   src={
-          //     backdrops[backdropIndex].file_path === null
-          //       ? APIs.no_image_url
-          //       : APIs.img_path_original + backdrops[backdropIndex].file_path
-          //   }
-          // />
         )}
 
         {backdrops && backdrops.length > 1 ? (

@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-
 // Context
 import { useMovieContext } from '../../../context/context'
 
