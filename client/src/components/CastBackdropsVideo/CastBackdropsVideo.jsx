@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // react router dom
 import { Link } from 'react-router-dom'
@@ -14,30 +14,50 @@ import Cast from './Cast/Cast'
 import Backdrops from './Backdrops/Backdrops'
 import Videos from './Videos/Videos'
 
-const CastBackdropsVideo = ({
-  id,
-  type,
-  cast,
-  castLoading,
-  castError,
-  backdrops,
-  backdropsLoading,
-  backdropsError,
-  videos,
-  videosLoading,
-  videosError,
-  setPlayerUrl,
-  setPlayerLoading,
-  setPlayerError,
-  playerRef,
-  playerInnerRef
-}) => {
-  const { mode } = useMovieContext()
+// hooks
+import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetTvInfo } from '../../hooks/useGetTvInfo'
+
+const CastBackdropsVideo = ({ id, type, playerRef, playerInnerRef }) => {
+  const {
+    mode,
+    cast,
+    setCast,
+    setCastLoading,
+    setCastError,
+    backdrops,
+    setBackdrops,
+    setBackdropsLoading,
+    setBackdropsError,
+    videos,
+    setVideos,
+    setVideosLoading,
+    setVideosError
+  } = useMovieContext()
+  const { getMovieCast, getMovieBackdrops, getMovieVideos } = useGetMovieInfo()
+  const { getTvCast, getTvBackdrops, getTvVideos } = useGetTvInfo()
 
   let castPath = type === 'movie' ? `/movie/cast/${id}` : `/tv/cast/${id}`
   let backdropPath =
     type === 'movie' ? `/movie/backdrops/${id}` : `/tv/backdrops/${id}`
   let videoPath = type === 'movie' ? `/movie/videos/${id}` : `/tv/videos/${id}`
+
+  useEffect(() => {
+    if (type === 'movie') {
+      getMovieCast(id, setCast, setCastLoading, setCastError)
+      getMovieBackdrops(
+        id,
+        setBackdrops,
+        setBackdropsLoading,
+        setBackdropsError
+      )
+      getMovieVideos(id, setVideos, setVideosLoading, setVideosError)
+    } else {
+      getTvCast(id, setCast, setCastLoading, setCastError)
+      getTvBackdrops(id, setBackdrops, setBackdropsLoading, setBackdropsError)
+      getTvVideos(id, setVideos, setVideosLoading, setVideosError)
+    }
+  }, [id])
 
   return (
     <div
@@ -74,7 +94,7 @@ const CastBackdropsVideo = ({
             </p>
           </div>
         )}
-        <Cast cast={cast} castLoading={castLoading} castError={castError} />
+        <Cast />
       </div>
 
       <div className='castBackdropVideo__backdrops'>
@@ -105,11 +125,7 @@ const CastBackdropsVideo = ({
             </p>
           </div>
         )}
-        <Backdrops
-          backdrops={backdrops}
-          backdropsLoading={backdropsLoading}
-          backdropsError={backdropsError}
-        />
+        <Backdrops />
       </div>
 
       <div className='castBackdropVideo__videos'>
@@ -141,16 +157,7 @@ const CastBackdropsVideo = ({
           </div>
         )}
 
-        <Videos
-          videos={videos}
-          videosLoading={videosLoading}
-          videosError={videosError}
-          setPlayerUrl={setPlayerUrl}
-          setPlayerLoading={setPlayerLoading}
-          setPlayerError={setPlayerError}
-          playerRef={playerRef}
-          playerInnerRef={playerInnerRef}
-        />
+        <Videos playerRef={playerRef} playerInnerRef={playerInnerRef} />
       </div>
     </div>
   )

@@ -10,14 +10,8 @@ import { useShowHide } from '../../hooks/useShowHide'
 import Loading from '../../other/Loading/Loading'
 import Iframe from '../../other/Iframe/Iframe'
 
-const PlayerOne = ({
-  playerRef,
-  playerInnerRef,
-  playerUrl,
-  playerLoading,
-  setPlayerUrl
-}) => {
-  const { mode } = useMovieContext()
+const PlayerOne = ({ playerRef, playerInnerRef }) => {
+  const { mode, playerUrl, playerLoading, setPlayerUrl } = useMovieContext()
   const { hidePlayer } = useShowHide()
 
   useEffect(() => {}, [playerUrl])

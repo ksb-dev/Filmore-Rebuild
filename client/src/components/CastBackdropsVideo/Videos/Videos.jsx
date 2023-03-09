@@ -10,17 +10,16 @@ import Video from '../Videos/Video/Video'
 import Loading from '../../../other/Loading/Loading'
 import Error from '../../../other/Error/Error'
 
-const Videos = ({
-  videos,
-  videosLoading,
-  videosError,
-  setPlayerUrl,
-  setPlayerLoading,
-  setPlayerError,
-  playerRef,
-  playerInnerRef
-}) => {
-  const { mode } = useMovieContext()
+const Videos = ({ playerRef, playerInnerRef }) => {
+  const {
+    mode,
+    videos,
+    videosLoading,
+    videosError,
+    setPlayerUrl,
+    setPlayerLoading,
+    setPlayerError
+  } = useMovieContext()
 
   if (videosLoading) {
     return (

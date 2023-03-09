@@ -14,6 +14,7 @@ import { useMovieContext } from '../../context/context'
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
 import { useShowHide } from '../../hooks/useShowHide'
+import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
 import { useGetTvInfo } from '../../hooks/useGetTvInfo'
 
 // data
@@ -28,35 +29,52 @@ import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 import CircularProgressBar from '../../other/CircularProgressBar/CircularProgressBar'
 
-const TvInfo = ({
-  id,
-  data,
-  loading,
-  error,
-  playerRef,
-  playerInnerRef,
-  setPlayerUrl,
-  setPlayerLoading,
-  setPlayerError
-}) => {
+const ImageDetail = ({ id, type, playerRef, playerInnerRef }) => {
   const navigate = useNavigate()
 
   //context
-  const { mode } = useMovieContext()
+  const {
+    mode,
+    data,
+    setData,
+    setLoading,
+    loading,
+    error,
+    setError,
+    setPlayerUrl,
+    setPlayerLoading,
+    setPlayerError
+  } = useMovieContext()
 
   // hooks
-  const { addShow, deleteShow } = useWatchlistOperations()
+  const { addMovie, deleteMovie, addShow, deleteShow } =
+    useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { showPlayer } = useShowHide()
-  const { getTvTrailer786px } = useGetTvInfo()
+  const { getMovieInfo, getMovieTrailer786px } = useGetMovieInfo()
+  const { getTvInfo, getTvTrailer786px } = useGetTvInfo()
 
   // states
   const [genres, setGenres] = useState(new Set())
   const [genre_ids, setGenre_ids] = useState(new Set())
 
-  // redux state
-  const savedShows = useSelector(state => state.savedShows.savedShows)
-  const user = useSelector(state => state.savedShows.user)
+  // movie / tv
+  let watchlist = ''
+  let user = ''
+
+  if (type === 'movie') {
+    watchlist = useSelector(state => state.savedMovies.savedMovies)
+    user = useSelector(state => state.savedMovies.user)
+  } else {
+    watchlist = useSelector(state => state.savedShows.savedShows)
+    user = useSelector(state => state.savedShows.user)
+  }
+
+  useEffect(() => {
+    type === 'movie'
+      ? getMovieInfo(id, setData, setLoading, setError)
+      : getTvInfo(id, setData, setLoading, setError)
+  }, [id])
 
   // Get & store genre__ids
   useEffect(() => {
@@ -94,41 +112,57 @@ const TvInfo = ({
   }
 
   const {
+    title,
     name,
     tagline,
     vote_average,
     poster_path,
     backdrop_path,
     first_air_date,
+    release_date,
+    runtime,
     overview
   } = data
 
   const playTrailer = () => {
     showPlayer(playerRef, playerInnerRef)
-    getTvTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
+    type === 'movie'
+      ? getMovieTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
+      : getTvTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
   }
 
-  const handleAddTv = () => {
-    addShow(
-      id,
-      name,
-      poster_path,
-      backdrop_path,
-      first_air_date,
-      vote_average,
-      genre_ids,
-      overview
-    )
+  const handleAddMovie = () => {
+    type === 'movie'
+      ? addMovie(
+          id,
+          title,
+          poster_path,
+          backdrop_path,
+          release_date,
+          vote_average,
+          genre_ids,
+          overview
+        )
+      : addShow(
+          id,
+          name,
+          poster_path,
+          backdrop_path,
+          first_air_date,
+          vote_average,
+          genre_ids,
+          overview
+        )
   }
 
-  const handleDeeleteTv = () => {
-    deleteShow(id)
+  const handleDeleteMovie = () => {
+    type === 'movie' ? deleteMovie(id) : deleteShow(id)
   }
 
   return (
     <div
       className={
-        'tv__info ' +
+        'image-detail-container ' +
         (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
       style={{
@@ -146,15 +180,41 @@ const TvInfo = ({
         <div className='image-detail'>
           <div className='title-tagline-date-time'>
             <div className='title-tagline'>
-              <span className='title'>{name && name}</span>
-              <span className='tagline'>{tagline && tagline}</span>
+              <span className='title'>
+                {type === 'movie' ? title && title : name && name}
+              </span>
+              <span className='tagline'>
+                {type === 'movie' && tagline && tagline}
+              </span>
             </div>
 
             <div className='date-time'>
-              {first_air_date && (
-                <span className='date'>
-                  {moment(first_air_date).format('Do MMM, YYYY')}
-                </span>
+              {type === 'movie'
+                ? release_date && (
+                    <span className='date'>
+                      {moment(release_date).format('Do MMM, YYYY')}
+                    </span>
+                  )
+                : first_air_date && (
+                    <span className='date'>
+                      {moment(first_air_date).format('Do MMM, YYYY')}
+                    </span>
+                  )}
+
+              {type === 'movie' && (
+                <>
+                  <span className='gap'>-</span>
+
+                  {runtime && (
+                    <span className='time'>
+                      <>
+                        {`${Math.floor(runtime / 60)}` > 0 &&
+                          `${Math.floor(runtime / 60)}h`}
+                        {` ${runtime % 60}`}m
+                      </>
+                    </span>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -166,7 +226,7 @@ const TvInfo = ({
               <img
                 className='img-1'
                 src={APIs.img_path_w342 + poster_path}
-                alt={name}
+                alt='img'
                 load='lazy'
               />
             )}
@@ -177,7 +237,7 @@ const TvInfo = ({
               <img
                 className='img-2'
                 src={APIs.img_path_w780 + backdrop_path}
-                alt={name}
+                alt='img'
                 load='lazy'
               />
             )}
@@ -187,33 +247,37 @@ const TvInfo = ({
             </div>
 
             {/* ADD-BUTTON */}
-            {user && savedShows && savedShows.length === 0 && (
-              <p className='add-btn' onClick={() => handleAddTv()}>
+            {user && watchlist && watchlist.length === 0 && (
+              <p className='add-btn' onClick={() => handleAddMovie()}>
                 <span className='add-btn-icon'>{iconsData.addBookmark1}</span>
               </p>
             )}
 
             {/* ADD-BUTTON */}
             {user &&
-              savedShows &&
-              savedShows.length > 0 &&
-              savedShows.every(item => item.id !== Number(id)) && (
-                <p key={id} className='add-btn' onClick={() => handleAddTv()}>
+              watchlist &&
+              watchlist.length > 0 &&
+              watchlist.every(item => item.id !== Number(id)) && (
+                <p
+                  key={id}
+                  className='add-btn'
+                  onClick={() => handleAddMovie()}
+                >
                   <span className='add-btn-icon'>{iconsData.addBookmark1}</span>
                 </p>
               )}
 
             {/* DELETE-BUTTON */}
             {user &&
-              savedShows &&
-              savedShows.length > 0 &&
-              savedShows.map((item, index) => {
+              watchlist &&
+              watchlist.length > 0 &&
+              watchlist.map((item, index) => {
                 if (item.id === Number(id)) {
                   return (
                     <p
                       key={index}
                       className='delete-btn'
-                      onClick={() => handleDeeleteTv()}
+                      onClick={() => handleDeleteMovie()}
                       style={{ background: 'gold' }}
                     >
                       <span
@@ -237,15 +301,41 @@ const TvInfo = ({
 
           <div className='detail'>
             <div className='title-tagline'>
-              <span className='title'>{name && name}</span>
-              <span className='tagline'>{tagline && tagline}</span>
+              <span className='title'>
+                {type === 'movie' ? title && title : name && name}
+              </span>
+              <span className='tagline'>
+                {type === 'movie' && tagline && tagline}
+              </span>
             </div>
 
             <div className='date-time'>
-              {first_air_date && (
-                <span className='date'>
-                  {moment(first_air_date).format('Do MMM, YYYY')}
-                </span>
+              {type === 'movie'
+                ? release_date && (
+                    <span className='date'>
+                      {moment(release_date).format('Do MMM, YYYY')}
+                    </span>
+                  )
+                : first_air_date && (
+                    <span className='date'>
+                      {moment(first_air_date).format('Do MMM, YYYY')}
+                    </span>
+                  )}
+
+              {type === 'movie' && (
+                <>
+                  <span className='gap'>-</span>
+
+                  {runtime && (
+                    <span className='time'>
+                      <>
+                        {`${Math.floor(runtime / 60)}` > 0 &&
+                          `${Math.floor(runtime / 60)}h`}
+                        {` ${runtime % 60}`}m
+                      </>
+                    </span>
+                  )}
+                </>
               )}
             </div>
 
@@ -269,8 +359,7 @@ const TvInfo = ({
             </div>
 
             <span className='play-btn' onClick={() => playTrailer()}>
-              {iconsData.play}
-              Watch Trailer
+              {iconsData.play} Watch Trailer
             </span>
           </div>
         </div>
@@ -279,4 +368,4 @@ const TvInfo = ({
   )
 }
 
-export default TvInfo
+export default ImageDetail

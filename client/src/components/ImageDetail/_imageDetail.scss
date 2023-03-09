@@ -1,4 +1,4 @@
-.movie__info {
+.image-detail-container {
   position: relative;
   margin: calc(58.4px + 0rem) 2.5% 4rem 2.5%;
   height: 100%;
@@ -168,7 +168,7 @@
 }
 
 @media screen and (max-width: 1280px) {
-  .movie__info {
+  .image-detail-container {
     margin: calc(58.4px + 0rem) 0 4rem 0;
 
     .cover {
@@ -178,7 +178,7 @@
 }
 
 @media screen and (max-width: 786px) {
-  .movie__info {
+  .image-detail-container {
     margin-bottom: 2rem;
 
     .cover {
@@ -286,7 +286,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .movie__info {
+  .image-detail-container {
     .cover {
       padding: 0 1rem 1rem 1rem;
 
@@ -312,139 +312,6 @@
     }
   }
 }
-
-// @media screen and (max-width: 640px) {
-//   .movie__info {
-//     padding-bottom: 4rem;
-
-//     &__image__video {
-//       margin-bottom: 0rem;
-
-//       &__player {
-//         display: none;
-//         height: 250px;
-//       }
-//     }
-
-//     &__image__detail {
-//       padding: 0;
-//       margin-bottom: 0;
-//       flex-direction: column;
-
-//       &--image-2 {
-//         display: none;
-//       }
-
-//       &--image-3 {
-//         position: relative;
-//         display: block;
-//         margin-bottom: 2rem;
-//         margin-right: 0;
-//         width: 100%;
-//         height: 300px;
-//         border-radius: unset;
-//         border-radius: var(--border-radius-1);
-
-//         .img {
-//           width: 100%;
-//           height: 100%;
-//           object-fit: cover;
-//           border-radius: unset;
-//           border-radius: var(--border-radius-1);
-//         }
-//       }
-
-//       &__inner {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: flex-start;
-//         justify-content: flex-start;
-
-//         &__genres {
-//           span {
-//             font-size: 0.9rem;
-//           }
-//         }
-
-//         &__playBtn {
-//           cursor: pointer;
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           background: var(--primary);
-//           color: #000;
-//           width: 100%;
-//           text-align: center;
-//           padding: 0.5rem 0;
-//           border-radius: 3px;
-//           font-weight: 500;
-//         }
-
-//         &__playBtn:hover {
-//           filter: brightness(80%);
-//           transition: var(--transition);
-//         }
-//       }
-
-//       &__rating {
-//         left: unset;
-//         right: 0rem;
-//         height: 43.6px;
-//         width: 43.6px;
-
-//         span {
-//           font-size: 1rem;
-//         }
-//       }
-
-//       &__btn,
-//       &__add__btn,
-//       &__delete__btn {
-//         height: 50px;
-//         width: 50px;
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 376px) {
-//   .movie__info {
-//     &__image__detail {
-//       &--image-3 {
-//         display: none;
-//       }
-
-//       &--image-4 {
-//         display: flex;
-//         height: 200px;
-//         margin-bottom: 2rem;
-//         border-radius: var(--border-radius-1);
-
-//         .img {
-//           width: 100%;
-//           height: 100%;
-//           border-radius: var(--border-radius-1);
-//         }
-//       }
-
-//       &__rating {
-//         height: 33.6px;
-//         width: 33.6px;
-
-//         span {
-//           font-size: 0.8rem;
-//         }
-//       }
-
-//       &__btn,
-//       &__add__btn,
-//       &__delete__btn {
-//         height: 40px;
-//         width: 40px;
-//       }
-//     }
-//   }
-// }
 
 .genreLightBorder {
   box-shadow: 0 0 2px #fff;

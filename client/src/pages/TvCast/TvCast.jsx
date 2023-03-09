@@ -6,9 +6,6 @@ import { useParams } from 'react-router-dom'
 // hooks
 import { useGetTvInfo } from '../../hooks/useGetTvInfo'
 
-// APIs
-import { APIs } from '../../APIs/APIs'
-
 // context
 import { useMovieContext } from '../../context/context'
 
@@ -17,30 +14,17 @@ import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
-import ActorCard from '../../components/ActorCard/ActorCard'
-
-// other
-import Loading from '../../other/Loading/Loading'
-import Error from '../../other/Error/Error'
-
-// data
-import { iconsData } from '../../data/icons'
+import FullCast from '../../components/FullCast/FullCast'
 
 const TvCast = () => {
   const { id } = useParams()
   const {
     mode,
-    data,
     setData,
-    loading,
     setLoading,
-    error,
     setError,
-    cast,
     setCast,
-    castLoading,
     setCastLoading,
-    castError,
     setCastError
   } = useMovieContext()
   const { getTvInfo, getTvCast } = useGetTvInfo()
@@ -68,80 +52,7 @@ const TvCast = () => {
       <SmallHeader />
       <Menu />
       <SearchModal />
-
-      {loading && (
-        <div className='loading'>
-          <Loading />
-        </div>
-      )}
-
-      {error && (
-        <div className='error'>
-          <Error msg={'Failed to fetch cast'} />
-        </div>
-      )}
-
-      {!loading && !error && (
-        <div className='tv__cast__inner'>
-          <div className='tv__cast__inner__detail'>
-            <span className='tv__cast__inner__detail--title'>{data.name}</span>
-
-            <div className='tv__cast__inner__detail--image'>
-              {data.backdrop_path === null ? (
-                <span
-                  className={
-                    'img-icon ' + (mode === true ? 'lightBg2' : 'darkBg1')
-                  }
-                >
-                  {iconsData.imageIcon}
-                </span>
-              ) : (
-                <img
-                  className='img'
-                  src={APIs.img_path_w780 + data.backdrop_path}
-                  alt={data.name}
-                  load='lazy'
-                />
-              )}
-
-              <div
-                className={
-                  'cover ' +
-                  (mode === true ? 'lightGradient2' : 'darkGradient2')
-                }
-              ></div>
-            </div>
-          </div>
-
-          <div className='tv__cast__inner__full'>
-            <div className='tv__cast__inner__full--title'>
-              <span className='title'>Full Cast</span>
-              <p className='length'>
-                <span>{cast && cast.length}</span>
-              </p>
-            </div>
-
-            {castLoading && (
-              <span className='cast-loading'>
-                <Loading />
-              </span>
-            )}
-
-            {castError && (
-              <span className='cast-loading'>
-                <Error msg={'No cast found.'} />
-              </span>
-            )}
-
-            <div className='tv__cast__inner__full__cast'>
-              {cast &&
-                cast.map((actor, index) => (
-                  <ActorCard key={index} actor={actor} />
-                ))}
-            </div>
-          </div>
-        </div>
-      )}
+      <FullCast />
     </div>
   )
 }

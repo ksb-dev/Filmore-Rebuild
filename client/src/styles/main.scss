@@ -341,12 +341,12 @@ body {
 
 @import '../components/Menu/menu';
 
+@import '../components/ImageDetail/imageDetail';
+
 @import '../components/Search/search';
 @import '../components/SearchResults/searchResults';
 @import '../components/SearchModal/searchModal';
 
-@import '../components/MovieInfo/movieInfo';
-@import '../components/TvInfo/tvInfo';
 @import '../components/CastBackdropsVideo/castBackdropsVideo';
 @import '../components/CastBackdropsVideo/Cast/cast';
 @import '../components/CastBackdropsVideo/Cast/Actor/actor';
@@ -356,7 +356,6 @@ body {
 @import '../components/CastBackdropsVideo/Videos/Video/video';
 
 @import '../components/Reviews/reviews';
-@import '../components/Reviews/Review/review';
 
 @import '../components/ImageViewer/imageViewer';
 
@@ -366,6 +365,8 @@ body {
 @import '../components/BackdropCard/backdropCard';
 @import '../components/VideoCard/videoCard';
 @import '../components/ReviewCard/reviewCard';
+
+@import '../components/FullCast/fullCast';
 
 // pages
 @import '../pages/Home/home';

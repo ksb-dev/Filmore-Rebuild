@@ -26,64 +26,15 @@ import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
 import SearchModal from '../../components/SearchModal/SearchModal'
 
-import TvInfo from '../../components/TvInfo/TvInfo'
+import ImageDetail from '../../components/ImageDetail/ImageDetail'
 import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdropsVideo'
 import Reviews from '../../components/Reviews/Reviews'
 import PlayerOne from '../../components/PlayerOne/PlayerOne'
 import ImageViewer from '../../components/ImageViewer/ImageViewer'
 
 const TvDetail = () => {
-  const {
-    mode,
-    movieState,
-    movieIdState,
-    data,
-    setData,
-    loading,
-    setLoading,
-    error,
-    setError,
-    cast,
-    setCast,
-    castLoading,
-    setCastLoading,
-    castError,
-    setCastError,
-    backdrops,
-    setBackdrops,
-    backdropsLoading,
-    setBackdropsLoading,
-    backdropsError,
-    setBackdropsError,
-    videos,
-    setVideos,
-    videosLoading,
-    setVideosLoading,
-    videosError,
-    setVideosError,
-    trailerUrl,
-    setTrailerUrl,
-    trailerLoading,
-    setTrailerLoading,
-    trailerError,
-    setTrailerError,
-    playerUrl,
-    setPlayerUrl,
-    playerLoading,
-    setPlayerLoading,
-    playerError,
-    setPlayerError
-  } = useMovieContext()
+  const { mode, movieState, loading, error } = useMovieContext()
   const dispatch = useDispatch()
-
-  const {
-    getTvTrailer,
-    getTvInfo,
-    getTvCast,
-    getTvBackdrops,
-    getTvVideos,
-    getTvReviews
-  } = useGetTvInfo()
 
   // Movie info
   const { id } = useParams()
@@ -92,6 +43,14 @@ const TvDetail = () => {
   const playerTwoInnerRef = useRef(null)
 
   const [type, setType] = useState('tv')
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }, [id])
 
   useEffect(() => {
     window.scroll({
@@ -111,40 +70,6 @@ const TvDetail = () => {
     }
   }, [dispatch, movieState])
 
-  useEffect(() => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
-
-    // 1. Get Trailer
-    getTvTrailer(id, setTrailerUrl, setTrailerLoading, setTrailerError)
-
-    // 2. Get info
-    getTvInfo(id, setData, setLoading, setError)
-
-    //3. Get cast
-    setTimeout(() => {
-      getTvCast(id, setCast, setCastLoading, setCastError)
-    }, 250)
-
-    //4. Get backdrops
-    setTimeout(() => {
-      getTvBackdrops(id, setBackdrops, setBackdropsLoading, setBackdropsError)
-    }, 500)
-
-    //5. Get videos
-    setTimeout(() => {
-      getTvVideos(id, setVideos, setVideosLoading, setVideosError)
-    }, 750)
-
-    //6. Get reviews
-    setTimeout(() => {
-      getTvReviews(id, setReviews, setReviewsLoading, setReviewsError)
-    }, 1000)
-  }, [id])
-
   return (
     <div className={'tv-detail ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
       <Header />
@@ -152,46 +77,19 @@ const TvDetail = () => {
       <Menu />
       <SearchModal />
 
-      <TvInfo
+      <ImageDetail
         id={id}
-        data={data}
-        loading={loading}
-        error={error}
-        trailerUrl={trailerUrl}
-        trailerLoading={trailerLoading}
-        trailerError={trailerError}
+        type={type}
         playerRef={playerTwoRef}
         playerInnerRef={playerTwoInnerRef}
-        setPlayerUrl={setPlayerUrl}
-        setPlayerLoading={setPlayerLoading}
-        setPlayerError={setPlayerError}
       />
 
-      <PlayerOne
-        playerRef={playerTwoRef}
-        playerInnerRef={playerTwoInnerRef}
-        playerUrl={playerUrl}
-        playerLoading={playerLoading}
-        setPlayerUrl={setPlayerUrl}
-      />
-
+      <PlayerOne playerRef={playerTwoRef} playerInnerRef={playerTwoInnerRef} />
       {!loading && !error && (
         <>
           <CastBackdropsVideo
             id={id}
             type={type}
-            cast={cast}
-            castError={castError}
-            castLoading={castLoading}
-            backdrops={backdrops}
-            backdropsLoading={backdropsLoading}
-            backdropsError={backdropsError}
-            videos={videos}
-            videosLoading={videosLoading}
-            videosError={videosError}
-            setPlayerUrl={setPlayerUrl}
-            setPlayerLoading={setPlayerLoading}
-            setPlayerError={setPlayerError}
             playerRef={playerTwoRef}
             playerInnerRef={playerTwoInnerRef}
           />

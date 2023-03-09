@@ -8,8 +8,9 @@ import Backdrop from './Backdrop/Backdrop'
 import Loading from '../../../other/Loading/Loading'
 import Error from '../../../other/Error/Error'
 
-const Backdrops = ({ backdrops, backdropsLoading, backdropsError }) => {
-  const { mode } = useMovieContext()
+const Backdrops = () => {
+  const { mode, backdrops, backdropsLoading, backdropsError } =
+    useMovieContext()
 
   if (backdropsLoading) {
     return (
