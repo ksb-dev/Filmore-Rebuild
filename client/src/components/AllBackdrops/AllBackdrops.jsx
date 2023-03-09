@@ -1,5 +1,8 @@
 import React from 'react'
 
+// hooks
+import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+
 // APIs
 import { APIs } from '../../APIs/APIs'
 
@@ -7,7 +10,7 @@ import { APIs } from '../../APIs/APIs'
 import { useMovieContext } from '../../context/context'
 
 // components
-import ActorCard from '../../components/ActorCard/ActorCard'
+import BackdropCard from '../../components/BackdropCard/BackdropCard'
 
 // other
 import Loading from '../../other/Loading/Loading'
@@ -16,9 +19,16 @@ import Error from '../../other/Error/Error'
 // data
 import { iconsData } from '../../data/icons'
 
-const FullCast = () => {
-  const { mode, data, loading, error, cast, castLoading, castError } =
-    useMovieContext()
+const AllBackdrops = () => {
+  const {
+    mode,
+    data,
+    loading,
+    error,
+    backdrops,
+    backdropsError,
+    backdropsLoading
+  } = useMovieContext()
 
   if (loading) {
     return (
@@ -31,7 +41,7 @@ const FullCast = () => {
   if (error) {
     return (
       <div className='error'>
-        <Error msg={'Failed to fetch cast'} />
+        <Error msg={'Failed to fetch backdrops'} />
       </div>
     )
   }
@@ -39,17 +49,17 @@ const FullCast = () => {
   return (
     <>
       {!loading && !error && (
-        <div className='full__cast'>
-          <div className='full__cast__detail'>
-            <span className='full__cast__detail--title'>
+        <div className='all__backdrops'>
+          <div className='all__backdrops__detail'>
+            <span className='all__backdrops__detail--title'>
               {data.title ? data.title : data.name}
             </span>
 
-            <span className='full__cast__detail--tagline'>
+            <span className='all__backdrops__detail--tagline'>
               {data.tagline && data.tagline}
             </span>
 
-            <div className='full__cast__detail--image'>
+            <div className='all__backdrops__detail--image'>
               {data.backdrop_path === null ? (
                 <span
                   className={
@@ -76,30 +86,30 @@ const FullCast = () => {
             </div>
           </div>
 
-          <div className='full__cast__container'>
-            <div className='full__cast__container--title'>
-              <span className='title'>Full Cast</span>
+          <div className='all__backdrops__container'>
+            <div className='all__backdrops__container--title'>
+              <span className='title'>All Backdrops</span>
               <p className='length'>
-                <span>{cast && cast.length}</span>
+                <span>{backdrops && backdrops.length}</span>
               </p>
             </div>
 
-            {castLoading && (
-              <span className='cast-loading'>
+            {backdropsLoading && (
+              <span className='backdrops-loading'>
                 <Loading />
               </span>
             )}
 
-            {castError && (
-              <span className='cast-loading'>
-                <Error msg={'No cast found.'} />
+            {backdropsError && (
+              <span className='backdrops-loading'>
+                <Error msg={'No backdrops found.'} />
               </span>
             )}
 
-            <div className='full__cast__container__inner'>
-              {cast &&
-                cast.map((actor, index) => (
-                  <ActorCard key={index} actor={actor} />
+            <div className='all__backdrops__container__backdrops'>
+              {backdrops &&
+                backdrops.map((backdrop, index) => (
+                  <BackdropCard key={index} backdrop={backdrop} index={index} />
                 ))}
             </div>
           </div>
@@ -109,4 +119,4 @@ const FullCast = () => {
   )
 }
 
-export default FullCast
+export default AllBackdrops

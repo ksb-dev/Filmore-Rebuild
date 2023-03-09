@@ -34,12 +34,10 @@ const Search = () => {
 
     if (searchQuery && savedMovieState === 'movie') {
       dispatch(getMovies('search'))
-      //console.log(1)
     }
 
     if (searchQuery && savedMovieState === 'tv') {
       dispatch(getTvShows('search'))
-      //console.log(2)
     }
 
     const savedToken = sessionStorage.getItem('token')
