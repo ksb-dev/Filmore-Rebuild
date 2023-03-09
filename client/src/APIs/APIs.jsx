@@ -1,41 +1,42 @@
 export const APIs = {
   popular_movies_url: `https://api.themoviedb.org/3/discover/movie?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US&sort_by=popularity.desc`,
+  }&language=en-US&sort_by=popularity.desc&adult=false`,
 
   playing_movies_url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US`,
+  }&language=en-US&adult = false
+`,
 
   topRated_movies_url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US`,
+  }&language=en-US&adult = false`,
 
   genre_movies_url: `https://api.themoviedb.org/3/discover/movie?api_key=${
     import.meta.env.VITE_KEY
-  }&sort_by=vote_count.desc`,
+  }&sort_by=vote_count.desc&adult = false`,
 
   //https://api.themoviedb.org/3/discover/movie?with_genres=28&page=2&api_key=732dfe94c237f44327af913ebba97825
 
   popular_tv_url: `https://api.themoviedb.org/3/tv/popular?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US`,
+  }&language=en-US&adult = false`,
 
   topRated_tv_url: `https://api.themoviedb.org/3/tv/top_rated?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US`,
+  }&language=en-US&adult = false`,
 
   onAir_tv_url: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US`,
+  }&language=en-US&adult = false`,
 
   latest_tv_url: `https://api.themoviedb.org/3/tv/latest?api_key=${
     import.meta.env.VITE_KEY
-  }&language=en-US`,
+  }&language=en-US&adult = false`,
 
   genre_tv_url: `https://api.themoviedb.org/3/discover/tv?api_key=${
     import.meta.env.VITE_KEY
-  }&sort_by=vote_count.desc`,
+  }&sort_by=vote_count.desc&adult = false`,
 
   no_image_url:
     'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png',
@@ -64,11 +65,11 @@ export const APIs = {
 
   search__movie__url: `https://api.themoviedb.org/3/search/movie?api_key=${
     import.meta.env.VITE_KEY
-  }`,
+  }&adult = false`,
 
   search__tv__url: `https://api.themoviedb.org/3/search/tv?api_key=${
     import.meta.env.VITE_KEY
-  }`,
+  }&adult = false`,
 
   //https://api.themoviedb.org/3/discover/movie?with_genres=12&page=1&api_key=732dfe94c237f44327af913ebba97825
 

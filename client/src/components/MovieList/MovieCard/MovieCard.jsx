@@ -23,10 +23,6 @@ import { APIs } from '../../../APIs/APIs'
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 
-const url =
-  'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
-//const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-
 const MovieCard = ({ movie }) => {
   const { mode } = useMovieContext()
   const { addMovie, deleteMovie } = useWatchlistOperations()
@@ -70,27 +66,27 @@ const MovieCard = ({ movie }) => {
       <div
         className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
-        <img
-          className='img-1'
-          src={
-            poster_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w780 + backdrop_path
-          }
-          alt={title}
-          load='lazy'
-        />
+        {backdrop_path === null ? (
+          <span className='img-icon-1'>{iconsData.imageIcon}</span>
+        ) : (
+          <img
+            className='img-1'
+            src={APIs.img_path_w780 + backdrop_path}
+            alt={title}
+            load='lazy'
+          />
+        )}
 
-        <img
-          className='img-2'
-          src={
-            poster_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w342 + poster_path
-          }
-          alt={title}
-          load='lazy'
-        />
+        {poster_path === null ? (
+          <span className='img-icon-2'>{iconsData.imageIcon}</span>
+        ) : (
+          <img
+            className='img-2'
+            src={APIs.img_path_w342 + poster_path}
+            alt={title}
+            load='lazy'
+          />
+        )}
       </div>
 
       {user && savedMovies && savedMovies.length === 0 && (

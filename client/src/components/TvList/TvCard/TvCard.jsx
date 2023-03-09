@@ -69,27 +69,27 @@ const TvCard = ({ tv }) => {
       <div
         className={'card--image ' + (mode === true ? 'lightBg2' : 'darkBg1')}
       >
-        <img
-          className='img-1'
-          src={
-            backdrop_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w780 + backdrop_path
-          }
-          alt={name}
-          load='lazy'
-        />
+        {backdrop_path === null ? (
+          <span className='img-icon-1'>{iconsData.imageIcon}</span>
+        ) : (
+          <img
+            className='img-1'
+            src={APIs.img_path_w780 + backdrop_path}
+            alt={name}
+            load='lazy'
+          />
+        )}
 
-        <img
-          className='img-2'
-          src={
-            poster_path === null
-              ? APIs.no_image_url
-              : APIs.img_path_w342 + poster_path
-          }
-          alt={name}
-          load='lazy'
-        />
+        {poster_path === null ? (
+          <span className='img-icon-2'>{iconsData.imageIcon}</span>
+        ) : (
+          <img
+            className='img-2'
+            src={APIs.img_path_w342 + poster_path}
+            alt={name}
+            load='lazy'
+          />
+        )}
       </div>
 
       {user && savedShows && savedShows.length === 0 && (

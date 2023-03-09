@@ -19,8 +19,17 @@
       border-radius: var(--border-radius-1);
     }
 
-    .img-2 {
+    .img-2,
+    .img-icon-2 {
       display: none;
+    }
+
+    .img-icon-1,
+    .img-icon-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -152,7 +161,8 @@
     &--image {
       height: 250px;
 
-      .img-1 {
+      .img-1,
+      .img-icon-1 {
         display: none;
       }
 
@@ -160,6 +170,10 @@
         display: flex;
         height: 250px;
         width: 100%;
+      }
+
+      .img-icon-2 {
+        display: flex;
       }
     }
 

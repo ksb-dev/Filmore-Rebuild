@@ -7,7 +7,6 @@
   display: none;
 
   transition: z-index, opacity 0.3s ease;
-  //background: rgba(0, 0, 0, 0.85) !important;
 
   &__inner {
     margin: 1rem;
@@ -17,7 +16,7 @@
     position: absolute;
     bottom: 8rem;
     left: 45%;
-    background: var(--primary);
+    background: var(--red);
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -28,7 +27,7 @@
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #000;
+      color: #fff;
     }
   }
 

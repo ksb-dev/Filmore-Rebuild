@@ -15,7 +15,8 @@ import {
   BsPlayCircle,
   BsPlusCircle,
   BsPlusCircleFill,
-  BsArrowRightCircle
+  BsArrowRightCircle,
+  BsImages
 } from 'react-icons/bs'
 import { BiSearch, BiUserCircle } from 'react-icons/bi'
 
@@ -29,6 +30,7 @@ import { RiLoginCircleFill, RiLoginCircleLine } from 'react-icons/ri'
 import { FiCheck } from 'react-icons/fi'
 import { IoPersonCircle } from 'react-icons/io5'
 import { IoIosArrowRoundForward } from 'react-icons/io'
+import { ImImage } from 'react-icons/im'
 
 export const iconsData = {
   // Header Icons
@@ -77,5 +79,7 @@ export const iconsData = {
 
   forward: (
     <IoIosArrowRoundForward size={'25px'} style={{ marginTop: '0.2rem' }} />
-  )
+  ),
+
+  imageIcon: <BsImages size={'25px'} />
 }
