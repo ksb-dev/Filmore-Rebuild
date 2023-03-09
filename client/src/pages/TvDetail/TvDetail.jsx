@@ -88,11 +88,6 @@ const TvDetail = () => {
   // Movie info
   const { id } = useParams()
 
-  // Reviews
-  const [reviews, setReviews] = useState([])
-  const [reviewsLoading, setReviewsLoading] = useState(true)
-  const [reviewsError, setReviewsError] = useState('')
-
   const playerTwoRef = useRef(null)
   const playerTwoInnerRef = useRef(null)
 
@@ -194,9 +189,6 @@ const TvDetail = () => {
             videos={videos}
             videosLoading={videosLoading}
             videosError={videosError}
-            reviews={reviews}
-            reviewsError={reviewsError}
-            reviewsLoading={reviewsLoading}
             setPlayerUrl={setPlayerUrl}
             setPlayerLoading={setPlayerLoading}
             setPlayerError={setPlayerError}
@@ -204,11 +196,7 @@ const TvDetail = () => {
             playerInnerRef={playerTwoInnerRef}
           />
 
-          <Reviews
-            reviews={reviews}
-            reviewsLoading={reviewsLoading}
-            reviewsError={reviewsError}
-          />
+          <Reviews type={type} id={id} />
 
           <ImageViewer />
         </>

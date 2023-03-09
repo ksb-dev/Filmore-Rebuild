@@ -1,4 +1,4 @@
-.review__container {
+.review__card {
   overflow: hidden;
 
   display: flex;
@@ -61,7 +61,7 @@
 }
 
 @media screen and (max-width: 786px) {
-  .review__container {
+  .review__card {
     margin: 0 0 1rem 0;
 
     .name__review {
@@ -82,7 +82,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .review__container {
+  .review__card {
     .avatar__rating {
       &__image {
         width: 50px;

@@ -47,36 +47,64 @@ const CastBackdropsVideo = ({
       }
     >
       <div className='castBackdropVideo__cast'>
-        <Link
-          to={castPath}
-          className={
-            'castBackdropVideo__cast__title ' +
-            (mode === true ? 'darkColor1' : 'lightColor1')
-          }
-        >
-          Top Cast
-          <p className='length'>
-            <span>{cast && cast.length}</span>
-          </p>
-          <span className='icon'>{iconsData.forwardArrow}</span>
-        </Link>
+        {cast && cast.length > 6 ? (
+          <Link
+            to={castPath}
+            className={
+              'castBackdropVideo__cast__title-1 ' +
+              (mode === true ? 'darkColor1' : 'lightColor1')
+            }
+          >
+            Top Cast
+            <p className='length'>
+              <span>{cast && cast.length}</span>
+            </p>
+            <span className='icon'>{iconsData.forwardArrow}</span>
+          </Link>
+        ) : (
+          <div
+            className={
+              'castBackdropVideo__cast__title-2 ' +
+              (mode === true ? 'darkColor1' : 'lightColor1')
+            }
+          >
+            Top Cast
+            <p className='length'>
+              <span>{cast && cast.length}</span>
+            </p>
+          </div>
+        )}
         <Cast cast={cast} castLoading={castLoading} castError={castError} />
       </div>
 
       <div className='castBackdropVideo__backdrops'>
-        <Link
-          to={backdropPath}
-          className={
-            'castBackdropVideo__backdrops__title ' +
-            (mode === true ? 'darkColor1' : 'lightColor1')
-          }
-        >
-          Backdrops
-          <p className='length'>
-            <span>{backdrops && backdrops.length}</span>
-          </p>
-          <span className='icon'>{iconsData.forwardArrow}</span>
-        </Link>
+        {backdrops && backdrops.length > 4 ? (
+          <Link
+            to={backdropPath}
+            className={
+              'castBackdropVideo__backdrops__title-1 ' +
+              (mode === true ? 'darkColor1' : 'lightColor1')
+            }
+          >
+            Backdrops
+            <p className='length'>
+              <span>{backdrops && backdrops.length}</span>
+            </p>
+            <span className='icon'>{iconsData.forwardArrow}</span>
+          </Link>
+        ) : (
+          <div
+            className={
+              'castBackdropVideo__backdrops__title-2 ' +
+              (mode === true ? 'darkColor1' : 'lightColor1')
+            }
+          >
+            Backdrops
+            <p className='length'>
+              <span>{backdrops && backdrops.length}</span>
+            </p>
+          </div>
+        )}
         <Backdrops
           backdrops={backdrops}
           backdropsLoading={backdropsLoading}
@@ -85,19 +113,34 @@ const CastBackdropsVideo = ({
       </div>
 
       <div className='castBackdropVideo__videos'>
-        <Link
-          to={videoPath}
-          className={
-            'castBackdropVideo__videos__title ' +
-            (mode === true ? 'darkColor1' : 'lightColor1')
-          }
-        >
-          Videos
-          <p className='length'>
-            <span>{videos && videos.length}</span>
-          </p>
-          <span className='icon'>{iconsData.forwardArrow}</span>
-        </Link>
+        {videos && videos.length > 4 ? (
+          <Link
+            to={videoPath}
+            className={
+              'castBackdropVideo__videos__title-1 ' +
+              (mode === true ? 'darkColor1' : 'lightColor1')
+            }
+          >
+            Videos
+            <p className='length'>
+              <span>{videos && videos.length}</span>
+            </p>
+            <span className='icon'>{iconsData.forwardArrow}</span>
+          </Link>
+        ) : (
+          <div
+            className={
+              'castBackdropVideo__videos__title-2 ' +
+              (mode === true ? 'darkColor1' : 'lightColor1')
+            }
+          >
+            Videos
+            <p className='length'>
+              <span>{videos && videos.length}</span>
+            </p>
+          </div>
+        )}
+
         <Videos
           videos={videos}
           videosLoading={videosLoading}

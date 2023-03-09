@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
 // Context
-import { useMovieContext } from '../../../context/context'
+import { useMovieContext } from '../../context/context'
 
 // APIs
-import { APIs } from '../../../APIs/APIs'
+import { APIs } from '../../APIs/APIs'
 
 // React Icons
 import { GrStar } from 'react-icons/gr'
 
 // data
-import { iconsData } from '../../../data/icons'
+import { iconsData } from '../../data/icons'
 
-const Review = ({ review }) => {
+const ReviewCard = ({ review }) => {
   const [show, setShow] = useState(false)
   const { mode } = useMovieContext()
   const { avatar_path, name, username, rating } = review.author_details
@@ -21,7 +21,7 @@ const Review = ({ review }) => {
   return (
     <div
       className={
-        'review__container ' +
+        'review__card ' +
         (mode === true ? 'lightBg1 darkColor1' : 'darkBg2 lightColor1')
       }
     >
@@ -100,4 +100,4 @@ const Review = ({ review }) => {
   )
 }
 
-export default Review
+export default ReviewCard

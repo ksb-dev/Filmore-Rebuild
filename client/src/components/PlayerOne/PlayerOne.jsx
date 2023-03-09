@@ -43,7 +43,10 @@ const PlayerOne = ({
   return (
     <div
       ref={playerRef}
-      className={'player ' + (mode === true ? 'lightAlpha5' : 'darkAlpha6')}
+      className={
+        'player ' +
+        (mode === true ? 'lightAlpha5 darkColor1' : 'darkAlpha5 lightColor1')
+      }
     >
       <div
         ref={playerInnerRef}

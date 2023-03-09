@@ -4,7 +4,8 @@
   &__cast,
   &__backdrops,
   &__videos {
-    &__title {
+    &__title-1,
+    &__title-2 {
       text-decoration: none;
       border-left: 5px solid var(--primary);
       padding-left: 0.5rem;
@@ -36,8 +37,11 @@
       }
     }
 
-    &__title:hover .icon {
-      //color: var(--primary);
+    &__title-2 {
+      cursor: unset;
+    }
+
+    &__title-1:hover .icon {
       transform: translateX(40%) scale(1.25);
       transition: var(--transition);
     }
@@ -57,7 +61,8 @@
     &__cast,
     &__backdrops,
     &__videos {
-      &__title {
+      &__title-1,
+      &__title-2 {
         font-size: 1rem;
 
         .length {

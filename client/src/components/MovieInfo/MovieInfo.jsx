@@ -15,6 +15,7 @@ import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
 import { useShowHide } from '../../hooks/useShowHide'
 import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetTvInfo } from '../../hooks/useGetTvInfo'
 
 // data
 import { genreArray } from '../../data/genreData'
@@ -28,35 +29,51 @@ import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 import CircularProgressBar from '../../other/CircularProgressBar/CircularProgressBar'
 
-const MovieInfo = ({
-  id,
-  data,
-  loading,
-  error,
-  playerRef,
-  playerInnerRef,
-  setPlayerUrl,
-  setPlayerLoading,
-  setPlayerError
-}) => {
+const MovieInfo = ({ id, type }) => {
   const navigate = useNavigate()
 
   //context
-  const { mode } = useMovieContext()
+  const {
+    mode,
+    data,
+    setData,
+    setLoading,
+    loading,
+    error,
+    setError,
+    playerRef,
+    playerInnerRef,
+    setPlayerUrl,
+    setPlayerLoading,
+    setPlayerError
+  } = useMovieContext()
 
   // hooks
   const { addMovie, deleteMovie } = useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
   const { showPlayer } = useShowHide()
-  const { getMovieTrailer786px } = useGetMovieInfo()
+  const { getMovieInfo, getMovieTrailer786px } = useGetMovieInfo()
+  const { getTvInfo, getTvTrailer786px } = useGetTvInfo()
 
   // states
   const [genres, setGenres] = useState(new Set())
   const [genre_ids, setGenre_ids] = useState(new Set())
 
   // redux state
-  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
-  const user = useSelector(state => state.savedMovies.user)
+  let watchlist = ''
+  let user = ''
+
+  if (type === 'movie') {
+    watchlist = useSelector(state => state.savedMovies.savedMovies)
+    user = useSelector(state => state.savedMovies.user)
+  } else {
+    watchlist = useSelector(state => state.savedShows.savedShows)
+    user = useSelector(state => state.savedShows.user)
+  }
+
+  useEffect(() => {
+    getMovieInfo(id, setData, setLoading, setError)
+  }, [])
 
   // Get & store genre__ids
   useEffect(() => {
@@ -172,7 +189,7 @@ const MovieInfo = ({
             </div>
           </div>
 
-          <div className={'image ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+          <div className={'image ' + (mode === true ? 'lightBg2' : 'darkBg1')}>
             {poster_path === null ? (
               <span className='img-icon-1'>{iconsData.imageIcon}</span>
             ) : (

@@ -59,7 +59,10 @@ const ImageViewer = () => {
       ref={viewerRef}
       className={'viewer ' + (mode === true ? 'lightAlpha6' : 'darkAlpha6')}
     >
-      <div ref={innerViewerRef} className='viewer__inner'>
+      <div
+        ref={innerViewerRef}
+        className={'viewer__inner ' + (mode === true ? 'lightBg1' : 'darkBg2')}
+      >
         {backdrops && backdrops.length > 0 && (
           <span className='viewer__inner--length'>
             {backdropIndex + 1} / {backdrops.length}

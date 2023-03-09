@@ -24,6 +24,9 @@ import ImageViewer from '../../components/ImageViewer/ImageViewer'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
+// data
+import { iconsData } from '../../data/icons'
+
 const TvBackdrops = () => {
   const { id } = useParams()
   const {
@@ -94,16 +97,22 @@ const TvBackdrops = () => {
             </span>
 
             <div className='tv__backdrops__inner__detail--image'>
-              <img
-                className='img'
-                src={
-                  data.backdrop_path === null
-                    ? APIs.no_image_url
-                    : APIs.img_path + data.backdrop_path
-                }
-                alt={data.name}
-                load='lazy'
-              />
+              {data.backdrop_path === null ? (
+                <span
+                  className={
+                    'img-icon ' + (mode === true ? 'lightBg2' : 'darkBg1')
+                  }
+                >
+                  {iconsData.imageIcon}
+                </span>
+              ) : (
+                <img
+                  className='img'
+                  src={APIs.img_path_w780 + data.backdrop_path}
+                  alt={data.name}
+                  load='lazy'
+                />
+              )}
 
               <div
                 className={

@@ -72,7 +72,13 @@ const MovieDetail = () => {
     playerLoading,
     setPlayerLoading,
     playerError,
-    setPlayerError
+    setPlayerError,
+    reviews,
+    setReviews,
+    reviewsLoading,
+    setReviewsLoading,
+    reviewsError,
+    setReviewsError
   } = useMovieContext()
   const dispatch = useDispatch()
 
@@ -88,19 +94,6 @@ const MovieDetail = () => {
   // Movie info
   const { id } = useParams()
 
-  // Reviews
-  const [reviews, setReviews] = useState([])
-  const [reviewsLoading, setReviewsLoading] = useState(true)
-  const [reviewsError, setReviewsError] = useState('')
-
-  // // Youtube
-  // const [trailerUrl, setTrailerUrl] = useState('')
-  // const [trailerLoading, setTrailerLoading] = useState(true)
-  // const [trailerError, setTrailerError] = useState('')
-
-  // const [playerUrl, setPlayerUrl] = useState('')
-  // const [playerLoading, setPlayerLoading] = useState(true)
-  // const [playerError, setPlayerError] = useState('')
   const playerOneRef = useRef(null)
   const playerOneInnerRef = useRef(null)
 
@@ -134,9 +127,6 @@ const MovieDetail = () => {
     // 1. Get Trailer
     getMovieTrailer(id, setTrailerUrl, setTrailerLoading, setTrailerError)
 
-    // 2. Get info
-    getMovieInfo(id, setData, setLoading, setError)
-
     //3. Get cast
     setTimeout(() => {
       getMovieCast(id, setCast, setCastLoading, setCastError)
@@ -156,11 +146,6 @@ const MovieDetail = () => {
     setTimeout(() => {
       getMovieVideos(id, setVideos, setVideosLoading, setVideosError)
     }, 750)
-
-    //6. Get reviews
-    setTimeout(() => {
-      getMovieReviews(id, setReviews, setReviewsLoading, setReviewsError)
-    }, 1000)
   }, [id])
 
   return (
@@ -170,20 +155,7 @@ const MovieDetail = () => {
       <Menu />
       <SearchModal />
 
-      <MovieInfo
-        id={id}
-        data={data}
-        loading={loading}
-        error={error}
-        trailerUrl={trailerUrl}
-        trailerLoading={trailerLoading}
-        trailerError={trailerError}
-        playerRef={playerOneRef}
-        playerInnerRef={playerOneInnerRef}
-        setPlayerUrl={setPlayerUrl}
-        setPlayerLoading={setPlayerLoading}
-        setPlayerError={setPlayerError}
-      />
+      <MovieInfo id={id} type={type} />
 
       <PlayerOne
         playerRef={playerOneRef}
@@ -207,9 +179,6 @@ const MovieDetail = () => {
             videos={videos}
             videosLoading={videosLoading}
             videosError={videosError}
-            reviews={reviews}
-            reviewsError={reviewsError}
-            reviewsLoading={reviewsLoading}
             setPlayerUrl={setPlayerUrl}
             setPlayerLoading={setPlayerLoading}
             setPlayerError={setPlayerError}
@@ -217,11 +186,7 @@ const MovieDetail = () => {
             playerInnerRef={playerOneInnerRef}
           />
 
-          <Reviews
-            reviews={reviews}
-            reviewsLoading={reviewsLoading}
-            reviewsError={reviewsError}
-          />
+          <Reviews type={type} id={id} />
 
           <ImageViewer />
         </>

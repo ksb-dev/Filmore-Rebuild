@@ -159,7 +159,7 @@ const TvInfo = ({
             </div>
           </div>
 
-          <div className={'image ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+          <div className={'image ' + (mode === true ? 'lightBg2' : 'darkBg1')}>
             {poster_path === null ? (
               <span className='img-icon-1'>{iconsData.imageIcon}</span>
             ) : (
