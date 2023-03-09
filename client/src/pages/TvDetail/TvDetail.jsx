@@ -54,7 +54,25 @@ const TvDetail = () => {
     backdropsLoading,
     setBackdropsLoading,
     backdropsError,
-    setBackdropsError
+    setBackdropsError,
+    videos,
+    setVideos,
+    videosLoading,
+    setVideosLoading,
+    videosError,
+    setVideosError,
+    trailerUrl,
+    setTrailerUrl,
+    trailerLoading,
+    setTrailerLoading,
+    trailerError,
+    setTrailerError,
+    playerUrl,
+    setPlayerUrl,
+    playerLoading,
+    setPlayerLoading,
+    playerError,
+    setPlayerError
   } = useMovieContext()
   const dispatch = useDispatch()
 
@@ -70,24 +88,11 @@ const TvDetail = () => {
   // Movie info
   const { id } = useParams()
 
-  // Videos
-  const [videos, setVideos] = useState([])
-  const [videosLoading, setVideosLoading] = useState(true)
-  const [videosError, setVideosError] = useState('')
-
   // Reviews
   const [reviews, setReviews] = useState([])
   const [reviewsLoading, setReviewsLoading] = useState(true)
   const [reviewsError, setReviewsError] = useState('')
 
-  // Youtube
-  const [trailerUrl, setTrailerUrl] = useState('')
-  const [trailerLoading, setTrailerLoading] = useState(true)
-  const [trailerError, setTrailerError] = useState('')
-
-  const [playerUrl, setPlayerUrl] = useState('')
-  const [playerLoading, setPlayerLoading] = useState(true)
-  const [playerError, setPlayerError] = useState('')
   const playerTwoRef = useRef(null)
   const playerTwoInnerRef = useRef(null)
 

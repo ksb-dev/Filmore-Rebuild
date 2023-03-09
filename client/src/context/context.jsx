@@ -87,6 +87,21 @@ const MovieProvider = ({ children }) => {
   const [backdropsLoading, setBackdropsLoading] = useState(false)
   const [backdropsError, setBackdropsError] = useState('')
 
+  // Videos
+  const [videos, setVideos] = useState([])
+  const [videosLoading, setVideosLoading] = useState(true)
+  const [videosError, setVideosError] = useState('')
+
+  // Trailer
+  const [trailerUrl, setTrailerUrl] = useState('')
+  const [trailerLoading, setTrailerLoading] = useState(true)
+  const [trailerError, setTrailerError] = useState('')
+
+  // Player
+  const [playerUrl, setPlayerUrl] = useState('')
+  const [playerLoading, setPlayerLoading] = useState(true)
+  const [playerError, setPlayerError] = useState('')
+
   return (
     <MovieContext.Provider
       value={{
@@ -166,7 +181,28 @@ const MovieProvider = ({ children }) => {
         backdropsError,
         setBackdropsError,
         backdropsLoading,
-        setBackdropsLoading
+        setBackdropsLoading,
+
+        videos,
+        setVideos,
+        videosLoading,
+        setVideosLoading,
+        videosError,
+        setVideosError,
+
+        trailerUrl,
+        setTrailerUrl,
+        trailerLoading,
+        setTrailerLoading,
+        trailerError,
+        setTrailerError,
+
+        playerUrl,
+        setPlayerUrl,
+        playerLoading,
+        setPlayerLoading,
+        playerError,
+        setPlayerError
       }}
     >
       {children}

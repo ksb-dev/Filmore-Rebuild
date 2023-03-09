@@ -360,6 +360,8 @@ body {
 
 @import '../components/BackdropCard/backdropCard';
 
+@import '../components/VideoCard/videoCard';
+
 // pages
 @import '../pages/Home/home';
 @import '../pages/Search/search';
@@ -373,6 +375,8 @@ body {
 @import '../Pages/TvCast/tvCast';
 @import '../pages/MovieBackdrops/movieBackdrops';
 @import '../pages/TvBackdrops/tvBackdrops';
+@import '../pages/MovieVideos/movieVideos';
+@import '../pages/TvVideos/tvVideos';
 
 // other
 @import '../other/Loading/loading';

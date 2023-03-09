@@ -93,18 +93,6 @@ const MovieCard = ({ movie }) => {
           alt={title}
           load='lazy'
         />
-
-        {/* <LazyLoadImage
-          width={'100%'}
-          height={'100%'}
-          className='img'
-          alt='image'
-          effect='black-and-white'
-          placeholderSrc={
-            poster_path === null ? url : APIs.img_path_w342 + poster_path
-          }
-          src={poster_path === null ? url : APIs.img_path_w342 + poster_path}
-        /> */}
       </div>
 
       {user && savedMovies && savedMovies.length === 0 && (

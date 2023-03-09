@@ -37,6 +37,7 @@ const CastBackdropsVideo = ({
   let castPath = type === 'movie' ? `/movie/cast/${id}` : `/tv/cast/${id}`
   let backdropPath =
     type === 'movie' ? `/movie/backdrops/${id}` : `/tv/backdrops/${id}`
+  let videoPath = type === 'movie' ? `/movie/videos/${id}` : `/tv/videos/${id}`
 
   return (
     <div
@@ -84,13 +85,19 @@ const CastBackdropsVideo = ({
       </div>
 
       <div className='castBackdropVideo__videos'>
-        <div className='castBackdropVideo__videos__title'>
+        <Link
+          to={videoPath}
+          className={
+            'castBackdropVideo__videos__title ' +
+            (mode === true ? 'darkColor1' : 'lightColor1')
+          }
+        >
           Videos
           <p className='length'>
             <span>{videos && videos.length}</span>
           </p>
           <span className='icon'>{iconsData.forwardArrow}</span>
-        </div>
+        </Link>
         <Videos
           videos={videos}
           videosLoading={videosLoading}
