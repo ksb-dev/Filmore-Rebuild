@@ -82,7 +82,7 @@ const MovieCast = () => {
         <div className='movie__cast__inner'>
           <div className='movie__cast__inner__detail'>
             <span className='movie__cast__inner__detail--title'>
-              {data.original_title}
+              {data.title}
             </span>
 
             <span className='movie__cast__inner__detail--tagline'>

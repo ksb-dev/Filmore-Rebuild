@@ -98,7 +98,7 @@ const MovieVideos = () => {
         <div className='movie__videos__inner'>
           <div className='movie__videos__inner__detail'>
             <span className='movie__videos__inner__detail--title'>
-              {data.original_title}
+              {data.title}
             </span>
 
             <span className='movie__videos__inner__detail--tagline'>

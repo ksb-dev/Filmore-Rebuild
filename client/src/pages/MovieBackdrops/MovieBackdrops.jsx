@@ -86,7 +86,7 @@ const MovieBackdrops = () => {
         <div className='movie__backdrops__inner'>
           <div className='movie__backdrops__inner__detail'>
             <span className='movie__backdrops__inner__detail--title'>
-              {data.original_title}
+              {data.title}
             </span>
 
             <span className='movie__backdrops__inner__detail--tagline'>
