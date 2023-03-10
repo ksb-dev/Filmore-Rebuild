@@ -23,7 +23,7 @@ import { APIs } from '../../APIs/APIs'
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 
-const MovieCard = ({ card, type, user }) => {
+const Card = ({ card, type, user }) => {
   const { mode } = useMovieContext()
   const { addMovie, deleteMovie, addShow, deleteShow } =
     useWatchlistOperations()
@@ -191,7 +191,9 @@ const MovieCard = ({ card, type, user }) => {
         ref={infoRef}
         className={
           'card__info ' +
-          (mode === true ? 'lightAlpha5 darkColor1' : 'darkAlpha5 lightColor1')
+          (mode === true
+            ? 'lightAlpha5 darkColor1 darkOutline'
+            : 'darkAlpha5 lightColor1 lightOutline')
         }
         onMouseOver={show}
         onMouseLeave={hide}
@@ -207,13 +209,91 @@ const MovieCard = ({ card, type, user }) => {
             {release_date && moment(release_date).format('Do MMM, YYYY')}
           </span>
 
-          <Link to={`/${type}/${id}`} className='card__info__inner--more'>
-            <span>{iconsData.forward}</span>
-          </Link>
+          <div className='card__info__inner__options'>
+            {/* ADD-BUTTON */}
+            {user &&
+              watchlist &&
+              watchlist.length > 0 &&
+              watchlist.every((item, index) => item.id !== id) && (
+                <p
+                  key={id}
+                  className={
+                    'card__info__inner__options__add__btn ' +
+                    (mode === true ? 'darkOption' : 'lightOption')
+                  }
+                  onClick={() => handleAddWatchlist()}
+                >
+                  <span className='card__info__inner__options__btn--icon'>
+                    {iconsData.addBookmark}
+                  </span>
+                </p>
+              )}
+
+            {/* DELETE-BUTTON */}
+            {user &&
+              watchlist &&
+              watchlist.length > 0 &&
+              watchlist.map((item, index) => {
+                if (item.id === id) {
+                  return (
+                    <p
+                      key={index}
+                      className={
+                        'card__info__inner__options__delete__btn ' +
+                        (mode === true ? 'darkOption' : 'lightOption')
+                      }
+                      onClick={() => handleDeleteWatchList()}
+                      style={{ background: 'gold' }}
+                    >
+                      <span
+                        className='card__info__inner__options__btn--icon'
+                        style={{ color: '#000' }}
+                      >
+                        {iconsData.addedBookmark}
+                      </span>
+                    </p>
+                  )
+                }
+              })}
+
+            {/* ADD-BUTTON (without user) */}
+            {!user && (
+              <p
+                className={
+                  'card__info__inner__options__btn ' +
+                  (mode === true ? 'darkOption' : 'lightOption')
+                }
+                onClick={() => navigate('/login')}
+              >
+                <span className='card__info__inner__options__btn--icon'>
+                  {iconsData.addBookmark}
+                </span>
+              </p>
+            )}
+
+            <p
+              className={
+                'card__info__inner__options__play-btn ' +
+                (mode === true ? 'darkOption' : 'lightOption')
+              }
+            >
+              <span>{iconsData.play1}</span>
+            </p>
+
+            <Link
+              to={`/${type}/${id}`}
+              className={
+                'card__info__inner__options--more ' +
+                (mode === true ? 'darkOption' : 'lightOption')
+              }
+            >
+              <span>{iconsData.forward}</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default MovieCard
+export default Card

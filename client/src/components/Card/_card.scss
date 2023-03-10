@@ -37,13 +37,13 @@
   &__btn,
   &__add__btn,
   &__delete__btn {
+    display: none;
     position: absolute;
-    z-index: 1;
     top: -1rem;
     width: 35px;
     height: 35px;
     cursor: pointer;
-    z-index: 3;
+    z-index: 1;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     border-top-left-radius: var(--border-radius-1);
@@ -75,7 +75,7 @@
     border-bottom-left-radius: var(--border-radius-1);
     padding: 0.2rem;
     font-weight: 500;
-    z-index: 2;
+    z-index: 1;
 
     span {
       font-size: 0.75rem;
@@ -91,24 +91,22 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
     top: 0;
     left: 0;
     bottom: 0;
-    outline: 2px solid var(--primary);
-    //box-shadow: var(--box-shadow-2);
 
     opacity: 0;
+    z-index: 2;
     transition: var(--transition);
-    backface-visibility: hidden;
 
     &__inner {
+      position: relative;
       width: inherit;
       height: inherit;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      //justify-content: center;
       opacity: 0;
       transition: var(--transition);
 
@@ -116,30 +114,69 @@
         margin: 2rem 2rem 0 2rem;
         font-weight: 500;
         text-align: center;
-        margin: 0rem 1rem 1rem 1rem;
+        margin: 1rem 1rem 0.25rem 1rem;
       }
 
-      &--more {
-        position: relative;
-        text-decoration: none;
-        margin: 0rem 0 0 0;
-        background: var(--primary);
-        color: #000;
-        border-radius: 50px;
-        width: 40px;
-        height: 40px;
+      &__options {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 3;
+        //left: 0.5rem;
+        bottom: 0.5rem;
 
-        span {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+        &__btn,
+        &__add__btn,
+        &__delete__btn {
+          position: relative;
+          margin: 0;
+          width: 35px;
+          height: 35px;
+          cursor: pointer;
+          border-radius: 50%;
+          margin-right: 0.5rem;
+
+          &--icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -45%);
+          }
         }
-      }
 
-      &--more:hover {
-        filter: brightness(80%);
-        transition: var(--transition);
+        &--more,
+        &__play-btn {
+          display: inline-block;
+          position: relative;
+          text-decoration: none;
+          border-radius: 50px;
+          width: 35px;
+          height: 35px;
+          margin: 0;
+
+          span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        &__play-btn {
+          cursor: pointer;
+          margin-right: 0.5rem;
+        }
+
+        &--more:hover,
+        &__play-btn:hover,
+        &__btn:hover,
+        &__add__btn:hover,
+        &__delete__btn:hover {
+          border-radius: var(--border-radius-1);
+          transition: var(--transition);
+        }
       }
 
       &--date {
@@ -151,7 +188,7 @@
   }
 }
 
-.card:hover .card--image .img-1 {
+.card:hover .card--image img {
   transform: scale(1.5);
   transition: var(--transition);
 }
@@ -182,11 +219,13 @@
     &__info {
       &__inner {
         &--title {
-          font-size: 0.8rem;
+          font-size: 1rem;
         }
 
-        &--more {
-          font-size: 0.8rem;
+        &__options {
+          width: 100%;
+          justify-content: center;
+          left: 0;
         }
 
         &--date {
@@ -197,10 +236,10 @@
   }
 }
 
-.card:hover .card--image .img-2 {
-  transform: scale(1.5);
-  transition: var(--transition);
-}
+// .card:hover .card--image .img-2 {
+//   transform: scale(1.2);
+//   transition: var(--transition);
+// }
 
 .lightBookmarkBorder {
   border: 4px solid var(--white-1);
@@ -208,4 +247,28 @@
 
 .darkBookmarkBorder {
   border: 4px solid var(--dark-2);
+}
+
+.lightOutline {
+  outline: 2px solid #fff;
+}
+
+.darkOutline {
+  outline: 2px solid var(--dark-1);
+}
+
+.lightOption {
+  // border: 2px solid #fff;
+  // color: #fff;
+
+  background: #fff;
+  color: var(--dark-1);
+}
+
+.darkOption {
+  // border: 2px solid var(--dark-1);
+  // color: var(--dark-1);
+
+  background: var(--dark-1);
+  color: #fff;
 }

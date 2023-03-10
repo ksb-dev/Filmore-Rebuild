@@ -16,7 +16,8 @@ import {
   BsPlusCircle,
   BsPlusCircleFill,
   BsArrowRightCircle,
-  BsImages
+  BsImages,
+  BsPlay
 } from 'react-icons/bs'
 import { BiSearch, BiUserCircle } from 'react-icons/bi'
 
@@ -48,8 +49,10 @@ export const iconsData = {
   close: <MdOutlineClose size={'20px'} />,
   close1: <MdOutlineClose size={'25px'} />,
 
-  addBookmark: <AiOutlinePlus size={'20px'} />,
-  addedBookmark: <FiCheck size={'20px'} />,
+  addBookmark: (
+    <AiOutlinePlus size={'15px'} style={{ marginBottom: '0.05rem' }} />
+  ),
+  addedBookmark: <FiCheck size={'15px'} />,
   addBookmark1: <AiOutlinePlus size={'25px'} />,
   addedBookmark1: <FiCheck size={'25px'} />,
 
@@ -62,6 +65,7 @@ export const iconsData = {
   eyeClose: <BsEyeSlash />,
 
   play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.5rem' }} />,
+  play1: <BsPlay size={'17.5px'} style={{ margin: '0.2rem 0 0 0.15rem' }} />,
 
   forwardArrow: (
     <MdOutlineArrowForwardIos
@@ -78,7 +82,7 @@ export const iconsData = {
   person: <IoPersonCircle size={'50px'} />,
 
   forward: (
-    <IoIosArrowRoundForward size={'25px'} style={{ marginTop: '0.2rem' }} />
+    <IoIosArrowRoundForward size={'20px'} style={{ marginTop: '0.2rem' }} />
   ),
 
   imageIcon: <BsImages size={'25px'} />
