@@ -3,6 +3,7 @@
   user-select: none;
   border-radius: var(--border-radius-1);
   height: 200px;
+  box-shadow: var(--box-shadow-1);
 
   &--image {
     position: relative;
@@ -95,7 +96,7 @@
     left: 0;
     bottom: 0;
     outline: 2px solid var(--primary);
-    //box-shadow: var(--box-shadow-1);
+    //box-shadow: var(--box-shadow-2);
 
     opacity: 0;
     transition: var(--transition);

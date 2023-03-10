@@ -1,23 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-// Sort Data
-import { sortArray } from '../../../data/sortData'
+// data
+import { sortArray } from '../../data/sortData'
 
 // Redux
 import { useSelector } from 'react-redux'
 
 // Context
-import { useMovieContext } from '../../../context/context'
+import { useMovieContext } from '../../context/context'
 
 // Hooks
-import { useSortFilter } from '../../../hooks/useSortFilter'
-import { useShowHide } from '../../../hooks/useShowHide'
+import { useSortFilter } from '../../hooks/useSortFilter'
+import { useShowHide } from '../../hooks/useShowHide'
 
-const Sort = () => {
-  const { sortState } = useSelector(state => state.tvShows)
+const Sort = ({ type }) => {
   const { mode, setIndex } = useMovieContext()
-  const { sortShows } = useSortFilter()
+  const { sortMovies, sortShows } = useSortFilter()
   const { showSort, hideSort } = useShowHide()
+
+  let sortState = ''
+
+  if (type === 'movie') {
+    sortState = useSelector(state => state.movies.sortState)
+  } else {
+    sortState = useSelector(state => state.tvShows.sortState)
+  }
 
   // States
   const [open, setOpen] = useState(false)
@@ -51,6 +58,10 @@ const Sort = () => {
     }
   }, [open])
 
+  const handleSort = id => {
+    type === 'movie' ? sortMovies(id) : sortShows(id)
+  }
+
   return (
     <div ref={sortRef} className='sort'>
       <div
@@ -79,12 +90,12 @@ const Sort = () => {
               mode === true ? ' lightBg2 darkColor2' : ' darkBg1 lightColor1'
             }
             onClick={() => {
-              sortShows(sort.id)
+              handleSort(sort.id)
               setIndex(0)
             }}
             key={index}
           >
-            {sort.icon} {sort.value}
+            {sort.value}
           </span>
         ))}
       </div>

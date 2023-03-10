@@ -2,18 +2,32 @@
   margin-right: 1rem;
   cursor: pointer;
   width: 292px;
+  height: 168.34px;
   border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow-1);
 
-  .img {
+  &__image {
     width: 292px;
     height: 100%;
+    overflow: hidden;
     border-radius: var(--border-radius-1);
-  }
 
-  .img:hover {
-    filter: brightness(80%);
-    transition: var(--transition);
+    .img {
+      width: 292px;
+      height: 100%;
+      border-radius: var(--border-radius-1);
+    }
   }
+}
+
+.backdrop:hover .backdrop__image {
+  filter: brightness(80%);
+  transition: var(--transition);
+}
+
+.backdrop:hover .backdrop__image img {
+  transform: scale(1.25);
+  transition: var(--transition);
 }
 
 .backdrop:last-child {

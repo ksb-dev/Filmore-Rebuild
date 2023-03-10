@@ -22,9 +22,6 @@ import MenuIcon from '../../other/MenuIcon/MenuIcon'
 // hooks
 import { useShowHide } from '../../hooks/useShowHide'
 
-// React Icons
-import { GiFilmSpool } from 'react-icons/gi'
-
 const Header = () => {
   const {
     mode,

@@ -20,20 +20,23 @@ const Backdrop = ({ backdrop, index }) => {
   }
 
   return (
-    <div
-      className={'backdrop ' + (mode === true ? 'lightBg2' : 'darkBg1')}
-      onClick={() => handleClick()}
-    >
-      <img
-        className='img'
-        src={
-          backdrop.file_path === null
-            ? APIs.no_image_url
-            : APIs.img_path_w780 + backdrop.file_path
+    <div className={'backdrop '} onClick={() => handleClick()}>
+      <div
+        className={
+          'backdrop__image ' + (mode === true ? 'lightBg2' : 'darkBg1')
         }
-        alt='backdrop'
-        load='lazy'
-      />
+      >
+        <img
+          className='img'
+          src={
+            backdrop.file_path === null
+              ? APIs.no_image_url
+              : APIs.img_path_w780 + backdrop.file_path
+          }
+          alt='backdrop'
+          load='lazy'
+        />
+      </div>
     </div>
   )
 }

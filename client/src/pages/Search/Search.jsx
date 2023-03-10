@@ -14,8 +14,7 @@ import { useMovieContext } from '../../context/context'
 import Header from '../../components/Header/Header'
 import SmallHeader from '../../components/Header/SmallHeader/SmallHeader'
 import Menu from '../../components/Menu/Menu'
-import MovieList from '../../components/MovieList/MovieList'
-import TvList from '../../components/TvList/TvList'
+import List from '../../components/List/List'
 import SearchModal from '../../components/SearchModal/SearchModal'
 
 const Search = () => {
@@ -64,9 +63,9 @@ const Search = () => {
 
       {sessionStorage.getItem('movieState') === 'movie' ||
       sessionStorage.getItem('movieState') === null ? (
-        <MovieList />
+        <List type='movie' />
       ) : (
-        <TvList />
+        <List type='tv' />
       )}
     </div>
   )

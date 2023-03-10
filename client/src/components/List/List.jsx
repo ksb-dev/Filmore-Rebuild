@@ -16,9 +16,9 @@ import { useSelector } from 'react-redux'
 import { useMovieContext } from '../../context/context'
 
 // components
-import MovieCard from './MovieCard/MovieCard'
-import Pagination from './Pagination/Pagination'
-import Sort from './Sort/Sort'
+import Card from '../Card/Card'
+import Pagination from '../../components/Pagination/Pagination'
+import Sort from '../../components/Sort/Sort'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
@@ -31,16 +31,34 @@ import {
 // other
 import Switch from '../../other/Switch/Switch'
 
-const MovieList = () => {
+const List = ({ type }) => {
   const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
-  const movies = useSelector(state => state.movies.movies)
-  const sortedMovies = useSelector(state => state.movies.sortedMovies)
-  const loading = useSelector(state => state.movies.loading)
-  const error = useSelector(state => state.movies.error)
-  const user = useSelector(state => state.savedMovies.user)
+  // const movies = useSelector(state => state.movies.movies)
+  // const sortedMovies = useSelector(state => state.movies.sortedMovies)
+  // const loading = useSelector(state => state.movies.loading)
+  // const error = useSelector(state => state.movies.error)
+  // const user = useSelector(state => state.savedMovies.user)
+
+  let list = ''
+  let loading = ''
+  let error = ''
+  let user = ''
+
+  if (type === 'movie') {
+    list = useSelector(state => state.movies.sortedMovies)
+    loading = useSelector(state => state.movies.loading)
+    error = useSelector(state => state.movies.error)
+    user = useSelector(state => state.savedMovies.user)
+  } else {
+    list = useSelector(state => state.tvShows.sortedShows)
+    loading = useSelector(state => state.tvShows.loading)
+    error = useSelector(state => state.tvShows.error)
+    user = useSelector(state => state.savedShows.user)
+  }
 
   const buttonsRef = useRef(null)
+  const numberRef = useRef(null)
 
   const [stop, setStop] = useState(0)
   const timeoutRef = useRef(null)
@@ -80,10 +98,10 @@ const MovieList = () => {
   if (
     user &&
     window.location.pathname === '/watchlist' &&
-    movies &&
-    movies.length === 0 &&
-    sortedMovies &&
-    sortedMovies.length === 0
+    // movies &&
+    // movies.length === 0 &&
+    list &&
+    list.length === 0
   ) {
     return (
       <div className='error'>
@@ -108,7 +126,7 @@ const MovieList = () => {
     )
   }
 
-  if (!loading && sortedMovies && sortedMovies.length === 0) {
+  if (!loading && list && list.length === 0) {
     return (
       <div className='error'>
         <Error msg={'No movies found!'} />
@@ -117,20 +135,18 @@ const MovieList = () => {
   }
 
   const previousImage = () => {
-    index < 1
-      ? setIndex(sortedMovies.length - 1)
-      : setIndex(prevIndex => prevIndex - 1)
+    index < 1 ? setIndex(list.length - 1) : setIndex(prevIndex => prevIndex - 1)
   }
 
   const nextImage = () => {
-    index === sortedMovies.length - 1
+    index === list.length - 1
       ? setIndex(0)
       : setIndex(prevIndex => prevIndex + 1)
   }
 
   return (
     <div className='list'>
-      {sortedMovies && sortedMovies.length > 0 && (
+      {list && list.length > 0 && (
         <>
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
@@ -138,38 +154,38 @@ const MovieList = () => {
             <img
               className='list__wall--image-1'
               src={
-                sortedMovies[index].backdrop_path === null
+                list[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path + sortedMovies[index].backdrop_path
+                  : APIs.img_path + list[index].backdrop_path
               }
-              alt={sortedMovies[index].title}
+              alt='img'
               load='lazy'
             />
 
             <img
               className='list__wall--image-2'
               src={
-                sortedMovies[index].backdrop_path === null
+                list[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path_w780 + sortedMovies[index].backdrop_path
+                  : APIs.img_path_w780 + list[index].backdrop_path
               }
-              alt={sortedMovies[index].title}
+              alt='img'
               load='lazy'
             />
 
             <img
               className='list__wall--image-3'
               src={
-                sortedMovies[index].backdrop_path === null
+                list[index].backdrop_path === null
                   ? APIs.no_image_url
-                  : APIs.img_path_w780 + sortedMovies[index].backdrop_path
+                  : APIs.img_path_w780 + list[index].backdrop_path
               }
-              alt={sortedMovies[index].title}
+              alt='img'
               load='lazy'
             />
 
             <Link
-              to={`/movie/${sortedMovies[index].id}`}
+              to={`/${type}/${list[index].id}`}
               className={
                 'list__wall__cover ' +
                 (mode === true
@@ -180,41 +196,50 @@ const MovieList = () => {
                 //clearTimeout(timeoutRef.current)
                 //setStop(1)
                 buttonsRef.current.style.zIndex = '1'
+                numberRef.current.style.zIndex = '1'
               }}
               onMouseLeave={() => {
                 //setStop(0)
                 buttonsRef.current.style.zIndex = '-1'
+                numberRef.current.style.zIndex = '-1'
               }}
             >
-              <p className={'list__wall__cover--number '}>
-                {index + 1 + ' / ' + sortedMovies.length}
+              <p
+                ref={numberRef}
+                onMouseOver={() => {
+                  numberRef.current.style.zIndex = '1'
+                }}
+                className={'list__wall__cover--number '}
+              >
+                {index + 1 + ' / ' + list.length}
               </p>
 
               <div className='list__wall__cover__info'>
                 <div className='list__wall__cover__info__rating-title'>
-                  {sortedMovies.length > 0 && (
+                  {list.length > 0 && (
                     <>
                       <p
                         className={
-                          'rating ' +
-                          getClassBg(sortedMovies[index].vote_average)
+                          'rating ' + getClassBg(list[index].vote_average)
                         }
                       >
-                        <span>
-                          {sortedMovies[index].vote_average.toFixed(1)}
-                        </span>
+                        <span>{list[index].vote_average.toFixed(1)}</span>
                       </p>
-                      <span className='title'>{sortedMovies[index].title}</span>
+                      <span className='title'>
+                        {type === 'movie'
+                          ? list[index].title
+                          : list[index].name}
+                      </span>
                     </>
                   )}
                 </div>
 
                 <p className='list__wall__cover__info--overview'>
-                  {sortedMovies[index].overview ? (
-                    sortedMovies[index].overview.length > 245 ? (
-                      sortedMovies[index].overview.substring(0, 248) + ' .....'
+                  {list[index].overview ? (
+                    list[index].overview.length > 245 ? (
+                      list[index].overview.substring(0, 248) + ' .....'
                     ) : (
-                      sortedMovies[index].overview
+                      list[index].overview
                     )
                   ) : (
                     <></>
@@ -228,9 +253,10 @@ const MovieList = () => {
               className='list__wall__buttons'
               onMouseOver={() => {
                 buttonsRef.current.style.zIndex = '1'
+                numberRef.current.style.zIndex = '1'
               }}
             >
-              {sortedMovies.length > 1 ? (
+              {list.length > 1 ? (
                 <>
                   <span>
                     <MdOutlineArrowBackIosNew
@@ -268,30 +294,26 @@ const MovieList = () => {
       )}
 
       <div className='list__sort-activeOption'>
-        {sortedMovies && sortedMovies.length > 0 && <Sort />}
+        {list && list.length > 0 && <Sort type={type} />}
 
-        <div className='switch'>
-          {sortedMovies && sortedMovies.length > 0 && <Switch />}
-        </div>
+        <div className='switch'>{list && list.length > 0 && <Switch />}</div>
       </div>
 
       <div className='list__movies'>
-        {sortedMovies &&
-          sortedMovies.length > 0 &&
-          sortedMovies.map((movie, index) => (
-            <MovieCard key={index} movie={movie} />
+        {list &&
+          list.length > 0 &&
+          list.map((card, index) => (
+            <Card key={index} card={card} type={type} user={user} />
           ))}
       </div>
 
-      {window.location.pathname !== '/watchlist' &&
-        sortedMovies &&
-        sortedMovies.length > 0 && (
-          <div className='pagination'>
-            <Pagination data={sortedMovies} pageLimit={5} dataLimit={20} />
-          </div>
-        )}
+      {window.location.pathname !== '/watchlist' && list && list.length > 0 && (
+        <div className='pagination'>
+          <Pagination type={type} />
+        </div>
+      )}
     </div>
   )
 }
 
-export default MovieList
+export default List

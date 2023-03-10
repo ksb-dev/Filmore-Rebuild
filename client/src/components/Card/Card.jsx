@@ -2,11 +2,11 @@ import React, { useRef } from 'react'
 import moment from 'moment'
 
 // data
-import { iconsData } from '../../../data/icons'
+import { iconsData } from '../../data/icons'
 
 // Hooks
-import { useWatchlistOperations } from '../../../hooks/useWatchlistOperations'
-import { useGetClassByVote } from '../../../hooks/useGetClassByVote'
+import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
+import { useGetClassByVote } from '../../hooks/useGetClassByVote'
 
 // Redux
 import { useSelector } from 'react-redux'
@@ -15,37 +15,42 @@ import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 // Context
-import { useMovieContext } from '../../../context/context'
+import { useMovieContext } from '../../context/context'
 
 // APIs
-import { APIs } from '../../../APIs/APIs'
+import { APIs } from '../../APIs/APIs'
 
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ card, type, user }) => {
   const { mode } = useMovieContext()
-  const { addMovie, deleteMovie } = useWatchlistOperations()
+  const { addMovie, deleteMovie, addShow, deleteShow } =
+    useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
-
-  const user = useSelector(state => state.savedMovies.user)
-  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
 
   const navigate = useNavigate()
 
   const infoRef = useRef(null)
   const infoInnerRef = useRef(null)
 
-  const {
-    title,
-    vote_average,
-    release_date,
-    poster_path,
-    backdrop_path,
-    id,
-    genre_ids,
-    overview
-  } = movie
+  let watchlist = ''
+
+  let title = ''
+  let release_date = ''
+
+  if (type === 'movie') {
+    title = card.title
+    release_date = card.release_date
+    watchlist = useSelector(state => state.savedMovies.savedMovies)
+  } else {
+    title = card.name
+    release_date = card.first_air_date
+    watchlist = useSelector(state => state.savedShows.savedShows)
+  }
+
+  const { vote_average, poster_path, backdrop_path, id, genre_ids, overview } =
+    card
 
   const show = () => {
     infoRef.current.style.opacity = '1'
@@ -59,6 +64,40 @@ const MovieCard = ({ movie }) => {
     setTimeout(() => {
       infoInnerRef.current.style.opacity = '0'
     }, 200)
+  }
+
+  const handleAddWatchlist = () => {
+    if (type === 'movie') {
+      addMovie(
+        id,
+        title,
+        poster_path,
+        backdrop_path,
+        release_date,
+        vote_average,
+        genre_ids,
+        overview
+      )
+    } else {
+      addShow(
+        id,
+        title,
+        poster_path,
+        backdrop_path,
+        release_date,
+        vote_average,
+        genre_ids,
+        overview
+      )
+    }
+  }
+
+  const handleDeleteWatchList = () => {
+    if (type === 'movie') {
+      deleteMovie(id)
+    } else {
+      deleteShow(id)
+    }
   }
 
   return (
@@ -89,46 +128,21 @@ const MovieCard = ({ movie }) => {
         )}
       </div>
 
-      {user && savedMovies && savedMovies.length === 0 && (
-        <p
-          className='card__add__btn'
-          onClick={() =>
-            addMovie(
-              id,
-              title,
-              poster_path,
-              backdrop_path,
-              release_date,
-              vote_average,
-              genre_ids,
-              overview
-            )
-          }
-        >
+      {user && watchlist && watchlist.length === 0 && (
+        <p className='card__add__btn' onClick={() => handleAddWatchlist()}>
           <span className='card__btn--icon'>{iconsData.addBookmark}</span>
         </p>
       )}
 
       {/* ADD-BUTTON */}
       {user &&
-        savedMovies &&
-        savedMovies.length > 0 &&
-        savedMovies.every((item, index) => item.id !== id) && (
+        watchlist &&
+        watchlist.length > 0 &&
+        watchlist.every((item, index) => item.id !== id) && (
           <p
             key={id}
             className='card__add__btn'
-            onClick={() =>
-              addMovie(
-                id,
-                title,
-                poster_path,
-                backdrop_path,
-                release_date,
-                vote_average,
-                genre_ids,
-                overview
-              )
-            }
+            onClick={() => handleAddWatchlist()}
           >
             <span className='card__btn--icon'>{iconsData.addBookmark}</span>
           </p>
@@ -136,15 +150,15 @@ const MovieCard = ({ movie }) => {
 
       {/* DELETE-BUTTON */}
       {user &&
-        savedMovies &&
-        savedMovies.length > 0 &&
-        savedMovies.map((item, index) => {
+        watchlist &&
+        watchlist.length > 0 &&
+        watchlist.map((item, index) => {
           if (item.id === id) {
             return (
               <p
                 key={index}
                 className='card__delete__btn'
-                onClick={() => deleteMovie(id)}
+                onClick={() => handleDeleteWatchList()}
                 style={{ background: 'gold' }}
               >
                 <span className='card__btn--icon' style={{ color: '#000' }}>
@@ -193,7 +207,7 @@ const MovieCard = ({ movie }) => {
             {release_date && moment(release_date).format('Do MMM, YYYY')}
           </span>
 
-          <Link to={`/movie/${id}`} className='card__info__inner--more'>
+          <Link to={`/${type}/${id}`} className='card__info__inner--more'>
             <span>{iconsData.forward}</span>
           </Link>
         </div>

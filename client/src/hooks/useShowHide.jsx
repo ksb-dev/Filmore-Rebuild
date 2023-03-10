@@ -32,10 +32,16 @@ export const useShowHide = () => {
 
   const showMenu = (ref1, ref2) => {
     ref1.current.style.transform = 'translateY(0%)'
+    setTimeout(() => {
+      ref2.current.style.transform = 'scale(1)'
+    }, 100)
   }
 
   const hideMenu = (ref1, ref2) => {
-    ref1.current.style.transform = 'translateY(-120%)'
+    setTimeout(() => {
+      ref1.current.style.transform = 'translateY(-120%)'
+    }, 100)
+    ref2.current.style.transform = 'scale(0)'
   }
 
   // Toggle logout components
