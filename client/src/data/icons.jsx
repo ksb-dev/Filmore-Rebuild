@@ -48,6 +48,18 @@ export const iconsData = {
 
   close: <MdOutlineClose size={'20px'} />,
   close1: <MdOutlineClose size={'25px'} />,
+  close2: (
+    <MdOutlineClose
+      size={'20px'}
+      style={{
+        margin: '0.15rem 0.5rem 0 0',
+        background: 'var(--primary)',
+        color: '#000',
+        borderRadius: '50%',
+        padding: '0.15rem'
+      }}
+    />
+  ),
 
   addBookmark: (
     <AiOutlinePlus size={'15px'} style={{ marginBottom: '0.05rem' }} />
@@ -64,7 +76,7 @@ export const iconsData = {
   eyeOpen: <BsEye />,
   eyeClose: <BsEyeSlash />,
 
-  play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.5rem' }} />,
+  play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
   play1: <BsPlay size={'17.5px'} style={{ margin: '0.2rem 0 0 0.15rem' }} />,
 
   forwardArrow: (
