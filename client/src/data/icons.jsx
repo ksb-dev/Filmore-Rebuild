@@ -52,9 +52,9 @@ export const iconsData = {
     <MdOutlineClose
       size={'20px'}
       style={{
-        margin: '0.15rem 0.5rem 0 0',
-        background: 'var(--primary)',
-        color: '#000',
+        margin: '0rem 0.5rem 0 0',
+        background: 'var(--red)',
+        color: '#fff',
         borderRadius: '50%',
         padding: '0.15rem'
       }}
