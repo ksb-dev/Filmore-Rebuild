@@ -34,6 +34,7 @@ const Sort = ({ type }) => {
   const sortRef = useRef(null)
   const openRef = useRef(null)
   const closeRef = useRef(null)
+  const closeInnerRef = useRef(null)
 
   // Toggle sort & Detect outside click of sort component
   useEffect(() => {
@@ -46,9 +47,9 @@ const Sort = ({ type }) => {
     }
 
     if (open) {
-      showSort(btnRef, closeRef)
+      showSort(btnRef, closeRef, closeInnerRef)
     } else {
-      hideSort(btnRef, closeRef)
+      hideSort(btnRef, closeRef, closeInnerRef)
     }
 
     document.body.addEventListener('click', toggleSort)
@@ -84,20 +85,22 @@ const Sort = ({ type }) => {
           mode === true ? 'sort__close lightBg2' : 'sort__close darkBg1'
         }
       >
-        {sortArray.map((sort, index) => (
-          <span
-            className={
-              mode === true ? ' lightBg2 darkColor2' : ' darkBg1 lightColor1'
-            }
-            onClick={() => {
-              handleSort(sort.id)
-              setIndex(0)
-            }}
-            key={index}
-          >
-            {sort.value}
-          </span>
-        ))}
+        <div ref={closeInnerRef} className='sort__close__inner'>
+          {sortArray.map((sort, index) => (
+            <span
+              className={
+                mode === true ? ' lightBg2 darkColor2' : ' darkBg1 lightColor1'
+              }
+              onClick={() => {
+                handleSort(sort.id)
+                setIndex(0)
+              }}
+              key={index}
+            >
+              {sort.value}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )

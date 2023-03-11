@@ -12,21 +12,9 @@ const Options = () => {
   const optionRef = useRef(null)
   const closeRef = useRef(null)
 
-  const {
-    setMovieState,
-    setIndex,
-    movieState,
-    mode,
-    setMode,
-    searchQuery,
-    setSearchQuery,
-    searchResultsRef,
-    optionState,
-    setOptionState,
-    searchOptionState,
-    setSearchOptionState
-  } = useMovieContext()
-  const { showSort, hideSort } = useShowHide()
+  const { setSearchQuery, searchOptionState, setSearchOptionState } =
+    useMovieContext()
+  const { showOption, hideOption } = useShowHide()
 
   useEffect(() => {
     const toggleSort = e => {
@@ -40,9 +28,9 @@ const Options = () => {
     }
 
     if (open) {
-      showSort(btnRef, closeRef)
+      showOption(btnRef, closeRef)
     } else {
-      hideSort(btnRef, closeRef)
+      hideOption(btnRef, closeRef)
     }
 
     document.body.addEventListener('click', toggleSort)

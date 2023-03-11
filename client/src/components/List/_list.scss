@@ -48,17 +48,18 @@
       border-bottom-left-radius: var(--border-radius-1);
       border-bottom-right-radius: var(--border-radius-1);
 
-      &--number {
-        font-weight: 500;
+      &--activeOption {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
         position: absolute;
-        z-index: -1;
-        bottom: -1rem;
+        bottom: -1.25rem;
         right: 0;
+        text-align: center;
         padding: 0.5rem 1rem;
-        background: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        border-top-left-radius: var(--border-radius-1);
-        border-bottom-right-radius: var(--border-radius-1);
+        background: transparent !important;
         transition: var(--transition);
       }
 
@@ -101,6 +102,10 @@
             font-size: 1.5rem;
             font-weight: 500;
           }
+
+          .length {
+            display: none;
+          }
         }
 
         &--overview {
@@ -112,19 +117,55 @@
 
     &__buttons {
       z-index: -1;
-      justify-content: flex-end;
+      justify-content: space-between;
       width: 100%;
       position: absolute;
       bottom: 47%;
+      // left: 1rem;
+      // right: 1rem;
       display: flex;
+      align-items: center;
       padding: 0.5rem 0;
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
       border-radius: var(--border-radius);
       transition: var(--transition);
 
-      span:first-child {
-        margin-right: 2rem;
+      p:first-child {
+        margin-left: 1rem;
+      }
+
+      p:last-child {
+        margin-right: 1rem;
+      }
+
+      p {
+        cursor: pointer;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        position: relative;
+        margin: 0;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .length {
+        cursor: unset;
+        width: 82px;
+        height: 40px;
+        margin: 0 0.5rem;
+        border-radius: 50px;
+
+        span {
+          font-size: 0.8rem;
+          font-weight: 500;
+        }
       }
     }
   }
@@ -132,12 +173,13 @@
   &__sort-activeOption {
     margin: 0 4rem 0rem 2rem;
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
+    flex-direction: row-reverse;
     justify-content: space-between;
 
-    .activeOption {
-      font-size: 1.1rem;
+    .active-option {
+      font-size: 1rem;
+      font-weight: 500;
     }
   }
 
@@ -185,6 +227,12 @@
       &--image-2 {
         display: flex;
       }
+
+      &__cover {
+        &__info {
+          width: 400px;
+        }
+      }
     }
 
     &__sort-activeOption {
@@ -217,29 +265,33 @@
       &__cover {
         height: 300px;
 
-        &--number {
-          z-index: 1 !important;
-          background: transparent;
-          color: rgb(156, 156, 156);
-          //width: 100%;
-          right: unset;
-          left: 0.5rem;
-          text-align: center;
-          bottom: -0.75rem;
-          font-size: 0.75rem;
-          padding: 0.25rem 0.5rem;
-          //border-radius: 0;
+        &--activeOption {
+          font-size: 0.9rem;
+          bottom: -0.5rem;
+          letter-spacing: 1px;
+          margin-left: 1rem;
         }
 
         &__info {
-          bottom: 2rem;
+          bottom: 1rem;
           left: 1rem;
-          width: 90%;
+          //width: 90%;
+
+          width: 200px;
+
           padding: 0;
 
           &__rating-title {
             .title {
               font-size: 0.9rem;
+            }
+
+            .length {
+              display: flex;
+              font-size: 0.8rem;
+              font-weight: 500;
+              color: rgb(156, 156, 156);
+              margin-top: 0.5rem;
             }
           }
 
@@ -252,15 +304,26 @@
       &__buttons {
         z-index: 1 !important;
         justify-content: space-between;
+        left: 0rem;
+        right: 0rem;
 
-        span:first-child {
+        p:first-child {
+          margin-left: 1rem;
+        }
+
+        p:last-child {
           margin-right: 1rem;
+        }
+
+        .length {
+          display: none;
         }
       }
     }
 
     &__sort-activeOption {
       margin: 0 3rem 0 0.5rem;
+      flex-wrap: wrap;
 
       .switch {
         margin-left: 0.5rem;
@@ -298,6 +361,10 @@
         &--number {
           bottom: -0.75rem;
           font-size: 0.75rem;
+        }
+
+        &__info {
+          width: 150px;
         }
       }
     }

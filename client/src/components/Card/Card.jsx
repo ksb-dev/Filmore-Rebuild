@@ -68,6 +68,7 @@ const Card = ({ card, type, user, playerRef, playerInnerRef }) => {
 
   const hide = () => {
     infoRef.current.style.opacity = '0'
+
     setTimeout(() => {
       infoInnerRef.current.style.opacity = '0'
     }, 200)

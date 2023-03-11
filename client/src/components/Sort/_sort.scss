@@ -25,36 +25,40 @@
     display: flex;
     flex-direction: column;
     border-radius: var(--border-radius-1);
-    box-shadow: 0 3px 6px #000;
+    box-shadow: 0 2px 4px #000;
 
-    // z-index: -1;
-    // opacity: 0;
-    z-index: 5;
-    transform: scaleY(0);
+    z-index: -1;
+    opacity: 0;
+
     transition: var(--transition);
     margin-top: 0.25rem;
 
-    span {
-      display: flex;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
+    &__inner {
+      transform: scaleY(0);
+      transition: var(--transition);
 
-    span:first-child {
-      border-top-left-radius: var(--border-radius-1);
-      border-top-right-radius: var(--border-radius-1);
-    }
+      span {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
 
-    span:last-child {
-      border-bottom-left-radius: var(--border-radius-1);
-      border-bottom-right-radius: var(--border-radius-1);
-      margin-bottom: 0;
-    }
+      span:first-child {
+        border-top-left-radius: var(--border-radius-1);
+        border-top-right-radius: var(--border-radius-1);
+      }
 
-    span:hover {
-      filter: brightness(80%);
-      transition: filter 0.3s ease;
+      span:last-child {
+        border-bottom-left-radius: var(--border-radius-1);
+        border-bottom-right-radius: var(--border-radius-1);
+        margin-bottom: 0;
+      }
+
+      span:hover {
+        filter: brightness(80%);
+        transition: filter 0.3s ease;
+      }
     }
   }
 }

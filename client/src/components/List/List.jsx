@@ -205,13 +205,17 @@ const List = ({ type, playerRef, playerInnerRef }) => {
               }}
             >
               <p
-                ref={numberRef}
+                //ref={numberRef}
                 onMouseOver={() => {
                   numberRef.current.style.zIndex = '1'
                 }}
-                className={'list__wall__cover--number '}
+                className={
+                  'list__wall__cover--activeOption ' +
+                  (mode === true ? 'lightBg2' : 'darkBg1')
+                }
               >
-                {index + 1 + ' / ' + list.length}
+                {/* {index + 1 + ' / ' + list.length} */}
+                {sessionStorage.getItem('option')}
               </p>
 
               <div className='list__wall__cover__info'>
@@ -226,9 +230,21 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                         <span>{list[index].vote_average.toFixed(1)}</span>
                       </p>
                       <span className='title'>
-                        {type === 'movie'
-                          ? list[index].title
+                        {type === 'movie' &&
+                        list[index].title &&
+                        list[index].title.length > 30
+                          ? list[index].title.substring(0, 26) + '...'
+                          : list[index].title}
+
+                        {type === 'tv' &&
+                        list[index].name &&
+                        list[index].name.length > 30
+                          ? list[index].name.substring(0, 27) + '...'
                           : list[index].name}
+                      </span>
+
+                      <span className='length'>
+                        {index + 1 + ' / ' + list.length}
                       </span>
                     </>
                   )}
@@ -258,32 +274,46 @@ const List = ({ type, playerRef, playerInnerRef }) => {
             >
               {list.length > 1 ? (
                 <>
-                  <span>
-                    <MdOutlineArrowBackIosNew
-                      cursor={'pointer'}
-                      style={{
-                        marginLeft: '1rem',
-                        color: '#fff',
-                        background: 'rgba(0, 0, 0, 0.8)',
-                        padding: '0.5rem',
-                        borderRadius: '50%'
-                      }}
-                      onClick={() => previousImage(-1)}
-                    />
-                  </span>
-                  <span>
-                    <MdOutlineArrowForwardIos
-                      cursor={'pointer'}
-                      style={{
-                        marginRight: '1rem',
-                        color: '#fff',
-                        background: 'rgba(0, 0, 0, 0.8)',
-                        padding: '0.5rem',
-                        borderRadius: '50%'
-                      }}
-                      onClick={() => nextImage(1)}
-                    />
-                  </span>
+                  <p
+                    onClick={() => previousImage(-1)}
+                    className={
+                      mode === true
+                        ? 'darkBg1 lightColor1'
+                        : 'lightBg1 darkColor1'
+                    }
+                  >
+                    <span>
+                      <MdOutlineArrowBackIosNew
+                        style={{ marginTop: '0.25rem' }}
+                      />
+                    </span>
+                  </p>
+
+                  <p
+                    className={
+                      'length ' +
+                      (mode === true
+                        ? 'darkBg1 lightColor1'
+                        : 'lightBg1 darkColor1')
+                    }
+                  >
+                    <span>{index + 1 + ' / ' + list.length}</span>
+                  </p>
+
+                  <p
+                    onClick={() => nextImage(1)}
+                    className={
+                      mode === true
+                        ? 'darkBg1 lightColor1'
+                        : 'lightBg1 darkColor1'
+                    }
+                  >
+                    <span>
+                      <MdOutlineArrowForwardIos
+                        style={{ marginTop: '0.25rem' }}
+                      />
+                    </span>
+                  </p>
                 </>
               ) : (
                 <></>

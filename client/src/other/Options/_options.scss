@@ -34,11 +34,12 @@
     text-transform: capitalize;
     position: absolute;
     top: 2.2rem;
-    z-index: -1;
     background: #fff;
     color: #000;
     border-radius: var(--border-radius-1);
     box-shadow: 0 3px 6px #000;
+    transform: scaleY(0);
+    transition: var(--transition);
   }
 
   &__option:hover {

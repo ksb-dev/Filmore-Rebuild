@@ -57,11 +57,11 @@ const ImageViewer = () => {
   return (
     <div
       ref={viewerRef}
-      className={'viewer ' + (mode === true ? 'lightAlpha6' : 'darkAlpha6')}
+      className={'viewer ' + (mode === true ? 'lightAlpha5' : 'darkAlpha5')}
     >
       <div
         ref={innerViewerRef}
-        className={'viewer__inner ' + (mode === true ? 'lightBg2' : 'darkBg1')}
+        className={'viewer__inner ' + (mode === true ? 'lightBg1' : 'darkBg2')}
       >
         {backdrops && backdrops.length > 0 && (
           <span className='viewer__inner--length'>

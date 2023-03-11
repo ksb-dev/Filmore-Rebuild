@@ -7,20 +7,17 @@
   top: 0;
   left: 0;
 
-  //opacity: 0;
   transform: scaleY(0);
-  //z-index: -1;
   z-index: 10;
-  transition: z-index 0s ease, opacity 0s ease;
+  transition: var(--transition);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   &__inner {
-    //opacity: 0;
     transform: scaleY(0);
-    transition: opacity 0.5s ease;
+    transition: var(--transition);
     border-radius: var(--border-radius-1);
 
     display: flex;
