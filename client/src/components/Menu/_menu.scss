@@ -108,7 +108,10 @@
           cursor: pointer;
           display: flex;
           text-transform: capitalize;
-          border-radius: var(--border-radius-1);
+          border-radius: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         p,

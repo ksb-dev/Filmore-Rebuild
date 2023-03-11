@@ -167,6 +167,10 @@
         &__play-btn {
           cursor: pointer;
           margin-right: 0.5rem;
+          width: 50px;
+          height: 50px;
+          // background: linear-gradient(tomato, red) !important;
+          // color: #fff !important;
         }
 
         &--more:hover,
@@ -218,28 +222,15 @@
 
     &__info {
       &__inner {
-        &--title {
-          font-size: 1rem;
-        }
-
         &__options {
           width: 100%;
           justify-content: center;
           left: 0;
         }
-
-        &--date {
-          font-size: 0.75rem;
-        }
       }
     }
   }
 }
-
-// .card:hover .card--image .img-2 {
-//   transform: scale(1.2);
-//   transition: var(--transition);
-// }
 
 .lightBookmarkBorder {
   border: 4px solid var(--white-1);
