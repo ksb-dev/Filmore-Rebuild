@@ -48,6 +48,13 @@
         top: 0.45rem;
         right: 0.3rem;
       }
+
+      .cancel {
+        cursor: pointer;
+        top: 0.25rem;
+        right: 0;
+        color: var(--red);
+      }
     }
 
     .mode-icon {

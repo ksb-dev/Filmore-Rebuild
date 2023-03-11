@@ -61,40 +61,43 @@ const SearchResults = ({ results }) => {
       }
     >
       <div className='search__results__inner'>
-        {results.map((result, index) => (
-          <Link
-            onClick={() => hideModal()}
-            to={`/${searchOptionState}/${result.id}`}
-            key={index}
-            className={
-              'search__results__inner__card ' +
-              (mode === true ? 'lightBg1' : 'darkBg2')
-            }
-          >
-            <div className='search__results__inner__card__image'>
-              <img
-                className='img'
-                loading='lazy'
-                src={
-                  result.poster_path === null
-                    ? APIs.no_image_url
-                    : APIs.img_path_w185 + result.poster_path
-                }
-                alt='image'
-              />
-            </div>
-            <div className='search__results__inner__card__title-date'>
-              <span className={mode === true ? 'darkColor1' : 'lightColor1'}>
-                {result.title ? result.title : result.name}
-              </span>
-              <span>
-                {result.release_date && result.release_date.substring(0, 4)}
+        {results && results.length === 0 && <span>No results found.</span>}
+        {results &&
+          results.map((result, index) => (
+            <Link
+              onClick={() => hideModal()}
+              to={`/${searchOptionState}/${result.id}`}
+              key={index}
+              className={
+                'search__results__inner__card ' +
+                (mode === true ? 'lightBg1' : 'darkBg2')
+              }
+            >
+              <div className='search__results__inner__card__image'>
+                <img
+                  className='img'
+                  loading='lazy'
+                  src={
+                    result.poster_path === null
+                      ? APIs.no_image_url
+                      : APIs.img_path_w185 + result.poster_path
+                  }
+                  alt='image'
+                />
+              </div>
+              <div className='search__results__inner__card__title-date'>
+                <span className={mode === true ? 'darkColor1' : 'lightColor1'}>
+                  {result.title ? result.title : result.name}
+                </span>
+                <span>
+                  {result.release_date && result.release_date.substring(0, 4)}
 
-                {result.first_air_date && result.first_air_date.substring(0, 4)}
-              </span>
-            </div>
-          </Link>
-        ))}
+                  {result.first_air_date &&
+                    result.first_air_date.substring(0, 4)}
+                </span>
+              </div>
+            </Link>
+          ))}
       </div>
     </div>
   )

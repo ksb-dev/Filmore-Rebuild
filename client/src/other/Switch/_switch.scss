@@ -17,14 +17,14 @@
   }
 
   &__movie {
-    border-top-left-radius: var(--border-radius-1);
-    border-bottom-left-radius: var(--border-radius-1);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
     margin-right: 0.1rem;
   }
 
   &__tv {
-    border-top-right-radius: var(--border-radius-1);
-    border-bottom-right-radius: var(--border-radius-1);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     margin-left: 0.1rem;
   }
 
