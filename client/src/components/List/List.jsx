@@ -31,7 +31,7 @@ import {
 // other
 import Switch from '../../other/Switch/Switch'
 
-const List = ({ type }) => {
+const List = ({ type, playerRef, playerInnerRef }) => {
   const { mode, index, setIndex } = useMovieContext()
   const { getClassBg } = useGetClassByVote()
   // const movies = useSelector(state => state.movies.movies)
@@ -303,7 +303,14 @@ const List = ({ type }) => {
         {list &&
           list.length > 0 &&
           list.map((card, index) => (
-            <Card key={index} card={card} type={type} user={user} />
+            <Card
+              key={index}
+              card={card}
+              type={type}
+              user={user}
+              playerRef={playerRef}
+              playerInnerRef={playerInnerRef}
+            />
           ))}
       </div>
 

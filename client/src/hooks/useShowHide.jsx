@@ -32,6 +32,7 @@ export const useShowHide = () => {
 
   const showMenu = (ref1, ref2) => {
     ref1.current.style.transform = 'translateY(0%)'
+    //ref2.current.style.transform = 'scale(1)'
     setTimeout(() => {
       ref2.current.style.transform = 'scale(1)'
     }, 100)
@@ -41,6 +42,7 @@ export const useShowHide = () => {
     setTimeout(() => {
       ref1.current.style.transform = 'translateY(-120%)'
     }, 100)
+    //ref1.current.style.transform = 'translateY(-120%)'
     ref2.current.style.transform = 'scale(0)'
   }
 

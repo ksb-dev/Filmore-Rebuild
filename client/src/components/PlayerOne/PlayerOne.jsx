@@ -11,7 +11,8 @@ import Loading from '../../other/Loading/Loading'
 import Iframe from '../../other/Iframe/Iframe'
 
 const PlayerOne = ({ playerRef, playerInnerRef }) => {
-  const { mode, playerUrl, playerLoading, setPlayerUrl } = useMovieContext()
+  const { mode, playerUrl, playerError, playerLoading, setPlayerUrl } =
+    useMovieContext()
   const { hidePlayer } = useShowHide()
 
   useEffect(() => {}, [playerUrl])
@@ -39,7 +40,7 @@ const PlayerOne = ({ playerRef, playerInnerRef }) => {
       ref={playerRef}
       className={
         'player ' +
-        (mode === true ? 'lightAlpha5 darkColor1' : 'darkAlpha5 lightColor1')
+        (mode === true ? 'lightAlpha6 darkColor1' : 'darkAlpha6 lightColor1')
       }
     >
       <div
@@ -54,7 +55,7 @@ const PlayerOne = ({ playerRef, playerInnerRef }) => {
 
         {!playerLoading && playerUrl && <Iframe embedId={playerUrl} />}
 
-        {!playerLoading && !playerUrl && <h1>Trailer not found.</h1>}
+        {!playerLoading && playerError && <h1>Trailer not found.</h1>}
       </div>
     </div>
   )

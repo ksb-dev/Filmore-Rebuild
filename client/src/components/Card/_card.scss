@@ -94,13 +94,14 @@
     top: 0;
     left: 0;
     bottom: 0;
+    right: 0;
 
     opacity: 0;
     z-index: 2;
     transition: var(--transition);
 
     &__inner {
-      position: relative;
+      position: absolute;
       width: inherit;
       height: inherit;
       display: flex;

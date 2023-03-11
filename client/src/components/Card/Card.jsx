@@ -7,6 +7,9 @@ import { iconsData } from '../../data/icons'
 // Hooks
 import { useWatchlistOperations } from '../../hooks/useWatchlistOperations'
 import { useGetClassByVote } from '../../hooks/useGetClassByVote'
+import { useGetMovieInfo } from '../../hooks/useGetMovieInfo'
+import { useGetTvInfo } from '../../hooks/useGetTvInfo'
+import { useShowHide } from '../../hooks/useShowHide'
 
 // Redux
 import { useSelector } from 'react-redux'
@@ -23,11 +26,15 @@ import { APIs } from '../../APIs/APIs'
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 
-const Card = ({ card, type, user }) => {
-  const { mode } = useMovieContext()
+const Card = ({ card, type, user, playerRef, playerInnerRef }) => {
+  const { mode, setPlayerUrl, setPlayerLoading, setPlayerError } =
+    useMovieContext()
   const { addMovie, deleteMovie, addShow, deleteShow } =
     useWatchlistOperations()
   const { getClassBg } = useGetClassByVote()
+  const { getMovieTrailer786px } = useGetMovieInfo()
+  const { getTvTrailer786px } = useGetTvInfo()
+  const { showPlayer } = useShowHide()
 
   const navigate = useNavigate()
 
@@ -98,6 +105,13 @@ const Card = ({ card, type, user }) => {
     } else {
       deleteShow(id)
     }
+  }
+
+  const playTrailer = () => {
+    showPlayer(playerRef, playerInnerRef)
+    type === 'movie'
+      ? getMovieTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
+      : getTvTrailer786px(id, setPlayerUrl, setPlayerLoading, setPlayerError)
   }
 
   return (
@@ -272,6 +286,7 @@ const Card = ({ card, type, user }) => {
             )}
 
             <p
+              onClick={() => playTrailer()}
               className={
                 'card__info__inner__options__play-btn ' +
                 (mode === true ? 'darkOption' : 'lightOption')
