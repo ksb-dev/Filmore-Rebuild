@@ -17,7 +17,7 @@ import {
   BsPlusCircleFill,
   BsArrowRightCircle,
   BsImages,
-  BsPlay
+  BsPlayFill
 } from 'react-icons/bs'
 import { BiSearch, BiUserCircle } from 'react-icons/bi'
 
@@ -30,7 +30,7 @@ import { TfiMenu } from 'react-icons/tfi'
 import { RiLoginCircleFill, RiLoginCircleLine } from 'react-icons/ri'
 import { FiCheck } from 'react-icons/fi'
 import { IoPersonCircle } from 'react-icons/io5'
-import { IoIosArrowRoundForward } from 'react-icons/io'
+import { IoIosArrowRoundForward, IoMdCloseCircle } from 'react-icons/io'
 import { ImImage } from 'react-icons/im'
 
 export const iconsData = {
@@ -56,6 +56,7 @@ export const iconsData = {
       }}
     />
   ),
+  close3: <IoMdCloseCircle size={'25px'} />,
 
   addBookmark: (
     <AiOutlinePlus size={'15px'} style={{ marginBottom: '0.05rem' }} />
@@ -73,7 +74,7 @@ export const iconsData = {
   eyeClose: <BsEyeSlash />,
 
   play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
-  play1: <BsPlay size={'25px'} style={{ margin: '0.2rem 0 0 0.15rem' }} />,
+  play1: <BsPlayFill size={'25px'} style={{ margin: '0.2rem 0 0 0.15rem' }} />,
 
   forwardArrow: (
     <MdOutlineArrowForwardIos

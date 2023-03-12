@@ -48,7 +48,7 @@ const Reviews = ({ type, id }) => {
         <p className='length'>
           <span>{reviews && reviews.length}</span>
         </p>
-        <span className='icon'>{iconsData.forwardArrow}</span>
+        {/* <span className='icon'>{iconsData.forwardArrow}</span> */}
       </div>
 
       <div className='reviews__loading__error'>
@@ -74,10 +74,9 @@ const Reviews = ({ type, id }) => {
       <div className='reviews__container'>
         {reviews &&
           reviews.length > 0 &&
-          reviews.map(
-            (review, index) =>
-              index < 4 && <ReviewCard key={index} review={review} />
-          )}
+          reviews.map((review, index) => (
+            <ReviewCard key={index} review={review} />
+          ))}
       </div>
     </div>
   )

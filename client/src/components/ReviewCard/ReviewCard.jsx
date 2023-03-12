@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 
 // Context
 import { useMovieContext } from '../../context/context'
@@ -12,11 +12,20 @@ import { GrStar } from 'react-icons/gr'
 // data
 import { iconsData } from '../../data/icons'
 
+// components
+import ReviewModal from '../ReviewModal/ReviewModal'
+
 const ReviewCard = ({ review }) => {
-  const [show, setShow] = useState(false)
   const { mode } = useMovieContext()
   const { avatar_path, name, username, rating } = review.author_details
   const { content } = review
+
+  const reviewModalRef = useRef(null)
+  const reviewModalInnerRef = useRef(null)
+
+  const showReviewModal = () => {
+    reviewModalRef.current.style.transform = 'scale(1)'
+  }
 
   return (
     <div
@@ -50,11 +59,22 @@ const ReviewCard = ({ review }) => {
           </span>
         )}
       </div>
-
       <div className='name__review'>
         <span className='name'>{name ? name : 'Anonymous'}</span>
 
-        {content ? (
+        <span className='content'>{content.substring(0, 100) + '.....'}</span>
+        <span
+          style={{
+            color: 'var(--blue)',
+            fontWeight: '400',
+            cursor: 'pointer'
+          }}
+          onClick={() => showReviewModal()}
+        >
+          Read more
+        </span>
+
+        {/* {content ? (
           content.length > 95 ? (
             <>
               {!show ? (
@@ -94,8 +114,13 @@ const ReviewCard = ({ review }) => {
           )
         ) : (
           <></>
-        )}
+        )} */}
       </div>
+      <ReviewModal
+        review={review}
+        reviewModalRef={reviewModalRef}
+        reviewModalInnerRef={reviewModalInnerRef}
+      />
     </div>
   )
 }

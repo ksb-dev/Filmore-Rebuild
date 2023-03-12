@@ -38,11 +38,13 @@
       width: 1000px;
       height: 550px;
       border-radius: var(--border-radius-1);
+      box-shadow: var(--box-shadow-1);
     }
 
     .img-2,
     .img-3 {
       display: none;
+      box-shadow: var(--box-shadow-1);
     }
 
     &__buttons {

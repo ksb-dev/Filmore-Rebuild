@@ -28,6 +28,7 @@ import CastBackdropsVideo from '../../components/CastBackdropsVideo/CastBackdrop
 import Reviews from '../../components/Reviews/Reviews'
 import PlayerOne from '../../components/PlayerOne/PlayerOne'
 import ImageViewer from '../../components/ImageViewer/ImageViewer'
+import ReviewModal from '../../components/ReviewModal/ReviewModal'
 
 const MovieDetail = () => {
   const { mode, movieState, loading, error } = useMovieContext()

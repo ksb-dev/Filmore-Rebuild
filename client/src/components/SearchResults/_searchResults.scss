@@ -69,7 +69,7 @@
 
 @media screen and (max-width: 786px) {
   .search__results {
-    height: 60vh;
+    max-height: 60vh;
   }
 }
 

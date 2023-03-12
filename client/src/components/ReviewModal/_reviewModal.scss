@@ -1,0 +1,43 @@
+.review__modal {
+  position: absolute;
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  transform: scale(0);
+  transition: var(--transition);
+
+  border-radius: var(--border-radius-1);
+
+  &--cancel {
+    cursor: pointer;
+    padding-top: 0.25rem;
+  }
+
+  &--cancel:hover {
+    transform: scale(1.1);
+    transition: var(--transition);
+  }
+
+  &__inner {
+    padding: 0.5rem;
+    margin: 0 1rem 1rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius-1);
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .review__modal {
+    &__inner {
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
