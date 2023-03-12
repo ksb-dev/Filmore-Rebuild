@@ -42,24 +42,3 @@
     gap: 0rem;
   }
 }
-
-.scroll {
-  overflow-x: scroll;
-}
-/* width */
-.scroll::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-/* Track */
-.scroll::-webkit-scrollbar-track {
-  background: rgb(180, 180, 180);
-  background: transparent;
-}
-
-/* Handle */
-.scroll::-webkit-scrollbar-thumb {
-  //background-color: #999;
-  //border-radius: 20px;
-}

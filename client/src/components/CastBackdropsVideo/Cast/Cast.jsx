@@ -38,7 +38,9 @@ const Cast = () => {
   }
 
   return (
-    <div className={'cast ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+    <div
+      className={'cast scroll-2 ' + (mode === true ? 'lightBg1' : 'darkBg2')}
+    >
       {cast &&
         cast.map(
           (actor, index) => index < 6 && <Actor key={index} actor={actor} />

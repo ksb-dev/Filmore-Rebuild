@@ -10,14 +10,14 @@ const ReviewModal = ({ review, reviewModalRef, reviewModalInnerRef }) => {
   const { mode } = useMovieContext()
 
   const hideReviewModal = () => {
-    reviewModalRef.current.style.transform = 'scale(0)'
+    reviewModalRef.current.style.transform = 'translateY(100%)'
   }
 
   return (
     <div
       ref={reviewModalRef}
       className={
-        'review__modal ' + (mode === true ? 'lightAlpha6' : 'darkAlpha6 ')
+        'review__modal ' + (mode === true ? 'lightAlpha5' : 'darkAlpha5 ')
       }
     >
       <span className='review__modal--cancel' onClick={() => hideReviewModal()}>
@@ -27,7 +27,8 @@ const ReviewModal = ({ review, reviewModalRef, reviewModalInnerRef }) => {
       <div
         ref={reviewModalInnerRef}
         className={
-          'review__modal__inner ' + (mode === true ? 'lightBg1' : 'darkBg2 ')
+          'review__modal__inner scroll-1 ' +
+          (mode === true ? 'lightBg2' : 'darkBg1 ')
         }
       >
         <span>{review.content}</span>

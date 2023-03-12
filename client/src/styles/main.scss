@@ -408,3 +408,43 @@ body::-webkit-scrollbar-thumb {
   //border-radius: 20px; /* roundness of the scroll thumb */
   //border: 3px solid #fff; /* creates padding around scroll thumb */
 }
+
+.scroll-1 {
+  overflow-y: auto;
+}
+/* width */
+.scroll-1::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.scroll-1::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scroll-1::-webkit-scrollbar-thumb {
+  background-color: #999;
+}
+
+// ----------------------------------------
+
+.scroll-2 {
+  overflow-x: auto;
+}
+/* width */
+.scroll-2::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.scroll-2::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scroll-2::-webkit-scrollbar-thumb {
+  background-color: #999;
+}

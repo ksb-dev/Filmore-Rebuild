@@ -58,6 +58,12 @@
       margin-bottom: 0.5rem;
       font-weight: 500;
     }
+
+    .content,
+    span {
+      line-height: 1.25rem;
+      font-size: 0.9rem;
+    }
   }
 }
 
@@ -73,11 +79,11 @@
         font-weight: 500;
       }
 
-      .content,
-      span {
-        line-height: 1.5rem;
-        font-size: 0.9rem;
-      }
+      // .content,
+      // span {
+      //   line-height: 1.5rem;
+      //   font-size: 0.9rem;
+      // }
     }
   }
 }
@@ -101,12 +107,6 @@
       margin-left: 1rem;
 
       .name {
-        font-size: 0.9rem;
-      }
-
-      .content,
-      span {
-        line-height: 1.5rem;
         font-size: 0.9rem;
       }
     }

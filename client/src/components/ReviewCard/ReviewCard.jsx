@@ -24,7 +24,7 @@ const ReviewCard = ({ review }) => {
   const reviewModalInnerRef = useRef(null)
 
   const showReviewModal = () => {
-    reviewModalRef.current.style.transform = 'scale(1)'
+    reviewModalRef.current.style.transform = 'translateY(0%)'
   }
 
   return (
@@ -63,58 +63,26 @@ const ReviewCard = ({ review }) => {
         <span className='name'>{name ? name : 'Anonymous'}</span>
 
         <span className='content'>{content.substring(0, 100) + '.....'}</span>
-        <span
-          style={{
-            color: 'var(--blue)',
-            fontWeight: '400',
-            cursor: 'pointer'
-          }}
-          onClick={() => showReviewModal()}
-        >
-          Read more
-        </span>
 
-        {/* {content ? (
-          content.length > 95 ? (
-            <>
-              {!show ? (
-                <>
-                  <span className='content'>
-                    {content.substring(0, 100) + '.....'}
-                  </span>
-                  <span
-                    style={{
-                      color: 'var(--blue)',
-                      fontWeight: '400',
-                      cursor: 'pointer'
-                    }}
-                    onClick={() => setShow(!show)}
-                  >
-                    Read more
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className='content'>{content}</span>
-                  <span
-                    style={{
-                      color: 'var(--blue)',
-                      fontWeight: '400',
-                      cursor: 'pointer'
-                    }}
-                    onClick={() => setShow(!show)}
-                  >
-                    Hide more
-                  </span>
-                </>
-              )}
-            </>
-          ) : (
-            <span className='content'>{content}</span>
-          )
+        {content && content.length > 27 ? (
+          <>
+            <span className='content'>
+              {content.substring(0, 30) + '.....'}
+            </span>
+            <span
+              style={{
+                color: 'var(--blue)',
+                fontWeight: '400',
+                cursor: 'pointer'
+              }}
+              onClick={() => showReviewModal()}
+            >
+              Read more
+            </span>
+          </>
         ) : (
-          <></>
-        )} */}
+          <span className='content'>{content}</span>
+        )}
       </div>
       <ReviewModal
         review={review}

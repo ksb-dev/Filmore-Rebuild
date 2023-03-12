@@ -56,7 +56,7 @@ export const iconsData = {
       }}
     />
   ),
-  close3: <IoMdCloseCircle size={'25px'} />,
+  close3: <IoMdCloseCircle size={'30px'} />,
 
   addBookmark: (
     <AiOutlinePlus size={'15px'} style={{ marginBottom: '0.05rem' }} />

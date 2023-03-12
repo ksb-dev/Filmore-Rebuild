@@ -1,6 +1,5 @@
 .review__modal {
   position: absolute;
-  margin-bottom: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -8,7 +7,7 @@
   justify-content: center;
   height: 100%;
 
-  transform: scale(0);
+  transform: translateY(100%);
   transition: var(--transition);
 
   border-radius: var(--border-radius-1);
@@ -24,8 +23,8 @@
   }
 
   &__inner {
-    padding: 0.5rem;
-    margin: 0 1rem 1rem 1rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    margin: 0 0rem 1rem 0rem;
     margin-bottom: 1.5rem;
     border-radius: var(--border-radius-1);
     overflow-y: scroll;

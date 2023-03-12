@@ -37,7 +37,11 @@ const Backdrops = () => {
   }
 
   return (
-    <div className={'backdrops ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+    <div
+      className={
+        'backdrops scroll-2 ' + (mode === true ? 'lightBg1' : 'darkBg2')
+      }
+    >
       {backdrops &&
         backdrops.map(
           (backdrop, index) =>

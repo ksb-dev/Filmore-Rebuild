@@ -92,21 +92,3 @@
     }
   }
 }
-
-.scroll-1 {
-  overflow-y: scroll;
-}
-/* width */
-.scroll-1::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-.scroll-1::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-.scroll-1::-webkit-scrollbar-thumb {
-  background-color: #999;
-}

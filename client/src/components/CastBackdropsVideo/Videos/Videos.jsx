@@ -46,7 +46,9 @@ const Videos = ({ playerRef, playerInnerRef }) => {
   }
 
   return (
-    <div className={'videos ' + (mode === true ? 'lightBg1' : 'darkBg2')}>
+    <div
+      className={'videos scroll-2 ' + (mode === true ? 'lightBg1' : 'darkBg2')}
+    >
       {videos &&
         videos.map(
           (video, index) =>
