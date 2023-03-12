@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 // React Icons
-import { BsGraphUp, BsCheck2Circle } from 'react-icons/bs'
+import { BsGraphUp } from 'react-icons/bs'
 import { MdOutlineUpcoming } from 'react-icons/md'
 import { TfiStar } from 'react-icons/tfi'
 
