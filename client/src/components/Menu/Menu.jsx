@@ -153,6 +153,7 @@ const Menu = () => {
                     : 'darkBg1'
                 }
               >
+                {item.icon}
                 {item.category === 'theatres' &&
                 sessionStorage.getItem('movieState') === 'tv' ? (
                   <>On Air</>
@@ -184,6 +185,7 @@ const Menu = () => {
                         : 'darkBg1'
                     }
                   >
+                    {item.icon1}
                     {item.genre}
                   </span>
                 ))

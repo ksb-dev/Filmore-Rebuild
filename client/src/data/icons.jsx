@@ -1,22 +1,14 @@
 import React from 'react'
 
 // Recat Icons
-import {
-  AiOutlinePlus,
-  AiOutlineHome,
-  AiFillHome,
-  AiFillCaretDown
-} from 'react-icons/ai'
+import { AiOutlinePlus, AiFillCaretDown } from 'react-icons/ai'
 import {
   BsSun,
   BsMoonStars,
   BsEye,
   BsEyeSlash,
   BsPlayCircle,
-  BsPlusCircle,
   BsCheckCircle,
-  BsCheckCircleFill,
-  BsPlusCircleFill,
   BsArrowRightCircle,
   BsImages,
   BsPlayFill
@@ -29,20 +21,21 @@ import {
   MdOutlineArrowForwardIos
 } from 'react-icons/md'
 import { TfiMenu } from 'react-icons/tfi'
-import { RiLoginCircleFill, RiLoginCircleLine } from 'react-icons/ri'
+import { RiLoginCircleLine } from 'react-icons/ri'
 import { FiCheck } from 'react-icons/fi'
 import { IoPersonCircle } from 'react-icons/io5'
 import { IoIosArrowRoundForward, IoMdCloseCircle } from 'react-icons/io'
-import { ImImage } from 'react-icons/im'
+import { GoHome } from 'react-icons/go'
 
 export const iconsData = {
   // Header Icons
-  homeOutlined: <AiOutlineHome size={'20px'} />,
-  homeFilled: <AiFillHome size={'20px'} />,
+  homeOutlined: <GoHome size={'21px'} />,
+  homeFilled: <GoHome size={'21px'} />,
   outlineBookmark: <BsCheckCircle size={'20px'} />,
-  filledBookmark: <BsCheckCircleFill size={'20px'} />,
-  loginOutlined: <RiLoginCircleLine size={'20px'} />,
-  loginFilled: <RiLoginCircleFill size={'20px'} />,
+  filledBookmark: <BsCheckCircle size={'20px'} />,
+  loginOutlined: <RiLoginCircleLine size={'21px'} />,
+  loginFilled: <RiLoginCircleLine size={'21px'} />,
+
   sunIcon: <BsSun size={'20px'} />,
   moonIcon: <BsMoonStars size={'20px'} />,
   searchIcon: <BiSearch size={'20px'} />,

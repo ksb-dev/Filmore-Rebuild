@@ -1,24 +1,24 @@
 // React Icons (Genre)
-// import {
-//   GiPunchBlast,
-//   GiPistolGun,
-//   GiDualityMask,
-//   GiUfo,
-//   GiTank
-// } from 'react-icons/gi'
-// import { SlCompass, SlGhost, SlMusicToneAlt } from 'react-icons/sl'
-// import { BsCameraReels } from 'react-icons/bs'
-// import { TfiFaceSmile, TfiFaceSad } from 'react-icons/tfi'
-// import { MdOutlineFamilyRestroom } from 'react-icons/md'
-// import { RxMagicWand } from 'react-icons/rx'
-// import { BsHourglassSplit } from 'react-icons/bs'
-// import { IoFootstepsOutline } from 'react-icons/io5'
-// import { RiHeartsLine, RiKnifeBloodLine, RiCactusLine } from 'react-icons/ri'
+import {
+  GiPunchBlast,
+  GiPistolGun,
+  GiDualityMask,
+  GiUfo,
+  GiTank
+} from 'react-icons/gi'
+import { SlCompass, SlGhost, SlMusicToneAlt } from 'react-icons/sl'
+import { BsCameraReels } from 'react-icons/bs'
+import { TfiFaceSmile, TfiFaceSad } from 'react-icons/tfi'
+import { MdOutlineFamilyRestroom } from 'react-icons/md'
+import { RxMagicWand } from 'react-icons/rx'
+import { BsHourglassSplit } from 'react-icons/bs'
+import { IoFootstepsOutline } from 'react-icons/io5'
+import { RiHeartsLine, RiKnifeBloodLine, RiCactusLine } from 'react-icons/ri'
 
 export const genreArray = [
   {
     //icon: <GiPunchBlast size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <GiPunchBlast size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <GiPunchBlast size={'20px'} style={{ marginRight: '0.5rem' }} />,
     id: 28,
     genre: 'Action',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -27,7 +27,7 @@ export const genreArray = [
   },
   {
     //icon: <SlCompass size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <SlCompass size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <SlCompass size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 12,
     genre: 'Adventure',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -36,7 +36,7 @@ export const genreArray = [
   },
   {
     //icon: <GiDualityMask size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <GiDualityMask size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <GiDualityMask size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 16,
     genre: 'Animation',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -45,7 +45,7 @@ export const genreArray = [
   },
   {
     //icon: <TfiFaceSmile size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <TfiFaceSmile size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <TfiFaceSmile size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 35,
     genre: 'Comedy',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -54,7 +54,7 @@ export const genreArray = [
   },
   {
     //icon: <GiPistolGun size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <GiPistolGun size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <GiPistolGun size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 80,
     genre: 'Crime',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -63,7 +63,7 @@ export const genreArray = [
   },
   {
     //icon: <BsCameraReels size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <BsCameraReels size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <BsCameraReels size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 99,
     genre: 'Documentary',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -72,7 +72,7 @@ export const genreArray = [
   },
   {
     //icon: <TfiFaceSad size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <TfiFaceSad size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <TfiFaceSad size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 18,
     genre: 'Drama',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -88,7 +88,7 @@ export const genreArray = [
     // ),
     // icon1: (
     //   <MdOutlineFamilyRestroom
-    //     size={'20px'}
+    //     size={'15px'}
     //     style={{ marginRight: '0.5rem' }}
     //   />
     // ),
@@ -100,7 +100,7 @@ export const genreArray = [
   },
   {
     //icon: <RxMagicWand size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <RxMagicWand size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <RxMagicWand size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 14,
     genre: 'Fantasy',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -110,7 +110,7 @@ export const genreArray = [
 
   {
     //icon: <BsHourglassSplit size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <BsHourglassSplit size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <BsHourglassSplit size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 36,
     genre: 'History',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -119,7 +119,7 @@ export const genreArray = [
   },
   {
     //icon: <SlGhost size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <SlGhost size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <SlGhost size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 27,
     genre: 'Horror',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -128,7 +128,7 @@ export const genreArray = [
   },
   {
     //icon: <SlMusicToneAlt size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <SlMusicToneAlt size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <SlMusicToneAlt size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 10402,
     genre: 'Music',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -140,7 +140,7 @@ export const genreArray = [
     //   <IoFootstepsOutline size={'25px'} style={{ marginRight: '0.5rem' }} />
     // ),
     // icon1: (
-    //   <IoFootstepsOutline size={'20px'} style={{ marginRight: '0.5rem' }} />
+    //   <IoFootstepsOutline size={'15px'} style={{ marginRight: '0.5rem' }} />
     // ),
     id: 9648,
     genre: 'Mystery',
@@ -150,7 +150,7 @@ export const genreArray = [
   },
   {
     //icon: <RiHeartsLine size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <RiHeartsLine size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <RiHeartsLine size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 10749,
     genre: 'Romance',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -159,7 +159,7 @@ export const genreArray = [
   },
   {
     //icon: <GiUfo size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <GiUfo size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <GiUfo size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 878,
     genre: 'Science & Fiction',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -168,7 +168,7 @@ export const genreArray = [
   },
   {
     //icon: <RiKnifeBloodLine size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <RiKnifeBloodLine size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <RiKnifeBloodLine size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 53,
     genre: 'Thriller',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -177,7 +177,7 @@ export const genreArray = [
   },
   {
     //icon: <GiTank size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <GiTank size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <GiTank size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 10752,
     genre: 'War',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -186,7 +186,7 @@ export const genreArray = [
   },
   {
     //icon: <RiCactusLine size={'25px'} style={{ marginRight: '0.5rem' }} />,
-    //icon1: <RiCactusLine size={'20px'} style={{ marginRight: '0.5rem' }} />,
+    icon1: <RiCactusLine size={'15px'} style={{ marginRight: '0.5rem' }} />,
     id: 37,
     genre: 'Western',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
