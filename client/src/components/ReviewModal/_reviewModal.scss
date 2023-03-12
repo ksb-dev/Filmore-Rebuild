@@ -14,14 +14,13 @@
 
   &__inner {
     height: 100%;
+    max-width: 100%;
     padding: 0.5rem;
     margin: 0 0rem 1.5rem 0rem;
     border-top-left-radius: var(--border-radius-1);
     border-top-right-radius: var(--border-radius-1);
     overflow-y: scroll;
     border-radius: var(--border-radius-1);
-    display: flex;
-    flex-wrap: wrap;
   }
 }
 
