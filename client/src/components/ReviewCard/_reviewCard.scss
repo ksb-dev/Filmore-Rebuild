@@ -19,15 +19,15 @@
   .avatar__rating {
     &__image {
       border-radius: 50%;
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       margin-bottom: 0.5rem;
 
       img,
       .user {
         display: inline-block;
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
       }
 
@@ -77,37 +77,6 @@
       .name {
         font-size: 0.9rem;
         font-weight: 500;
-      }
-
-      // .content,
-      // span {
-      //   line-height: 1.5rem;
-      //   font-size: 0.9rem;
-      // }
-    }
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .review__card {
-    .avatar__rating {
-      &__image {
-        width: 50px;
-        height: 50px;
-
-        img,
-        .user {
-          width: 50px;
-          height: 50px;
-        }
-      }
-    }
-
-    .name__review {
-      margin-left: 1rem;
-
-      .name {
-        font-size: 0.9rem;
       }
     }
   }

@@ -69,28 +69,10 @@
         display: flex;
         align-items: center;
         margin-left: 0.5rem;
-
-        p {
-          display: none;
-          margin: 0;
-          position: relative;
-          width: 30px;
-          height: 30px;
-          color: #fff;
-          border-radius: 50%;
-
-          span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -55%);
-          }
-        }
       }
 
       .watchlist:hover {
         color: var(--primary);
-        //filter: brightness(80%);
         transition: var(--transition);
       }
 
@@ -103,9 +85,8 @@
         cursor: pointer;
         margin-left: 0.5rem;
         border-radius: var(--border-radius-1);
-        //background: var(--primary);
         color: #fff;
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem;
       }
 
       .home-icon {
@@ -125,9 +106,8 @@
           border-radius: var(--border-radius-1);
           cursor: pointer;
           margin-left: 0.5rem;
-          //background: var(--primary);
           color: #fff;
-          padding: 0.5rem 0.5rem;
+          padding: 0.5rem;
         }
 
         .close-icon {
@@ -148,7 +128,6 @@
       .home-icon:hover,
       .mode-icon:hover {
         color: var(--primary);
-        //filter: brightness(80%);
         transition: var(--transition);
       }
 
@@ -189,8 +168,6 @@
 
       &__two {
         width: calc(100vw - (20% + 0.5rem));
-        //width: 100vw;
-        //margin-right: 2rem;
         background: #000;
 
         &__menu-icon {
@@ -206,7 +183,6 @@
           margin-left: 0;
           background: #000;
           color: #fff;
-          //padding: 0.25rem;
         }
 
         .mode-icon {
@@ -237,9 +213,7 @@
 }
 
 .activeRoute {
-  //background: var(--primary) !important;
-  background: #000 !important;
-  //color: #000 !important;
-  color: var(--primary) !important;
+  color: #000 !important;
+  background: var(--primary) !important;
   border-radius: 50% !important;
 }

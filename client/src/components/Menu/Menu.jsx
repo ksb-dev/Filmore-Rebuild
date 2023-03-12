@@ -143,7 +143,6 @@ const Menu = () => {
               <p
                 onClick={() => handleCategoryClick(item.category, item.value)}
                 key={index}
-                //className={mode === true ? 'lightBg1' : 'darkBg2'}
                 className={
                   sessionStorage.getItem('option') === `${item.value}` &&
                   !window.location.pathname.includes('/movie') &&
@@ -155,37 +154,11 @@ const Menu = () => {
                 }
               >
                 {item.category === 'theatres' &&
-                  sessionStorage.getItem('movieState') === 'movie' && (
-                    <>
-                      {/* {item.icon}  */}
-                      {item.value}
-                    </>
-                  )}
-
-                {item.category === 'theatres' &&
-                  sessionStorage.getItem('movieState') === 'tv' && (
-                    <>
-                      {/* {item.icon}  */}
-                      On Air
-                    </>
-                  )}
-
-                {item.category !== 'theatres' && (
-                  <>
-                    {/* {item.icon}  */}
-                    {item.value}
-                  </>
+                sessionStorage.getItem('movieState') === 'tv' ? (
+                  <>On Air</>
+                ) : (
+                  <>{item.value}</>
                 )}
-
-                {item.category === 'watchlist' &&
-                  sessionStorage.getItem('movieState') === 'movie' && (
-                    <span>{savedMovies.length}</span>
-                  )}
-
-                {item.category === 'watchlist' &&
-                  sessionStorage.getItem('movieState') === 'tv' && (
-                    <span>{savedShows.length}</span>
-                  )}
               </p>
             ))}
           </div>
@@ -211,7 +184,6 @@ const Menu = () => {
                         : 'darkBg1'
                     }
                   >
-                    {/* {item.icon1} */}
                     {item.genre}
                   </span>
                 ))
@@ -227,7 +199,6 @@ const Menu = () => {
                         : 'darkBg1'
                     }
                   >
-                    {/* {item.icon1} */}
                     {item.genre}
                   </span>
                 ))}
