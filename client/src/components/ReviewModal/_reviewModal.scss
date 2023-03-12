@@ -12,21 +12,11 @@
 
   border-radius: var(--border-radius-1);
 
-  &--cancel {
-    cursor: pointer;
-    padding-top: 0.25rem;
-  }
-
-  &--cancel:hover {
-    transform: scale(1.1);
-    transition: var(--transition);
-  }
-
   &__inner {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     margin: 0 0rem 1rem 0rem;
-    margin-bottom: 1.5rem;
-    border-radius: var(--border-radius-1);
+    border-top-left-radius: var(--border-radius-1);
+    border-top-right-radius: var(--border-radius-1);
     overflow-y: scroll;
   }
 }

@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react'
 
-// data
-import { iconsData } from '../../data/icons'
-
 // context
 import { useMovieContext } from '../../context/context'
 

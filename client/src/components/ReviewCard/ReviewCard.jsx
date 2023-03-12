@@ -20,6 +20,7 @@ const ReviewCard = ({ review }) => {
   const { avatar_path, name, username, rating } = review.author_details
   const { content } = review
 
+  const readMoreRef = useRef(null)
   const reviewModalRef = useRef(null)
   const reviewModalInnerRef = useRef(null)
 
@@ -70,6 +71,7 @@ const ReviewCard = ({ review }) => {
               {content.substring(0, 30) + '.....'}
             </span>
             <span
+              ref={readMoreRef}
               style={{
                 color: 'var(--blue)',
                 fontWeight: '400',
@@ -86,6 +88,7 @@ const ReviewCard = ({ review }) => {
       </div>
       <ReviewModal
         review={review}
+        readMoreRef={readMoreRef}
         reviewModalRef={reviewModalRef}
         reviewModalInnerRef={reviewModalInnerRef}
       />
