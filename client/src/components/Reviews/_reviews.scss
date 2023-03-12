@@ -67,9 +67,12 @@
     padding: 0rem 2rem;
 
     &__container {
-      display: grid;
-      //grid-template-columns: 1fr;
-      gap: 0;
+      // display: grid;
+      // grid-template-columns: 1fr;
+      // gap: 0;
+
+      display: unset;
+      width: min-content;
     }
   }
 }
