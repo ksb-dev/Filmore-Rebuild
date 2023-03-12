@@ -13,11 +13,13 @@
   border-radius: var(--border-radius-1);
 
   &__inner {
+    height: 100%;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    margin: 0 0rem 1rem 0rem;
+    margin: 0 0rem 1.5rem 0rem;
     border-top-left-radius: var(--border-radius-1);
     border-top-right-radius: var(--border-radius-1);
     overflow-y: scroll;
+    border-radius: var(--border-radius-1);
   }
 }
 
