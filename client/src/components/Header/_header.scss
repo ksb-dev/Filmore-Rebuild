@@ -20,7 +20,7 @@
     width: 100%;
     max-width: 1280px;
 
-    margin: 0.45rem 1rem;
+    margin: 0.7rem 1rem;
 
     display: flex;
     align-items: center;
@@ -59,7 +59,7 @@
       padding-right: 0;
 
       .watchlist {
-        padding: 0.5rem;
+        padding: 0.25rem;
         font-weight: 500;
         text-decoration: none;
         color: #fff;
@@ -68,7 +68,7 @@
         margin: 0;
         display: flex;
         align-items: center;
-        margin-left: 0.5rem;
+        margin-left: 0.75rem;
       }
 
       .watchlist:hover {
@@ -83,10 +83,10 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        margin-left: 0.5rem;
+        margin-left: 1rem;
         border-radius: var(--border-radius-1);
         color: #fff;
-        padding: 0.5rem;
+        padding: 0.25rem;
       }
 
       .home-icon {
@@ -105,9 +105,9 @@
           align-items: center;
           border-radius: var(--border-radius-1);
           cursor: pointer;
-          margin-left: 0.5rem;
+          margin-left: 1rem;
           color: #fff;
-          padding: 0.5rem;
+          padding: 0.25rem;
         }
 
         .close-icon {

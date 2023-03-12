@@ -14,6 +14,8 @@ import {
   BsEyeSlash,
   BsPlayCircle,
   BsPlusCircle,
+  BsCheckCircle,
+  BsCheckCircleFill,
   BsPlusCircleFill,
   BsArrowRightCircle,
   BsImages,
@@ -37,8 +39,8 @@ export const iconsData = {
   // Header Icons
   homeOutlined: <AiOutlineHome size={'20px'} />,
   homeFilled: <AiFillHome size={'20px'} />,
-  outlineBookmark: <BsPlusCircle size={'19px'} />,
-  filledBookmark: <BsPlusCircleFill size={'20px'} />,
+  outlineBookmark: <BsCheckCircle size={'20px'} />,
+  filledBookmark: <BsCheckCircleFill size={'20px'} />,
   loginOutlined: <RiLoginCircleLine size={'20px'} />,
   loginFilled: <RiLoginCircleFill size={'20px'} />,
   sunIcon: <BsSun size={'20px'} />,
@@ -74,7 +76,7 @@ export const iconsData = {
   eyeClose: <BsEyeSlash />,
 
   play: <BsPlayCircle size={'20px'} style={{ marginRight: '0.25rem' }} />,
-  play1: <BsPlayFill size={'25px'} style={{ margin: '0.2rem 0 0 0.15rem' }} />,
+  play1: <BsPlayFill size={'30px'} style={{ margin: '0.2rem 0 0 0.15rem' }} />,
 
   forwardArrow: (
     <MdOutlineArrowForwardIos
