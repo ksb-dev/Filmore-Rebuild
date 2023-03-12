@@ -9,8 +9,10 @@ import {
 import { SlCompass, SlGhost, SlMusicToneAlt } from 'react-icons/sl'
 import { BsCameraReels } from 'react-icons/bs'
 import { TfiFaceSmile, TfiFaceSad } from 'react-icons/tfi'
+import { MdOutlineFamilyRestroom } from 'react-icons/md'
 import { RxMagicWand } from 'react-icons/rx'
 import { BsHourglassSplit } from 'react-icons/bs'
+import { IoFootstepsOutline } from 'react-icons/io5'
 import { RiHeartsLine, RiKnifeBloodLine, RiCactusLine } from 'react-icons/ri'
 
 export const genreArray = [
@@ -84,12 +86,12 @@ export const genreArray = [
     //     style={{ marginRight: '0.5rem' }}
     //   />
     // ),
-    // icon1: (
-    //   <MdOutlineFamilyRestroom
-    //     size={'15px'}
-    //     style={{ marginRight: '0.5rem' }}
-    //   />
-    // ),
+    icon1: (
+      <MdOutlineFamilyRestroom
+        size={'15px'}
+        style={{ marginRight: '0.5rem' }}
+      />
+    ),
     id: 10751,
     genre: 'Family',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -137,9 +139,9 @@ export const genreArray = [
     // icon: (
     //   <IoFootstepsOutline size={'25px'} style={{ marginRight: '0.5rem' }} />
     // ),
-    // icon1: (
-    //   <IoFootstepsOutline size={'15px'} style={{ marginRight: '0.5rem' }} />
-    // ),
+    icon1: (
+      <IoFootstepsOutline size={'15px'} style={{ marginRight: '0.5rem' }} />
+    ),
     id: 9648,
     genre: 'Mystery',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
