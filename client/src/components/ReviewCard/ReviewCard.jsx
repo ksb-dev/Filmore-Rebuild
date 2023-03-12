@@ -63,12 +63,12 @@ const ReviewCard = ({ review }) => {
       <div className='name__review'>
         <span className='name'>{name ? name : 'Anonymous'}</span>
 
-        <span className='content'>{content.substring(0, 100) + '.....'}</span>
-
-        {content && content.length > 27 ? (
+        {content && content.length <= 97 ? (
+          <span className='content'>{content}</span>
+        ) : (
           <>
             <span className='content'>
-              {content.substring(0, 30) + '.....'}
+              {content.substring(0, 100) + '.....'}
             </span>
             <span
               ref={readMoreRef}
@@ -82,8 +82,6 @@ const ReviewCard = ({ review }) => {
               Read more
             </span>
           </>
-        ) : (
-          <span className='content'>{content}</span>
         )}
       </div>
       <ReviewModal
