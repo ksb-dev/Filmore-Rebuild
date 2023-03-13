@@ -146,7 +146,9 @@ const Menu = () => {
                 className={
                   sessionStorage.getItem('option') === `${item.value}` &&
                   !window.location.pathname.includes('/movie') &&
-                  !window.location.pathname.includes('/watchlist')
+                  !window.location.pathname.includes('/watchlist') &&
+                  !window.location.pathname.includes('/register') &&
+                  !window.location.pathname.includes('/login')
                     ? 'activeCategory'
                     : mode === true
                     ? 'lightBg2'
@@ -178,7 +180,9 @@ const Menu = () => {
                     className={
                       sessionStorage.getItem('option') === `${item.genre}` &&
                       !window.location.pathname.includes('/movie') &&
-                      !window.location.pathname.includes('/watchlist')
+                      !window.location.pathname.includes('/watchlist') &&
+                      !window.location.pathname.includes('/register') &&
+                      !window.location.pathname.includes('/login')
                         ? 'activeCategory'
                         : mode === true
                         ? 'lightBg2'
