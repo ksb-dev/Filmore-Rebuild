@@ -35,8 +35,9 @@
     &__buttons {
       width: 1000px;
       position: absolute;
-      top: 45%;
+      bottom: 1rem;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       display: none;
       transition: var(--transition);
@@ -130,6 +131,7 @@
   .viewer {
     &__inner {
       &__buttons {
+        display: flex !important;
         &--length {
           font-weight: 500;
           padding: 0.5rem 1rem;
