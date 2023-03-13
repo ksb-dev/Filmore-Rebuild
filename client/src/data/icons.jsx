@@ -61,8 +61,8 @@ export const iconsData = {
   addBookmark1: <AiOutlinePlus size={'25px'} />,
   addedBookmark1: <FiCheck size={'25px'} />,
 
-  next: <MdOutlineArrowForwardIos size={'20px'} />,
-  prev: <MdOutlineArrowBackIosNew size={'20px'} />,
+  next: <MdOutlineArrowForwardIos style={{ marginLeft: '0.1rem' }} />,
+  prev: <MdOutlineArrowBackIosNew style={{ marginRight: '0.1rem' }} />,
 
   menu: <TfiMenu size={'20px'} style={{ marginRight: '0.5rem' }} />,
 

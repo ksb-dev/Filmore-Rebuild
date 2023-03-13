@@ -36,10 +36,9 @@
       width: 1000px;
       position: absolute;
       bottom: 1rem;
-      display: flex;
+      display: flex !important;
       align-items: center;
-      justify-content: space-between;
-      display: none;
+      justify-content: flex-start;
       transition: var(--transition);
 
       &--length {
@@ -51,6 +50,7 @@
         border-radius: 50px;
         background: rgba(0, 0, 0, 0.75) !important;
         color: #fff !important;
+        margin: 0 1rem;
       }
 
       p {
@@ -132,10 +132,18 @@
     &__inner {
       &__buttons {
         display: flex !important;
+        justify-content: space-between;
+
+        p {
+          width: 30px;
+          height: 30px;
+        }
+
         &--length {
           font-weight: 500;
           padding: 0.5rem 1rem;
           font-size: 0.8rem;
+          margin: 0;
         }
       }
     }

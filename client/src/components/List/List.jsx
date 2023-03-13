@@ -1,8 +1,5 @@
 import React, { useState, useRef } from 'react'
 
-// Hooks
-import { useGetClassByVote } from '../../hooks/useGetClassByVote'
-
 // APIs
 import { APIs } from '../../APIs/APIs'
 
@@ -22,23 +19,14 @@ import Sort from '../../components/Sort/Sort'
 import Loading from '../../other/Loading/Loading'
 import Error from '../../other/Error/Error'
 
-// Rect Icons
-import {
-  MdOutlineArrowBackIosNew,
-  MdOutlineArrowForwardIos
-} from 'react-icons/md'
+// data
+import { iconsData } from '../../data/icons'
 
 // other
 import Switch from '../../other/Switch/Switch'
 
 const List = ({ type, playerRef, playerInnerRef }) => {
   const { mode, index, setIndex } = useMovieContext()
-  const { getClassBg } = useGetClassByVote()
-  // const movies = useSelector(state => state.movies.movies)
-  // const sortedMovies = useSelector(state => state.movies.sortedMovies)
-  // const loading = useSelector(state => state.movies.loading)
-  // const error = useSelector(state => state.movies.error)
-  // const user = useSelector(state => state.savedMovies.user)
 
   let list = ''
   let loading = ''
@@ -268,15 +256,6 @@ const List = ({ type, playerRef, playerInnerRef }) => {
               </div>
             </Link>
 
-            {/* <span
-              className={
-                'list__wall--length ' +
-                (mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1')
-              }
-            >
-              {index + 1 + ' / ' + list.length}
-            </span> */}
-
             <div
               ref={buttonsRef}
               className='list__wall__buttons'
@@ -295,11 +274,7 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                         : 'lightBg1 darkColor1'
                     }
                   >
-                    <span>
-                      <MdOutlineArrowBackIosNew
-                        style={{ marginTop: '0.25rem' }}
-                      />
-                    </span>
+                    <span>{iconsData.prev}</span>
                   </p>
 
                   <p
@@ -321,11 +296,7 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                         : 'lightBg1 darkColor1'
                     }
                   >
-                    <span>
-                      <MdOutlineArrowForwardIos
-                        style={{ marginTop: '0.25rem' }}
-                      />
-                    </span>
+                    <span>{iconsData.next}</span>
                   </p>
                 </>
               ) : (
