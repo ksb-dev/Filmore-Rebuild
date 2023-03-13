@@ -96,14 +96,14 @@
           .title {
             font-weight: 700;
             font-size: 1.25rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: var(--font-family-2);
             margin-bottom: 0.5rem;
           }
 
           .tagline {
             font-weight: 700;
-            font-size: 0.9rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1rem;
+            font-family: var(--font-family-2);
             margin-bottom: 0.5rem;
           }
         }
@@ -120,7 +120,7 @@
             align-items: center;
             font-weight: 500;
             font-size: 0.8rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: var(--font-family-2);
           }
 
           .gap {
@@ -161,7 +161,6 @@
           padding-right: 1rem;
           border-radius: 25px;
           font-weight: 500;
-          // font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         .play-btn:hover {
@@ -208,14 +207,14 @@
             .title {
               font-weight: 700;
               font-size: 1.25rem;
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              font-family: var(--font-family-2);
               margin-bottom: 0.5rem;
             }
 
             .tagline {
               font-weight: 700;
               font-size: 0.9rem;
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              font-family: var(--font-family-2);
               margin-bottom: 0.5rem;
             }
           }
@@ -232,7 +231,7 @@
               align-items: center;
               font-weight: 500;
               font-size: 0.8rem;
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              font-family: var(--font-family-2);
             }
 
             .gap {

@@ -44,7 +44,7 @@
       width: 100%;
       display: flex;
       align-items: flex-start;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: var(--font-family-2);
     }
 
     &--title {
@@ -67,7 +67,7 @@
     &--title {
       font-size: 1rem;
       font-weight: 700;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: var(--font-family-2);
       display: flex;
       align-items: center;
       border-left: 4px solid var(--primary);

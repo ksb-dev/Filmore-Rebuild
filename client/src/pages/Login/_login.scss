@@ -43,8 +43,9 @@
       &--title {
         margin: 0 0 1rem 0;
         border-radius: var(--border-radius-1);
-        font-size: var(--font-size-5);
-        font-weight: 500;
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: var(--font-family-2);
       }
 
       input {
@@ -71,8 +72,9 @@
         border: none;
         padding: 0.6rem;
         width: 99%;
-        font-size: var(--font-size-1);
-        font-weight: 500 !important;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: var(--font-family-2);
 
         display: flex;
         align-items: center;

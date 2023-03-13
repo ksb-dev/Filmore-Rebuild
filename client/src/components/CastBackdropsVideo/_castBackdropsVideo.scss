@@ -16,7 +16,7 @@
       align-items: center;
       font-size: 1rem;
       font-weight: 700;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: var(--font-family-2);
 
       .length {
         margin: 0;
@@ -60,24 +60,6 @@
 @media screen and (max-width: 640px) {
   .castBackdropVideo {
     padding: 0 0 0 1rem;
-
-    //   &__cast,
-    //   &__backdrops,
-    //   &__videos {
-    //     &__title-1,
-    //     &__title-2 {
-    //       font-size: 1rem;
-
-    //       .length {
-    //         height: 30px;
-    //         width: 30px;
-
-    //         span {
-    //           font-size: 0.75rem;
-    //         }
-    //       }
-    //     }
-    //   }
   }
 }
 

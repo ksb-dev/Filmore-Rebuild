@@ -49,7 +49,7 @@
       border-bottom-right-radius: var(--border-radius-1);
 
       &--activeOption {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: var(--font-family-2);
         font-size: 1.25rem;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -78,7 +78,7 @@
           .title {
             font-size: 1.25rem;
             font-weight: 700;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: var(--font-family-2);
           }
         }
 
