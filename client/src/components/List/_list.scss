@@ -286,12 +286,8 @@
 
       &--length {
         display: flex;
-        // position: absolute;
-        // top: 1rem;
-        // left: 1rem;
         font-size: 0.8rem;
         border-radius: var(--border-radius-1);
-        //padding: 0.5rem 1rem;
         font-weight: 500;
         width: 40px;
       }
@@ -354,13 +350,23 @@
       &__cover {
         height: 225px;
 
-        &--number {
-          bottom: -0.75rem;
-          font-size: 0.75rem;
+        &--activeOption {
+          font-size: 0.8rem;
         }
 
         &__info {
-          //width: 150px;
+          &__title {
+            line-height: 1rem;
+
+            .title {
+              font-size: 0.8rem;
+            }
+          }
+
+          &--length {
+            font-size: 0.7rem;
+            margin-top: 0.25rem;
+          }
         }
       }
     }
