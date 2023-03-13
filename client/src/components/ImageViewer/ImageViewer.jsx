@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 // APIs
 import { APIs } from '../../APIs/APIs'
@@ -9,11 +9,8 @@ import { useShowHide } from '../../hooks/useShowHide'
 // Context
 import { useMovieContext } from '../../context/context'
 
-// Rect Icons
-import {
-  IoChevronBackCircleOutline,
-  IoChevronForwardCircleOutline
-} from 'react-icons/io5'
+// data
+import { iconsData } from '../../data/icons'
 
 const ImageViewer = () => {
   const {
@@ -25,6 +22,8 @@ const ImageViewer = () => {
     mode
   } = useMovieContext()
   const { hideViewer } = useShowHide()
+
+  const buttonsRef = useRef(null)
 
   // Detect outside click of Side Menu
   useEffect(() => {
@@ -54,6 +53,14 @@ const ImageViewer = () => {
       : setBackdropIndex(prevIndex => prevIndex + 1)
   }
 
+  const showButtons = () => {
+    buttonsRef.current.style.display = 'flex'
+  }
+
+  const hideButtons = () => {
+    buttonsRef.current.style.display = 'none'
+  }
+
   return (
     <div
       ref={viewerRef}
@@ -62,13 +69,9 @@ const ImageViewer = () => {
       <div
         ref={innerViewerRef}
         className={'viewer__inner ' + (mode === true ? 'lightBg1' : 'darkBg2')}
+        onMouseOver={() => showButtons()}
+        onMouseLeave={() => hideButtons()}
       >
-        {backdrops && backdrops.length > 0 && (
-          <span className='viewer__inner--length'>
-            {backdropIndex + 1} / {backdrops.length}
-          </span>
-        )}
-
         {backdrops && backdrops[backdropIndex] && (
           <>
             <img
@@ -105,29 +108,33 @@ const ImageViewer = () => {
         )}
 
         {backdrops && backdrops.length > 1 ? (
-          <div className='viewer__inner__buttons'>
-            <IoChevronBackCircleOutline
-              cursor={'pointer'}
-              size={'35px'}
-              style={{
-                marginLeft: '1rem',
-                color: '#fff',
-                background: 'rgba(0,0,0,0.5)',
-                borderRadius: '50%'
-              }}
+          <div className='viewer__inner__buttons' ref={buttonsRef}>
+            <p
               onClick={previousImage}
-            />
-            <IoChevronForwardCircleOutline
-              cursor={'pointer'}
-              size={'35px'}
-              style={{
-                marginRight: '1rem',
-                color: '#fff',
-                background: 'rgba(0,0,0,0.5)',
-                borderRadius: '50%'
-              }}
+              className={
+                mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1'
+              }
+            >
+              <span>{iconsData.prev}</span>
+            </p>
+
+            <span
+              className={
+                'viewer__inner__buttons--length ' +
+                (mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1')
+              }
+            >
+              {backdropIndex + 1} / {backdrops.length}
+            </span>
+
+            <p
               onClick={nextImage}
-            />
+              className={
+                mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1'
+              }
+            >
+              <span>{iconsData.next}</span>
+            </p>
           </div>
         ) : (
           <></>
