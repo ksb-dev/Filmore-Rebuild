@@ -48,9 +48,10 @@
         }
 
         .name {
-          font-size: 1.1rem;
-          font-weight: 500;
+          font-size: 1.25rem;
+          font-weight: 700;
           margin-bottom: 1rem;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         .birth {
@@ -66,7 +67,7 @@
         .tag {
           width: 233.3px;
           margin-bottom: 0.25rem;
-          font-size: 0.9rem;
+          font-size: 1rem;
           font-weight: 500;
         }
       }
@@ -75,6 +76,8 @@
     &__bio {
       h3 {
         margin: 0 0 1rem 0;
+        font-weight: 1.25rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
 
       span {
@@ -87,14 +90,22 @@
 @media screen and (max-width: 786px) {
   .actor__detail {
     &__inner {
+      padding: calc(58.4px + 2rem) 2rem calc(58.4px + 2rem) 2rem;
+      flex-direction: column;
+
       &__img-name-birth-place {
+        margin-bottom: 0rem;
+        flex-direction: row;
+
         &--image {
-          //width: 170px;
-          //height: 250px;
+          width: 120px;
+          height: 180px;
+          margin-right: 1rem;
+          margin-bottom: 1rem;
 
           .img {
-            //width: 170px;
-            //height: 250px;
+            width: 120px;
+            height: 180px;
             border-radius: var(--border-radius-1);
           }
         }
@@ -103,14 +114,32 @@
           .name,
           .place,
           .birth {
-            width: 170px;
+            width: 100%;
+            width: unset;
+          }
+
+          .name {
+            font-size: 1rem;
+          }
+
+          .place,
+          .birth {
+            font-size: 0.8rem;
+          }
+
+          .tag {
+            width: 100%;
+            font-size: 0.9rem;
           }
         }
       }
 
       &__bio {
+        h3 {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
         span {
-          line-height: 1.5rem;
           font-size: 0.9rem;
         }
       }
@@ -131,51 +160,56 @@
         height: 75vh;
       }
 
-      &__img-name-birth-place {
-        margin-bottom: 0rem;
-        flex-direction: row;
+      // &__img-name-birth-place {
+      //   margin-bottom: 0rem;
+      //   flex-direction: row;
 
-        &--image {
-          width: 170px;
-          height: 250px;
-          margin-right: 1rem;
-          margin-bottom: 2rem;
+      //   &--image {
+      //     width: 120px;
+      //     height: 180px;
+      //     margin-right: 1rem;
+      //     margin-bottom: 2rem;
 
-          .img {
-            width: 170px;
-            height: 250px;
-            border-radius: var(--border-radius-1);
-          }
-        }
+      //     .img {
+      //       width: 120px;
+      //       height: 180px;
+      //       border-radius: var(--border-radius-1);
+      //     }
+      //   }
 
-        &__detail {
-          .name,
-          .place,
-          .birth {
-            width: 100%;
-            width: unset;
-          }
+      //   &__detail {
+      //     .name,
+      //     .place,
+      //     .birth {
+      //       width: 100%;
+      //       width: unset;
+      //     }
 
-          .place,
-          .birth {
-            //font-size: 0.8rem;
-          }
+      //     .name {
+      //       font-size: 1rem;
+      //     }
 
-          .tag {
-            width: 100%;
-          }
-        }
-      }
+      //     .place,
+      //     .birth {
+      //       font-size: 0.8rem;
+      //     }
 
-      &__bio {
-        h3 {
-          font-size: 1rem;
-          margin-bottom: 0.5rem;
-        }
-        span {
-          font-size: 0.9rem;
-        }
-      }
+      //     .tag {
+      //       width: 100%;
+      //       font-size: 0.9rem;
+      //     }
+      //   }
+      // }
+
+      // &__bio {
+      //   h3 {
+      //     font-size: 1rem;
+      //     margin-bottom: 0.5rem;
+      //   }
+      //   span {
+      //     font-size: 0.9rem;
+      //   }
+      // }
     }
   }
 }

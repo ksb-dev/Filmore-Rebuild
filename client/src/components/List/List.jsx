@@ -219,34 +219,21 @@ const List = ({ type, playerRef, playerInnerRef }) => {
               </p>
 
               <div className='list__wall__cover__info'>
-                <div className='list__wall__cover__info__rating-title'>
+                <div className='list__wall__cover__info__title'>
                   {list.length > 0 && (
-                    <>
-                      <p
-                        className={
-                          'rating ' + getClassBg(list[index].vote_average)
-                        }
-                      >
-                        <span>{list[index].vote_average.toFixed(1)}</span>
-                      </p>
-                      <span className='title'>
-                        {type === 'movie' &&
-                        list[index].title &&
-                        list[index].title.length > 30
-                          ? list[index].title.substring(0, 26) + '...'
-                          : list[index].title}
+                    <span className='title'>
+                      {type === 'movie' &&
+                      list[index].title &&
+                      list[index].title.length > 30
+                        ? list[index].title.substring(0, 26) + '...'
+                        : list[index].title}
 
-                        {type === 'tv' &&
-                        list[index].name &&
-                        list[index].name.length > 30
-                          ? list[index].name.substring(0, 27) + '...'
-                          : list[index].name}
-                      </span>
-
-                      <span className='length'>
-                        {index + 1 + ' / ' + list.length}
-                      </span>
-                    </>
+                      {type === 'tv' &&
+                      list[index].name &&
+                      list[index].name.length > 30
+                        ? list[index].name.substring(0, 27) + '...'
+                        : list[index].name}
+                    </span>
                   )}
                 </div>
 
@@ -263,6 +250,15 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                 </p>
               </div>
             </Link>
+
+            <span
+              className={
+                'list__wall--length ' +
+                (mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1')
+              }
+            >
+              {index + 1 + ' / ' + list.length}
+            </span>
 
             <div
               ref={buttonsRef}

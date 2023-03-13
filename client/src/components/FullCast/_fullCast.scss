@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
     &--image {
       position: relative;
@@ -44,20 +44,28 @@
       width: 100%;
       display: flex;
       align-items: flex-start;
-      font-size: 2rem;
-      font-weight: 500;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    &--title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     &--tagline {
-      font-size: 1.1rem;
+      display: none;
+      font-weight: 500;
+      font-size: 0.9rem;
       margin-bottom: 1rem;
     }
   }
 
   &__container {
     &--title {
-      font-size: 1.4rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       display: flex;
       align-items: center;
       border-left: 4px solid var(--primary);
@@ -69,8 +77,8 @@
       .length {
         margin: 0;
         position: relative;
-        height: 40px;
-        width: 40px;
+        height: 30px;
+        width: 30px;
         background: var(--primary);
         border-radius: 50%;
         margin-left: 0.5rem;
@@ -117,23 +125,11 @@
     padding: calc(58.4px + 1rem) 0 2rem 0;
     margin: 0 1rem;
 
-    &__detail {
-      &--title,
-      &--tagline {
-        font-size: 1.5rem;
-      }
-
-      &--tagline {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-      }
-    }
-
     &__container {
       &__inner {
         gap: 1rem;
         overflow-x: auto;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -141,31 +137,7 @@
 
 @media screen and (max-width: 640px) {
   .full__cast {
-    &__detail {
-      &--title {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      &--tagline {
-        display: none;
-      }
-    }
-
     &__container {
-      &--title {
-        font-size: 1rem;
-
-        .length {
-          height: 30px;
-          width: 30px;
-
-          span {
-            font-size: 0.75rem;
-          }
-        }
-      }
-
       &__inner {
         grid-template-columns: 1fr 1fr;
         gap: 0rem;
