@@ -255,13 +255,11 @@
         &__info {
           bottom: 1rem;
           left: 1rem;
-
           width: 150px;
-
           padding: 0;
 
           &__title {
-            line-height: 1.25rem;
+            //line-height: 1.25rem;
 
             .title {
               font-weight: 500;
@@ -284,18 +282,11 @@
         }
       }
 
-      &--length {
-        display: flex;
-        font-size: 0.8rem;
-        border-radius: var(--border-radius-1);
-        font-weight: 500;
-        width: 40px;
-      }
-
       &__buttons {
         z-index: 1 !important;
         left: 0rem;
         right: 0rem;
+        justify-content: space-between;
 
         p:first-child {
           margin-left: 1rem;
@@ -355,21 +346,21 @@
         height: 225px;
 
         &--activeOption {
-          font-size: 0.8rem;
+          //font-size: 0.8rem;
         }
 
         &__info {
           &__title {
-            line-height: 1rem;
+            //line-height: 1rem;
 
             .title {
-              font-size: 0.8rem;
+              //font-size: 0.8rem;
             }
           }
 
           &--length {
-            font-size: 0.7rem;
-            margin-top: 0.25rem;
+            //font-size: 0.7rem;
+            //margin-top: 0.25rem;
           }
         }
       }
