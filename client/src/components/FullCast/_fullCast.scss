@@ -63,7 +63,7 @@
 
   &__container {
     &--title {
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-weight: 700;
       font-family: var(--font-family-2);
       display: flex;
@@ -78,8 +78,8 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         position: relative;
-        height: 30px;
-        width: 30px;
+        height: 40px;
+        width: 40px;
         background: var(--primary);
         border-radius: 50%;
         margin-left: 0.5rem;
@@ -91,7 +91,7 @@
           left: 50%;
           transform: translate(-50%, -50%);
           color: #000;
-          font-size: 0.8rem;
+          font-size: 0.9rem;
         }
       }
     }

@@ -7,7 +7,7 @@
     margin: 0;
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     font-family: var(--font-family-2);
     margin-bottom: 2rem;
@@ -20,11 +20,12 @@
     .length {
       margin: 0;
       position: relative;
-      height: 30px;
-      width: 30px;
+      height: 40px;
+      width: 40px;
       background: var(--primary);
       border-radius: 50%;
       margin-left: 0.5rem;
+      font-weight: 500;
 
       span {
         position: absolute;
@@ -32,7 +33,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: #000;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -77,18 +78,5 @@
 @media screen and (max-width: 640px) {
   .reviews {
     padding: 0rem 1rem;
-
-    &__title {
-      font-size: 1rem;
-
-      .length {
-        width: 30px;
-        height: 30px;
-
-        span {
-          font-size: 0.75rem;
-        }
-      }
-    }
   }
 }
