@@ -156,12 +156,7 @@ const Menu = () => {
                 }
               >
                 {item.icon}
-                {item.category === 'theatres' &&
-                sessionStorage.getItem('movieState') === 'tv' ? (
-                  <>On Air</>
-                ) : (
-                  <>{item.value}</>
-                )}
+                {item.value}
               </p>
             ))}
           </div>
@@ -205,6 +200,7 @@ const Menu = () => {
                         : 'darkBg1'
                     }
                   >
+                    {item.icon1}
                     {item.genre}
                   </span>
                 ))}

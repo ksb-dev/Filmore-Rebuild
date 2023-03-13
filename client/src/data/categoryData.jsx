@@ -12,12 +12,12 @@ export const categoryArray = [
     value: 'Popular',
     path: '/'
   },
-  {
-    icon: <MdOutlineUpcoming size={'15px'} style={{ marginRight: '0.5rem' }} />,
-    category: 'theatres',
-    value: 'In Theatres',
-    path: '/theatres'
-  },
+  // {
+  //   icon: <MdOutlineUpcoming size={'15px'} style={{ marginRight: '0.5rem' }} />,
+  //   category: 'theatres',
+  //   value: 'In Theatres',
+  //   path: '/theatres'
+  // },
   {
     icon: <TfiStar size={'15px'} style={{ marginRight: '0.5rem' }} />,
     category: 'top',

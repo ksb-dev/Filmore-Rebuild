@@ -434,22 +434,22 @@ body::-webkit-scrollbar-thumb {
 
 // ----------------------------------------
 
-.scroll-2 {
-  overflow-x: auto;
-}
-/* width */
-.scroll-2::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
+// .scroll-2 {
+//   overflow-x: auto;
+// }
+// /* width */
+// .scroll-2::-webkit-scrollbar {
+//   width: 5px;
+//   height: 5px;
+// }
 
-/* Track */
-.scroll-2::-webkit-scrollbar-track {
-  background: transparent;
-}
+// /* Track */
+// .scroll-2::-webkit-scrollbar-track {
+//   background: transparent;
+// }
 
-/* Handle */
-.scroll-2::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border-radius: 3px;
-}
+// /* Handle */
+// .scroll-2::-webkit-scrollbar-thumb {
+//   background-color: #999;
+//   border-radius: 3px;
+// }
