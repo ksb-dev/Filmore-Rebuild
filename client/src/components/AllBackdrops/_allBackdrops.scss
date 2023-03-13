@@ -130,7 +130,21 @@
 
 @media screen and (max-width: 640px) {
   .all__backdrops {
+    &__detail {
+      &--title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-family: var(--font-family-1);
+      }
+    }
+
     &__container {
+      &--title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-family: var(--font-family-1);
+      }
+
       &__backdrops {
         grid-template-columns: 1fr 1fr;
       }

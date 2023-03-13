@@ -184,7 +184,7 @@
 
 @media screen and (max-width: 786px) {
   .image-detail-container {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
     .cover {
       padding-top: 1rem;
@@ -230,8 +230,7 @@
               color: rgb(156, 156, 156);
               display: flex;
               align-items: center;
-              font-weight: 400;
-              font-size: 0.9rem;
+              font-size: 0.8rem;
               font-family: var(--font-family-2);
             }
 
@@ -303,6 +302,22 @@
       padding: 0rem 1rem 1rem 1rem;
 
       .image-detail {
+        .title-tagline-date-time {
+          .title-tagline {
+            .title {
+              font-weight: 500;
+              font-family: var(--font-family-1);
+            }
+          }
+
+          .date-time {
+            .date,
+            .time {
+              font-size: 0.9rem;
+              font-family: var(--font-family-1);
+            }
+          }
+        }
         .detail {
           .play-btn {
             padding: 0.5rem 0;

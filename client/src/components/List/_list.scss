@@ -242,8 +242,7 @@
         height: 300px;
 
         &--activeOption {
-          display: none;
-          font-size: 0.9rem;
+          font-size: 1rem;
           bottom: -0.5rem;
           letter-spacing: 1px;
           margin-left: 1rem;
@@ -253,13 +252,15 @@
           bottom: 1rem;
           left: 1rem;
 
-          width: 100%;
+          width: 150px;
 
           padding: 0;
 
           &__title {
             .title {
-              font-size: 0.9rem;
+              font-weight: 500;
+              font-size: 1rem;
+              font-family: var(--font-family-1);
             }
           }
 

@@ -129,7 +129,21 @@
 
 @media screen and (max-width: 640px) {
   .all__videos {
+    &__detail {
+      &--title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-family: var(--font-family-1);
+      }
+    }
+
     &__container {
+      &--title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-family: var(--font-family-1);
+      }
+
       &__videos {
         grid-template-columns: 1fr 1fr;
       }

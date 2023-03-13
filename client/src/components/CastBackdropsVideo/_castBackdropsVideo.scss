@@ -60,6 +60,16 @@
 @media screen and (max-width: 640px) {
   .castBackdropVideo {
     padding: 0 0 0 1rem;
+
+    &__cast,
+    &__backdrops,
+    &__videos {
+      &__title-1,
+      &__title-2 {
+        font-weight: 500;
+        font-family: var(--font-family-1);
+      }
+    }
   }
 }
 
