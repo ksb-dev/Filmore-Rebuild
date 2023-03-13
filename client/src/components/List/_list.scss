@@ -82,6 +82,10 @@
           }
         }
 
+        &--length {
+          display: none;
+        }
+
         &--overview {
           margin: 0.5rem 0 0 0;
           font-weight: 400;
@@ -257,11 +261,21 @@
           padding: 0;
 
           &__title {
+            line-height: 1.25rem;
+
             .title {
               font-weight: 500;
               font-size: 1rem;
               font-family: var(--font-family-1);
             }
+          }
+
+          &--length {
+            display: flex;
+            color: rgb(156, 156, 156);
+            font-weight: 500;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
           }
 
           &--overview {
@@ -272,12 +286,12 @@
 
       &--length {
         display: flex;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
+        // position: absolute;
+        // top: 1rem;
+        // left: 1rem;
         font-size: 0.8rem;
         border-radius: var(--border-radius-1);
-        padding: 0.5rem 1rem;
+        //padding: 0.5rem 1rem;
         font-weight: 500;
         width: 40px;
       }

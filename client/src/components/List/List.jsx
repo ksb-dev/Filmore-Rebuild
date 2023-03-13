@@ -237,6 +237,10 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                   )}
                 </div>
 
+                <span className='list__wall__cover__info--length'>
+                  {index + 1 + ' / ' + list.length}
+                </span>
+
                 <p className='list__wall__cover__info--overview'>
                   {list[index].overview ? (
                     list[index].overview.length > 245 ? (
@@ -251,14 +255,14 @@ const List = ({ type, playerRef, playerInnerRef }) => {
               </div>
             </Link>
 
-            <span
+            {/* <span
               className={
                 'list__wall--length ' +
                 (mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1')
               }
             >
               {index + 1 + ' / ' + list.length}
-            </span>
+            </span> */}
 
             <div
               ref={buttonsRef}

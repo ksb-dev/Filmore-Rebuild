@@ -26,6 +26,7 @@ import { FiCheck } from 'react-icons/fi'
 import { IoPersonCircle } from 'react-icons/io5'
 import { IoIosArrowRoundForward, IoMdCloseCircle } from 'react-icons/io'
 import { GoHome } from 'react-icons/go'
+import { HiOutlineUserCircle } from 'react-icons/hi'
 
 export const iconsData = {
   // Header Icons
@@ -39,7 +40,7 @@ export const iconsData = {
   sunIcon: <BsSun size={'20px'} />,
   moonIcon: <BsMoonStars size={'20px'} />,
   searchIcon: <BiSearch size={'20px'} />,
-  user: <BiUserCircle size={'20px'} />,
+  user: <HiOutlineUserCircle size={'21.5px'} />,
 
   close: <MdOutlineClose size={'20px'} />,
   close1: <MdOutlineClose size={'25px'} />,
