@@ -242,6 +242,7 @@
         height: 300px;
 
         &--activeOption {
+          display: none;
           font-size: 0.9rem;
           bottom: -0.5rem;
           letter-spacing: 1px;
@@ -252,7 +253,7 @@
           bottom: 1rem;
           left: 1rem;
 
-          width: 200px;
+          width: 100%;
 
           padding: 0;
 
@@ -344,7 +345,7 @@
         }
 
         &__info {
-          width: 150px;
+          //width: 150px;
         }
       }
     }
