@@ -102,7 +102,7 @@
 
           .tagline {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-family: var(--font-family-2);
             margin-bottom: 0.5rem;
           }
@@ -212,6 +212,7 @@
             }
 
             .tagline {
+              display: none;
               font-weight: 700;
               font-size: 0.9rem;
               font-family: var(--font-family-2);
