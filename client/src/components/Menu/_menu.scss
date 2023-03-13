@@ -82,7 +82,7 @@
       font-weight: 700;
       padding-left: 2rem;
       margin-bottom: 1rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: var(--font-family-2);
     }
 
     &__genre,
@@ -177,12 +177,16 @@
 
       .category-title {
         padding-top: 0;
+        font-weight: 500;
+        font-family: var(--font-family-1);
       }
 
       .genre-title {
         padding-left: 1rem;
         margin-bottom: 0;
         font-size: 1rem;
+        font-weight: 500;
+        font-family: var(--font-family-1);
       }
 
       &__genre {
