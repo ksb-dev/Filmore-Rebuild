@@ -87,12 +87,12 @@ export const tvGenreArray = [
     //     style={{ marginRight: '0.5rem' }}
     //   />
     // ),
-    // icon1: (
-    //   <MdOutlineFamilyRestroom
-    //     size={'15px'}
-    //     style={{ marginRight: '0.5rem' }}
-    //   />
-    // ),
+    icon1: (
+      <MdOutlineFamilyRestroom
+        size={'15px'}
+        style={{ marginRight: '0.5rem' }}
+      />
+    ),
     id: 10751,
     genre: 'Family',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${
@@ -114,9 +114,9 @@ export const tvGenreArray = [
     // icon: (
     //   <IoFootstepsOutline size={'25px'} style={{ marginRight: '0.5rem' }} />
     // ),
-    // icon1: (
-    //   <IoFootstepsOutline size={'15px'} style={{ marginRight: '0.5rem' }} />
-    // ),
+    icon1: (
+      <IoFootstepsOutline size={'15px'} style={{ marginRight: '0.5rem' }} />
+    ),
     id: 9648,
     genre: 'Mystery',
     url: `https://api.themoviedb.org/3/discover/movie?&api_key=${

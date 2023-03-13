@@ -44,6 +44,7 @@ const List = ({ type, playerRef, playerInnerRef }) => {
   let loading = ''
   let error = ''
   let user = ''
+  let option = sessionStorage.getItem('option')
 
   if (type === 'movie') {
     list = useSelector(state => state.movies.sortedMovies)
@@ -98,8 +99,6 @@ const List = ({ type, playerRef, playerInnerRef }) => {
   if (
     user &&
     window.location.pathname === '/watchlist' &&
-    // movies &&
-    // movies.length === 0 &&
     list &&
     list.length === 0
   ) {
@@ -129,7 +128,21 @@ const List = ({ type, playerRef, playerInnerRef }) => {
   if (!loading && list && list.length === 0) {
     return (
       <div className='error'>
-        <Error msg={'No movies found!'} />
+        <Error
+          msg={
+            type === 'movie'
+              ? option && option !== null
+                ? `No "${sessionStorage
+                    .getItem('option')
+                    .toUpperCase()}" movies found!`
+                : `No movies found!`
+              : option !== null
+              ? `No "${sessionStorage
+                  .getItem('option')
+                  .toUpperCase()}" shows found!`
+              : `No shows found!`
+          }
+        />
       </div>
     )
   }
