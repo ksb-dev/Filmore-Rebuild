@@ -119,17 +119,17 @@
           }
 
           .name {
-            //font-size: 1rem;
+            font-size: 1rem;
           }
 
           .place,
           .birth {
-            //font-size: 0.9rem;
+            font-size: 0.9rem;
           }
 
           .tag {
             width: 100%;
-            font-size: 1rem;
+            font-size: 0.9rem;
           }
         }
       }
@@ -179,8 +179,8 @@
 
         &__detail {
           .name {
-            font-weight: 500;
-            font-size: 1.25rem;
+            font-weight: 700;
+            font-size: 1rem;
             font-family: var(--font-family-1);
           }
         }
@@ -188,8 +188,8 @@
 
       &__bio {
         h3 {
-          font-weight: 500;
-          font-size: 1.25rem;
+          font-weight: 700;
+          font-size: 1rem;
           font-family: var(--font-family-1);
         }
       }
