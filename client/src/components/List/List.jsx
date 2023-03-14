@@ -196,38 +196,53 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                   ? 'lightGradient1 darkColor2'
                   : 'darkGradient1 lightColor1')
               }
-            ></Link>
-            <div className='list__wall__detail'>
-              {list.length > 0 && (
-                <span className='title'>
-                  {type === 'movie' &&
-                  list[index].title &&
-                  list[index].title.length > 30
-                    ? list[index].title
-                    : list[index].title}
+            >
+              <div className='list__wall__cover__inner'>
+                <div className='list__wall__cover__inner__detail'>
+                  {list.length > 0 && (
+                    <span className='title'>
+                      {type === 'movie' &&
+                      list[index].title &&
+                      list[index].title.length > 30
+                        ? list[index].title
+                        : list[index].title}
 
-                  {type === 'tv' &&
-                  list[index].name &&
-                  list[index].name.length > 30
-                    ? list[index].name
-                    : list[index].name}
-                </span>
-              )}
+                      {type === 'tv' &&
+                      list[index].name &&
+                      list[index].name.length > 30
+                        ? list[index].name
+                        : list[index].name}
+                    </span>
+                  )}
 
-              <span className='length'>{index + 1 + ' / ' + list.length}</span>
+                  <span className='length'>
+                    {index + 1 + ' / ' + list.length}
+                  </span>
 
-              <p className='overview'>
-                {list[index].overview ? (
-                  list[index].overview.length > 245 ? (
-                    list[index].overview.substring(0, 248) + ' .....'
-                  ) : (
-                    list[index].overview
-                  )
-                ) : (
-                  <></>
-                )}
-              </p>
-            </div>
+                  <p className='overview'>
+                    {list[index].overview ? (
+                      list[index].overview.length > 245 ? (
+                        list[index].overview.substring(0, 248) + ' .....'
+                      ) : (
+                        list[index].overview
+                      )
+                    ) : (
+                      <></>
+                    )}
+                  </p>
+                </div>
+
+                <p
+                  className={
+                    'list__wall__cover__inner--activeOption ' +
+                    (mode === true ? 'lightAplha1' : 'darkAlpha1')
+                  }
+                >
+                  {sessionStorage.getItem('option')}
+                </p>
+              </div>
+            </Link>
+
             <div ref={buttonsRef} className='list__wall__buttons'>
               {list.length > 1 ? (
                 <>
@@ -257,15 +272,6 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                 <></>
               )}
             </div>
-
-            <p
-              className={
-                'list__wall--activeOption ' +
-                (mode === true ? 'lightAplha1' : 'darkAlpha1')
-              }
-            >
-              {sessionStorage.getItem('option')}
-            </p>
           </div>
         </>
       )}

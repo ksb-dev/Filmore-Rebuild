@@ -46,27 +46,44 @@
       height: 480px;
       border-bottom-left-radius: var(--border-radius-1);
       border-bottom-right-radius: var(--border-radius-1);
-    }
+      text-decoration: none;
 
-    &__detail {
-      position: absolute;
-      width: 500px;
-      bottom: 2rem;
-      left: 2rem;
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: inherit;
 
-      .title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        font-family: var(--font-family-2);
-      }
+        &__detail {
+          width: 500px;
+          margin: 2rem 0 0 2rem;
 
-      .length {
-        display: none;
-      }
+          .title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: var(--font-family-2);
+          }
 
-      .overview {
-        margin: 0.5rem 0 0 0;
-        font-weight: 400;
+          .length {
+            display: none;
+          }
+
+          .overview {
+            margin: 0.5rem 0 0 0;
+            font-weight: 400;
+          }
+        }
+
+        &--activeOption {
+          margin: 0 0 2rem 2rem;
+          font-family: var(--font-family-2);
+          font-size: 1.25rem;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: 700;
+          background: transparent !important;
+          transition: var(--transition);
+        }
       }
     }
 
@@ -114,20 +131,6 @@
         border-radius: var(--border-radius-1);
         transition: var(--transition);
       }
-    }
-
-    &--activeOption {
-      position: absolute;
-      top: 1.5rem;
-      left: 2rem;
-      margin: 0;
-      font-family: var(--font-family-2);
-      font-size: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
-      background: transparent !important;
-      transition: var(--transition);
     }
 
     &__cover:hover {
@@ -192,8 +195,12 @@
 @media screen and (max-width: 1024px) {
   .list {
     &__wall {
-      &__detail {
-        width: 400px;
+      &__cover {
+        &__inner {
+          &__detail {
+            width: 400px;
+          }
+        }
       }
     }
   }
@@ -212,16 +219,20 @@
         display: flex;
       }
 
-      &__detail {
-        width: 350px;
+      &__cover {
+        &__inner {
+          &__detail {
+            width: 350px;
 
-        .title {
-          font-size: 1rem;
+            .title {
+              font-size: 1rem;
+            }
+          }
+
+          &--activeOption {
+            font-size: 1rem;
+          }
         }
-      }
-
-      &--activeOption {
-        font-size: 0.9rem;
       }
     }
 
@@ -255,42 +266,42 @@
 
       &__cover {
         height: 300px;
-      }
 
-      &__detail {
-        top: 0.75rem;
-        left: 1rem;
-        width: 80%;
-        height: min-content;
+        &__inner {
+          &__detail {
+            margin: 1rem 0 0 1rem;
+            top: 0.75rem;
+            width: 80%;
+            height: min-content;
 
-        .title {
-          font-weight: 500;
-          font-size: 1rem;
-          font-family: var(--font-family-1);
+            .title {
+              font-weight: 500;
+              font-size: 1rem;
+              font-family: var(--font-family-1);
+            }
+
+            .length {
+              display: flex;
+              color: rgb(156, 156, 156);
+              font-size: 0.8rem;
+              margin-top: 0.25rem;
+              font-weight: 500;
+            }
+
+            .overview {
+              display: none;
+            }
+          }
+
+          &--activeOption {
+            margin: 0 0 1rem 1rem;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            font-weight: 500;
+            font-size: 1rem;
+            font-family: var(--font-family-1);
+          }
         }
-
-        .length {
-          display: flex;
-          color: rgb(156, 156, 156);
-          font-size: 0.8rem;
-          margin-top: 0.25rem;
-          font-weight: 500;
-        }
-
-        .overview {
-          display: none;
-        }
-      }
-
-      &--activeOption {
-        text-transform: capitalize;
-        letter-spacing: 1px;
-        font-weight: 500;
-        font-size: 1rem;
-        top: unset;
-        bottom: 0.75rem;
-        left: 1rem;
-        font-family: var(--font-family-1);
       }
 
       &__buttons {
@@ -361,20 +372,6 @@
 
       &__cover {
         height: 225px;
-      }
-
-      &__detail {
-        .title {
-          //font-weight: 500;
-        }
-      }
-
-      &--activeOption {
-        //font-weight: 500;
-      }
-
-      &__buttons {
-        //display: none;
       }
     }
   }
