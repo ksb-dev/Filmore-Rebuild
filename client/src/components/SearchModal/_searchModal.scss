@@ -2,7 +2,7 @@
   position: fixed;
   top: 58px;
   width: 100vw;
-  height: calc(100vh - 58px - 58px);
+  height: 100vh;
   display: none;
 
   transition: z-index, opacity 0.3s ease;

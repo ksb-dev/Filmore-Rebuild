@@ -44,7 +44,7 @@ const SmallHeader = () => {
   const showModal = () => {
     setShowCloseBtn(true)
     setSearchQuery('')
-    searchModalRef.current.style.zIndex = '10'
+    searchModalRef.current.style.zIndex = '6'
     searchModalRef.current.style.opacity = '1'
   }
 
