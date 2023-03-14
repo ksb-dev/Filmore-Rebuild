@@ -264,8 +264,17 @@
         height: min-content;
 
         .title {
+          font-weight: 500;
           font-size: 1rem;
           font-family: var(--font-family-1);
+        }
+
+        .length {
+          display: flex;
+          color: rgb(156, 156, 156);
+          font-size: 0.8rem;
+          margin-top: 0.25rem;
+          font-weight: 500;
         }
 
         .overview {
@@ -274,7 +283,9 @@
       }
 
       &--activeOption {
+        text-transform: capitalize;
         letter-spacing: 1px;
+        font-weight: 500;
         font-size: 1rem;
         top: unset;
         bottom: 0.75rem;
@@ -283,8 +294,18 @@
       }
 
       &__buttons {
-        bottom: 0.5rem;
-        right: 1rem;
+        width: 100%;
+        right: unset;
+        bottom: 42.5%;
+        justify-content: space-between;
+
+        p:first-child {
+          margin-left: 1rem;
+        }
+
+        p:last-child {
+          margin-right: 1rem;
+        }
 
         p {
           width: 30px;
@@ -292,6 +313,7 @@
         }
 
         .length {
+          display: none;
           width: 72px;
           height: 30px;
 
@@ -343,12 +365,16 @@
 
       &__detail {
         .title {
-          font-weight: 500;
+          //font-weight: 500;
         }
       }
 
       &--activeOption {
-        font-weight: 500;
+        //font-weight: 500;
+      }
+
+      &__buttons {
+        //display: none;
       }
     }
   }
