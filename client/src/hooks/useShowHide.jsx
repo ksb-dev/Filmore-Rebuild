@@ -1,27 +1,33 @@
 export const useShowHide = () => {
   // Toggle sort component
   const showSort = (ref1, ref2, ref3) => {
-    ref1.current.style.transform = 'rotate(180deg)'
-    ref1.current.style.transition = 'all 0.3s ease'
+    if (ref1 && ref1.current && ref2 && ref2.current && ref3 && ref3.current) {
+      ref1.current.style.transform = 'rotate(180deg)'
+      ref1.current.style.transition = 'all 0.3s ease'
 
-    ref2.current.style.zIndex = '5'
-    ref2.current.style.opacity = '1'
+      ref2.current.style.zIndex = '5'
+      ref2.current.style.opacity = '1'
 
-    setTimeout(() => {
-      ref3.current.style.transform = 'scaleY(1)'
-    }, 150)
+      setTimeout(() => {
+        ref3.current.style.transform = 'scaleY(1)'
+      }, 150)
+    }
   }
 
   const hideSort = (ref1, ref2, ref3) => {
-    ref1.current.style.transform = 'rotate(0deg)'
-    ref1.current.style.transition = 'all 0.3s ease'
+    if (ref1 && ref1.current && ref2 && ref2.current && ref3 && ref3.current) {
+      ref1.current.style.transform = 'rotate(0deg)'
+      ref1.current.style.transition = 'all 0.3s ease'
 
-    ref3.current.style.transform = 'scaleY(0)'
+      ref3.current.style.transform = 'scaleY(0)'
 
-    setTimeout(() => {
-      ref2.current.style.zIndex = '-1'
-      ref2.current.style.opacity = '0'
-    }, 150)
+      setTimeout(() => {
+        if (ref2 && ref2.current) {
+          ref2.current.style.zIndex = '-1'
+          ref2.current.style.opacity = '0'
+        }
+      }, 150)
+    }
   }
 
   const showOption = (ref1, ref2) => {
