@@ -10,7 +10,8 @@ import { useMovieContext } from '../../context/context'
 import Search from '../Search/Search'
 
 const SearchModal = () => {
-  const { mode, searchModalRef, setSearchQuery } = useMovieContext()
+  const { mode, searchModalRef, setSearchQuery, setShowCloseBtn } =
+    useMovieContext()
 
   const [windowWidth, setWindowWidth] = useState(0)
 
@@ -29,6 +30,7 @@ const SearchModal = () => {
 
     if (windowWidth >= 786) {
       hideModal()
+      setShowCloseBtn(false)
     }
   }, [windowWidth])
 
@@ -39,10 +41,6 @@ const SearchModal = () => {
         'search__modal ' + (mode === true ? 'lightAlpha6' : 'darkAlpha6')
       }
     >
-      <p className='search__modal__close' onClick={() => hideModal()}>
-        <span>{iconsData.close}</span>
-      </p>
-
       <div className='search__modal__inner'>
         <Search />
       </div>

@@ -20,11 +20,11 @@ const SmallHeader = () => {
     setOptionState,
     setSearchQuery,
     searchIconRef,
-    searchModalRef
+    searchModalRef,
+    showCloseBtn,
+    setShowCloseBtn
   } = useMovieContext()
   const navigate = useNavigate()
-
-  const [showCloseBtn, setShowCloseBtn] = useState(false)
 
   // Title Click
   const handleTitleClick = () => {

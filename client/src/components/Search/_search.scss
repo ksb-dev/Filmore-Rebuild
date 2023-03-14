@@ -5,7 +5,7 @@
 
   &__switch {
     color: #000;
-    border-radius: var(--border-radius-1);
+    //border-radius: var(--border-radius-1);
   }
 
   &__search-bar {
@@ -89,14 +89,33 @@
     align-items: center;
     justify-content: center;
 
+    &__switch {
+      border-radius: 0px;
+    }
+
     &__search-bar {
       width: 100%;
+      border-radius: 0px;
 
       form {
         width: 100%;
+
         input {
           width: 90%;
-          //height: 40px;
+          height: 40px;
+          border-radius: 0px;
+        }
+
+        span {
+          top: 0.6rem;
+          right: 1rem;
+        }
+
+        .cancel {
+          cursor: pointer;
+          top: 0.5rem;
+          right: 0.5rem;
+          color: var(--red);
         }
       }
     }

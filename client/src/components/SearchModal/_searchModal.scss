@@ -1,9 +1,8 @@
 .search__modal {
   position: fixed;
   top: 58px;
-  left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 58px - 58px);
   display: none;
 
   transition: z-index, opacity 0.3s ease;
@@ -11,31 +10,7 @@
 
   &__inner {
     margin: 1rem;
-  }
-
-  &__close {
     margin: 0;
-    position: absolute;
-    bottom: 0rem;
-    left: 45%;
-    background: var(--red);
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-
-    span {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-    }
-  }
-
-  &__close:hover {
-    filter: brightness(80%);
-    transition: var(--transition);
   }
 }
 

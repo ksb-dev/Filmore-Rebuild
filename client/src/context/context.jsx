@@ -107,6 +107,8 @@ const MovieProvider = ({ children }) => {
   const [reviewsLoading, setReviewsLoading] = useState(true)
   const [reviewsError, setReviewsError] = useState('')
 
+  const [showCloseBtn, setShowCloseBtn] = useState(false)
+
   return (
     <MovieContext.Provider
       value={{
@@ -214,7 +216,10 @@ const MovieProvider = ({ children }) => {
         reviewsLoading,
         setReviewsLoading,
         reviewsError,
-        setReviewsError
+        setReviewsError,
+
+        showCloseBtn,
+        setShowCloseBtn
       }}
     >
       {children}

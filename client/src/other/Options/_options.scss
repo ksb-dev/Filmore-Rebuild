@@ -4,7 +4,7 @@
   border-bottom-left-radius: var(--border-radius-1);
 
   &__current {
-    border-right: 2px solid #000;
+    margin-right: 2px;
     font-weight: 500;
     font-size: 0.9rem;
     width: 70px;
@@ -54,13 +54,15 @@
   .option__main {
     &__current {
       font-weight: 400;
-      height: 32.7px;
+      height: 40px;
+      border-radius: 0px;
     }
 
     &__option {
       font-weight: 400;
-      height: 32.7px;
-      top: 2.3rem;
+      height: 40px;
+      top: 2.7rem;
+      border-radius: 0px;
     }
   }
 }
