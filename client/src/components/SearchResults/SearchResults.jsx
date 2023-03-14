@@ -13,14 +13,14 @@ const SearchResults = ({ results }) => {
   const {
     mode,
     searchResultsRef,
-    searchInputRef,
+    searchQuery,
     setSearchQuery,
     searchOptionState,
     searchModalRef,
     movieIdState,
     setMovieIdState
   } = useMovieContext()
-  const [windowWidth, setWindowWidth] = useState(787)
+  const [windowWidth, setWindowWidth] = useState(0)
 
   window.onresize = () => {
     setWindowWidth(window.innerWidth)
@@ -28,10 +28,6 @@ const SearchResults = ({ results }) => {
 
   // Close search results
   useEffect(() => {
-    // if (windowWidth <= '786') {
-    //   setSearchQuery('')
-    // }
-
     const closeSearchResults = e => {
       if (e.target.nodeName !== 'INPUT' && window.innerWidth > 786) {
         setSearchQuery('')
@@ -62,7 +58,8 @@ const SearchResults = ({ results }) => {
     >
       <div className='search__results__inner'>
         {results && results.length === 0 && <span>No results found.</span>}
-        {results &&
+        {searchQuery !== '' &&
+          results &&
           results.map((result, index) => (
             <Link
               onClick={() => hideModal()}

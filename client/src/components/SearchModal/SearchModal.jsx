@@ -9,9 +9,27 @@ import { useMovieContext } from '../../context/context'
 // components
 import Search from '../Search/Search'
 
+// redux
+import { useSelector } from 'react-redux'
+
 const SearchModal = () => {
-  const { mode, searchModalRef, setSearchQuery, setShowCloseBtn } =
-    useMovieContext()
+  const {
+    mode,
+    searchModalRef,
+    searchQuery,
+    setSearchQuery,
+    showCloseBtn,
+    setShowCloseBtn,
+    searchOptionState
+  } = useMovieContext()
+
+  let results = ''
+
+  if (searchOptionState === 'movie') {
+    results = useSelector(state => state.movieResults.movieResults)
+  } else {
+    results = useSelector(state => state.tvResults.tvResults)
+  }
 
   const [windowWidth, setWindowWidth] = useState(0)
 
@@ -20,17 +38,15 @@ const SearchModal = () => {
   }
 
   const hideModal = () => {
+    setShowCloseBtn(false)
     setSearchQuery('')
     searchModalRef.current.style.zIndex = '-1'
     searchModalRef.current.style.opacity = '0'
   }
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth)
-
-    if (windowWidth >= 786) {
+    if (windowWidth >= '786') {
       hideModal()
-      setShowCloseBtn(false)
     }
   }, [windowWidth])
 

@@ -23,17 +23,13 @@ const Search = () => {
   const tvResults = useSelector(state => state.tvResults.tvResults)
 
   const {
-    mode,
     setIndex,
     searchQuery,
     setSearchQuery,
-    optionState,
     searchOptionState,
     searchInputRef,
     movieState,
-    setMovieState,
-    clearMovieInputRef,
-    clearTvInputRef
+    setMovieState
   } = useMovieContext()
 
   const dispatch = useDispatch()
@@ -52,12 +48,7 @@ const Search = () => {
   }
 
   return (
-    <div
-      className={
-        'search__component '
-        //+ (mode === true ? "lightAlpha5" : "darkAlpha5")
-      }
-    >
+    <div className={'search__component '}>
       {/* Options */}
       <div className='search__component__switch'>
         <Options />
@@ -67,22 +58,12 @@ const Search = () => {
       <div className='search__component__search-bar'>
         <form onSubmit={e => handleSubmit(e)} ref={searchInputRef}>
           <input
-            //ref={searchInputRef}
             type='text'
-            //placeholder={optionState === "movie" ? "Search Movie" : "Search Tv"}
             placeholder={
               searchOptionState === 'movie' ? 'Search Movie' : 'Search Tv'
             }
             onChange={e => {
               setSearchQuery(e.target.value)
-              //sessionStorage.setItem('searchQuery', searchQuery)
-              // if (sessionStorage.getItem("movieState") === "movie") {
-              //   dispatch(getMovieResults(searchQuery));
-              // }
-
-              // if (sessionStorage.getItem("movieState") === "tv") {
-              //   dispatch(getTvResults(searchQuery));
-              // }
 
               if (searchOptionState === 'movie') {
                 dispatch(getMovieResults(searchQuery))
@@ -97,10 +78,8 @@ const Search = () => {
           {searchOptionState === 'movie' && searchQuery && (
             <span
               className='cancel'
-              //ref={clearMovieInputRef}
               onClick={() => {
                 setSearchQuery('')
-                //sessionStorage.removeItem('searchQuery')
               }}
             >
               {iconsData.close2}
@@ -110,10 +89,8 @@ const Search = () => {
           {searchOptionState === 'tv' && searchQuery && (
             <span
               className='cancel'
-              //ref={clearTvInputRef}
               onClick={() => {
                 setSearchQuery('')
-                //sessionStorage.removeItem('searchQuery')
               }}
             >
               {iconsData.close2}
