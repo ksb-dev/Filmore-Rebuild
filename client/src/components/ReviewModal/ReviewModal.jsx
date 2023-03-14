@@ -50,7 +50,7 @@ const ReviewModal = ({
         ref={reviewModalInnerRef}
         className={
           'review__modal__inner scroll-1 ' +
-          (mode === true ? 'lightBg2' : 'darkBg1 ')
+          (mode === true ? 'lightBg1' : 'darkBg2 ')
         }
       >
         <span>{review.content}</span>
