@@ -1,6 +1,7 @@
 .search__results {
   width: 100%;
   position: absolute;
+  z-index: 1;
   top: 2.5rem;
   max-height: 80vh;
   overflow-y: scroll;
