@@ -10,16 +10,7 @@ import { useMovieContext } from '../../context/context'
 import Search from '../Search/Search'
 
 const SearchModal = () => {
-  const {
-    mode,
-    searchModalRef,
-    searchIconRef,
-    searchResultsRef,
-    searchInputRef,
-    clearMovieInputRef,
-    clearTvInputRef,
-    setSearchQuery
-  } = useMovieContext()
+  const { mode, searchModalRef, setSearchQuery } = useMovieContext()
 
   const [windowWidth, setWindowWidth] = useState(0)
 
@@ -41,26 +32,6 @@ const SearchModal = () => {
     }
   }, [windowWidth])
 
-  // useEffect(() => {
-  //   const toggleSearchModal = e => {
-  //     if (
-  //       !searchIconRef.current.contains(e.target) &&
-  //       searchInputRef.current &&
-  //       !searchInputRef.current.contains(e.target)
-  //     ) {
-  //       setSearchQuery('')
-  //       searchModalRef.current.style.zIndex = '-1'
-  //       searchModalRef.current.style.opacity = '0'
-  //     }
-  //   }
-
-  //   document.body.addEventListener('click', toggleSearchModal)
-
-  //   return () => {
-  //     document.body.removeEventListener('click', toggleSearchModal)
-  //   }
-  // }, [])
-
   return (
     <div
       ref={searchModalRef}
@@ -68,13 +39,13 @@ const SearchModal = () => {
         'search__modal ' + (mode === true ? 'lightAlpha6' : 'darkAlpha6')
       }
     >
+      <p className='search__modal__close' onClick={() => hideModal()}>
+        <span>{iconsData.close}</span>
+      </p>
+
       <div className='search__modal__inner'>
         <Search />
       </div>
-
-      <p className='search__modal__close' onClick={() => hideModal()}>
-        <span>{iconsData.close1}</span>
-      </p>
     </div>
   )
 }

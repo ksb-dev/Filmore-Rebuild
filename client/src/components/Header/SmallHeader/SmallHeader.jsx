@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Recat router dom
 import { useNavigate } from 'react-router-dom'
@@ -24,6 +24,8 @@ const SmallHeader = () => {
   } = useMovieContext()
   const navigate = useNavigate()
 
+  const [showCloseBtn, setShowCloseBtn] = useState(false)
+
   // Title Click
   const handleTitleClick = () => {
     sessionStorage.setItem('movieState', 'movie')
@@ -40,9 +42,17 @@ const SmallHeader = () => {
   }
 
   const showModal = () => {
+    setShowCloseBtn(true)
     setSearchQuery('')
     searchModalRef.current.style.zIndex = '10'
     searchModalRef.current.style.opacity = '1'
+  }
+
+  const hideModal = () => {
+    setShowCloseBtn(false)
+    setSearchQuery('')
+    searchModalRef.current.style.zIndex = '-1'
+    searchModalRef.current.style.opacity = '0'
   }
 
   return (
@@ -60,13 +70,23 @@ const SmallHeader = () => {
           </Link>
         </div>
 
-        <span
-          ref={searchIconRef}
-          className='search-icon'
-          onClick={() => showModal()}
-        >
-          {iconsData.searchIcon}
-        </span>
+        {showCloseBtn ? (
+          <span
+            ref={searchIconRef}
+            className='search-icon'
+            onClick={() => hideModal()}
+          >
+            {iconsData.close}
+          </span>
+        ) : (
+          <span
+            ref={searchIconRef}
+            className='search-icon'
+            onClick={() => showModal()}
+          >
+            {iconsData.searchIcon}
+          </span>
+        )}
       </div>
     </div>
   )

@@ -1,24 +1,26 @@
 .search__modal {
   position: fixed;
-  top: 0;
+  top: 58px;
   left: 0;
   width: 100vw;
   height: 100vh;
   display: none;
 
   transition: z-index, opacity 0.3s ease;
+  background: rgb(0, 0, 0, 0.75) !important;
 
   &__inner {
     margin: 1rem;
   }
 
   &__close {
+    margin: 0;
     position: absolute;
-    bottom: 8rem;
+    bottom: 0rem;
     left: 45%;
     background: var(--red);
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     cursor: pointer;
 

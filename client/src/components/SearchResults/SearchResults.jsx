@@ -28,9 +28,9 @@ const SearchResults = ({ results }) => {
 
   // Close search results
   useEffect(() => {
-    if (windowWidth <= '786') {
-      setSearchQuery('')
-    }
+    // if (windowWidth <= '786') {
+    //   setSearchQuery('')
+    // }
 
     const closeSearchResults = e => {
       if (e.target.nodeName !== 'INPUT' && window.innerWidth > 786) {
