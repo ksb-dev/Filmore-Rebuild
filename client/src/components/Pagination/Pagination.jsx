@@ -7,7 +7,7 @@ import { useMovieContext } from '../../context/context'
 import { useSelector } from 'react-redux'
 
 const Pagination = ({ type }) => {
-  const { mode, setMovieState, movieState } = useMovieContext()
+  const { mode, setMovieState, movieState, setIndex } = useMovieContext()
   let totalPages = ''
 
   if (type === 'movie') {
@@ -28,6 +28,7 @@ const Pagination = ({ type }) => {
 
   const check = () => {
     setMovieState(!movieState)
+    setIndex(0)
   }
 
   // Next and Prev

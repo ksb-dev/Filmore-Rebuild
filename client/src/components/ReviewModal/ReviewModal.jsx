@@ -17,7 +17,11 @@ const ReviewModal = ({
   useEffect(() => {
     const toggleReviewModal = e => {
       if (
+        readMoreRef &&
+        readMoreRef.current &&
         !readMoreRef.current.contains(e.target) &&
+        reviewModalRef &&
+        reviewModalRef.current &&
         !reviewModalRef.current.contains(e.target)
       ) {
         hideReviewModal()

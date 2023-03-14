@@ -50,9 +50,13 @@ const AllVideos = ({ playerRef, playerInnerRef }) => {
       {!loading && !error && (
         <div className='all__videos'>
           <div className='all__videos__detail'>
-            <span className='all__videos__detail--title'>{data.title}</span>
+            <span className='all__videos__detail--title'>
+              {data && data.title ? data.title : data.name}
+            </span>
 
-            <span className='all__videos__detail--tagline'>{data.tagline}</span>
+            <span className='all__videos__detail--tagline'>
+              {data && data.taglnine && data.tagline}
+            </span>
 
             <div className='all__videos__detail--image'>
               {data.backdrop_path === null ? (

@@ -8,8 +8,7 @@
 
 .list {
   min-height: 100vh;
-  padding: calc(58.6px + 0rem) 0rem 6rem 0rem;
-  margin: 0 2.5%;
+  padding: calc(59.9px + 0rem) 0rem 4rem 0rem;
 
   &__wall {
     width: 99.5%;
@@ -47,85 +46,47 @@
       height: 480px;
       border-bottom-left-radius: var(--border-radius-1);
       border-bottom-right-radius: var(--border-radius-1);
-
-      &--activeOption {
-        font-family: var(--font-family-2);
-        font-size: 1.25rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 700;
-        position: absolute;
-        bottom: -1.25rem;
-        right: 0;
-        text-align: center;
-        padding: 0.5rem 1rem;
-        background: transparent !important;
-        transition: var(--transition);
-      }
-
-      &__info {
-        width: 500px;
-        position: absolute;
-        left: 0rem;
-        bottom: 0rem;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        border-bottom-left-radius: var(--border-radius);
-        border-radius: var(--border-radius);
-
-        &__title {
-          .title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            font-family: var(--font-family-2);
-          }
-        }
-
-        &--length {
-          display: none;
-        }
-
-        &--overview {
-          margin: 0.5rem 0 0 0;
-          font-weight: 400;
-        }
-      }
     }
 
-    &--length {
-      display: none;
+    &__detail {
+      position: absolute;
+      width: 500px;
+      bottom: 2rem;
+      left: 2rem;
+
+      .title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        font-family: var(--font-family-2);
+      }
+
+      .length {
+        display: none;
+      }
+
+      .overview {
+        margin: 0.5rem 0 0 0;
+        font-weight: 400;
+      }
     }
 
     &__buttons {
-      z-index: -1;
-      justify-content: flex-start;
-      width: 100%;
       position: absolute;
-      top: 0.5rem;
+      right: 2rem;
+      bottom: 1.5rem;
       display: flex;
       align-items: center;
-      padding: 0.5rem 0;
-      border-top-right-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
-      border-radius: var(--border-radius);
       transition: var(--transition);
-
-      p:first-child {
-        margin-left: 1rem;
-      }
-
-      p:last-child {
-        margin-right: 1rem;
-      }
 
       p {
         cursor: pointer;
         border-radius: 50%;
-        width: 35px;
-        height: 35px;
         position: relative;
         margin: 0;
+        width: 50px;
+        height: 50px;
+        background: rgb(0, 0, 0, 0.75);
+        color: #fff;
 
         span {
           position: absolute;
@@ -137,16 +98,41 @@
 
       .length {
         cursor: unset;
-        width: 82px;
-        height: 40px;
-        margin: 0 0.5rem;
         border-radius: 50px;
+        width: 82px;
+        height: 82px;
+        margin: 0 0.5rem;
 
         span {
           font-size: 0.8rem;
           font-weight: 500;
         }
       }
+
+      p:first-child:hover,
+      p:last-child:hover {
+        border-radius: var(--border-radius-1);
+        transition: var(--transition);
+      }
+    }
+
+    &--activeOption {
+      position: absolute;
+      top: 1.5rem;
+      left: 2rem;
+      margin: 0;
+      font-family: var(--font-family-2);
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      background: transparent !important;
+      transition: var(--transition);
+    }
+
+    &__cover:hover {
+      filter: brightness(90%);
+      transition: var(--transition);
     }
   }
 
@@ -157,15 +143,14 @@
     flex-direction: row-reverse;
     justify-content: space-between;
 
-    .active-option {
-      font-size: 1rem;
-      font-weight: 500;
+    .sort {
+      margin-left: 2rem;
     }
   }
 
   &__movies {
     max-width: 1280px;
-    margin: 4rem 2rem 5rem 2rem;
+    margin: 4rem 2rem 4rem 2rem;
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -177,21 +162,38 @@
   .list {
     padding-top: 58.6px;
     margin: 0;
+    border-radius: 0px;
 
     &__wall {
       border-radius: 0;
+      border-radius: 0px;
 
-      &--image {
-        border-radius: 0;
+      &--image-1,
+      &--image-2,
+      &--image-3 {
+        border-radius: 0px;
       }
 
       &__cover {
-        border-radius: 0;
+        border-radius: 0px;
+      }
+    }
 
-        &--number {
-          border-radius: 0;
-          border-top-left-radius: var(--border-radius-1);
-        }
+    &__sort-activeOption {
+      margin: 0 4rem 0rem 2rem;
+    }
+
+    &__movies {
+      margin: 4rem 2rem 4rem 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .list {
+    &__wall {
+      &__detail {
+        width: 400px;
       }
     }
   }
@@ -199,6 +201,8 @@
 
 @media screen and (max-width: 786px) {
   .list {
+    padding-bottom: calc(59.9px + 2rem);
+
     &__wall {
       &--image-1 {
         display: none;
@@ -208,16 +212,22 @@
         display: flex;
       }
 
-      &__cover {
-        &__info {
-          width: 400px;
+      &__detail {
+        width: 350px;
+
+        .title {
+          font-size: 1rem;
         }
+      }
+
+      &--activeOption {
+        font-size: 0.9rem;
       }
     }
 
     &__sort-activeOption {
-      margin: 0 3rem 0rem 1rem;
-      flex-direction: row-reverse;
+      margin: 0 4rem 0rem 1rem;
+      justify-content: space-between;
 
       .switch {
         display: flex;
@@ -226,6 +236,7 @@
     }
 
     &__movies {
+      margin: 4rem 2rem 2rem 2rem;
       gap: 2rem;
     }
   }
@@ -244,66 +255,50 @@
 
       &__cover {
         height: 300px;
+      }
 
-        &--activeOption {
+      &__detail {
+        top: 0.5rem;
+        left: 1rem;
+        width: 80%;
+        height: min-content;
+
+        .title {
           font-size: 1rem;
-          bottom: -0.5rem;
-          letter-spacing: 1px;
-          margin-left: 1rem;
+          font-family: var(--font-family-1);
         }
 
-        &__info {
-          bottom: 1rem;
-          left: 1rem;
-          width: 150px;
-          padding: 0;
-
-          &__title {
-            //line-height: 1.25rem;
-
-            .title {
-              font-weight: 500;
-              font-size: 1rem;
-              font-family: var(--font-family-1);
-            }
-          }
-
-          &--length {
-            display: flex;
-            color: rgb(156, 156, 156);
-            font-weight: 500;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-          }
-
-          &--overview {
-            display: none;
-          }
+        .overview {
+          display: none;
         }
       }
 
+      &--activeOption {
+        letter-spacing: 1px;
+        font-size: 1rem;
+        top: unset;
+        bottom: 0.5rem;
+        left: 1rem;
+        font-family: var(--font-family-1);
+      }
+
       &__buttons {
-        z-index: 1 !important;
-        left: 0rem;
-        right: 0rem;
-        justify-content: space-between;
+        bottom: 0.5rem;
+        right: 1rem;
 
-        p:first-child {
-          margin-left: 1rem;
-          margin-right: 0.5rem;
-          width: 30px;
-          height: 30px;
-        }
-
-        p:last-child {
-          margin-right: 1rem;
-          margin-left: 0.5rem;
+        p {
           width: 30px;
           height: 30px;
         }
 
         .length {
-          display: none;
+          width: 72px;
+          height: 30px;
+
+          span {
+            font-size: 0.7rem;
+            font-weight: 400;
+          }
         }
       }
     }
@@ -318,7 +313,7 @@
     }
 
     &__movies {
-      margin: 4rem 1rem 3rem 1rem;
+      margin: 4rem 1rem 2rem 1rem;
 
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 1rem 1rem;
@@ -344,25 +339,16 @@
 
       &__cover {
         height: 225px;
+      }
 
-        &--activeOption {
-          //font-size: 0.8rem;
+      &__detail {
+        .title {
+          font-weight: 500;
         }
+      }
 
-        &__info {
-          &__title {
-            //line-height: 1rem;
-
-            .title {
-              //font-size: 0.8rem;
-            }
-          }
-
-          &--length {
-            //font-size: 0.7rem;
-            //margin-top: 0.25rem;
-          }
-        }
+      &--activeOption {
+        font-weight: 500;
       }
     }
   }

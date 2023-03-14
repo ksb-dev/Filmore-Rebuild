@@ -152,137 +152,95 @@ const List = ({ type, playerRef, playerInnerRef }) => {
           <div
             className={'list__wall ' + (mode === true ? 'lightBg2' : 'darkBg2')}
           >
-            <img
-              className='list__wall--image-1'
-              src={
-                list[index].backdrop_path === null
-                  ? APIs.no_image_url
-                  : APIs.img_path + list[index].backdrop_path
-              }
-              alt='img'
-              load='lazy'
-            />
-
-            <img
-              className='list__wall--image-2'
-              src={
-                list[index].backdrop_path === null
-                  ? APIs.no_image_url
-                  : APIs.img_path_w780 + list[index].backdrop_path
-              }
-              alt='img'
-              load='lazy'
-            />
-
-            <img
-              className='list__wall--image-3'
-              src={
-                list[index].backdrop_path === null
-                  ? APIs.no_image_url
-                  : APIs.img_path_w780 + list[index].backdrop_path
-              }
-              alt='img'
-              load='lazy'
-            />
-
+            {list[index].backdrop_path && (
+              <img
+                className='list__wall--image-1'
+                src={
+                  list[index].backdrop_path === null
+                    ? APIs.no_image_url
+                    : APIs.img_path + list[index].backdrop_path
+                }
+                alt='img'
+                load='lazy'
+              />
+            )}
+            {list[index].backdrop_path && (
+              <img
+                className='list__wall--image-2'
+                src={
+                  list[index].backdrop_path === null
+                    ? APIs.no_image_url
+                    : APIs.img_path_w780 + list[index].backdrop_path
+                }
+                alt='img'
+                load='lazy'
+              />
+            )}
+            {list[index].backdrop_path && (
+              <img
+                className='list__wall--image-3'
+                src={
+                  list[index].backdrop_path === null
+                    ? APIs.no_image_url
+                    : APIs.img_path_w780 + list[index].backdrop_path
+                }
+                alt='img'
+                load='lazy'
+              />
+            )}
             <Link
-              to={`/${type}/${list[index].id}`}
+              to={`/${type}/${list[index] && list[index].id}`}
               className={
                 'list__wall__cover ' +
                 (mode === true
                   ? 'lightGradient1 darkColor2'
                   : 'darkGradient1 lightColor1')
               }
-              onMouseOver={() => {
-                //clearTimeout(timeoutRef.current)
-                //setStop(1)
-                buttonsRef.current.style.zIndex = '1'
-                numberRef.current.style.zIndex = '1'
-              }}
-              onMouseLeave={() => {
-                //setStop(0)
-                buttonsRef.current.style.zIndex = '-1'
-                numberRef.current.style.zIndex = '-1'
-              }}
-            >
-              <p
-                //ref={numberRef}
-                onMouseOver={() => {
-                  numberRef.current.style.zIndex = '1'
-                }}
-                className={
-                  'list__wall__cover--activeOption ' +
-                  (mode === true ? 'lightBg2' : 'darkBg1')
-                }
-              >
-                {/* {index + 1 + ' / ' + list.length} */}
-                {sessionStorage.getItem('option')}
-              </p>
+            ></Link>
+            <div className='list__wall__detail'>
+              {list.length > 0 && (
+                <span className='title'>
+                  {type === 'movie' &&
+                  list[index].title &&
+                  list[index].title.length > 30
+                    ? list[index].title
+                    : list[index].title}
 
-              <div className='list__wall__cover__info'>
-                <div className='list__wall__cover__info__title'>
-                  {list.length > 0 && (
-                    <span className='title'>
-                      {type === 'movie' &&
-                      list[index].title &&
-                      list[index].title.length > 30
-                        ? list[index].title.substring(0, 26) + '...'
-                        : list[index].title}
-
-                      {type === 'tv' &&
-                      list[index].name &&
-                      list[index].name.length > 30
-                        ? list[index].name.substring(0, 27) + '...'
-                        : list[index].name}
-                    </span>
-                  )}
-                </div>
-
-                <span className='list__wall__cover__info--length'>
-                  {index + 1 + ' / ' + list.length}
+                  {type === 'tv' &&
+                  list[index].name &&
+                  list[index].name.length > 30
+                    ? list[index].name
+                    : list[index].name}
                 </span>
+              )}
 
-                <p className='list__wall__cover__info--overview'>
-                  {list[index].overview ? (
-                    list[index].overview.length > 245 ? (
-                      list[index].overview.substring(0, 248) + ' .....'
-                    ) : (
-                      list[index].overview
-                    )
+              <span className='length'>{index + 1 + ' / ' + list.length}</span>
+
+              <p className='overview'>
+                {list[index].overview ? (
+                  list[index].overview.length > 245 ? (
+                    list[index].overview.substring(0, 248) + ' .....'
                   ) : (
-                    <></>
-                  )}
-                </p>
-              </div>
-            </Link>
-
-            <div
-              ref={buttonsRef}
-              className='list__wall__buttons'
-              onMouseOver={() => {
-                buttonsRef.current.style.zIndex = '1'
-                numberRef.current.style.zIndex = '1'
-              }}
-            >
+                    list[index].overview
+                  )
+                ) : (
+                  <></>
+                )}
+              </p>
+            </div>
+            <div ref={buttonsRef} className='list__wall__buttons'>
               {list.length > 1 ? (
                 <>
                   <p
                     onClick={() => previousImage(-1)}
-                    className={
-                      mode === true
-                        ? 'darkBg1 lightColor1'
-                        : 'lightBg1 darkColor1'
-                    }
+                    className={mode === true ? 'darkColor1' : 'lightColor1'}
                   >
                     <span>{iconsData.prev}</span>
                   </p>
 
                   <p
                     className={
-                      'length ' +
-                      (mode === true
-                        ? 'darkBg1 lightColor1'
-                        : 'lightBg1 darkColor1')
+                      'length ' + (mode === true ? 'darkColor1' : 'lightColor1')
                     }
                   >
                     <span>{index + 1 + ' / ' + list.length}</span>
@@ -290,11 +248,7 @@ const List = ({ type, playerRef, playerInnerRef }) => {
 
                   <p
                     onClick={() => nextImage(1)}
-                    className={
-                      mode === true
-                        ? 'darkBg1 lightColor1'
-                        : 'lightBg1 darkColor1'
-                    }
+                    className={mode === true ? 'darkColor1' : 'lightColor1'}
                   >
                     <span>{iconsData.next}</span>
                   </p>
@@ -303,6 +257,15 @@ const List = ({ type, playerRef, playerInnerRef }) => {
                 <></>
               )}
             </div>
+
+            <p
+              className={
+                'list__wall--activeOption ' +
+                (mode === true ? 'lightAplha1' : 'darkAlpha1')
+              }
+            >
+              {sessionStorage.getItem('option')}
+            </p>
           </div>
         </>
       )}

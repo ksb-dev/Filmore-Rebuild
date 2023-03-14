@@ -1,18 +1,17 @@
 .logout {
   position: absolute;
-  top: 0rem;
+  top: 0;
   right: 2.5rem;
 
   transition: var(--transition);
 
-  opacity: 0;
-  z-index: -1;
+  transform: scaleY(0);
 
   box-shadow: 0 2px 5px #000;
   border-radius: var(--border-radius-1);
 
   &__inner {
-    min-width: 100px;
+    min-width: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;

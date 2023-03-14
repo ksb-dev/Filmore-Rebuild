@@ -70,13 +70,11 @@ export const useShowHide = () => {
 
   // Toggle logout components
   const showLogout = logoutRef => {
-    logoutRef.current.style.opacity = '1'
-    logoutRef.current.style.zIndex = '5'
+    logoutRef.current.style.transform = 'scaleY(1)'
   }
 
   const hideLogout = logoutRef => {
-    logoutRef.current.style.opacity = '0'
-    logoutRef.current.style.zIndex = '-1'
+    logoutRef.current.style.transform = 'scaleY(0)'
   }
 
   const showPlayer = (ref1, ref2) => {

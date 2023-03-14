@@ -18,7 +18,7 @@ import List from '../../components/List/List'
 import SearchModal from '../../components/SearchModal/SearchModal'
 
 const Watchlist = () => {
-  const { mode, movieState, setSearchQuery } = useMovieContext()
+  const { mode, movieState, setSearchQuery, setIndex } = useMovieContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -27,6 +27,8 @@ const Watchlist = () => {
       left: 0,
       behavior: 'smooth'
     })
+
+    setIndex(0)
 
     sessionStorage.removeItem('searchQuery')
     setSearchQuery('')

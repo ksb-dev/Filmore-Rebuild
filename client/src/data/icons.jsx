@@ -42,7 +42,7 @@ export const iconsData = {
   searchIcon: <BiSearch size={'20px'} />,
   user: <HiOutlineUserCircle size={'21.5px'} />,
 
-  close: <MdOutlineClose size={'20px'} />,
+  close: <MdOutlineClose size={'21.5px'} />,
   close1: <MdOutlineClose size={'25px'} />,
   close2: (
     <MdOutlineClose

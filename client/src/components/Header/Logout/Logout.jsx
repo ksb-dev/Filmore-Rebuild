@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react'
 
-// react router dom
-
 // data
 import { iconsData } from '../../../data/icons'
 
 // Redux
 import { useSelector } from 'react-redux'
-
-// react router dom
-import { Link } from 'react-router-dom'
 
 // Hooks
 import { useShowHide } from '../../../hooks/useShowHide'
@@ -19,20 +14,11 @@ import { useAuthentication } from '../../../hooks/useAuthentication'
 import { useMovieContext } from '../../../context/context'
 
 const Logout = () => {
-  const {
-    mode,
-    logoutState,
-    setLogoutState,
-    logoutRef,
-    userIconRef,
-    movieState,
-    setMovieState
-  } = useMovieContext()
+  const { mode, logoutState, setLogoutState, logoutRef, userIconRef } =
+    useMovieContext()
   const { showLogout, hideLogout } = useShowHide()
   const { logout } = useAuthentication()
   const user = useSelector(state => state.savedMovies.user)
-  const savedMovies = useSelector(state => state.savedMovies.savedMovies)
-  const savedShows = useSelector(state => state.savedShows.savedShows)
 
   // Toggle logout & Detect outside click of logout component
   useEffect(() => {
@@ -79,7 +65,6 @@ const Logout = () => {
             'logout__inner--user ' + (mode === true ? 'lightBg1' : 'darkBg2')
           }
         >
-          {iconsData.user1}
           {user && user.charAt(0).toUpperCase() + user.substring(1)}
         </span>
 

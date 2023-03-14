@@ -124,16 +124,6 @@ const Menu = () => {
         }
         ref={menuInnerRef}
       >
-        {/* Title-Close */}
-        <div className='title-close '>
-          <div className='title'>TMDb</div>
-          <p className='close-icon' onClick={() => setMenuState(false)}>
-            <span>
-              <i className='fa-solid fa-xmark'></i>
-            </span>
-          </p>
-        </div>
-
         {/* Category */}
         <span className='category-title'>Categories</span>
 
