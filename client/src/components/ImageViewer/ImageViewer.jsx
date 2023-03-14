@@ -118,14 +118,16 @@ const ImageViewer = () => {
               <span>{iconsData.prev}</span>
             </p>
 
-            <span
+            <div
               className={
                 'viewer__inner__buttons--length ' +
                 (mode === true ? 'darkBg1 lightColor1' : 'lightBg1 darkColor1')
               }
             >
-              {backdropIndex + 1} / {backdrops.length}
-            </span>
+              <span>
+                {backdropIndex + 1} / {backdrops.length}
+              </span>
+            </div>
 
             <p
               onClick={nextImage}
